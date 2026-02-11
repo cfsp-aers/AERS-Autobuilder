@@ -6,8 +6,8 @@ const { setComponents } = load(app_dir, "main/systems/setComponents.js");
 
 function test_function(data) {
    _.forEach(data, (item) => {
-        _.forIn(data, (value, key) => {
-        data[key] = `${value}_modified`;
+        _.forIn(item, (value, key) => {
+        item[key] = `${value}_modified`;
     });
    });
     
