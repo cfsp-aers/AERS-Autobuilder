@@ -5,9 +5,12 @@ const aers = load(app_dir, "main/utils/aers utilities.js");
 const { setComponents } = load(app_dir, "main/systems/setComponents.js");
 
 function test_function(data) {
-    _.forIn(data, (value, key) => {
+   _.forEach(data, (item) => {
+        _.forIn(data, (value, key) => {
         data[key] = `${value}_modified`;
     });
+   });
+    
     return data;
 }
 
