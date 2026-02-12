@@ -21,7 +21,7 @@ contenteditable="false">
 {% if element.content == "banner_placeholder" %}
 data-medialibrary-id="urn:aaid:aem:9a3ebc1b-4b7b-4c66-abe7-462abd4b0631" data-mediarepo-id="author-p152614-e1584203.adobeaemcloud.com"
 {% else %}
-data-medialibrary-id="{{ element.aem_id or "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"}}" data-mediarepo-id="author-p152614-e1584203.adobeaemcloud.com"
+data-medialibrary-id="{{ element.content.aem_id or "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"}}" data-mediarepo-id="author-p152614-e1584203.adobeaemcloud.com"
 {% endif %}
 data-medialibrary-source="aem" />
 {% if element.content.href %}
