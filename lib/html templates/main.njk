@@ -410,8 +410,8 @@ margin: auto 8px;
                 {% if element.transition %}
                     {% include 'components/transition-component.njk' %}
                 {% endif %}
-                {% if element.visibility_placeholder %}
-                    {% include 'components/visibility-component.njk' %}
+                {% if element.placeholder_component %}
+                    {% include 'components/placeholder-component.njk' %}
                 {% endif %}
             {% include 'layouts/' + element.block + '.njk'  ignore missing %}
         {% elif element.entity_type == "component" %}
@@ -419,6 +419,8 @@ margin: auto 8px;
                 {% include 'components/image-component.njk' %}
             {% elif element.type == "button" %}
                 {% include 'components/button-component.njk' %}
+            {% elif element.placeholder_component %}
+                {% include 'components/placeholder-component.njk' %}
             {% else %}
                 {% include 'components/text-component.njk' %}
             {% endif %}

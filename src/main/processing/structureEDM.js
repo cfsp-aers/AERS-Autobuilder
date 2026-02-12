@@ -127,7 +127,7 @@ function structureEDM(arr, children = {}) {
             background: child.background,
             padding: child.block_padding,
             transition: _.trimStart(_.last(acc)?.background, "#"),
-            visibility_placeholder: child.dynamic_content?.split("/")[1] == "x" ? true : false,
+            placeholder_component: child.dynamic_content?.split("/")[1] == "x" ? true : false,
             children: [item]
         };
         if (_.trimStart(grouped_item.background, "#") == grouped_item.transition) grouped_item.transition = false;
