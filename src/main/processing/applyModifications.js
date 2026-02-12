@@ -78,7 +78,7 @@ function applyModifications(db, func, max_loops) {
                 });
             }
             if (rules.setupRules) rules.setupRules(module_targets, sf);
-            rules[func]();
+            rules[func](db.cs);
             sf.update(m, m.user_settings);
             sf.update(m, m.locked_settings);
 
