@@ -50,7 +50,7 @@ function setGroupingData(arr) {
     arr.map((m, i) => {
         m.row_index = _.toInteger(count_array[i].split("/")[0]);
         m.group_size = _.toInteger(count_array[i].split("/")[1]);
-        m.column_width = `${_.round(100 / _.toInteger(count_array[i].split("/")[1]), 2)}%`;
+        m.column_width = `${_.round(100 / _.toInteger(count_array[i].split("/")[1]), 4)}%`;
     });
 }
 
