@@ -18,7 +18,7 @@ function structureEDM(arr, children = {}) {
             rules_location = `modules/${m.template}`;
         }
         const { internal_layout } = load(user_files, rules_location);
-        m.children = [internal_layout(children[m.uuid])];
+        m.children = [internal_layout(m, children[m.uuid])];
 
         if (m.depth == 2) {
             return {
