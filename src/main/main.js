@@ -73,9 +73,6 @@ function buildEmails() {
 
     const new_json = test_js.test_function(test_json);
 
-    aers.log(test_json);
-    aers.log(new_json);
-
     SELECTED_SHEETS.forEach((brief) => {
         let data = {
             module_array: [],
