@@ -1,6 +1,6 @@
 const _ = require("lodash");
-const { load } = require("../main/utils/load.js");
-const { app_dir, user_files } = require("../main/constants.js");
+const { load } = require("../src/main/utils/load.js");
+const { app_dir, user_files } = require("../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const { setComponents } = load(app_dir, "main/systems/setComponents.js");
 
