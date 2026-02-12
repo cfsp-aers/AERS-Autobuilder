@@ -1,0 +1,50 @@
+{
+  "default": {
+    "white": "#FFFFFF",
+    "black": "#000000",
+    "grey": "#DEDEDE",
+    "light grey": "#F3F3F3",
+    "dark grey": "#545454",
+    "yellow": "#FEC326",
+    "blue": "#0080C4",
+    "green": "#00A651",
+    "sale red": "#DF1220"
+  },
+  "petbarn": {
+    "yellow": "#FEC326",
+    "dark yellow": "#EBAB26",
+    "light yellow": "#FFF2D4",
+    "blue": "#0080C4",
+    "off black": "#323232",
+    "orange": "#F68B1F",
+    "purple": "#8F4B9D",
+    "green": "#8BC53F",
+    "pink": "#F4896C",
+    "red": "#F05842",
+    "sale red": "#DF1220"
+  },
+  "greencross vets": {
+    "green": "#00A651",
+    "light green": "#E6EEEA",
+    "navy": "#001939"
+  },
+  "animal referral & emergency network": {
+    "blue": "#15397F",
+    "red": "#C13C27"
+  },
+  "animal referral hospital": {
+    "blue": "#002E5B",
+    "gold": "#B3A180"
+  },
+  "probalance": {
+    "cream": "#B3A180",
+    "black": "#2E2E2E",
+    "brown": "#574545",
+    "gold": "#C9A562",
+    "dark gold": "#967B4F"
+  },
+  "leaps & bounds": {
+    "cream": "#F9F3EA",
+    "orange": "#D37D07"
+  }
+}

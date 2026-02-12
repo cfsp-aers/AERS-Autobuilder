@@ -1,0 +1,93 @@
+{
+  "palette links": {
+    "primary": "yellow",
+    "secondary": "light yellow",
+    "light": "white",
+    "neutral": "light grey",
+    "dark": "black"
+  },
+  "white": {
+    "background": "white",
+    "primary": "black",
+    "secondary": "yellow",
+    "text": {
+      "primary": "black",
+      "secondary": "yellow",
+      "body": "black"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "yellow/black"
+    }
+  },
+  "yellow": {
+    "background": "yellow",
+    "primary": "black",
+    "secondary": "white",
+    "text": {
+      "primary": "black",
+      "secondary": "white",
+      "body": "black"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "white/black"
+    }
+  },
+  "light yellow": {
+    "background": "light yellow",
+    "primary": "black",
+    "secondary": "dark yellow",
+    "text": {
+      "primary": "black",
+      "secondary": "dark yellow",
+      "body": "black"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "dark yellow/black"
+    }
+  },
+  "black": {
+    "background": "black",
+    "primary": "white",
+    "secondary": "yellow",
+    "text": {
+      "primary": "white",
+      "secondary": "yellow",
+      "body": "white"
+    },
+    "button": {
+      "primary": "yellow/black",
+      "secondary": "white/black"
+    }
+  },
+  "light grey": {
+    "background": "light grey",
+    "primary": "black",
+    "secondary": "yellow",
+    "text": {
+      "primary": "black",
+      "secondary": "yellow",
+      "body": "black"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "yellow/black"
+    }
+  },
+  "promo": {
+    "background": "white",
+    "primary": "sale red",
+    "secondary": "blue",
+    "text": {
+      "primary": "black",
+      "secondary": "sale red",
+      "body": "black"
+    },
+    "button": {
+      "primary": "blue/white",
+      "secondary": "yellow/black"
+    }
+  }
+}

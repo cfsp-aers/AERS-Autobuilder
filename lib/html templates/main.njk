@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html style>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="content-version" content="3.3.48">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <style data-name="default" type="text/css">
+        body {
+            font-family: sans-serif;
+            margin: 0 !important;
+            padding: 0 !important;
+            background: #F9F9F9;
+            min-width: 600px;
+        }
+
+        td {
+            padding: 0;
+            border-collapse: collapse;
+        }
+
+        th {
+            font-weight: normal;
+            text-align: left;
+            padding: 0;
+        }
+
+        .acr-fragment,
+        .acr-component {
+            padding: 0;
+        }
+
+        .acr-fragment img,
+        .acr-component img {
+            vertical-align: middle;
+        }
+
+        .divider-container {
+            padding: 5px 0;
+            font-size: 0px;
+        }
+
+        .text-container p {
+            margin: 0;
+        }
+
+        .text-container ul,
+        .text-container ol {
+            padding-left: 40px;
+        }
+
+        .image-container {
+            line-height: 0;
+        }
+
+        .acr-tmp-component img,
+        .image-container img {
+            height: auto;
+        }
+
+        .button-container a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .acr-structure {
+            background-size: auto;
+            background-repeat: no-repeat;
+        }
+
+        .structure__table {
+            table-layout: fixed;
+            margin: 0 auto;
+            border-spacing: 0;
+            background-size: auto;
+            background-repeat: no-repeat;
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        .colspan1,
+        .colspan2,
+        .colspan3,
+        .colspan4,
+        .colspan33,
+        .colspan66,
+        .colspan-n {
+            background-size: auto;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+        }
+
+        .colspan1 {
+            width: 100%;
+        }
+
+        .colspan2 {
+            width: 50%;
+        }
+
+        .colspan3 {
+            width: 75%;
+        }
+
+        .colspan4 {
+            width: 25%;
+        }
+
+        .colspan33 {
+            width: 33%;
+        }
+
+        .colspan66 {
+            width: 66%;
+        }
+
+        .component-social-container {
+            width: 100%;
+            text-align: center;
+        }
+
+        span.preheader {
+            display: none !important;
+            visibility: hidden;
+            mso-hide: all;
+            opacity: 0;
+        }
+
+        .ExternalClass {
+            width: 100%;
+        }
+
+        .ExternalClass,
+        .ExternalClass p,
+        .ExternalClass span,
+        .ExternalClass font,
+        .ExternalClass td,
+        .ExternalClass div {
+            line-height: 100%;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            display: block;
+            font-weight: bold;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 19px 0 19px 0;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 20px 0 20px 0;
+        }
+
+        h3 {
+            font-size: 19px;
+            margin: 19px 0 19px 0;
+        }
+
+        h4 {
+            font-size: 16px;
+            margin: 21px 0 21px 0;
+        }
+
+        h5 {
+            font-size: 13px;
+            margin: 22px 0 22px 0;
+        }
+
+        h6 {
+            font-size: 11px;
+            margin: 25px 0 25px 0;
+        }
+
+        .mso-is-desktop-hidden,
+        .mso-is-desktop-hidden table {
+            mso-hide: all;
+        }
+
+        @media screen and (min-width: 500px) {
+            .is-desktop-hidden {
+                display: none !important;
+            }
+
+            .is-desktop-visible {
+                display: block !important;
+            }
+
+            th.is-desktop-visible {
+                display: table-cell !important;
+            }
+
+            .is-mobile-visible {
+                display: none !important;
+            }
+        }
+
+        .acr-dark-img {
+            display: none;
+        }
+    </style>
+    <style data-name="grid" type="text/css">
+        .acr-grid-table {
+            width: 100%;
+            table-layout: fixed;
+            border-spacing: 0;
+        }
+
+        .acr-grid-column,
+        .acr-repeat-grid-column {
+            box-sizing: border-box;
+        }
+
+        @media screen and (max-width: 500px) {
+            .acr-grid-table td {
+                display: block;
+                min-width: 100%;
+            }
+        }
+    </style>
+    <style data-name="media-default-max-width-500px" type="text/css">
+        @media screen and (max-width: 500px) {
+
+            body,
+            #acr-body {
+                width: 100% !important;
+                min-width: 0px !important;
+            }
+
+            .structure__table {
+                width: 100% !important;
+            }
+
+            .colspan1,
+            .colspan2,
+            .colspan3,
+            .colspan4,
+            .colspan33,
+            .colspan66,
+            .colspan-n {
+                display: block !important;
+                min-width: 100%;
+            }
+
+            .container-small-size .colspan1,
+            .container-small-size .colspan2,
+            .container-small-size .colspan3,
+            .container-small-size .colspan4,
+            .container-small-size .colspan33,
+            .container-small-size .colspan66,
+            .container-small-size .colspan-n {
+                display: table-cell !important;
+                width: 100% !important;
+            }
+
+            .is-mobile-hidden {
+                display: none !important;
+            }
+
+            .is-mobile-visible {
+                display: block !important;
+            }
+
+            .is-desktop-visible {
+                display: none !important;
+            }
+        }
+    </style>
+    <style data-name="media-custom-prefers-color-scheme-dark" type="text/css">
+        @media (prefers-color-scheme: dark) {
+            .acr-dark-img {
+                display: inline-block !important;
+            }
+
+            .acr-light-img {
+                display: none !important;
+            }
+        }
+    </style>
+    <style data-name="global-custom" type="text/css">
+
+table {
+border-collapse: collapse;
+}
+
+body {
+font-family: 'Outfit', Arial, sans-serif;
+font-weight: 300;
+}
+
+sup {
+line-height: 0;
+}
+
+.structure__table {
+max-width: 600px;
+}
+.button-container {
+text-align: center;
+line-height: 1;
+font-size: 14px;
+font-weight: 600;
+}
+.aers-clickable, .aers-clickable > img {
+transition: all .1s ease-in-out;
+}
+.aers-clickable:hover{
+transform: scale(1.05);
+}
+.aers-clickable > img:hover {
+/* transform: translate(0px, -2px); */
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+overflow-wrap: break-word;
+text-align: center;
+margin: 0 0 0.2em;
+line-height: 1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: 600
+}
+
+
+@media screen and (max-width:500px) {
+body > * {
+margin: auto 8px;
+}
+
+.heading-extra-large * {
+  font-size:  32px !important;
+  line-height: 36px !important;
+}
+.heading-large * {
+  font-size: 28px !important;
+  line-height: 32px !important;
+}
+.heading-medium * {
+  font-size: 24px !important;
+  line-height: 26px !important;
+}
+.heading-small * {
+  font-size: 20px !important;
+  line-height: 22px !important;
+}
+.heading-extra-small * {
+  font-size: 18px !important;
+  line-height: 20px !important;
+}
+
+}
+    </style>
+    <!--[if gte mso 9]><style acrite-mso-css="true">.image-container div {  display: block;}.structure__table td {  padding: 0;  border: none;}.button-container {  border: none !important;  padding: 0 !important;  margin: 0 !important;  line-height: normal !important;}.acr-structure {  margin: 0 !important;}.acr-component, .acr-tmp-component {  margin: 0 !important;  border: none !important;}.acr-fragment {  margin: 0 !important;  border: none !important;}.colspan1, .colspan2, .colspan3, .colspan4, .colspan33, .colspan66, .colspan-n {  box-sizing: border-box !important;}.divider-mso-hidden {  border: none !important;}</style><![endif]-->
+</head>
+
+<body class="class" id="acr-body">
+<span style="display:none !important;visibility:hidden;mso-hide:all;opacity:0;" class="acr-preheader">
+</span>
+<div class="acr-container">
+<div class="acr-structure" data-structure-id="1-1-column" data-structure-name="richtext.structure_1_1_column">
+<table class="structure__table" align="center" cellpadding="0" cellspacing="0" border="0" width="600">
+<tbody>
+<tr role="presentation">
+<th class="colspan1">
+<!-- [if mso]>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td style="padding: 8px 0px; text-align: center;" >
+<![endif] -->
+<div class="acr-fragment acr-component" data-component-id="text" style="margin:8px 0px;" data-has-ext-mso-hack="true" data-contenteditable="false">
+<div class="text-container" data-contenteditable="true">
+<p>If you're having trouble reading this message
+<a class="arc-link" data-nl-type="mirrorPage" data-tracking-type="MIRROR_PAGE" href="href" id="acr-link-24369377" style="text-decoration:underline;color:rgb(0, 0, 0);">view online
+</a>
+</p>
+</div>
+</div>
+<!--[if mso]>
+</td>
+</tr>
+</table>
+<![endif]-->
+</th>
+</tr>
+</tbody>
+</table>
+</div>
+
+{% macro renderElement(object, depth) %}
+{% set currentDepth = depth or 0 %}
+{% if currentDepth > 50 %}
+{% else %}
+    {% for element in object.children %}
+        {% if element.ignore %}
+            {{ renderElement(element, currentDepth + 1) }}
+        {% elif element.block %}
+                {% if element.transition %}
+                    {% include 'components/transition-component.njk' %}
+                {% endif %}
+                {% if element.visibility_placeholder %}
+                    {% include 'components/visibility-component.njk' %}
+                {% endif %}
+            {% include 'layouts/' + element.block + '.njk'  ignore missing %}
+        {% elif element.entity_type == "component" %}
+            {% if element.type == "image" %}
+                {% include 'components/image-component.njk' %}
+            {% elif element.type == "button" %}
+                {% include 'components/button-component.njk' %}
+            {% else %}
+                {% include 'components/text-component.njk' %}
+            {% endif %}
+        {% else %}
+            {{ renderElement(element, currentDepth + 1) }}
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endmacro %}
+
+{% for element in content %}
+{% if element.type == "fragment" %}
+{% include 'fragments/' + element.brand + '/' + element.name + '.njk' ignore missing   %}
+{% else %}
+{% include 'structure.njk' %}
+{% endif %}
+{% endfor %}
+
+
+</div>
+</body>
+</html>

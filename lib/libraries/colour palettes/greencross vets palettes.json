@@ -1,0 +1,93 @@
+{
+  "palette links": {
+    "primary": "green",
+    "secondary": "light green",
+    "light": "white",
+    "neutral": "light grey",
+    "dark": "navy"
+  },
+  "white": {
+    "background": "white",
+    "primary": "navy",
+    "secondary": "green",
+    "text": {
+      "primary": "navy",
+      "secondary": "green",
+      "body": "navy"
+    },
+    "button": {
+      "primary": "navy/white",
+      "secondary": "green/white"
+    }
+  },
+  "green": {
+    "background": "green",
+    "primary": "white",
+    "secondary": "navy",
+    "text": {
+      "primary": "white",
+      "secondary": "navy",
+      "body": "white"
+    },
+    "button": {
+      "primary": "navy/white",
+      "secondary": "white/navy"
+    }
+  },
+  "navy": {
+    "background": "navy",
+    "primary": "white",
+    "secondary": "green",
+    "text": {
+      "primary": "white",
+      "secondary": "green",
+      "body": "white"
+    },
+    "button": {
+      "primary": "green/white",
+      "secondary": "white/navy"
+    }
+  },
+  "light green": {
+    "background": "light green",
+    "primary": "navy",
+    "secondary": "green",
+    "text": {
+      "primary": "navy",
+      "secondary": "green",
+      "body": "navy"
+    },
+    "button": {
+      "primary": "navy/white",
+      "secondary": "green/white"
+    }
+  },
+  "light grey": {
+    "background": "light grey",
+    "primary": "navy",
+    "secondary": "green",
+    "text": {
+      "primary": "navy",
+      "secondary": "green",
+      "body": "navy"
+    },
+    "button": {
+      "primary": "navy/white",
+      "secondary": "green/white"
+    }
+  },
+  "promo": {
+    "background": "white",
+    "primary": "sale red",
+    "secondary": "blue",
+    "text": {
+      "primary": "black",
+      "secondary": "sale red",
+      "body": "black"
+    },
+    "button": {
+      "primary": "blue/white",
+      "secondary": "yellow/black"
+    }
+  }
+}

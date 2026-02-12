@@ -1,0 +1,51 @@
+{
+  "palette links": {
+    "primary": "orange",
+    "secondary": "cream",
+    "light": "white",
+    "neutral": "cream",
+    "dark": "black"
+  },
+  "white": {
+    "background": "white",
+    "primary": "black",
+    "secondary": "yellow",
+    "text": {
+      "primary": "black",
+      "secondary": "yellow",
+      "body": "black"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "yellow/black"
+    }
+  },
+  "black": {
+    "background": "black",
+    "primary": "white",
+    "secondary": "yellow",
+    "text": {
+      "primary": "white",
+      "secondary": "yellow",
+      "body": "white"
+    },
+    "button": {
+      "primary": "white/black",
+      "secondary": "yellow/black"
+    }
+  },
+  "orange": {
+    "background": "orange",
+    "primary": "white",
+    "secondary": "cream",
+    "text": {
+      "primary": "white",
+      "secondary": "cream",
+      "body": "white"
+    },
+    "button": {
+      "primary": "white/orange",
+      "secondary": "cream/black"
+    }
+  }
+}

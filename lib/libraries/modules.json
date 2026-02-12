@@ -1,0 +1,186 @@
+{
+  "module": {
+    "header": {
+      "valid names": ["header"],
+      "properties": {
+        "category": "header",
+        "type": "block",
+        "fragment": true,
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+    "hero standard": {
+      "valid names": ["hero", "hero standard"],
+      "properties": {
+        "category": "hero",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+    "shop your way": {
+      "valid names": ["shop your way"],
+      "properties": {
+        "category": "footer",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+    "signoff": {
+      "valid names": ["signoff"],
+      "properties": {
+        "category": "footer",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+    "footer": {
+      "valid names": ["footer"],
+      "properties": {
+        "category": "footer",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+
+    "text block": {
+      "valid names": ["text block"],
+      "properties": {
+        "category": "basic",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+    "heading": {
+      "valid names": ["heading"],
+      "properties": {}
+    },
+
+    "icon": {
+      "valid names": ["icon"],
+      "properties": {
+        "category": "icon",
+        "type": "tile",
+        "max_siblings": 3,
+        "depth": 1
+      }
+    },
+    "icon block": {
+      "valid names": ["icon block"],
+      "properties": {
+        "category": "icon",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+
+    "content block": {
+      "valid names": ["content block"],
+      "properties": {
+        "category": "basic",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+    "content banner": {
+      "valid names": ["content banner"],
+      "properties": {}
+    },
+
+    "product tile": {
+      "valid names": ["product tile"],
+      "properties": {
+        "category": "product",
+        "type": "tile",
+        "max_siblings": 2,
+        "depth": 2
+      }
+    },
+    "product banner": {
+      "valid names": ["product banner"],
+      "properties": {
+        "category": "product",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    }
+  },
+  "component": {
+    "heading": {
+      "valid names": ["heading", "main offer", "main heading"],
+      "properties": {
+        "category": "component",
+        "type": "heading"
+      }
+    },
+    "subheading": {
+      "valid names": ["subheading", "secondary heading", "secondary save claim", "supporting text", "top text"],
+      "properties": {
+        "category": "component",
+        "type": "heading"
+      }
+    },
+
+    "bodycopy": {
+      "valid names": ["bodycopy", "body copy", "description", "body", "copy", "intro text"],
+      "properties": {
+        "category": "component",
+        "type": "body"
+      }
+    },
+
+    "terms": {
+      "valid names": ["terms", "t&cs", "t and c", "disclaimer", "terms and conditions"],
+      "properties": {
+        "category": "component",
+        "type": "terms"
+      }
+    },
+
+    "badge": {
+      "valid names": ["badge", "sticker", "callout badge", "callout"],
+      "properties": {
+        "category": "component",
+        "type": "badge"
+      }
+    },
+
+    "image": {
+      "valid names": ["image", "img", "product image"],
+      "properties": {
+        "category": "component",
+        "type": "image"
+      }
+    },
+    "lockup": {
+      "valid names": ["lockup", "logo"],
+      "properties": {
+        "category": "component",
+        "type": "image"
+      }
+    },
+    "icon": {
+      "valid names": ["icon"],
+      "properties": {
+        "category": "component",
+        "type": "image"
+      }
+    },
+
+    "button": {
+      "valid names": ["button", "btn", "cta"],
+      "properties": {
+        "category": "component",
+        "type": "button"
+      }
+    }
+  }
+}

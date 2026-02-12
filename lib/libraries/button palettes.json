@@ -1,0 +1,235 @@
+{
+  "default": {
+    "primary": {
+      "background": "black",
+      "colour": "white"
+    },
+    "secondary": {
+      "background": "white",
+      "colour": "black"
+    },
+    "black/white": {
+      "background": "black",
+      "colour": "white"
+    },
+    "white/black": {
+      "background": "white",
+      "colour": "black"
+    },
+    "dark grey/white": {
+      "background": "dark grey",
+      "colour": "white"
+    },
+    "light grey/black": {
+      "background": "light grey",
+      "colour": "black"
+    },
+    "blue/white": {
+      "background": "blue",
+      "colour": "white"
+    }
+  },
+
+  "petbarn": {
+    "primary": {
+      "background": "black",
+      "colour": "white"
+    },
+    "secondary": {
+      "background": "white",
+      "colour": "black"
+    },
+    "black/white": {
+      "background": "black",
+      "colour": "white"
+    },
+    "black/yellow": {
+      "background": "black",
+      "colour": "yellow"
+    },
+    "white/black": {
+      "background": "white",
+      "colour": "black"
+    },
+    "white/yellow": {
+      "background": "white",
+      "colour": "yellow"
+    },
+    "yellow/black": {
+      "background": "yellow",
+      "colour": "black"
+    },
+    "yellow/white": {
+      "background": "yellow",
+      "colour": "white"
+    },
+    "dark yellow/black": {
+      "background": "dark yellow",
+      "colour": "black"
+    },
+    "dark yellow/white": {
+      "background": "dark yellow",
+      "colour": "white"
+    },
+    "blue/white": {
+      "background": "blue",
+      "colour": "white"
+    }
+  },
+  "greencross vets": {
+    "primary": {
+      "background": "navy",
+      "colour": "White"
+    },
+    "secondary": {
+      "background": "green",
+      "colour": "white"
+    },
+    "navy/white": {
+      "background": "navy",
+      "colour": "white"
+    },
+    "white/navy": {
+      "background": "white",
+      "colour": "navy"
+    },
+    "green/white": {
+      "background": "green",
+      "colour": "white"
+    },
+    "white/green": {
+      "background": "white",
+      "colour": "green"
+    },
+    "green/navy": {
+      "background": "green",
+      "colour": "navy"
+    },
+    "navy/green": {
+      "background": "navy",
+      "colour": "green"
+    }
+  },
+  "animal referral & emergency network": {
+    "primary": {
+      "background": "blue",
+      "colour": "white"
+    },
+    "secondary": {
+      "background": "red",
+      "colour": "white"
+    },
+    "blue/white": {
+      "background": "blue",
+      "colour": "white"
+    },
+    "white/blue": {
+      "background": "white",
+      "colour": "blue"
+    },
+    "red/white": {
+      "background": "red",
+      "colour": "white"
+    },
+    "white/red": {
+      "background": "white",
+      "colour": "red"
+    },
+    "white/black": {
+      "background": "white",
+      "colour": "black"
+    }
+  },
+  "leaps & bounds": {
+    "primary": {
+      "background": "black",
+      "colour": "white"
+    },
+    "secondary": {
+      "background": "white",
+      "colour": "black"
+    },
+    "orange/white": {
+      "background": "orange",
+      "colour": "white"
+    },
+    "white/orange": {
+      "background": "white",
+      "colour": "orange"
+    },
+    "cream/orange": {
+      "background": "cream",
+      "colour": "orange"
+    },
+    "cream/black": {
+      "background": "cream",
+      "colour": "black"
+    },
+    "black/cream": {
+      "background": "black",
+      "colour": "cream"
+    },
+    "white/black": {
+      "background": "white",
+      "colour": "black"
+    }
+  },
+  "probalance": {
+    "primary": {
+      "background": "black",
+      "colour": "cream"
+    },
+    "secondary": {
+      "background": "gold",
+      "colour": "white"
+    },
+    "white/dark gold": {
+      "background": "white",
+      "colour": "dark gold"
+    },
+    "white/black": {
+      "background": "white",
+      "colour": "black"
+    },
+    "cream/dark gold": {
+      "background": "cream",
+      "colour": "dark gold"
+    },
+    "cream/black": {
+      "background": "cream",
+      "colour": "black"
+    },
+    "dark gold/cream": {
+      "background": "dark gold",
+      "colour": "cream"
+    },
+    "dark gold/white": {
+      "background": "dark gold",
+      "colour": "white"
+    },
+    "black/cream": {
+      "background": "black",
+      "colour": "cream"
+    },
+    "gold/cream": {
+      "background": "gold",
+      "colour": "cream"
+    },
+    "gold/white": {
+      "background": "gold",
+      "colour": "white"
+    },
+    "brown/cream": {
+      "background": "brown",
+      "colour": "cream"
+    },
+    "brown/white": {
+      "background": "brown",
+      "colour": "white"
+    },
+    "white/brown": {
+      "background": "white",
+      "colour": "brown"
+    }
+  }
+}

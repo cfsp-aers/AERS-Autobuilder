@@ -1,0 +1,35 @@
+<!--[if mso]>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td style="padding: {{ style.margin or "0px" }};" >
+<![endif]-->
+<div class="acr-fragment acr-component" data-component-id="button:2"
+style="width:100%;text-align:{{ element.text_align or "center" }};background-color:transparent;line-height:{{ element.line_height or "18px" }};font-family:'Outfit', Arial, sans-serif;margin:0px;padding:0px;"
+data-has-ext-mso-hack="true" data-has-int-mso-hack="true"
+data-contenteditable="false">
+<!--[if mso]>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td style="background-color: transparent; text-align: {{ element.text_align or "center" }}; padding: {{ style.margin or "0px" }};" >
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td style="mso-line-height-rule:exactly;text-align: {{ element.text_align or "center" }}; border-top: none; border-right: none; border-bottom: none; border-left: none; border-radius: {{ element.border_radius}};" >
+<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:{{ style.height or "40px" }}; mso-wrap-style:none; mso-fit-shape-to-text: true; v-text-anchor:middle;" arcsize="46%" fillcolor="{% if element.no_bg %}none{%else%}{{ element.background or "#000000" }}{%endif%}" strokeweight="2pt" strokecolor="{% if element.no_bg %}none{%else%}{{ element.background or "#000000" }}{%endif%}">
+<v:stroke opacity="100%" />
+<v:textbox inset="0,0,0,0">
+<center color="{{ element.colour or "#FFFFFF" }}" style="color:{{ element.colour or "#FFFFFF" }}; font-family:'Outfit', Arial, sans-serif; font-size:{{ element.font_size or "16px" }}; line-height:{{ element.line_height or "18px" }}; margin: 0px 6px;">
+<![endif]-->
+<a href="{{ element.content.href }}" class="arc-link" style="text-decoration:none;">
+<div class="button-container aers-clickable"
+style="width:{{ element.width or "auto" }};text-align:center;margin:0px;max-width:100%;display:inline-block;border-top:3px solid {{ element.border_top or element.background or "#000000" }};border-right:3px solid {{ element.border_right or element.background or "#000000" }};border-bottom:3px solid {{ element.border_bottom or element.background or "#000000" }};border-left:3px solid {{ element.border_left or element.background or "#000000" }};border-image:initial;border-radius:{{ element.border_radius or "64px" }};height:{{ element.height or "auto" }};background-color:{% if element.no_bg %}none{%else%}{{ element.background or "#000000" }}{%endif%};padding:{{ element.inner_padding or "8px 16px" }};"
+data-contenteditable="true">
+<span
+style="mso-color-alt: auto; color:{{ element.colour or "#FFFFFF" }};line-height:{{ element.line_height or "18px" }};font-size:{{ element.font_size or "16px" }};font-weight:bold;font-style:normal;text-decoration:none;"
+data-contenteditable="true">
+{{ element.content.text }}
+</span>
+</div>
+</a>
+<!--[if mso]></center></v:textbox></v:stroke></v:roundrect></td></tr></table></td></tr></table><![endif]-->
+</div>
+<!--[if mso]></td></tr></table><![endif]-->

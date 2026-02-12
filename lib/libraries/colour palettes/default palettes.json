@@ -1,0 +1,49 @@
+{
+  "palette links": {
+    "primary": "white",
+    "secondary": "light grey",
+    "light": "white",
+    "neutral": "light grey",
+    "dark": "black"
+  },
+  "default": {
+    "background": "white",
+    "primary": "black",
+    "secondary": "dark grey",
+    "text": {
+      "primary": "black",
+      "secondary": "dark grey"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "dark grey/white"
+    }
+  },
+  "white": {
+    "background": "white",
+    "primary": "black",
+    "secondary": "dark grey",
+    "text": {
+      "primary": "black",
+      "secondary": "dark grey"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "dark grey/white"
+    }
+  },
+  "promo": {
+    "background": "white",
+    "primary": "sale red",
+    "secondary": "blue",
+    "text": {
+      "primary": "black",
+      "secondary": "sale red",
+      "body": "black"
+    },
+    "button": {
+      "primary": "blue/white",
+      "secondary": "black/white"
+    }
+  }
+}
