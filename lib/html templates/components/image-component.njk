@@ -17,7 +17,7 @@ contenteditable="false">
 {% if element.content.href %}
 <a class="arc-link aers-clickable" data-nl-type="externalLink" href="{{ element.name }}" style="text-decoration: underline;" data-label="{{ element.name }}" data-tracking-type="TRACKED" data-tags="" >
 {% endif %}
-<img style="height: auto;max-width: {{ element.max_width or "100%" }}; width: {{ element.width or "100%" }};border-radius:{{ element.border_radius or "24px" }}; " width="{{ element.width }}" class="" src="{{ element.content.src or "images/banner_placeholder.png"}}" height="auto"
+<img style="height: auto;max-width: {{ element.max_width or "100%" }}; width: {{ element.width or "100%" }};border-radius:{{ element.border_radius or "24px" }}; " width="{{ element.width.replace("px", "") }}" class="" src="{{ element.content.src or "images/banner_placeholder.png"}}" height="auto"
 {% if element.content == "banner_placeholder" %}
 data-medialibrary-id="urn:aaid:aem:9a3ebc1b-4b7b-4c66-abe7-462abd4b0631" data-mediarepo-id="author-p152614-e1584203.adobeaemcloud.com"
 {% else %}
