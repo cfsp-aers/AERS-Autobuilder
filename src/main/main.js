@@ -68,8 +68,8 @@ function buildEmails() {
 
     //
 
-    const test_json = load(user_files, "tests/test_json.json");
-    const test_js = load(user_files, "tests/test_js.js");
+    const test_json = load(app_dir, "../tests/test_json.json");
+    const test_js = load(app_dir, "../tests/test_js.js");
 
     const new_json = test_js.test_function(test_json);
 
