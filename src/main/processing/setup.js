@@ -12,7 +12,9 @@ function setupContent(arr, offers) {
     let result = arr.reduce((acc, object, index) => {
         const item = { ...setBasicProperties(object, arr[0]), ...object, user_settings: getUserSettings(object) };
 
-        if (result[0] && result[0].transactional) aers.log("transactional");
+        if (acc[0] && acc[0].transactional === true) {
+            aers.log("transactional");
+        }
 
         if (item.entity_type == "component" && item.type != "image" && !item.content) {
             return acc;
