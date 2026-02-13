@@ -121,7 +121,7 @@ function structureEDM(arr, children = {}) {
         const child_index = _.findIndex(arr, (m) => m.uuid == item.uuid);
         const child = arr[child_index];
         const prev = arr[child_index - 1] ? arr[child_index - 1] : arr[child_index];
-        child.transition = child.background != prev.background ? true : child.transition;
+        //child.transition = child.background != prev.background ? true : child.transition;
         const grouped_item = {
             name: "block container",
             block: "gridContainer",
