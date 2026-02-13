@@ -13,7 +13,7 @@ function setupContent(arr, offers) {
         const item = { ...setBasicProperties(object, arr[0]), ...object, user_settings: getUserSettings(object) };
 
         if (acc[0] && acc[0].user_settings?.transactional === true) {
-            aers.log("transactional");
+            item.transactional = true;
         }
 
         if (item.entity_type == "component" && item.type != "image" && !item.content) {
