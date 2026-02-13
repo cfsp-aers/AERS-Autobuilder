@@ -14,25 +14,28 @@ function structureEDM(arr, children = {}) {
     arr = arr.map((o) => util.cleanUp(formatProperties(o), { empty: true }));
 
     let result = arr.map((m, i) => {
-        const prev = arr[i - 1] ? arr[i - 1] : arr[i];
-        let rules_location = `modules/default/default.js`;
-        if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) {
-            rules_location = `modules/${m.template}`;
-        }
-        const { internal_layout } = load(user_files, rules_location);
-        m.transition = _.trimStart(prev.background, "#");
-        m.children = [internal_layout(m, children[m.uuid])];
-
-        if (m.depth == 2) {
-            return {
-                block: "container",
-                uuid: m.uuid,
-                background: m.colour,
-                padding: m.container_padding,
-                children: [m]
-            };
+        if (m.remove) {
         } else {
-            return m;
+            const prev = arr[i - 1] ? arr[i - 1] : arr[i];
+            let rules_location = `modules/default/default.js`;
+            if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) {
+                rules_location = `modules/${m.template}`;
+            }
+            const { internal_layout } = load(user_files, rules_location);
+            m.transition = _.trimStart(prev.background, "#");
+            m.children = [internal_layout(m, children[m.uuid])];
+
+            if (m.depth == 2) {
+                return {
+                    block: "container",
+                    uuid: m.uuid,
+                    background: m.colour,
+                    padding: m.container_padding,
+                    children: [m]
+                };
+            } else {
+                return m;
+            }
         }
     });
 
