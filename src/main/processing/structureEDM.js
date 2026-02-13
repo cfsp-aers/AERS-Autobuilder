@@ -14,7 +14,6 @@ function structureEDM(arr, children = {}) {
     arr = arr.map((o) => util.cleanUp(formatProperties(o), { empty: true }));
 
     let result = arr.map((m, i) => {
-        if (m.remove) return;
         const prev = arr[i - 1] ? arr[i - 1] : arr[i];
         let rules_location = `modules/default/default.js`;
         if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) {
