@@ -407,10 +407,8 @@ margin: auto 8px;
     {% for element in object.children %}
         {% if element.ignore %}
             {{ renderElement(element, currentDepth + 1) }}
-
-                {% elif element.fragment && element.transition %}
-                    {% include 'components/transition-component.njk' %}
-                {% endif %}
+        {% elif element.fragment && element.transition %}
+            {% include 'components/transition-component.njk' %}
         {% elif element.block %}
                 {% if element.transition %}
                     {% include 'components/transition-component.njk' %}
