@@ -73,6 +73,8 @@ function buildEmails() {
 
     const new_json = test_js.test_function(test_json);
 
+    let generatedFiles = {};
+
     SELECTED_SHEETS.forEach((brief) => {
         let data = {
             module_array: [],
@@ -80,7 +82,6 @@ function buildEmails() {
             user_settings: {},
             output: {}
         };
-        let generatedFiles = {};
 
         // Generate email data object from brief
         let ws = wb.Sheets[brief];
