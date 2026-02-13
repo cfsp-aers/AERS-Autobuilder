@@ -1,37 +1,37 @@
 {
   "palette links": {
     "primary": "orange",
-    "secondary": "cream",
+    "secondary": "light cream",
     "light": "white",
-    "neutral": "cream",
+    "neutral": "light cream",
     "dark": "black"
   },
   "white": {
     "background": "white",
-    "primary": "black",
-    "secondary": "yellow",
+    "primary": "orange",
+    "secondary": "black",
     "text": {
       "primary": "black",
-      "secondary": "yellow",
+      "secondary": "orange",
       "body": "black"
     },
     "button": {
-      "primary": "black/white",
-      "secondary": "yellow/black"
+      "primary": "orange/white",
+      "secondary": "black/white"
     }
   },
   "black": {
     "background": "black",
     "primary": "white",
-    "secondary": "yellow",
+    "secondary": "orange",
     "text": {
       "primary": "white",
-      "secondary": "yellow",
+      "secondary": "orange",
       "body": "white"
     },
     "button": {
-      "primary": "white/black",
-      "secondary": "yellow/black"
+      "primary": "orange/white",
+      "secondary": "cream/black"
     }
   },
   "orange": {
@@ -44,7 +44,7 @@
       "body": "white"
     },
     "button": {
-      "primary": "white/orange",
+      "primary": "white/black",
       "secondary": "cream/black"
     }
   }

@@ -32,6 +32,32 @@
       "secondary": "dark grey/white"
     }
   },
+  "light grey": {
+    "background": "light grey",
+    "primary": "black",
+    "secondary": "dark grey",
+    "text": {
+      "primary": "black",
+      "secondary": "dark grey"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "dark grey/white"
+    }
+  },
+  "black": {
+    "background": "black",
+    "primary": "white",
+    "secondary": "light grey",
+    "text": {
+      "primary": "white",
+      "secondary": "light grey"
+    },
+    "button": {
+      "primary": "white/black",
+      "secondary": "light grey/black"
+    }
+  },
   "promo": {
     "background": "white",
     "primary": "sale red",

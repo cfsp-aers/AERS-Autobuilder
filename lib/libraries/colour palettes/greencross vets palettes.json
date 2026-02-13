@@ -34,20 +34,6 @@
       "secondary": "white/navy"
     }
   },
-  "navy": {
-    "background": "navy",
-    "primary": "white",
-    "secondary": "green",
-    "text": {
-      "primary": "white",
-      "secondary": "green",
-      "body": "white"
-    },
-    "button": {
-      "primary": "green/white",
-      "secondary": "white/navy"
-    }
-  },
   "light green": {
     "background": "light green",
     "primary": "navy",
@@ -60,6 +46,20 @@
     "button": {
       "primary": "navy/white",
       "secondary": "green/white"
+    }
+  },
+  "navy": {
+    "background": "navy",
+    "primary": "white",
+    "secondary": "green",
+    "text": {
+      "primary": "white",
+      "secondary": "green",
+      "body": "white"
+    },
+    "button": {
+      "primary": "green/white",
+      "secondary": "white/navy"
     }
   },
   "light grey": {
@@ -81,13 +81,13 @@
     "primary": "sale red",
     "secondary": "blue",
     "text": {
-      "primary": "black",
+      "primary": "navy",
       "secondary": "sale red",
-      "body": "black"
+      "body": "navy"
     },
     "button": {
       "primary": "blue/white",
-      "secondary": "yellow/black"
+      "secondary": "green/white"
     }
   }
 }

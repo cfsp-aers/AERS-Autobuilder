@@ -168,7 +168,89 @@ function buildEmails() {
 
         setPalettes(db); // NEEDS WORK
 
-        /*
+        //finaliseData();
+
+        db.ms = db.ms.map((m) =>
+            util.cleanUp(setBasicProperties(m), {
+                empty: true
+            })
+        );
+        _.forIn(db.cs, (value, key) => {
+            db.cs[key] = value.map((c) => util.cleanUp(formatProperties(c), { empty: true }));
+        });
+
+        _.forIn(db.cs, (value, key) => {
+            db.cs[key] = value.map((c) => {
+                return formatRichText(c, `${c.content}`);
+            });
+        });
+
+        // Replace colour values with those from colour_library
+        db.ms = db.ms.map((m) => util.replaceColours(m, m));
+        _.forIn(db.cs, (value, key) => {
+            value.map((c) => (c = util.replaceColours(c, c)));
+        });
+
+        _.forIn(db.cs, (value, key) => {
+            db.cs[key] = value.map((c) => insertRichText(c, `${c.content}`));
+        });
+
+        aers.writeData("module_store.json", db.ms, false, database);
+
+        const module_array = structureEDM(db.ms, db.cs);
+
+        aers.writeData(
+            "entity_store.json",
+            db.ms.map((m) => {
+                m.children = db.cs[m.uuid];
+                return m;
+            }),
+            false,
+            database
+        );
+        aers.writeData("component_store.json", db.cs, false, database);
+
+        //const formatted_output = formatData(); //structureEDM(formatData());
+
+        // Write data files
+        aers.writeData("email_json.json", module_array, false, database);
+
+        data.output = Object.freeze(module_array);
+
+        const finalised_data = {
+            name: brief,
+            created: Date(),
+            content: Object.freeze(data.output)
+        };
+
+        try {
+            let renderedEmail = renderEmail(OUTPUT_LOCATION, finalised_data);
+            generatedFiles[brief] = {
+                fileName: `${brief}.html`,
+                filePath: path.join(OUTPUT_LOCATION, `${brief}.html`)
+                //fileContent: renderedEmail
+            };
+
+            fs.writeFileSync(generatedFiles[brief].filePath, renderedEmail, { encoding: "utf8" });
+
+            result.success = true;
+            result.message = "successfully generated files";
+            result.files = generatedFiles;
+        } catch (e) {
+            console.log(e.message);
+        }
+
+        aers.writeData(`${brief}.json`, module_array, false, edm_data_location);
+
+        db = null;
+    });
+
+    console.log(`... End main`);
+    aers.log(`\n... End main`);
+    return result;
+}
+
+/*
 
 
         # How does someone add a new module?
@@ -272,88 +354,6 @@ function buildEmails() {
         - emails_override -> if this exists, use it in place of the generated json file (allows users to edit json directly)
         
         */
-
-        //finaliseData();
-
-        db.ms = db.ms.map((m) =>
-            util.cleanUp(setBasicProperties(m), {
-                empty: true
-            })
-        );
-        _.forIn(db.cs, (value, key) => {
-            db.cs[key] = value.map((c) => util.cleanUp(formatProperties(c), { empty: true }));
-        });
-
-        _.forIn(db.cs, (value, key) => {
-            db.cs[key] = value.map((c) => {
-                return formatRichText(c, `${c.content}`);
-            });
-        });
-
-        // Replace colour values with those from colour_library
-        db.ms = db.ms.map((m) => util.replaceColours(m, m));
-        _.forIn(db.cs, (value, key) => {
-            value.map((c) => (c = util.replaceColours(c, c)));
-        });
-
-        _.forIn(db.cs, (value, key) => {
-            db.cs[key] = value.map((c) => insertRichText(c, `${c.content}`));
-        });
-
-        aers.writeData("module_store.json", db.ms, false, database);
-
-        const module_array = structureEDM(db.ms, db.cs);
-
-        aers.writeData(
-            "entity_store.json",
-            db.ms.map((m) => {
-                m.children = db.cs[m.uuid];
-                return m;
-            }),
-            false,
-            database
-        );
-        aers.writeData("component_store.json", db.cs, false, database);
-
-        //const formatted_output = formatData(); //structureEDM(formatData());
-
-        // Write data files
-        aers.writeData("email_json.json", module_array, false, database);
-
-        data.output = Object.freeze(module_array);
-
-        const finalised_data = {
-            name: brief,
-            created: Date(),
-            content: Object.freeze(data.output)
-        };
-
-        try {
-            let renderedEmail = renderEmail(OUTPUT_LOCATION, finalised_data);
-            generatedFiles[brief] = {
-                fileName: `${brief}.html`,
-                filePath: path.join(OUTPUT_LOCATION, `${brief}.html`)
-                //fileContent: renderedEmail
-            };
-
-            fs.writeFileSync(generatedFiles[brief].filePath, renderedEmail, { encoding: "utf8" });
-
-            result.success = true;
-            result.message = "successfully generated files";
-            result.files = generatedFiles;
-        } catch (e) {
-            console.log(e.message);
-        }
-
-        aers.writeData(`${brief}.json`, module_array, false, edm_data_location);
-
-        db = null;
-    });
-
-    console.log(`... End main`);
-    aers.log(`\n... End main`);
-    return result;
-}
 
 module.exports = {
     buildEmails: buildEmails

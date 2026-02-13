@@ -44,7 +44,11 @@
     "dark gold": "#967B4F"
   },
   "leaps & bounds": {
-    "cream": "#F9F3EA",
-    "orange": "#D37D07"
+    "orange": "#D37D07",
+    "light cream": "#F9F3EA",
+    "cream": "#EAE8D8",
+    "pink": "#EB6B7B",
+    "light blue": "#289ADA",
+    "blue": "#147CBB"
   }
 }
