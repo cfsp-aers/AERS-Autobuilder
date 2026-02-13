@@ -42,6 +42,7 @@
       "properties": {
         "category": "footer",
         "type": "block",
+        "fragment": true,
         "max_siblings": 1,
         "depth": 1
       }
