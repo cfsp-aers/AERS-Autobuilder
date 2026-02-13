@@ -14,7 +14,7 @@ function structureEDM(arr, children = {}) {
     arr = arr.map((o) => {
         if (o.ignore == true) {
             aers.log(o);
-            return {};
+            return;
         }
         return util.cleanUp(formatProperties(o), { empty: true });
     });
