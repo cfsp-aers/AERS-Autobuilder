@@ -128,9 +128,9 @@ function formatUserInput(string) {
         // REPLACE SPACES IN KEY WITH UNDERSCORES
         const key = raw_key.replaceAll(" ", "_");
 
-        if (value == "true") {
+        if (JSON.stringify(value) == "true") {
             result.output[key] = true;
-        } else if (value == "false") {
+        } else if (JSON.stringify(value) == "false") {
             result.output[key] = false;
         } else if (value == "0" || _.toInteger(value) != 0) {
             result.output[key] = _.toInteger(value);
