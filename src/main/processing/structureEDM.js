@@ -11,12 +11,13 @@ const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
 function structureEDM(arr, children = {}) {
-    arr = arr.map((o) => {
+    arr = arr.reduce((acc, o) => {
         if (o.ignore == true) {
             aers.log(o);
-            return;
+            return acc;
         }
-        return util.cleanUp(formatProperties(o), { empty: true });
+        acc.push(util.cleanUp(formatProperties(o), { empty: true }));
+        return acc;
     });
     aers.log(arr);
 
