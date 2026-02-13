@@ -15,7 +15,7 @@ function structureEDM(arr, children = {}) {
 
     let result = arr.map((m, i) => {
         if (m.remove === true) {
-            return {},
+            return {};
         } else {
             const prev = arr[i - 1] ? arr[i - 1] : arr[i];
             let rules_location = `modules/default/default.js`;
