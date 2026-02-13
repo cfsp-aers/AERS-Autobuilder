@@ -69,6 +69,8 @@ function setBasicProperties(object, header = {}) {
     object.moduleType = object.moduleType ? object.moduleType.toLowerCase() : null;
     object.component = object.component ? object.component.toLowerCase() : null;
 
+    object.transactional ??= header.transactional;
+
     if (object.entity_type) {
         entity_type = object.entity_type;
         target_value = "name";
