@@ -12,7 +12,7 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
 function structureEDM(arr, children = {}) {
     arr = arr.map((o) => {
-        if (o.name == "signoff") {
+        if (o.ignore == true) {
             aers.log(o);
             return {};
         }
