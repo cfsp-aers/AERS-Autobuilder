@@ -10,6 +10,7 @@ function formatProperties(item) {
         uuid: item.uuid || null,
         parent_uuid: item.parent_uuid || null,
         entity_type: item.entity_type || null,
+        remove: item.remove || false,
         // ~~ module data ~~
         category: item.category || null,
         type: item.type || null,
