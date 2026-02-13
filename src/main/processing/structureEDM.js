@@ -211,6 +211,7 @@ function structureEDM(arr, children = {}) {
             name: "structure",
             structure: "structure",
             uuid: child.uuid,
+            ignore: child.ignore,
             children: [item]
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
