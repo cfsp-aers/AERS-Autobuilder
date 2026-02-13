@@ -1,0 +1,337 @@
+{
+  "workbench.colorTheme": "Atom One Dark",
+  "editor.stickyScroll.enabled": true,
+  "explorer.confirmDelete": false,
+  "jupyter.askForKernelRestart": false,
+  "notebook.output.textLineLimit": 80,
+  "editor.stickyScroll.scrollWithEditor": true,
+  "editor.smoothScrolling": true,
+  "editor.stickyScroll.maxLineCount": 8,
+  "editor.lineNumbers": "on",
+  "notebook.output.wordWrap": true,
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 800,
+  "editor.guides.bracketPairs": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "editor.bracketPairColorization.enabled": true,
+  "workbench.colorCustomizations": {
+    "editorBracketHighlight.foreground1": "#b1b483",
+    "editorBracketHighlight.foreground2": "#83b49e",
+    "editorBracketHighlight.foreground3": "#83a3b4",
+    "editorBracketHighlight.foreground4": "#a483b4",
+    "editorBracketHighlight.foreground5": "#b483a5",
+    "editorBracketHighlight.foreground6": "#b49783"
+  },
+
+  "[markdown]": {
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+
+  "[javascript]": {
+    "editor.tabSize": 4,
+    "prettier.tabWidth": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.useTabs": false,
+    "prettier.singleAttributePerLine": false,
+    "prettier.bracketSameLine": true,
+    "prettier.trailingComma": "none",
+    "prettier.semi": true,
+    "editor.formatOnSave": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.tabSize": 4,
+    "prettier.printWidth": 400,
+    "prettier.tabWidth": 4,
+    "prettier.bracketSameLine": true,
+    "prettier.trailingComma": "none",
+    "prettier.semi": true,
+    "prettier.singleAttributePerLine": false,
+    "prettier.useTabs": false
+  },
+  "[njk]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "douglaszaltron.nunjucks-vscode-extensionpack"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+    "editor.tabSize": 2,
+    "prettier.tabWidth": 2,
+    "prettier.singleAttributePerLine": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+
+  "[json]": {
+    "editor.tabSize": 2,
+    "prettier.tabWidth": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "prettier.singleAttributePerLine": false,
+    "prettier.embeddedLanguageFormatting": "auto",
+    "prettier.trailingComma": "all"
+  },
+
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+
+  "editor.semanticTokenColorCustomizations": {
+    "[Brackets Dark]": {
+      "enabled": true,
+      "rules": {
+        "variable": "#d87d33",
+        "class": "#fec326",
+        "method": "#67D2E2",
+        "selfParameter": "#e8a151",
+        "*.type": "#00FFFF"
+      }
+    },
+    "[Atom One Dark]": {
+      "enabled": true,
+      "rules": {
+        "function": "#EDEDED",
+        "variable": "#25aceb",
+        "variable.readonly": "#728aff",
+        "parameter": "#bfe5f8",
+        "module": "#ff5d88",
+        "import": "#fec326",
+        "function.declaration": "#48cab7",
+        "*.declaration": "#ebcd7c"
+      }
+    }
+  },
+
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "variable",
+        "scope": ["variable.other.property.js"],
+        "settings": {
+          "foreground": "#ff8575"
+        }
+      },
+      {
+        "name": "js function parameter",
+        "scope": ["variable.parameter.js", "meta.object-literal.key.js"],
+        "settings": {
+          "foreground": "#ebcd7c"
+        }
+      },
+      {
+        "name": "js comment",
+        "scope": ["comment.line.double-slash.js", "punctuation.definition.comment.js", "comment.block.js", "punctuation.separator.key-value.js"],
+        "settings": {
+          "foreground": "#a1a1a1"
+        }
+      },
+      {
+        "name": "imported functions",
+        "scope": ["variable.other.readwrite.alias.ts", "meta.import.ts", "variable.other.object.ts"],
+        "settings": {
+          "foreground": "#ff5e94"
+        }
+      },
+      {
+        "name": "nunjucks variable",
+        "scope": ["comment.block.njk", "string.quoted.single.njk"],
+        "settings": {
+          "foreground": "#ffa2fd"
+        }
+      },
+      {
+        "name": "nunjucks variable",
+        "scope": ["variable.other.njk"],
+        "settings": {
+          "foreground": "#92e6ec",
+          "fontStyle": ""
+        }
+      },
+      {
+        "name": "nunjucks control",
+        "scope": ["keyword.control.njk", "variable.other.njk.attribute"],
+        "settings": {
+          "foreground": "#c7e39c"
+        }
+      },
+      {
+        "name": "nunjucks variable attribute",
+        "scope": ["variable.other.njk.attribute"],
+        "settings": {
+          "foreground": "#e391e2"
+        }
+      },
+      {
+        "name": "nunjucks other",
+        "scope": ["entity.other.njk.delimiter", "punctuation.other.njk"],
+        "settings": {
+          "foreground": "#c7e39c"
+        }
+      },
+      {
+        "name": "function",
+        "scope": ["function"],
+        "settings": {
+          "foreground": "#eeeee0"
+        }
+      },
+      {
+        "name": "Comment",
+        "scope": ["comment"],
+        "settings": {
+          "foreground": "#777777"
+        }
+      },
+      {
+        "name": "json level1",
+        "scope": ["meta.structure.dictionary.json string.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#d47eff"
+        }
+      },
+      {
+        "name": "json level2",
+        "scope": ["meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#6cbeea"
+        }
+      },
+      {
+        "name": "json level3",
+        "scope": ["meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#69d2a2"
+        }
+      },
+      {
+        "name": "json level3",
+        "scope": ["meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#e3ac5f"
+        }
+      },
+      {
+        "name": "json level3",
+        "scope": ["meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#de8bdd"
+        }
+      },
+      {
+        "name": "json level3",
+        "scope": ["meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#6ce0ea"
+        }
+      },
+      {
+        "name": "json level3",
+        "scope": ["meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#5ada78"
+        }
+      },
+      {
+        "name": "json level3",
+        "scope": ["meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json meta.structure.dictionary.json meta.structure.dictionary.value.json support.type.property-name.json"],
+        "settings": {
+          "foreground": "#f3a760"
+        }
+      },
+      {
+        "name": "json value",
+        "scope": ["string.quoted.double.json"],
+        "settings": {
+          "foreground": "#d7dc9d"
+        }
+      }
+    ]
+  },
+
+  "vscode-json-editor.theme": "dark",
+
+  "explorer.confirmDragAndDrop": false,
+  "editor.fontSize": 16,
+  "theme-by-language.themes": {},
+  "notebook.output.scrolling": true,
+  "workbench.settings.applyToAllProfiles": ["notebook.output.scrolling"],
+  "editor.detectIndentation": false,
+  "json.schemas": [],
+  "python.createEnvironment.trigger": "off",
+  "workbench.editor.wrapTabs": true,
+  "vim.easymotion": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.cursorStylePerMode.insert": "block",
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "d"],
+      "after": ["d", "d"]
+    },
+    {
+      "before": ["<leader>", "gd"],
+      "commands": ["editor.action.goToDeclaration"]
+    },
+    {
+      "before": ["<C-d>"],
+      "after": ["<C-d>", "zz"]
+    },
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["lineBreakInsert"],
+      "silent": true
+    }
+  ],
+  "vim.leader": "<space>",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false
+  },
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1
+  },
+  "python.analysis.diagnosticsSource": "Pyright",
+  "github.copilot.enable": {
+    "*": false,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "html": false
+  },
+  "html.suggest.html5": true,
+  "editor.wordWrap": "on",
+  "editor.renderControlCharacters": false,
+  "files.associations": {
+    "*.json": "json",
+    "*.jsonc": "jsonc",
+    "*.html": "html",
+    "*.njk": "njk"
+  },
+  "window.zoomLevel": -1.5,
+  "accessibility.signalOptions.volume": 0,
+  "remoteHub.commitDirectlyWarning": "off"
+}
