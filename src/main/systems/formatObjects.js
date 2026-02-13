@@ -24,6 +24,7 @@ function formatProperties(item) {
         max_siblings: item.max_siblings || 1,
         row_index: item.row_index || null,
         mode: item.mode || null,
+        transition: item.transition || false,
         // ~~ palette ~~
         palette: item.palette || null,
         colour: item.colour || null,
