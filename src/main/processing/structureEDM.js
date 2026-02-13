@@ -10,13 +10,14 @@ const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
-function structureEDM(arr, children = {}) {
-    arr = arr.map((o) => {
+function structureEDM(orignial_arr, children = {}) {
+    const arr = original_arr.reduce((acc, o) => {
+        aers.log(o.remove);
         if (o.remove) {
-            aers.log(o.remove);
-            return;
-        } else return util.cleanUp(formatProperties(o), { empty: true });
-    });
+            return acc;
+        } else acc.push(util.cleanUp(formatProperties(o), { empty: true }));
+        return acc;
+    }, []);
 
     let result = arr.map((m, i) => {
         const prev = arr[i - 1] ? arr[i - 1] : arr[i];
