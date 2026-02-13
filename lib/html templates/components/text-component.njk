@@ -8,10 +8,10 @@ margin:{{ element.margin or "0px auto" }}; max-width: {% if element.background %
 <!--[if mso]>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
-<td style="mso-line-height-rule:exactly; padding: {{ element.padding or "0px" }}; font-family: '{{ element.font }}', Arial, sans-serif; font-weight: {{ element.font_weight }}; font-style: normal; font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height }}; color: {{ element.colour }}; text-align: {{ element.text_align or "center" }}; background-color: {{ element.background or "transparent" }}; border-radius: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" >
+<td style="mso-line-height-rule:exactly; padding: {{ element.padding or "0px" }}; font-family: '{{ element.font }}', Arial, sans-serif; font-weight: {{ element.font_weight }}; font-style: normal; font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height }}; color: {{ element.colour }}; text-align: {{ element.text_align or element.align or "center" }}; background-color: {{ element.background or "transparent" }}; border-radius: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" >
 <![endif]-->
 <div class="text-container {{ element.text_size_class }}" contenteditable="true">
-<div style="font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height or "100%" }}; font-family: '{{ element.font or "Outfit" }}', Arial, sans-serif; color: {{ element.colour or "#000000" }}; text-align: {{ element.text_align or "center" }}; font-weight: {{ element.font_weight or "normal" }}; font-style: normal;">
+<div style="font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height or "100%" }}; font-family: '{{ element.font or "Outfit" }}', Arial, sans-serif; color: {{ element.colour or "#000000" }}; text-align: {{ element.text_align or element.align or "center" }}; font-weight: {{ element.font_weight or "normal" }}; font-style: normal;">
 {{ element.content | nl2br }}
 </div>
 </div>
