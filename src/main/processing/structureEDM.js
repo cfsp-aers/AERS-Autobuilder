@@ -12,7 +12,7 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
 function structureEDM(orignial_arr, children = {}) {
     const arr = original_arr.reduce((acc, o) => {
-        aers.log(o.remove);
+        aers.log(o.ignore);
         if (o.remove) {
             return acc;
         } else acc.push(util.cleanUp(formatProperties(o), { empty: true }));
