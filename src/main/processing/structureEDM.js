@@ -12,13 +12,16 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
 function structureEDM(arr, children = {}) {
     arr = arr.map((o) => util.cleanUp(formatProperties(o), { empty: true }));
-    let result = arr.map((m) => {
+
+    let result = arr.map((m, i) => {
+        const prev = arr[i - 1] ? arr[i - 1] : arr[i];
         let rules_location = `modules/default/default.js`;
         if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) {
             rules_location = `modules/${m.template}`;
         }
         const { internal_layout } = load(user_files, rules_location);
         m.children = [internal_layout(m, children[m.uuid])];
+        m.transition = prev.background;
 
         if (m.depth == 2) {
             return {
