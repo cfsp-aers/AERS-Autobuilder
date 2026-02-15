@@ -10,6 +10,7 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
 function setupContent(arr, offers) {
     let result = arr.reduce((acc, object, index) => {
+        if (!object.entity_type && !object.moduleType && !object.component && !object.content) return acc;
         const item = { ...setBasicProperties(object, arr[0]), ...object, user_settings: getUserSettings(object) };
 
         if (acc[0] && acc[0].user_settings?.transactional === true) {
