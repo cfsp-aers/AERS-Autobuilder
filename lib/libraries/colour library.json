@@ -52,6 +52,11 @@
     "blue": "#147CBB"
   },
   "barkers best": {
-    "navy": "#12196F"
+    "navy": "#12196F",
+    "orange": "#FA7122",
+    "green": "#009D4F",
+    "pink": "#FF8FA0",
+    "light blue": "#5EAFE7",
+    "red": "#E21B2B"
   }
 }
