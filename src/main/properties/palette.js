@@ -25,6 +25,7 @@ function setPalettes(db) {
             m.palette = m.user_settings?.palette ? m.user_settings.palette : db.ms[i - 1]?.palette;
         }
         m = setPalette(m, m.user_settings, m);
+
         db.cs[m.uuid]?.forEach((c) => {
             c = setPalette(c, c.user_settings, m);
         });
@@ -96,6 +97,7 @@ function setPalette(item, user = {}, parent = {}) {
         }
 
         item.colour = user.colour ? user.colour : active_palette.background;
+        aers.log(item.colour, user.colour);
     }
 
     /*
