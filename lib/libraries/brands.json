@@ -1,7 +1,7 @@
 {
   "Parent Brands": {
     "greencross vets": ["greencross", "healthy pets plus", "animal referral & emergency network", "animal referral hospital"],
-    "petbarn": ["petbarn", "petbarn foundation", "leaps & bounds", "the nosh project", "probalance"]
+    "petbarn": ["petbarn", "petbarn foundation", "leaps & bounds", "the nosh project", "probalance", "barkers best"]
   },
   "Brand Names": {
     "petbarn": ["petbarn", "pb"],
@@ -11,6 +11,7 @@
     "petbarn foundation": ["petbarn foundation", "pbf", "pb foundation"],
     "proBalance": ["probalance", "probal", "pbl"],
     "leaps & bounds": ["leaps and bounds", "leaps & bounds", "l&b", "lb", "leaps bounds"],
-    "the nosh project": ["nosh", "the nosh project", "tnp"]
+    "the nosh project": ["nosh", "the nosh project", "tnp"],
+    "barkers best": ["barkers best"]
   }
 }
