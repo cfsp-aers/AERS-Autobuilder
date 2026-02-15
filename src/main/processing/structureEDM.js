@@ -19,7 +19,6 @@ function structureEDM(arr, children = {}) {
         acc.push(util.cleanUp(formatProperties(o), { empty: true }));
         return acc;
     }, []);
-    aers.log(arr);
 
     let result = arr.map((m, i) => {
         const prev = arr[i - 1] ? arr[i - 1] : arr[i];

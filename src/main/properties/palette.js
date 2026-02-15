@@ -97,7 +97,6 @@ function setPalette(item, user = {}, parent = {}) {
         }
 
         item.colour = user.colour ? user.colour : active_palette.background;
-        aers.log(item.colour, user.colour);
     }
 
     /*
