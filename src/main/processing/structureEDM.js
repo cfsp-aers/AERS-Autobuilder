@@ -26,6 +26,12 @@ function structureEDM(arr, children = {}) {
         if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) {
             rules_location = `modules/${m.template}`;
         }
+
+        let component_positions = {};
+        _.forIn(rules.component_positions, (value, key) => {
+            component_positions[key] = _.filter(children[m.uuid], (c) => value.indexOf(c.name) >= 0);
+            if (component_positions[key].length == 0) delete component_positions[key];
+        });
         const { internal_layout } = load(user_files, rules_location);
         m.transition = _.trimStart(prev.background, "#");
         m.children = [internal_layout(m, children[m.uuid])];

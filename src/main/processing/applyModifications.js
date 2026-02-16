@@ -59,12 +59,6 @@ function applyModifications(db, func, max_loops) {
             }
 
             if (db.cs[m.uuid]) {
-                let result = {};
-                _.forIn(rules.component_positions, (value, key) => {
-                    result[key] = _.filter(db.cs[m.uuid], (c) => value.indexOf(c.name) >= 0);
-                });
-                aers.log(result);
-
                 db.cs[m.uuid].forEach((c, c_i) => {
                     const component_targets = componentTargets(db, c_i, m);
                     let component_rules = load(user_files, `modules/component/default.js`);
@@ -76,12 +70,12 @@ function applyModifications(db, func, max_loops) {
                     component_rules[func]();
                     csf.update(c, c.user_settings);
                     csf.update(c, c.locked_settings);
-
+                    /*
                     if (func == "style") {
                         sf.update(m, {
                             [c.name]: { position: _.findKey(rules.component_positions, (v) => v.indexOf(c.name) >= 0) }
                         });
-                    }
+                    }*/
                 });
             }
             if (rules.setupRules) rules.setupRules(module_targets, sf);
