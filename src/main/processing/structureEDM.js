@@ -61,6 +61,7 @@ function structureEDM(arr, children = {}) {
             block: "gridCol",
             uuid: child.uuid,
             padding: child.padding,
+            width: child.column_width,
             children: [item]
         };
         // conditions for grouping
