@@ -258,13 +258,14 @@ function start_new_block_row(child, prev) {
     return false;
 }
 function start_new_block_container(child, prev) {
-    if (start_new_group_column(child, prev)) return true;
+    if (start_new_structure(child, prev)) return true;
     if (child.name != prev.name) return true;
     if (child.group_size != prev.group_size) return true;
     if (child.background != prev.background) return true;
     //if (child.row_index == 1) return true;
     return false;
 }
+/*
 function start_new_group_column(child, prev) {
     //if (start_new_group_row(child, prev)) return true;
     return false;
@@ -279,6 +280,7 @@ function start_new_group_container(child, prev) {
     //if (child.dynamic_content != prev.dynamic_content) return true;
     return false;
 }
+*/
 function start_new_structure(child, prev) {
     aers.log(child.dynamicContent?.split("/"), prev.dynamicContent?.split("/"));
     if (child.dynamicContent?.split("/")[0] != prev.dynamicContent?.split("/")[0]) {
