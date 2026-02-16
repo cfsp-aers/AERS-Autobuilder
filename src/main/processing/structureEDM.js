@@ -34,9 +34,9 @@ function structureEDM(arr, children = {}) {
             c_pos[key] = _.filter(children[m.uuid], (c) => value.indexOf(c.name) >= 0);
             if (c_pos[key].length == 0) delete c_pos[key];
         });
-        aers.log(c_pos);
+
         m.transition = _.trimStart(prev.background, "#");
-        m.children = [internal_layout(m, c_pos, c_pos.length == 0 ? true : false)];
+        m.children = [internal_layout(m, c_pos)];
 
         if (m.depth == 2) {
             return {

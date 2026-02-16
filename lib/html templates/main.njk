@@ -405,8 +405,9 @@ margin: auto 8px;
 {% if currentDepth > 50 %}
 {% else %}
     {% for element in object.children %}
-        {% if element.ignore %}
-            {# {{ renderElement(element, currentDepth + 1) }} #}
+        {% if element.children.length == 0 %}
+        {% elif element.ignore %}
+            {{ renderElement(element, currentDepth + 1) }}
         {% elif element.block %}
                 {% if element.transition %}
                     {% include 'components/transition-component.njk' %}
