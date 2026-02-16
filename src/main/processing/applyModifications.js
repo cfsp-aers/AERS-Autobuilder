@@ -61,7 +61,7 @@ function applyModifications(db, func, max_loops) {
             if (db.cs[m.uuid]) {
                 let result = {};
                 _.forIn(rules.component_positions, (value, key) => {
-                    result[key] = _.filter(db.cs[m.uuid], value.indexOf(c.name) >= 0);
+                    result[key] = _.filter(db.cs[m.uuid], () => value.indexOf(c.name) >= 0);
                 });
                 aers.log(result);
 
