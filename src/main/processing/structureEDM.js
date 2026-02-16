@@ -61,7 +61,6 @@ function structureEDM(arr, children = {}) {
             block: "gridCol",
             uuid: child.uuid,
             padding: child.padding,
-            width: child.column_width,
             children: [item]
         };
         // conditions for grouping
@@ -104,6 +103,7 @@ function structureEDM(arr, children = {}) {
             nav_label: "block_column",
             uuid: child.uuid,
             vertical_align: "top",
+            width: child.column_width,
             children: [item]
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
