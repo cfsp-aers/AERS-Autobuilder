@@ -151,7 +151,9 @@ function formatUserInput(string) {
     function correctSpelling(string) {
         let correctedString = string;
         correctedString = correctedString.replaceAll("color", "colour");
-        correctedString = correctedString.replaceAll("bg:", "background-colour:");
+        correctedString = correctedString.replaceAll("bg:", "background:");
+        correctedString = correctedString.replaceAll("background-colour:", "background:");
+        correctedString = correctedString.replaceAll("bg-colour:", "background:");
         correctedString = correctedString.replaceAll("_p:", "palette:");
         return correctedString.toLowerCase();
     }
