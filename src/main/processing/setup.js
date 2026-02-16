@@ -115,7 +115,7 @@ function getUserSettings(object) {
 }
 
 function formatUserInput(string) {
-    aers.log(`...Formatting User Input\n`);
+    //aers.log(`...Formatting User Input\n`);
     let result = {
         info: {
             Process: "formatUserInput: Formats user settings and styling",
