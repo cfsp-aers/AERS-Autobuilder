@@ -399,6 +399,11 @@ margin: auto 8px;
 </tbody>
 </table>
 </div>
+{% if content[0].debug == true %}
+{% set show_blocks = true %}
+{% else %}
+{% set show_blocks = false %}
+{% endif %}
 
 {% macro renderElement(object, depth) %}
 {% set currentDepth = depth or 0 %}
@@ -434,7 +439,6 @@ margin: auto 8px;
 {% endmacro %}
 
 {% for element in content %}
-{% if element.debug == true %}{% set show_blocks = true %}{% endif %}
 {% if element.type == "fragment" %}
 {% include 'fragments/' + element.brand + '/' + element.name + '.njk' ignore missing   %}
 {% else %}
