@@ -281,7 +281,7 @@ function start_new_group_container(child, prev) {
     return false;
 }
 function start_new_structure(child, prev) {
-    if (child.dynamic_content?.split("/")[0] != prev.dynamic_content?.split("/")[0]) return true;
+    if (child.dynamicContent?.split("/")[0] != prev.dynamicContent?.split("/")[0]) return true;
 
     return false;
 }

@@ -56,7 +56,7 @@ function formatProperties(item) {
         height: item.height || null,
         width: item.width || null,
         // ~~ other ~~
-        dynamic_content: item.dynamicContent ? item.dynamicContent.replaceAll(" ", "_") : null,
+        dynamicContent: item.dynamicContent ? item.dynamicContent.replaceAll(" ", "_") : null,
         user_settings: item.user_settings || {}
     };
 

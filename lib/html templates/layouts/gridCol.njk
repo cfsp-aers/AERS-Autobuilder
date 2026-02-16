@@ -1,4 +1,4 @@
 
-<td name="{{ element.name }}" class="acr-grid-column" style="{% if element.column_width %}width: {{ element.column_width }};{% endif %} vertical-align:{{ element.vertical_align or "middle" }}; padding: {{ element.padding or "0px" }};{% if element.mobile_stack == false %}display: table-cell !important;{% endif %}"> 
+<td name="{{ element.name }}" class="acr-grid-column" style="{% if element.width %}width: {{ element.width }};{% endif %} vertical-align:{{ element.vertical_align or "middle" }}; padding: {{ element.padding or "0px" }};{% if element.mobile_stack == false %}display: table-cell !important;{% endif %}"> 
 {{ renderElement(element, currentDepth + 1) }}
 </td>
