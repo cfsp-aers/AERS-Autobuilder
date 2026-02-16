@@ -9,7 +9,9 @@ const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 
 function setComponents(position, content) {
-    const children = _.filter(content, (c) => c.position == position || position == "all");
+    //const children = _.filter(content, (c) => c.position == position || position == "all");
+
+    const children = content[position] ? content[position] : [];
 
     const result = children.reduce((acc, component, index) => {
         // SET BUTTON GROUPS

@@ -36,7 +36,7 @@ function structureEDM(arr, children = {}) {
         });
         aers.log(c_pos);
         m.transition = _.trimStart(prev.background, "#");
-        m.children = [internal_layout(m, children[m.uuid])];
+        m.children = [internal_layout(m, c_pos, c_pos.length == 0 ? true : false)];
 
         if (m.depth == 2) {
             return {
