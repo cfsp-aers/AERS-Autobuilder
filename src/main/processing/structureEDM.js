@@ -32,6 +32,7 @@ function structureEDM(arr, children = {}) {
         let c_pos = {};
         _.forIn(component_positions, (value, key) => {
             c_pos[key] = _.filter(children[m.uuid], (c) => value.indexOf(c.name) >= 0);
+            if (c_pos[key].length == 0) delete c_pos[key];
         });
         aers.log(c_pos);
         m.transition = _.trimStart(prev.background, "#");
