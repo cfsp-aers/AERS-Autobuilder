@@ -281,6 +281,7 @@ function start_new_group_container(child, prev) {
     return false;
 }
 function start_new_structure(child, prev) {
+    aers.log(child.dynamicContent?.split("/"), prev.dynamicContent?.split("/"));
     if (child.dynamicContent?.split("/")[0] != prev.dynamicContent?.split("/")[0]) return true;
 
     return false;
