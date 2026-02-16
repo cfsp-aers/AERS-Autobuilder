@@ -30,7 +30,7 @@ function structureEDM(arr, children = {}) {
         const { internal_layout, component_positions } = load(user_files, rules_location);
 
         let c_pos = {};
-        _.forIn(rules.c_pos, (value, key) => {
+        _.forIn(component_positions, (value, key) => {
             c_pos[key] = _.filter(children[m.uuid], (c) => value.indexOf(c.name) >= 0);
         });
         aers.log(c_pos);
