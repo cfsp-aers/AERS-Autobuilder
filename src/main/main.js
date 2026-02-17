@@ -3,7 +3,7 @@ const _ = require("lodash");
 const fs = require("fs");
 const path = require("node:path");
 const clone = require("git-clone");
-const aers_log = require("./utils/aers_logging.js");
+//const aers_log = require("./utils/aers_logging.js");
 
 const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = require("./constants.js");
 const { load } = require("./utils/load.js");
