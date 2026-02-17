@@ -10,6 +10,13 @@ const { load } = require("./utils/load.js");
 console.log("entered main");
 console.info("info message");
 console.warn("warning message");
+console.table({
+    key1: "value1",
+    key2: "value2",
+    key3: "value3",
+    key4: "value4",
+    key5: "value5"
+});
 
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
