@@ -5,7 +5,7 @@ const { load } = require("../../../src/main/utils/load.js");
 const { app_dir, user_files } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
-const aers_log = require("./utils/aers_logging.js");
+//const aers_log = require("./utils/aers_logging.js");
 
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
