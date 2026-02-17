@@ -11,11 +11,41 @@ console.log("entered main");
 console.info("info message");
 console.warn("warning message");
 console.table({
-    key1: "value1",
-    key2: "value2",
-    key3: "value3",
-    key4: "value4",
-    key5: "value5"
+    obj1: {
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+        key4: "value4",
+        key5: "value5"
+    },
+    obj2: {
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+        key4: "value4",
+        key5: "value5"
+    },
+    obj3: {
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+        key4: "value4",
+        key5: "value5"
+    },
+    obj4: {
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+        key4: "value4",
+        key5: "value5"
+    },
+    obj5: {
+        key1: "value1",
+        key2: "value2",
+        key3: "value3",
+        key4: "value4",
+        key5: "value5"
+    }
 });
 
 function buildEmails() {
