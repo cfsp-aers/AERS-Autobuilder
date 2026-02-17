@@ -11,8 +11,6 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 const { moduleTargets, componentTargets } = load(app_dir, "main/systems/stylingSystem.js");
 const { formatSpacingToArray, formatSpacingToString, updateSpacing } = load(app_dir, "main/properties/spacing.js");
 
-console.log("applying mods");
-
 function applyModifications(db, func, max_loops) {
     let loops = 0;
 
