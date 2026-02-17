@@ -10,11 +10,12 @@ const { load } = require("./utils/load.js");
 
 let mainWindow;
 
-function setupLogInMain(win) {
+function setupLog(win) {
     mainWindow = win;
+    aers_logging.setupLog(mainWindow);
 }
 
-console.log = aers_log.log(mainWindow);
+console.log = aers_log.log();
 
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
@@ -367,5 +368,5 @@ function buildEmails() {
 
 module.exports = {
     buildEmails: buildEmails,
-    setupLogInMain: setupLogInMain
+    setupLog: setupLog
 };
