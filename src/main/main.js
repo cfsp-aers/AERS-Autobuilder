@@ -7,47 +7,6 @@ const clone = require("git-clone");
 const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = require("./constants.js");
 const { load } = require("./utils/load.js");
 
-console.log("entered main");
-console.info("info message");
-console.warn("warning message");
-console.table({
-    obj1: {
-        key1: "value1",
-        key2: "value2",
-        key3: "value3",
-        key4: "value4",
-        key5: "value5"
-    },
-    obj2: {
-        key1: "value1",
-        key2: "value2",
-        key3: "value3",
-        key4: "value4",
-        key5: "value5"
-    },
-    obj3: {
-        key1: "value1",
-        key2: "value2",
-        key3: "value3",
-        key4: "value4",
-        key5: "value5"
-    },
-    obj4: {
-        key1: "value1",
-        key2: "value2",
-        key3: "value3",
-        key4: "value4",
-        key5: "value5"
-    },
-    obj5: {
-        key1: "value1",
-        key2: "value2",
-        key3: "value3",
-        key4: "value4",
-        key5: "value5"
-    }
-});
-
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
     const util = load(app_dir, "main/utils/style utilities.js");
