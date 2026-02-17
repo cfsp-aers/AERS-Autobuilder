@@ -1,9 +1,15 @@
-function logToRenderer(window, message) {
+let mainWindow;
+
+function setupLog(log_window) {
+    mainWindow ??= logWindow;
+}
+
+function logToRenderer(window = mainWindow, message) {
     window.webContents.send("main-log", message);
 }
 
 const log =
-    (window) =>
+    (window = mainWindow) =>
     (...args) => {
         if (window != undefined) logToRenderer(window, args.join(" "));
     };
