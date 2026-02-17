@@ -9,7 +9,7 @@ const { load } = require("./utils/load.js");
 
 console.log("entered main");
 console.info("info message");
-console.warning("warning message");
+console.warn("warning message");
 
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
