@@ -10,6 +10,10 @@ const { load } = require("./utils/load.js");
 
 aers_log.log("entered remote main process");
 
+function setupLogInMain(mainWindow) {
+    aers_log.setupLog(mainWindow);
+}
+
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
     const util = load(app_dir, "main/utils/style utilities.js");
@@ -360,5 +364,6 @@ function buildEmails() {
         */
 
 module.exports = {
-    buildEmails: buildEmails
+    buildEmails: buildEmails,
+    setupLogInMain: setupLogInMain
 };
