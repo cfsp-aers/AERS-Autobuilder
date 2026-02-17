@@ -1,7 +1,7 @@
 let mainWindow;
 
 function setupLog(log_window) {
-    mainWindow ??= logWindow;
+    mainWindow ??= log_window;
 }
 
 function logToRenderer(window = mainWindow, message) {
