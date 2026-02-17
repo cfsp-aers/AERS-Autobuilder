@@ -13,9 +13,8 @@ let mainWindow;
 function setupLog(win) {
     mainWindow = win;
     aers_log.setupLog(mainWindow);
+    console.log = aers_log.log(mainWindow);
 }
-
-console.log = aers_log.log();
 
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
