@@ -14,6 +14,8 @@ const { formatSpacingToArray, formatSpacingToString, updateSpacing } = load(app_
 function applyModifications(db, func, max_loops) {
     let loops = 0;
 
+    console.log(loops);
+
     while (loops < max_loops) {
         db.ms.forEach((m, i) => {
             m.user_settings ??= {};
