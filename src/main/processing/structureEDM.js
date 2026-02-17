@@ -282,9 +282,7 @@ function start_new_group_container(child, prev) {
 }
 */
 function start_new_structure(child, prev) {
-    aers.log(child.dynamicContent?.split("/"), prev.dynamicContent?.split("/"));
     if (child.dynamicContent?.split("/")[0] != prev.dynamicContent?.split("/")[0]) {
-        aers.log("new structure");
         return true;
     }
 
