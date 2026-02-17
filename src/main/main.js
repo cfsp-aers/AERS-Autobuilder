@@ -12,7 +12,7 @@ let mainWindow;
 
 function setupLog(win) {
     mainWindow = win;
-    aers_logging.setupLog(mainWindow);
+    aers_log.setupLog(mainWindow);
 }
 
 console.log = aers_log.log();
