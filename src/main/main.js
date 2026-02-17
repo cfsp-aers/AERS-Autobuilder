@@ -357,6 +357,5 @@ function buildEmails() {
         */
 
 module.exports = {
-    buildEmails: buildEmails,
-    setupLog: setupLog
+    buildEmails: buildEmails
 };
