@@ -16,5 +16,6 @@ const log =
 
 module.exports = {
     log: log,
-    logToRenderer: logToRenderer
+    logToRenderer: logToRenderer,
+    setupLog: setupLog
 };
