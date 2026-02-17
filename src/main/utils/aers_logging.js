@@ -17,6 +17,7 @@ const log = (...args) => {
 
 module.exports = {
     log: log,
+    setupLog: setupLog,
     logToRenderer: logToRenderer,
     originalLog: originalLog
 };
