@@ -12,7 +12,7 @@ margin:{{ element.margin or "0px auto" }}; max-width: {% if element.background %
 <![endif]-->
 <div class="text-container {{ element.text_size_class }}" contenteditable="true">
 <div style="font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height or "100%" }}; font-family: '{{ element.font or "Outfit" }}', Arial, sans-serif; color: {{ element.colour or "#000000" }}; text-align: {{ element.text_align or element.align or "center" }}; font-weight: {{ element.font_weight or "normal" }}; font-style: normal;">
-{{ element.content | nl2br }}
+{{ element.content | nl2br | safe }}
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
