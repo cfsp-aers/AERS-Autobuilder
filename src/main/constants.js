@@ -6,7 +6,7 @@ const app_dir = path.resolve(path.join(__dirname, "../"));
 
 const user_files = path.resolve(path.join(__dirname, "../../lib"));
 
-const REQUIRED_DATA = JSON.parse(fs.readFileSync(path.join(app_dir, "../src/REQUIRED_DATA.json"), { encoding: "UTF-8" }));
+const REQUIRED_DATA = JSON.parse(fs.readFileSync(path.join(app_dir, "./src/REQUIRED_DATA.json"), { encoding: "UTF-8" }));
 
 console.log("const req_dat", REQUIRED_DATA);
 
