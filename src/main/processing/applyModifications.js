@@ -35,6 +35,10 @@ function applyModifications(db, func, max_loops) {
                             if (key == "lock") {
                                 overwrite === true ? (target_module.locked_settings = value) : (target_module.locked_settings ??= value);
                             } else {
+                                if (key.includes("[")) {
+                                    component_name_list = JSON.parse(key);
+                                    console.log("c_name_list", component_name_list);
+                                }
                                 const i_list = key.includes("/") ? formatIndices(key.split("/")[1]) : ["all"];
                                 const component_name = key.includes("/") ? key.split("/")[0] : key;
                                 const valid_components = _.filter(db.cs[target_module.uuid], (c) => c.name == component_name || component_name == "components") || {};
