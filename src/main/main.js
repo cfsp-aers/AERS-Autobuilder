@@ -52,6 +52,8 @@ function buildEmails() {
 
     aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${AERS_FILES_LOCATION}\n---`, `BRIEF_PARENT_FOLDER | -> ${BRIEF_PARENT_FOLDER}\n---`, `BRIEF_LOCATION | -> ${BRIEF_LOCATION}\n---`, `OUTPUT_LOCATION | -> ${OUTPUT_LOCATION}\n---`, `SELECTED_SHEETS | -> [ ${SELECTED_SHEETS} ]`, `~~~~~~~~~~~~~~~`);
 
+    console.log(BRIEF_LOCATION);
+
     let wb = XLSX.readFile(BRIEF_LOCATION);
 
     console.log("marker 4");
