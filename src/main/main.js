@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("node:path");
 const clone = require("git-clone");
 
-const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = require("./constants.js");
+const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = load(__dirname, "./constants.js");
 const { load } = require("./utils/load.js");
 
 function buildEmails() {
@@ -51,8 +51,6 @@ function buildEmails() {
     console.log("marker 3");
 
     aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${AERS_FILES_LOCATION}\n---`, `BRIEF_PARENT_FOLDER | -> ${BRIEF_PARENT_FOLDER}\n---`, `BRIEF_LOCATION | -> ${BRIEF_LOCATION}\n---`, `OUTPUT_LOCATION | -> ${OUTPUT_LOCATION}\n---`, `SELECTED_SHEETS | -> [ ${SELECTED_SHEETS} ]`, `~~~~~~~~~~~~~~~`);
-
-    console.log(BRIEF_LOCATION);
 
     let wb = XLSX.readFile(BRIEF_LOCATION);
 
