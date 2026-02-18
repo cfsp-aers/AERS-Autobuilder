@@ -4,8 +4,10 @@ const fs = require("fs");
 const path = require("node:path");
 const clone = require("git-clone");
 
-const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = load(__dirname, "./constants.js");
+const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = require("./constants.js");
 const { load } = require("./utils/load.js");
+
+console.log(__dirname);
 
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
