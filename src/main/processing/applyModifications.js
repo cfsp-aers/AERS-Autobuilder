@@ -37,7 +37,7 @@ function applyModifications(db, func, max_loops) {
                             } else {
                                 if (key.includes("[")) {
                                     //const component_name_list = JSON.parse(key);
-                                    console.log(key, JSON.parse("[1, 2, 3]"), JSON.parse(key));
+                                    console.log(key, JSON.parse("[1, 2, 3]"), JSON.parse(JSON.stringify(key)));
                                 } else {
                                     const i_list = key.includes("/") ? formatIndices(key.split("/")[1]) : ["all"];
                                     const component_name = key.includes("/") ? key.split("/")[0] : key;
