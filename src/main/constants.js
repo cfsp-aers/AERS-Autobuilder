@@ -8,6 +8,8 @@ const user_files = path.resolve(path.join(__dirname, "../../lib"));
 
 const REQUIRED_DATA = JSON.parse(fs.readFileSync(path.join(app_dir, "../src/REQUIRED_DATA.json"), { encoding: "UTF-8" }));
 
+console.log("const req_dat", REQUIRED_DATA);
+
 const { BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS } = REQUIRED_DATA;
 
 const AERS_FILES_LOCATION = path.resolve(path.join(BRIEF_PARENT_FOLDER, "AERS files"));
