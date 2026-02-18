@@ -8,8 +8,6 @@ const { load } = require("./utils/load.js");
 
 const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = load(__dirname, "constants.js");
 
-console.log(__dirname);
-
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");
     const util = load(app_dir, "main/utils/style utilities.js");
@@ -54,6 +52,9 @@ function buildEmails() {
     console.log("marker 3");
 
     aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${AERS_FILES_LOCATION}\n---`, `BRIEF_PARENT_FOLDER | -> ${BRIEF_PARENT_FOLDER}\n---`, `BRIEF_LOCATION | -> ${BRIEF_LOCATION}\n---`, `OUTPUT_LOCATION | -> ${OUTPUT_LOCATION}\n---`, `SELECTED_SHEETS | -> [ ${SELECTED_SHEETS} ]`, `~~~~~~~~~~~~~~~`);
+
+    console.log("marker3.5");
+    console.log(BRIEF_LOCATION);
 
     let wb = XLSX.readFile(BRIEF_LOCATION);
 
