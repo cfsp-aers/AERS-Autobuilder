@@ -36,7 +36,7 @@ function applyModifications(db, func, max_loops) {
                                 overwrite === true ? (target_module.locked_settings = value) : (target_module.locked_settings ??= value);
                             } else {
                                 if (key.includes("[")) {
-                                    const component_name_list = JSON.parse(key);
+                                    const component_name_list = _.toArray(key);
                                     console.log(component_name_list);
                                 } else {
                                     const i_list = key.includes("/") ? formatIndices(key.split("/")[1]) : ["all"];
