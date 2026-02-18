@@ -37,7 +37,14 @@ function applyModifications(db, func, max_loops) {
                             } else {
                                 if (key.includes("[")) {
                                     const component_name_list = key.split(",").map((k) => _.trim(k, "[ ]"));
-                                    console.log(component_name_list);
+                                    component_name_list.forEach((item) => {
+                                        const i_list = item.includes("/") ? formatIndices(item.split("/")[1]) : ["all"];
+                                        const component_name = item.includes("/") ? item.split("/")[0] : item;
+                                        const valid_components = _.filter(db.cs[target_module.uuid], (c) => c.name == component_name || component_name == "components") || {};
+                                        valid_components.forEach((c, index) => {
+                                            if (i_list.indexOf(index) >= 0 || i_list[0] == "all") update(c, value, overwrite);
+                                        });
+                                    });
                                 } else {
                                     const i_list = key.includes("/") ? formatIndices(key.split("/")[1]) : ["all"];
                                     const component_name = key.includes("/") ? key.split("/")[0] : key;
