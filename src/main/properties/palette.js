@@ -45,7 +45,6 @@ function setPalette(item, user = {}, parent = {}) {
         item.palette = user.palette ? user.palette : item.palette || "default";
     }
     item.background = user.background ? user.background : item.background || null;
-    if (item.name == "text block") console.log("text block bg:", item.background);
     item.colour = user.colour ? user.colour : item.colour || null;
 
     let active_palette;
