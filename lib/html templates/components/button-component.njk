@@ -30,10 +30,10 @@ margin:0px;
 max-width:100%;
 display:inline-block;
 border-image:initial;
-{%-if element.border_top-%}border-top:3px solid {{ element.border_top }}; {% endif %}
-{%-if element.border_right-%}border-right:3px solid {{ element.border_right }}; {% endif %}
-{%-if element.border_bottom-%}border-bottom:3px solid {{ element.border_bottom }}; {% endif %}
-{%-if element.border_left-%}border-left:3px solid {{ element.border_left }}; {% endif %}
+{%- if element.border_top -%}border-top:3px solid {{ element.border_top }}; {% endif %}
+{%- if element.border_right -%}border-right:3px solid {{ element.border_right }}; {% endif %}
+{%- if element.border_bottom -%}border-bottom:3px solid {{ element.border_bottom }}; {% endif %}
+{%- if element.border_left -%}border-left:3px solid {{ element.border_left }}; {% endif %}
 background-color: {{ element.background or "transparent" }};
 border-radius:{{ element.border_radius or "64px" }};
 {%-if element.height %}height:{{ element.height or "auto" }}; {% endif %}
