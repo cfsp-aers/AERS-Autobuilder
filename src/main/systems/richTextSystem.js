@@ -9,10 +9,6 @@ const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 
 function formatRichText(item, text) {
-    if (text.includes("^")) {
-        item.content = item.content.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
-    }
-
     if (item.entity_type != "component" || text == undefined) {
         return item;
     } else if (item.type == "button") {
