@@ -78,7 +78,10 @@ function formatRichText(item, text) {
 }
 
 function insertRichText(c) {
-    if (c.text_segments.length == 0) {
+    if (_.isEmpty(c.text_segments)) {
+        console.log(c);
+        return c;
+    } else if (c.text_segments.length == 0) {
         console.log(c);
         return c;
     } else {
