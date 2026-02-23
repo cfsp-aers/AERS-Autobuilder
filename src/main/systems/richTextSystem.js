@@ -46,8 +46,8 @@ function formatRichText(item, text) {
         } else {
             contentObject.text = String(segment[1]).trim();
 
-            if (text.includes("^")) {
-                item.content = item.content.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
+            if (contentObject.text.includes("^")) {
+                contentObject.text = contentObject.text.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
             }
         }
         item.content = item.content.replace(segment[0], segment[1]);
