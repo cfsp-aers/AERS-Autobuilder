@@ -79,6 +79,8 @@ function formatRichText(item, text) {
 
 function insertRichText(c) {
     if (_.isEmpty(c.text_segments)) {
+        return c;
+    } else if (c.text_segments.length == 0) {
         if (typeof c.content == "string") {
             if (c.content.includes("\\")) {
                 c.content = c.content.replaceAll(/\\(.)/g, "$1");
@@ -87,8 +89,7 @@ function insertRichText(c) {
             }
         }
         return c;
-    } else if (c.text_segments.length == 0) return c;
-    else {
+    } else {
         c.text_segments.forEach((segment) => {
             let text_template;
             if (segment.properties.href) {
