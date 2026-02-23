@@ -37,7 +37,6 @@ function structureEDM(arr, children = {}) {
         });
 
         m.transition = _.trimStart(prev.background, "#");
-        m.transition_id = id_lib.transition_ids?.[m.transition];
         m.children = [internal_layout(m, c_pos)];
 
         if (m.depth == 2) {
@@ -148,6 +147,7 @@ function structureEDM(arr, children = {}) {
             background: child.background,
             padding: child.block_padding,
             transition: _.trimStart(_.last(acc)?.background, "#"),
+            transition_id: id_lib.transition_ids?.[child.transition],
             placeholder_component: child.dynamic_content?.split("/")[1] == "x" ? true : false,
             children: [item]
         };
