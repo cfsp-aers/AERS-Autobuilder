@@ -177,7 +177,6 @@
         "type": "image"
       }
     },
-
     "button": {
       "valid names": ["button", "btn", "cta"],
       "properties": {
@@ -186,6 +185,7 @@
       }
     }
   },
+
   "transition_ids": {
     "#000000": "urn:aaid:aem:c8802fe9-badd-46fd-999d-e694a28abadc",
     "#001939": "urn:aaid:aem:e9c3ea7f-c52e-46ec-8dbb-6fd5aa07438e",
