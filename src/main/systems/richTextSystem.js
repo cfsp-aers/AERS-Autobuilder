@@ -45,11 +45,6 @@ function formatRichText(item, text) {
             contentObject.text = String(item.name).trim();
         } else {
             contentObject.text = String(segment[1]).trim();
-
-            if (contentObject.text.includes("^")) {
-                contentObject.text = contentObject.text.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
-                item.content = item.content.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
-            }
         }
         item.content = item.content.replace(segment[0], segment[1]);
 
@@ -97,6 +92,9 @@ function insertRichText(c) {
 
             c.content = c.content.replaceAll(segment.text, text_template);
         });
+        if (c.content.includes("^")) {
+            c.content = c.content.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
+        }
 
         return c;
     }
