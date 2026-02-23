@@ -1,7 +1,7 @@
 <tr>
-{%- if element.innerLayout == "single_column" -%}
-{%- include 'layouts/gridCol.njk' -%}
-{%- else -%}
+{%-if element.innerLayout == "single_column"-%}
+{%-include 'layouts/gridCol.njk'-%}
+{%-else-%}
 {{ renderElement(element, currentDepth + 1) }}
-{%- endif -%}
+{%-endif-%}
 </tr>

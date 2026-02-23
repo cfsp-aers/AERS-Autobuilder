@@ -399,52 +399,52 @@ margin: auto 8px;
 </tbody>
 </table>
 </div>
-{%- if content[0].debug == true -%}
-{%- set show_blocks = true -%}
-{%- else -%}
-{%- set show_blocks = false -%}
-{%- endif -%}
+{%-if content[0].debug == true-%}
+{%-set show_blocks = true-%}
+{%-else-%}
+{%-set show_blocks = false-%}
+{%-endif-%}
 
-{%- macro renderElement(object, depth) -%}
-{%- set currentDepth = depth or 0 -%}
-{%- if currentDepth > 50 -%}
-{%- else -%}
-    {%- for element in object.children -%}
-        {%- if element.children.length == 0 -%}
-        {%- elif element.ignore -%}
+{%-macro renderElement(object, depth)-%}
+{%-set currentDepth = depth or 0-%}
+{%-if currentDepth > 50-%}
+{%-else-%}
+    {%-for element in object.children-%}
+        {%-if element.children.length == 0-%}
+        {%-elif element.ignore-%}
             {{ renderElement(element, currentDepth + 1) }}
-        {%- elif element.block -%}
-                {%- if element.transition -%}
-                    {%- include 'components/transition-component.njk' -%}
-                {%- endif -%}
-                {%- if element.placeholder_component -%}
-                    {%- include 'components/placeholder-component.njk' -%}
-                {%- endif -%}
-            {%- include 'layouts/' + element.block + '.njk'  ignore missing -%}
-        {%- elif element.entity_type == "component" -%}
-            {%- if element.type == "image" -%}
-                {%- include 'components/image-component.njk' -%}
-            {%- elif element.type == "button" -%}
-                {%- include 'components/button-component.njk' -%}
-            {%- elif element.placeholder_component -%}
-                {%- include 'components/placeholder-component.njk' -%}
-            {%- else -%}
-                {%- include 'components/text-component.njk' -%}
-            {%- endif -%}
-        {%- else -%}
+        {%-elif element.block-%}
+                {%-if element.transition-%}
+                    {%-include 'components/transition-component.njk'-%}
+                {%-endif-%}
+                {%-if element.placeholder_component-%}
+                    {%-include 'components/placeholder-component.njk'-%}
+                {%-endif-%}
+            {%-include 'layouts/' + element.block + '.njk'  ignore missing-%}
+        {%-elif element.entity_type == "component"-%}
+            {%-if element.type == "image"-%}
+                {%-include 'components/image-component.njk'-%}
+            {%-elif element.type == "button"-%}
+                {%-include 'components/button-component.njk'-%}
+            {%-elif element.placeholder_component-%}
+                {%-include 'components/placeholder-component.njk'-%}
+            {%-else-%}
+                {%-include 'components/text-component.njk'-%}
+            {%-endif-%}
+        {%-else-%}
             {{ renderElement(element, currentDepth + 1) }}
-        {%- endif -%}
-    {%- endfor -%}
-{%- endif -%}
-{%- endmacro -%}
+        {%-endif-%}
+    {%-endfor-%}
+{%-endif-%}
+{%-endmacro-%}
 
-{%- for element in content -%}
-{%- if element.type == "fragment" -%}
-{%- include 'fragments/' + element.brand + '/' + element.name + '.njk' ignore missing   -%}
-{%- else -%}
-{%- include 'structure.njk' -%}
-{%- endif -%}
-{%- endfor -%}
+{%-for element in content-%}
+{%-if element.type == "fragment"-%}
+{%-include 'fragments/' + element.brand + '/' + element.name + '.njk' ignore missing  -%}
+{%-else-%}
+{%-include 'structure.njk'-%}
+{%-endif-%}
+{%-endfor-%}
 
 
 </div>

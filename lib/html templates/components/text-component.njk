@@ -4,7 +4,7 @@
 <td style="padding:{{ element.margin or element.padding  or "0px" }};" >
 <![endif]-->
 <div name="{{ element.id }}" class="acr-fragment acr-component" data-component-id="text" style="padding: {{ element.padding or "0px" }};
-margin:{{ element.margin or "0px auto" }}; max-width: {%- if element.background -%} max-content{%- else -%}100%{%- endif -%}; background-color: {{ element.background or "transparent" }}; border-radius: {{ element.border_radius or "0px" }}; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" contenteditable="false"  data-has-ext-mso-hack="true" data-has-int-mso-hack="true">
+margin:{{ element.margin or "0px auto" }}; max-width: {%-if element.background-%} max-content{%-else-%}100%{%-endif-%}; background-color: {{ element.background or "transparent" }}; border-radius: {{ element.border_radius or "0px" }}; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" contenteditable="false"  data-has-ext-mso-hack="true" data-has-int-mso-hack="true">
 <!--[if mso]>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
