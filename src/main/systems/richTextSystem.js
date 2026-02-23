@@ -66,6 +66,9 @@ function formatRichText(item, text) {
                 case i.toLowerCase().includes("bold"):
                     contentObject.properties["font_weight"] = i.toLowerCase();
                     break;
+                case i.toLowerCase().includes("normal"):
+                    contentObject.properties["font_weight"] = i.toLowerCase();
+                    break;
                 case i.toLowerCase().includes("italic"):
                     contentObject.properties["font_style"] = i.toLowerCase();
                     break;
