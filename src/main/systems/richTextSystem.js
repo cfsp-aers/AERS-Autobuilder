@@ -92,7 +92,9 @@ function insertRichText(c) {
 
             c.content = c.content.replaceAll(segment.text, text_template);
         });
-        if (c.content.includes("^")) {
+        if (c.content.includes("\\")) {
+            c.content = c.content.replaceAll(/\\(.)/g, "$1");
+        } else if (c.content.includes("^")) {
             c.content = c.content.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
         }
 
