@@ -22,10 +22,10 @@ data-contenteditable="false">
 <a href="{{ element.content.href }}" class="arc-link" style="text-decoration:none;">
 <div class="button-container aers-clickable"
 style="width:{{ element.width or "auto" }};text-align:center;margin:0px;max-width:100%;display:inline-block;
-{% if element.border_top %}border-right:3px solid {{ element.border_top or element.background or "#000000" }};{% endif %}
+{% if element.border_top %}border-top:3px solid {{ element.border_top or element.background or "#000000" }};{% endif %}
 {% if element.border_right %}border-right:3px solid {{ element.border_right or element.background or "#000000" }};{% endif %}
-{% if element.border_bottom %}border-right:3px solid {{ element.border_bottom or element.background or "#000000" }};{% endif %}
-{% if element.border_left %}border-right:3px solid {{ element.border_left or element.background or "#000000" }};{% endif %}
+{% if element.border_bottom %}border-bottom:3px solid {{ element.border_bottom or element.background or "#000000" }};{% endif %}
+{% if element.border_left %}border-left:3px solid {{ element.border_left or element.background or "#000000" }};{% endif %}
 border-image:initial;border-radius:{{ element.border_radius or "64px" }};height:{{ element.height or "auto" }};background-color:{% if element.no_bg %}none{%else%}{{ element.background or "#000000" }}{%endif%};padding:{{ element.inner_padding or "8px 16px" }};"
 data-contenteditable="true">
 <span
