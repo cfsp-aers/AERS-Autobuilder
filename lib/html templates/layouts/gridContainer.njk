@@ -14,9 +14,9 @@ border: solid 1px rgba(79, 227, 81, 0.25);
 <tbody>
 {%-if element.innerLayout == "single_row"-%}
 {%-include 'layouts/gridRow.njk'-%}
-{%-else-%}
-{{ renderElement(element, currentDepth + 1) }}
-{%-endif-%}
+{%-else %}
+{{- renderElement(element, currentDepth + 1) -}}
+{% endif-%}
 </tbody></table>
 <!--[if mso]></td></tr></table><![endif]-->
 </div>
