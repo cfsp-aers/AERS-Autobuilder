@@ -90,6 +90,7 @@ function setBasicProperties(object, header = {}) {
             default:
                 break;
         }
+        object.dynamicContent ??= object.versions;
         object.dynamicContent ??= object.inVersions;
     }
     //object.brand = object.brand ? object.brand.toLowerCase() : setBrand(object.brand, header.brand);
