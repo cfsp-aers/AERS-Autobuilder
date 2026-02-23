@@ -28,9 +28,9 @@ style="text-align:center;margin:0px;max-width:100%;display:inline-block;border-i
 {%- if element.border_left -%}border-left:3px solid {{ element.border_left or element.background or "#000000" }}; {%- endif -%}
 {%- if element.background -%}background-color: {{ element.background }}; {%- endif -%}
 {%- if element.border_radius -%}border-radius:{{ element.border_radius or "64px" }}; {%- endif -%}
-height:{{ element.height or "auto" }};
-width:{{ element.width or "auto" }};
-padding:{{ element.inner_padding or "8px 16px" }};"
+height:{{- element.height or "auto" -}};
+width:{{- element.width or "auto" -}};
+padding:{{- element.inner_padding or "8px 16px" -}};"
 data-contenteditable="true">
 <span
 style="mso-color-alt: auto; color:{{ element.colour or "#FFFFFF" }};line-height:{{ element.line_height or "16px" }};font-size:{{ element.font_size or "16px" }};font-weight:{{ element.font_weight or "bold" }};font-style:normal;text-decoration:none;"
