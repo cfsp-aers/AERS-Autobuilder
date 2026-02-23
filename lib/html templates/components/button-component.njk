@@ -24,7 +24,7 @@ data-contenteditable="false">
 style="width:{{ element.width or "auto" }};text-align:center;margin:0px;max-width:100%;display:inline-block;border-top:3px solid {{ element.border_top or element.background or "#000000" }};border-right:3px solid {{ element.border_right or element.background or "#000000" }};border-bottom:3px solid {{ element.border_bottom or element.background or "#000000" }};border-left:3px solid {{ element.border_left or element.background or "#000000" }};border-image:initial;border-radius:{{ element.border_radius or "64px" }};height:{{ element.height or "auto" }};background-color:{% if element.no_bg %}none{%else%}{{ element.background or "#000000" }}{%endif%};padding:{{ element.inner_padding or "8px 16px" }};"
 data-contenteditable="true">
 <span
-style="mso-color-alt: auto; color:{{ element.colour or "#FFFFFF" }};line-height:{{ element.line_height or "18px" }};font-size:{{ element.font_size or "16px" }};font-weight:bold;font-style:normal;text-decoration:none;"
+style="mso-color-alt: auto; color:{{ element.colour or "#FFFFFF" }};line-height:{{ element.line_height or "18px" }};font-size:{{ element.font_size or "16px" }};font-weight:{{ element.font_weight or "bold" }};font-style:normal;text-decoration:none;"
 data-contenteditable="true">
 {{ element.content.text }}
 </span>
