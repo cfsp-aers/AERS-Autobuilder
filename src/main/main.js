@@ -53,7 +53,7 @@ function buildEmails() {
 
     let wb = XLSX.readFile(BRIEF_LOCATION);
 
-    if (wb.Sheets["Offer Library"]) {
+    try {
         const raw_offers = wb.Sheets["Offer Library"];
         aers.delete_row(raw_offers, 1);
         const offer_library = XLSX.utils.sheet_to_json(raw_offers, { raw: false }).map((item) => {
@@ -63,9 +63,11 @@ function buildEmails() {
             });
             return prepared_item;
         });
-    }
-    aers.writeData("offer_library.json", offer_library, false, database);
 
+        aers.writeData("offer_library.json", offer_library, false, database);
+    } catch (e) {
+        console.warn("no offer library sheet found");
+    }
     //
 
     //
