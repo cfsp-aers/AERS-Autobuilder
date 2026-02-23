@@ -53,16 +53,17 @@ function buildEmails() {
 
     let wb = XLSX.readFile(BRIEF_LOCATION);
 
-    const raw_offers = wb.Sheets["Offer Library"];
-    aers.delete_row(raw_offers, 1);
-    const offer_library = XLSX.utils.sheet_to_json(raw_offers, { raw: false }).map((item) => {
-        let prepared_item = {};
-        _.forIn(item, (value, key) => {
-            if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
+    if (wb.Sheets["Offer Library"]) {
+        const raw_offers = wb.Sheets["Offer Library"];
+        aers.delete_row(raw_offers, 1);
+        const offer_library = XLSX.utils.sheet_to_json(raw_offers, { raw: false }).map((item) => {
+            let prepared_item = {};
+            _.forIn(item, (value, key) => {
+                if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
+            });
+            return prepared_item;
         });
-        return prepared_item;
-    });
-
+    }
     aers.writeData("offer_library.json", offer_library, false, database);
 
     //
