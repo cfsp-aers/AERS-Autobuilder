@@ -9,6 +9,7 @@ const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
+const id_lib = load(user_files, "libraries/modules.json");
 
 function structureEDM(arr, children = {}) {
     arr = arr.reduce((acc, o) => {
@@ -36,6 +37,7 @@ function structureEDM(arr, children = {}) {
         });
 
         m.transition = _.trimStart(prev.background, "#");
+        m.transition_id = id_lib.transition_ids?.[m.transition];
         m.children = [internal_layout(m, c_pos)];
 
         if (m.depth == 2) {

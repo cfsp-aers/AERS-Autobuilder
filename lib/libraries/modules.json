@@ -185,5 +185,24 @@
         "type": "button"
       }
     }
+  },
+  "transition_ids": {
+    "000000": "urn:aaid:aem:c8802fe9-badd-46fd-999d-e694a28abadc",
+    "001939": "urn:aaid:aem:e9c3ea7f-c52e-46ec-8dbb-6fd5aa07438e",
+    "00A651": "urn:aaid:aem:14645a62-df6a-4e43-bbf9-53024de59c65",
+    "15397F": "urn:aaid:aem:fc1ea4e2-c760-4269-a2ca-50c46809d930",
+    "545454": "urn:aaid:aem:37829886-9fa6-42e6-9613-b50515af577e",
+    "8BC53F": "urn:aaid:aem:3b04ecec-7718-43b7-bf73-50a4934e6ad1",
+    "8F4B9D": "urn:aaid:aem:18ba68c4-189b-4e93-9b8e-24ef0830d659",
+    "C13C27": "urn:aaid:aem:d56bb894-f47a-451d-adbc-dbabfa6d617e",
+    "E6EEEA": "urn:aaid:aem:2412f5dc-f80b-4b13-b445-ced115596e4e",
+    "EDEDED": "urn:aaid:aem:741f91e6-7b47-4231-89f5-32b54605b5bb",
+    "F05842": "urn:aaid:aem:709f7ae6-a77a-4ca8-9571-dc1ab8fb014b",
+    "F3F3F3": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
+    "F4896C": "urn:aaid:aem:b71af8d6-e59e-4b74-a2df-08a8c286df01",
+    "F68B1F": "urn:aaid:aem:d9566f91-8b68-4a97-93ec-8cd57dba3312",
+    "FEC326": "urn:aaid:aem:28f51a94-996b-469a-aa7b-4e9aaa8826f7",
+    "FFF2D4": "urn:aaid:aem:45aa957a-398b-4dcf-a16d-4faa1620cc0f",
+    "FFFFFF": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928"
   }
 }
