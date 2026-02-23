@@ -80,6 +80,13 @@ function formatRichText(item, text) {
 function insertRichText(c) {
     if (_.isEmpty(c.text_segments)) {
         console.log(c);
+        if (typeof c.content == "string") {
+            if (c.content.includes("\\")) {
+                c.content = c.content.replaceAll(/\\(.)/g, "$1");
+            } else if (c.content.includes("^")) {
+                c.content = c.content.replaceAll(/\^(.)/g, '<sup style="line-height: 0px !important;">$1</sup>');
+            }
+        }
         return c;
     } else if (c.text_segments.length == 0) {
         console.log(c);
