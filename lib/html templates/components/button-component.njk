@@ -15,12 +15,7 @@ data-contenteditable="false">
 <tr>
 <td style="mso-line-height-rule:exactly;text-align: {{ element.align or "center" }}; border-radius:{{ element.border_radius or "64px" }};" >
 <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height:{{ element.mso_height or "40px" }}; mso-wrap-style:none; mso-fit-shape-to-text: true; v-text-anchor:middle;" arcsize="50%"
-fillcolor="
-    {%-if element.no_bg-%}
-        none
-    {%-else-%}
-        {{ element.background or "#000000" }}
-    {%-endif-%}"
+fillcolor="{{ element.background or "#000000" }}"
 strokeweight="2pt"
 strokecolor="{{ element.background or "#000000" }}">
 <v:stroke opacity="100%" />
