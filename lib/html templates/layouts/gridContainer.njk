@@ -12,9 +12,9 @@ border: solid 1px rgba(79, 227, 81, 0.25);
 <![endif]--> 
 <table class="acr-grid-table">
 <tbody>
-{%-if element.innerLayout == "single_row"-%}
-{%-include 'layouts/gridRow.njk'-%}
-{%-else %}
+{%-if element.innerLayout == "single_row" %}
+{%- include 'layouts/gridRow.njk' -%}
+{% else %}
 {{- renderElement(element, currentDepth + 1) -}}
 {% endif-%}
 </tbody></table>
