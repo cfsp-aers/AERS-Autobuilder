@@ -34,7 +34,7 @@ border-image:initial;
 {%- if element.border_right -%}border-right:3px solid {{ element.border_right }}; {% endif %}
 {%- if element.border_bottom -%}border-bottom:3px solid {{ element.border_bottom }}; {% endif %}
 {%- if element.border_left -%}border-left:3px solid {{ element.border_left }}; {% endif %}
-background-color: {% if element.mode == "underline" or "outline" %}transparent{% else %}{{ element.background }}{% endif %};
+background-color: {% if element.mode == "default" %}{{ element.background }}{% else %}transparent{% endif %};
 border-radius:{{ element.border_radius or "64px" }};
 {%-if element.height %}height:{{ element.height or "auto" }}; {% endif %}
 width:{{ element.width or "auto" }};
@@ -45,7 +45,6 @@ style="mso-color-alt: auto; color:{{ element.colour or "#FFFFFF" }};
 line-height:{{ element.line_height or "16px" }};
 font-size:{{ element.font_size or "16px" }};font-weight:{{ element.font_weight or "bold" }};font-style:normal;text-decoration:none;"
 data-contenteditable="true">
-{{ element.mode }}
 {{ element.content.text }}
 </span>
 </div>
