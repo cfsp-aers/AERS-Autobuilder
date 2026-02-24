@@ -139,7 +139,7 @@ function structureEDM(arr, children = {}) {
         console.log("block row length : ", item.children.length);
         item.children = item.children.map((block_col, index) => {
             block_col.width = `${_.round(100 / _.toInteger(item.children.length), 4)}%`;
-            block_col.row_index = index;
+            block_col.bc_row_index = index;
             return block_col;
         });
         const child_index = _.findIndex(arr, (m) => m.uuid == item.uuid);
