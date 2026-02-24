@@ -15,7 +15,7 @@ function setGroupingData(arr) {
             children: [{ name: item.name, uuid: item.uuid, max_siblings: item.max_siblings }]
         };
         // conditions for grouping
-        if (index == 0 || item.name != prev.name) acc.push(grouped_item);
+        if (index == 0 || item.name != prev.name || item.dynamicContent != prev.dynamicContent) acc.push(grouped_item);
         else _.last(acc).children.push({ name: item.name, uuid: item.uuid, max_siblings: item.max_siblings });
         return acc;
     }, []);
