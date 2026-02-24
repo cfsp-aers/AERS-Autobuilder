@@ -36,7 +36,8 @@ function structureEDM(arr, children = {}) {
             if (c_pos[key].length == 0) delete c_pos[key];
         });
 
-        m.transition = _.trimStart(prev.background, "#");
+        m.transition = prev.background != m.background ? false : _.trimStart(prev.background, "#");
+
         m.transition_id = id_lib.transition_ids?.[prev.background];
         m.children = [internal_layout(m, c_pos)];
 
