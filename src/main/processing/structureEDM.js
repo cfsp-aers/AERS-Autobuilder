@@ -105,7 +105,7 @@ function structureEDM(arr, children = {}) {
             nav_label: "block_column",
             uuid: child.uuid,
             vertical_align: "top",
-            width: child.column_width,
+            //width: child.column_width,
             children: [item]
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
@@ -137,6 +137,9 @@ function structureEDM(arr, children = {}) {
     // blockContainer
     result = result.reduce((acc, item, index) => {
         console.log("block row length : ", item.children.length);
+        item.children.forEach((block_col) => {
+            block_col.width = `${_.round(100 / _.toInteger(item.children.length), 4)}%`;
+        });
         const child_index = _.findIndex(arr, (m) => m.uuid == item.uuid);
         const child = arr[child_index];
         const prev = arr[child_index - 1] ? arr[child_index - 1] : arr[child_index];
