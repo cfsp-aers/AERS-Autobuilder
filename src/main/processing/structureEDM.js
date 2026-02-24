@@ -137,8 +137,9 @@ function structureEDM(arr, children = {}) {
     // blockContainer
     result = result.reduce((acc, item, index) => {
         console.log("block row length : ", item.children.length);
-        item.children.forEach((block_col) => {
+        item.children = item.children.map((block_col) => {
             block_col.width = `${_.round(100 / _.toInteger(item.children.length), 4)}%`;
+            return block_col;
         });
         const child_index = _.findIndex(arr, (m) => m.uuid == item.uuid);
         const child = arr[child_index];
