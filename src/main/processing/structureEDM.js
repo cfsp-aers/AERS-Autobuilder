@@ -265,6 +265,7 @@ function start_new_block_container(child, prev) {
     if (child.name != prev.name) return true;
     if (child.group_size != prev.group_size) return true;
     if (child.background != prev.background) return true;
+    if (child.dynamicContent?.split("/")[1] != prev.dynamicContent?.split("/")[1]) return true;
     //if (child.row_index == 1) return true;
     return false;
 }
