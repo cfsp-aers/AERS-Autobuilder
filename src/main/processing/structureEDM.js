@@ -261,6 +261,7 @@ function start_new_block_column(child, prev, index) {
     return true;
 }
 function start_new_block_row(child, prev, index) {
+    console.log("block row index", index);
     if (start_new_block_container(child, prev, index)) return true;
     if (child.max_siblings >= index) return true;
     // if (child.row_index == 1) return true;
