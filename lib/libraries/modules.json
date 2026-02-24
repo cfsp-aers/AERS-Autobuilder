@@ -59,6 +59,17 @@
         "depth": 1
       }
     },
+
+    "banner stacked": {
+      "valid names": ["banner stacked", "banner vertical", "banner block"],
+      "properties": {
+        "category": "basic",
+        "type": "block",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+
     "heading": {
       "valid names": ["heading"],
       "properties": {}
