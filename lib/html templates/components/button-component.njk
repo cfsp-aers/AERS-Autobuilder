@@ -37,13 +37,13 @@ border-image:initial;
 background-color: {{ element.background or "transparent" }};
 border-radius:{{ element.border_radius or "64px" }};
 {%-if element.height %}height:{{ element.height or "auto" }}; {% endif %}
-width:{{ element.width or "auto" }};
-padding:{{ element.inner_padding or "8px 16px" }};"
+width:{{ element.width or "100%" }};
+padding:0px;"
 data-contenteditable="true">
 <span
 style="mso-color-alt: auto; color:{{ element.colour or "#FFFFFF" }};
 line-height:{{ element.line_height or "16px" }};
-font-size:{{ element.font_size or "16px" }};font-weight:{{ element.font_weight or "bold" }};font-style:normal;text-decoration:none;"
+font-size:{{ element.font_size or "16px" }};font-weight:{{ element.font_weight or "bold" }};font-style:normal;text-decoration:none; padding: {{ element.inner_padding or "8px 16px" }};"
 data-contenteditable="true">
 {{ element.content.text }}
 </span>
