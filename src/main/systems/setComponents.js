@@ -40,13 +40,12 @@ function setComponents(position, content) {
             }
         } else if (component.type == "image") {
             acc.push({
-                group: "single image",
-                layout: "gridContainer",
+                block: "gridContainer",
                 innerLayout: "single_row",
                 position: component.position || "top",
                 children: [
                     {
-                        layout: "gridCol",
+                        block: "gridCol",
                         margin: "0px",
                         padding: component.padding,
                         children: [component]
