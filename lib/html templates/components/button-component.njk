@@ -37,7 +37,7 @@ border-image:initial;
 background-color: {{ element.background or "transparent" }};
 border-radius:{{ element.border_radius or "64px" }};
 {%-if element.height %}height:{{ element.height or "auto" }}; {% endif %}
-width:{{ element.width or "100%" }};
+width:{{ element.width or "auto" }};
 padding:8px 0px;"
 data-contenteditable="true">
 <span
