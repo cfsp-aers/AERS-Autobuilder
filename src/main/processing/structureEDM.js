@@ -257,7 +257,7 @@ function start_new_block_column(child, prev) {
 }
 function start_new_block_row(child, prev) {
     if (start_new_block_container(child, prev)) return true;
-    if (child.row_index == 1) return true;
+    // if (child.row_index == 1) return true;
     return false;
 }
 function start_new_block_container(child, prev) {
