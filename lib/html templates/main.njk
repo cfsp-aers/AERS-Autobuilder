@@ -412,12 +412,20 @@ margin: auto 8px;
 {%-else-%}
 {%-set show_blocks = false-%}
 {%-endif-%}
+{% set row_count = 0 %}
 
 {%-macro renderElement(object, depth)-%}
 {%-set currentDepth = depth or 0-%}
 {%-if currentDepth > 50-%}
 {%-else-%}
     {%-for element in object.children-%}
+    {% if element.entity_type == "module" %}
+    {% set row_count = row_count + 1 %}
+    {% elif element.name == "block row" %}
+    {% set row_count = 0 %}
+    {% endif %}
+
+    {{ row_count }}
         {%-if element.children.length == 0-%}
         {%-elif element.ignore-%}
             {{ renderElement(element, currentDepth + 1) }}
