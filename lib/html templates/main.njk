@@ -425,7 +425,7 @@ margin: auto 8px;
     {% set row_count = 0 %}
     {% endif %}
 
-    {{ row_count }}
+    {% if row_count > 0 %}{{ row_count }}<br/>{% endif %}
         {%-if element.children.length == 0-%}
         {%-elif element.ignore-%}
             {{ renderElement(element, currentDepth + 1) }}
