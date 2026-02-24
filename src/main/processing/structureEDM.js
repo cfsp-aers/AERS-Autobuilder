@@ -68,7 +68,7 @@ function structureEDM(arr, children = {}) {
         // conditions for grouping
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_module_column(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_module_column(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -89,7 +89,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_module_container(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_module_container(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -110,7 +110,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_block_column(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_block_column(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -129,7 +129,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_block_row(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_block_row(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -161,7 +161,7 @@ function structureEDM(arr, children = {}) {
         else if (prev.hide_transition === true) grouped_item.transition = false;
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_block_container(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_block_container(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -181,7 +181,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_group_column(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_group_column(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -199,7 +199,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_group_row(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_group_row(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -218,7 +218,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_group_container(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_group_container(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -240,7 +240,7 @@ function structureEDM(arr, children = {}) {
         };
         if (child.type == "fragment" || child.fragment == true) acc.push(item);
         else if (prev.type == "fragment" || prev.fragment == true) acc.push(grouped_item);
-        else if (start_new_structure(child, prev, index) === true) acc.push(grouped_item);
+        else if (start_new_structure(child, prev, item) === true) acc.push(grouped_item);
         else _.last(acc).children.push(item);
         return acc;
     }, []);
@@ -249,26 +249,25 @@ function structureEDM(arr, children = {}) {
 
     //aers.updateEntityStore(es);
 }
-function start_new_module_column(child, prev, index) {
+function start_new_module_column(child, prev, item) {
     return true;
 }
-function start_new_module_container(child, prev, index) {
-    if (start_new_block_column(child, prev, index)) return true;
+function start_new_module_container(child, prev, item) {
+    if (start_new_block_column(child, prev, item)) return true;
     return true;
 }
-function start_new_block_column(child, prev, index) {
-    if (start_new_block_row(child, prev, index)) return true;
+function start_new_block_column(child, prev, item) {
+    if (start_new_block_row(child, prev, item)) return true;
     return true;
 }
-function start_new_block_row(child, prev, index) {
-    console.log("block row index", index);
-    if (start_new_block_container(child, prev, index)) return true;
-    if (child.max_siblings >= index) return true;
+function start_new_block_row(child, prev, item) {
+    if (start_new_block_container(child, prev, item)) return true;
+    if (child.max_siblings >= item.children.length) return true;
     // if (child.row_index == 1) return true;
     return false;
 }
-function start_new_block_container(child, prev, index) {
-    if (start_new_structure(child, prev, index)) return true;
+function start_new_block_container(child, prev, item) {
+    if (start_new_structure(child, prev, item)) return true;
     if (child.name != prev.name) return true;
     //if (child.group_size != prev.group_size) return true;
     if (child.background != prev.background) return true;
@@ -277,22 +276,22 @@ function start_new_block_container(child, prev, index) {
     return false;
 }
 /*
-function start_new_group_column(child, prev, index) {
-    //if (start_new_group_row(child, prev, index)) return true;
+function start_new_group_column(child, prev, item) {
+    //if (start_new_group_row(child, prev, item)) return true;
     return false;
 }
-function start_new_group_row(child, prev, index) {
-    //if (start_new_group_container(child, prev, index)) return true;
+function start_new_group_row(child, prev, item) {
+    //if (start_new_group_container(child, prev, item)) return true;
     return false;
 }
-function start_new_group_container(child, prev, index) {
-    if (start_new_structure(child, prev, index)) return true;
+function start_new_group_container(child, prev, item) {
+    if (start_new_structure(child, prev, item)) return true;
     //if (child.inVersions != prev.inVersions) return true;
     //if (child.dynamic_content != prev.dynamic_content) return true;
     return false;
 }
 */
-function start_new_structure(child, prev, index) {
+function start_new_structure(child, prev, item) {
     if (child.dynamicContent?.split("/")[0] != prev.dynamicContent?.split("/")[0]) {
         return true;
     }
