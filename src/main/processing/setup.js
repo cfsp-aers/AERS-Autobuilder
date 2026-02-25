@@ -35,7 +35,7 @@ function setupContent(arr, offers) {
 
             acc.push({ ...setBasicProperties({ component: "bodycopy", content: offerItem.offerDescription }, arr[0]), ...{ component: "bodycopy", content: offerItem.offerDescription } });
 
-            acc.push({ ...setBasicProperties({ component: "button", content: offerItem.ctaLink?.includes("store-finder") ? `FIND A STORE (${offerItem.ctaLink})` : `SHOP NOW (${offerItem.ctaLink})` }, arr[0]), ...{ component: "button", content: offerItem.ctaLink.includes("store-finder") ? `FIND A STORE (${offerItem.ctaLink})` : `SHOP NOW (${offerItem.ctaLink})` } });
+            acc.push({ ...setBasicProperties({ component: "button", content: offerItem.ctaLink?.includes("store-finder") ? `FIND A STORE (${offerItem.ctaLink})` : `SHOP NOW (${offerItem.ctaLink})` }, arr[0]), ...{ component: "button", content: offerItem.ctaLink?.includes("store-finder") ? `FIND A STORE (${offerItem.ctaLink})` : `SHOP NOW (${offerItem.ctaLink})` } });
         } else if (item.name == "button") {
             if (item.content.includes("\n")) {
                 const btn_list = item.content.split("\n");
