@@ -56,7 +56,7 @@ function buildEmails() {
     let offer_library;
     try {
         const raw_offers = wb.Sheets["Offer Library"];
-        aers.delete_row(raw_offers, 1);
+        aers.delete_row(raw_offers, 2);
         offer_library = XLSX.utils.sheet_to_json(raw_offers, { raw: false }).map((item) => {
             let prepared_item = {};
             _.forIn(item, (value, key) => {
