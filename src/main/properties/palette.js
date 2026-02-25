@@ -161,6 +161,7 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
 
     if (button.mode == "underline" || button.mode == "outline") {
         button.colour = button.user_settings.colour ? button.user_settings.colour : parent_palette.text.body;
+        console.log(button.border_top, button.border_right, button.border_bottom, button.border_left);
         button.background = parent_palette.background;
     }
 
