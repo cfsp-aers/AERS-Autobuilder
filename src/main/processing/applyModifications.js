@@ -79,7 +79,7 @@ function applyModifications(db, func, max_loops) {
 
                     if (component_rules.setupRules) component_rules.setupRules(component_targets, csf);
 
-                    component_rules[func]();
+                    component_rules[func](m);
                     csf.update(c, c.user_settings);
                     csf.update(c, c.locked_settings);
                     /*
