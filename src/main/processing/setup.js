@@ -25,7 +25,7 @@ function setupContent(arr, offers) {
             acc.push(item);
             const offerItem = _.find(offers, (o) => o.offerAlias == object.content);
 
-            acc.push({ ...setBasicProperties({ component: "image", content: offerItem.offerImage }, arr[0]), ...{ component: "image", content: offerItem.offerImage } });
+            acc.push({ ...setBasicProperties({ component: "image", content: offerItem.offerAlias }, arr[0]), ...{ component: "image", content: offerItem.offerAlias } });
 
             if (offerItem.calloutBadge) acc.push({ ...setBasicProperties({ component: "badge", content: offerItem.calloutBadge }, arr[0]), ...{ component: "badge", content: offerItem.calloutBadge } });
 
