@@ -43,7 +43,6 @@ function setComponents(position, content) {
                 block: "gridContainer",
                 innerLayout: "single_row",
                 position: component.position || "top",
-                background: component.background,
                 children: [
                     {
                         block: "gridCol",
