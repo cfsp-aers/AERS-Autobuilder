@@ -159,15 +159,14 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
         }
     }
 
+    if (button.mode == "underline" || button.mode == "outline") {
+        button.colour = button.user_settings.colour ? button.user_settings.colour : parent_palette.text.body;
+    }
+
     const result = {
-        background: button.user_settings.background ? button.user_settings.background : active_palette.background,
+        background: button.user_settings.background ? button.user_settings.background : button.mode == "underline" || button.mode == "outline" ? parent_palette.background : active_palette.background,
         colour: button.user_settings.colour ? button.user_settings.colour : active_palette.colour
     };
-
-    if (button.mode == "underline" || button.mode == "outline") {
-        result.colour = button.user_settings.colour ? button.user_settings.colour : parent_palette.text.body;
-        result.background = parent_palette.background;
-    }
 
     return { ...button, ...result };
 }
