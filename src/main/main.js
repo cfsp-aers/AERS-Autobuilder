@@ -256,7 +256,7 @@ function buildEmails() {
     return result;
 }
 
-//throw new Error("Something went wrong!");
+throw new Error("Something went wrong!");
 
 /*
 
