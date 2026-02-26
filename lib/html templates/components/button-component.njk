@@ -16,7 +16,7 @@ v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 {%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
 {%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom }}"{%-endif-%}
 ><v:stroke opacity="0" /><v:textbox inset="0,0,0,0"><center style="
-{%-if element.color -%}color: {{ element.color }}; {% else-%}color: #FFFFFF; {% endif-%}
+{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 font-family:Outfit, Arial, sans-serif;
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
@@ -35,7 +35,7 @@ border-image: initial;
 {%-if element.background %}background-color: {{ element.background }}; {% endif-%}
 " contenteditable="true">
 <span contenteditable="true" style="
-{%-if element.color -%}color: {{ element.color }}; {% else-%}color: #FFFFFF; {% endif-%}
+{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
 {%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% else-%}font-weight: 18px; {% endif-%}
