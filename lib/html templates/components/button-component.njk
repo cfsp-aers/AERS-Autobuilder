@@ -12,7 +12,7 @@ border-left: none;
 {%-if element.width %}width: {{ element.width }}; {% else %}width: auto; {% endif-%}
 v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 " arcsize="0%"
-{%-if element.mode == "underline" or element.mode == "outline" %}fillcolor=""{%-else-%}fillcolor="{{ element.background }}"{%-endif-%}
+{%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.background }}"{%-endif-%}
 {%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
 {%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom }}"{%-endif-%}
 ><v:stroke opacity="0" /><v:textbox inset="0,0,0,0"><center style="
