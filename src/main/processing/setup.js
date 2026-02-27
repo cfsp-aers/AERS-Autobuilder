@@ -11,8 +11,8 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 function setupContent(arr, offers) {
     let result = arr.reduce((acc, object, index) => {
         if (index == 0) {
-            object.subject_line = object.content.split("\n")[0].split(":")[1];
-            object.preheader = object.content.split("\n")[1].split(":")[1];
+            object.subject_line = _.trim(object.content.split("\n")[0].split(":")[1]);
+            object.preheader = _.trim(object.content.split("\n")[1].split(":")[1]);
         }
 
         if (!object.entity_type && !object.moduleType && !object.component && !object.content) return acc;
