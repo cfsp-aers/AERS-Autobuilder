@@ -12,7 +12,8 @@ v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 {%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.background }}"{%-endif-%}
 {%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
 {%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom }}"{%-endif-%}
-><v:stroke opacity="0" /><v:textbox inset="0,0,0,0"><center style="
+><v:stroke {%-if element.mode == "underline" %}opacity="0"{%-else-%}opacity="100%"{%-endif-%}
+/><v:textbox inset="0,0,0,0"><center style="
 {%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 font-family:Outfit, Arial, sans-serif;
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
