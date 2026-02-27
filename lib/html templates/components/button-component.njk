@@ -20,7 +20,7 @@ v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 font-family:Outfit, Arial, sans-serif;
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
-{%-if element.inner_padding %}margin: {{ element.inner_padding }}; {% else %}margin: 0px; {% endif-%}
+{%-if element.mode == "underline" or element.mode == "outline" %}margin: 0px 8px; {% else %}margin: 0px 16px; {% endif-%}
 text-align:center;
 "><![endif]-->
 <a href="{{-element.content.href-}}" class="arc-link" style="text-decoration: none;" data-nl-type="externalLink">
