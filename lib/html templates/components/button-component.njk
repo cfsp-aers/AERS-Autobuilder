@@ -11,7 +11,7 @@ border-left: none;
 {%-if element.mso_height %}height: {{ element.mso_height }}; {% else %}height: auto; {% endif-%}
 {%-if element.width %}width: {{ element.width }}; {% else %}width: auto; {% endif-%}
 v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
-" arcsize="0%"
+" arcsize="50%"
 {%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.background }}"{%-endif-%}
 {%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
 {%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom }}"{%-endif-%}
@@ -20,6 +20,7 @@ v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 font-family:Outfit, Arial, sans-serif;
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
+{%-if element.inner_padding %}margin: {{ element.inner_padding }}; {% else %}margin: 0px; {% endif-%}
 text-align:center;
 "><![endif]-->
 <a href="{{-element.content.href-}}" class="arc-link" style="text-decoration: none;" data-nl-type="externalLink">
