@@ -1,14 +1,4 @@
 
-<div name="{{ element.id }}" class="acr-fragment acr-component image-container "
-data-component-id="image"
-style="width:100%;text-align:{{ element.align or "center" }}; background-color: {{ element.background or "transparent"}};"
-data-has-int-mso-hack="true"
-contenteditable="false">
-<!--[if mso]>
-<table cellpadding="0" cellspacing="0" border="0"  class="" width="{{ element.width or "100%" }}">
-<tr>
-<td style="text-align: {{ element.align or "center" }};" >
-<![endif]-->
 {%-if element.content.href-%}
 <a class="arc-link aers-clickable" data-nl-type="externalLink" href="{{ element.content.href }}" style="text-decoration: underline;" data-label="{{ element.name }}" data-tracking-type="TRACKED" data-tags="" >
 {%-endif-%}
@@ -18,9 +8,3 @@ data-medialibrary-source="aem" />
 {%-if element.content.href-%}
 </a>
 {%-endif-%}
-<!--[if mso]>
-</td>
-</tr>
-</table>
-<![endif]-->
-</div>
