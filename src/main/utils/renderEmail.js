@@ -5,12 +5,12 @@ const { load } = require("../utils/load.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 
 function renderEmail(outputLocation, content) {
-    var env = nunjucks.configure(path.join(user_files, "html templates table"), { noCache: true, autoescape: false });
+    var env = nunjucks.configure(path.join(user_files, "html templates"), { noCache: true, autoescape: false });
     console.log("Rendering eDM ...");
     let result = {
         fileName: content.name,
         filePath: outputLocation,
-        fileContent: env.render(path.join(path.join(user_files, "html templates table"), "main.njk"), aers.clean(content))
+        fileContent: env.render(path.join(path.join(user_files, "html templates"), "main.njk"), aers.clean(content))
     };
     console.log("Successfully Rendered eDM");
     return result.fileContent; //.replaceAll(/\n\n/g, "");
