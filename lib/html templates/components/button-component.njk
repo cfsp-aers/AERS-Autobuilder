@@ -33,7 +33,8 @@ border-image: initial;
 {%-if element.inner_padding %}padding: {{ element.inner_padding }}; {% else %}padding: 0px; {% endif-%}
 {%-if element.background %}background-color: {{ element.background }}; {% endif-%}
 " contenteditable="true">
-<span contenteditable="true" style=" mso-color-alt: auto; 
+<span contenteditable="true" style="
+{%-if element.force_mso_colour -%}{%-else-%}mso-color-alt: auto; {% endif-%}
 {%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
