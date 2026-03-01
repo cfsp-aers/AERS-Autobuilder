@@ -1,6 +1,28 @@
-<table width="100" align="right">
-<tr>
-<td style="width: auto; text-align: center; margin: auto; max-width: 100%; display: inline-block;
+<div class="acr-fragment acr-component" data-component-id="button:2" style="width: 100%;
+{%-if element.align -%}text-align: {{ element.align }}; {% else %}text-align: center; {%-endif-%}
+" contenteditable="false" data-lock-type="editable" data-source-uuid="aers-{{element.uuid or "set-component"}}" data-has-int-mso-hack="true">
+<!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="auto"><tr><td style="text-align: center; mso-line-height-rule:exactly;
+border-top: none; border-right: none; border-bottom: {%-if element.mode == "underline" -%}3px solid {{ element.border_bottom }}; {% else-%}none; {% endif-%} border-left: none;
+{%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
+" ><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="
+{%-if element.mso_height %}height: {{ element.mso_height }}; {% else %}height: auto; {% endif-%}
+{%-if element.width %}width: {{ element.width }}; {% else %}width: auto; {% endif-%}
+v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
+" arcsize="50%"
+{%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.background }}"{%-endif-%}
+{%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
+{%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom or element.background }}"{%-endif-%}
+><v:stroke {%-if element.mode == "underline" %} opacity="0"{% else %} opacity="100%"{%-endif-%}/>
+<v:textbox inset="0,0,0,0"><center style="
+{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
+font-family:Outfit, Arial, sans-serif;
+{%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
+{%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
+{%-if element.mode == "underline" or element.mode == "outline" %}margin: 0px 8px; {% else %}margin: 0px 16px; {% endif-%}
+text-align:center;
+"><![endif]-->
+<a href="{{-element.content.href-}}" class="arc-link" style="text-decoration: none;" data-nl-type="externalLink">
+<div class="button-container" style="width: auto; text-align: center; margin: auto; max-width: 100%; display: inline-block;
 {%-if element.border_top -%}border-top: 3px solid {{ element.border_top }}; {% else-%}border-top: none; {% endif-%}
 {%-if element.border_right -%}border-right: 3px solid {{ element.border_right }}; {% else-%}border-right: none; {% endif-%}
 {%-if element.border_bottom -%}border-bottom: 3px solid {{ element.border_bottom }}; {% else-%}border-bottom: none; {% endif-%}
@@ -10,9 +32,8 @@ border-image: initial;
 {%-if element.height %}height: {{ element.height }}; {% else %}height: auto; {% endif-%}
 {%-if element.inner_padding %}padding: {{ element.inner_padding }}; {% else %}padding: 0px; {% endif-%}
 {%-if element.background %}background-color: {{ element.background }}; {% endif-%}
-" align="center">
-<a href="{{ element.content.href }}"
-style=" mso-color-alt: auto; 
+" contenteditable="true">
+<span contenteditable="true" style=" mso-color-alt: auto; 
 {%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
@@ -20,7 +41,7 @@ style=" mso-color-alt: auto;
 {%-if element.font_style -%}font-style: {{ element.font_style }}; {% else-%}font-style: bold; {% endif-%}
 text-decoration: none;">
 {{-element.content.text }}
+</span></div>
 </a>
-</td>
-</tr>
-</table>
+<!--[if mso]></center></v:textbox></v:stroke></v:roundrect></td></tr></table><![endif]-->
+</div>
