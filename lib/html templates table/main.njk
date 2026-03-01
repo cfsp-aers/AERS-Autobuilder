@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html style class><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+<style type="text/css">
+	.ReadMsgBody {width: 100%; background-color: #ffffff;}
+	.ExternalClass {width: 100%; background-color: #ffffff;}
+	body	 {width: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
+	table {border-collapse: collapse;}
+
+	@media only screen and (max-width: 640px)  {
+					body[yahoo] .deviceWidth {width:440px!important; padding:0;}
+					body[yahoo] .center {text-align: center!important;}
+			}
+
+	@media only screen and (max-width: 479px) {
+					body[yahoo] .deviceWidth {width:280px!important; padding:0;}
+					body[yahoo] .center {text-align: center!important;}
+			}
+
+</style>
+
+<title>{{content[0].subject_line}}</title>
+</head>
+    
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix" style="font-family: Georgia, Times, serif">
+
+<!-- Wrapper -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td width="100%" valign="top" bgcolor="#ffffff" style="padding-top:20px">
+
+			<!-- Start Header-->
+			<table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" style="margin:0 auto;">
+				<tr>
+					<td width="100%" bgcolor="#ffffff">
+
+                            <!-- Logo -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth">
+                                <tr>
+                                    <td style="padding:10px 20px" class="center">
+                                        <a href="#"><img src="http://placehold.it/120x20" alt="" border="0" /></a>
+                                    </td>
+                                </tr>
+                            </table><!-- End Logo -->
+
+                            <!-- Nav -->
+                            <table border="0" cellpadding="0" cellspacing="0" align="right" class="deviceWidth">
+                                <tr>
+                                    <td class="center" style="font-size: 13px; color: #272727; font-weight: light; text-align: right; font-family: Georgia, Times, serif; line-height: 20px; vertical-align: middle; padding:10px 20px; font-style:italic">
+                                        <a href="#" style="text-decoration: none; color: #3b3b3b;">Products</a>
+                                           
+                                        <a href="#" style="text-decoration: none; color: #3b3b3b;">Services</a>
+                                           
+                                        <a href="#" style="text-decoration: none; color: #3b3b3b;">Pricing</a>
+                                           
+                                        <a href="#" style="text-decoration: none; color: #3b3b3b;">Contact</a>
+                                    </td>
+                                </tr>
+                            </table><!-- End Nav -->
+
+					</td>
+				</tr>
+			</table><!-- End Header -->
+
+
+{%-if content[0].debug == true-%}
+{%-set show_blocks = true-%}
+{%-else-%}
+{%-set show_blocks = false-%}
+{%-endif-%}
+
+{%-macro renderElement(object, depth)-%}
+{%-set currentDepth = depth or 0-%}
+{%-if currentDepth > 50-%}
+{%-else-%}
+    {%-for element in object.children-%}
+        {%-if element.children.length == 0-%}
+        {%-elif element.ignore-%}
+            {{ renderElement(element, currentDepth + 1) }}
+        {%-elif element.block-%}
+                {%-if element.transition-%}
+                    {%-include 'components/transition-component.njk'-%}
+                {%-endif-%}
+                {%-if element.placeholder_component-%}
+                    {%-include 'components/placeholder-component.njk'-%}
+                {%-endif-%}
+            {%-include 'layouts/' + element.block + '.njk'  ignore missing-%}
+        {%-elif element.entity_type == "component"-%}
+            {%-if element.type == "image"-%}
+                {%-include 'components/image-component.njk'-%}
+            {%-elif element.type == "button"-%}
+                {%-include 'components/button-component.njk'-%}
+            {%-elif element.placeholder_component-%}
+                {%-include 'components/placeholder-component.njk'-%}
+            {%-else-%}
+                {%-include 'components/text-component.njk'-%}
+            {%-endif-%}
+        {%-else-%}
+            {{ renderElement(element, currentDepth + 1) }}
+        {%-endif-%}
+    {%-endfor-%}
+{%-endif-%}
+{%-endmacro-%}
+
+{%-for element in content-%}
+{%-if element.type == "fragment"-%}
+{%-include 'fragments/' + element.brand + '/' + element.name + '.njk' ignore missing  -%}
+{%-else-%}
+{%-include 'structure.njk'-%}
+{%-endif-%}
+{%-endfor-%}
+
+
+		</td>
+	</tr>
+</table> <!-- End Wrapper -->

@@ -1,0 +1,9 @@
+<table>
+<tr>
+<td valign="top" style="padding:{{ element.padding or "0px" }}">
+{%-if element.content.href-%}<a href="{{ element.content.href }}" style="text-decoration: none;" >{%-endif-%}
+<img  width="{%-if element.width-%}{{ element.width.replace("px", "") }}{%-else-%}100%{%-endif-%}" style="height: auto;max-width: {{ element.max_width or "100%" }}; width: {{ element.width or "100%" }};border-radius:{{ element.border_radius or "24px" }}; " src="{{ element.content.src or "images/banner_placeholder.png"}}" height="auto" />
+{%-if element.content.href-%}</a>{%-endif-%}
+</td>
+</tr>
+</table>

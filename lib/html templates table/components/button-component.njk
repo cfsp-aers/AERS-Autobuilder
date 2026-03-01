@@ -1,0 +1,26 @@
+<table width="100" align="right">
+<tr>
+<td style="width: auto; text-align: center; margin: auto; max-width: 100%; display: inline-block;
+{%-if element.border_top -%}border-top: 3px solid {{ element.border_top }}; {% else-%}border-top: none; {% endif-%}
+{%-if element.border_right -%}border-right: 3px solid {{ element.border_right }}; {% else-%}border-right: none; {% endif-%}
+{%-if element.border_bottom -%}border-bottom: 3px solid {{ element.border_bottom }}; {% else-%}border-bottom: none; {% endif-%}
+{%-if element.border_left -%}border-left: 3px solid {{ element.border_left }}; {% else-%}border-left: none; {% endif-%}
+border-image: initial;
+{%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
+{%-if element.height %}height: {{ element.height }}; {% else %}height: auto; {% endif-%}
+{%-if element.inner_padding %}padding: {{ element.inner_padding }}; {% else %}padding: 0px; {% endif-%}
+{%-if element.background %}background-color: {{ element.background }}; {% endif-%}
+" align="center">
+<a href="{{ element.content.href }}"
+style=" mso-color-alt: auto; 
+{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
+{%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
+{%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
+{%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% else-%}font-weight: 18px; {% endif-%}
+{%-if element.font_style -%}font-style: {{ element.font_style }}; {% else-%}font-style: bold; {% endif-%}
+text-decoration: none;">
+{{-element.content.text }}
+</a>
+</td>
+</tr>
+</table>

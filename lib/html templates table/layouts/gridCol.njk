@@ -1,0 +1,8 @@
+<td style="
+    {%-if element.vertical_align-%}vertical-align: {{ element.vertical_align }}; {% endif-%}
+    {%-if element.width-%}width: {{ element.width }}; {% endif-%}
+    {%-if element.padding-%}padding: {{ element.padding }}; {% endif-%}
+    {%-if element.mobile_stack == false -%}display: table-cell !important;{% endif-%}
+">
+{{ renderElement(element, currentDepth + 1) }}
+</td>

@@ -1,0 +1,9 @@
+<table>
+<tr>
+<td valign="middle" style="{{ element.padding or "0px" }}">
+<p style="font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height or "100%" }}; font-family: '{{ element.font or "Outfit" }}', Arial, sans-serif; color: {{ element.colour or "#000000" }}; text-align: {{ element.text_align or element.align or "center" }}; font-weight: {{ element.font_weight or "normal" }}; font-style: normal;">
+{{ element.content | nl2br | safe }}
+</p>
+</td>
+</tr>
+</table>
