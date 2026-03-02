@@ -22,7 +22,7 @@ function replaceColours(obj, parent_obj) {
         Object.keys(currentObj).forEach((key) => {
             currentObj[key] = getColour(currentObj[key], key, parent_obj);
             if (_.startsWith(currentObj[key], "#")) {
-                console.log(convert.hex.rgb(_.trimStart(currentObj[key], "#")));
+                console.log(convert.hex.lab(_.trimStart(currentObj[key], "#")));
             }
             if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
                 stack.push(currentObj[key]);
