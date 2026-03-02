@@ -5,7 +5,7 @@
 border-top: none; border-right: none; border-bottom: {%-if element.mode == "underline" -%}3px solid {{ element.border_bottom }}; {% else-%}none; {% endif-%} border-left: none;
 {%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
 " ><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="
-{%-if element.mso_height %}height: {{ element.mso_height }}; {% else %}height: auto; {% endif-%}
+{%-if element.mso_height %}height: {{ element.mso_height or "40px" }}; {% else %}height: auto; {% endif-%}
 {%-if element.width %}width: {{ element.width }}; {% else %}width: auto; {% endif-%}
 v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 " arcsize="50%"
