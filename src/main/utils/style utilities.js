@@ -3,7 +3,6 @@ const { load } = require("../utils/load.js");
 const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const clr_lib = load(user_files, "libraries/colour library.json");
-const convert = require("color-convert");
 
 function cleanUp(item, obj) {
     obj.remove ??= [];
