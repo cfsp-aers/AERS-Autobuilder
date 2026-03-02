@@ -3,6 +3,7 @@ const { load } = require("../utils/load.js");
 const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const clr_lib = load(user_files, "libraries/colour library.json");
+const convert = require("color-convert");
 
 function cleanUp(item, obj) {
     obj.remove ??= [];
@@ -40,7 +41,7 @@ function getColour(v, k, p_obj) {
         else if (clr_lib.default[v]) result = clr_lib.default[v];
         else result = v;
 
-        return result;
+        return convert.hex.rgb(result);
     } catch (e) {
         aers.log(`~~ error : ${p_obj.uuid}\n->${e.message}`);
     }
