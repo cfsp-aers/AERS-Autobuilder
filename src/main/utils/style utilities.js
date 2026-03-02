@@ -22,7 +22,7 @@ function replaceColours(obj, parent_obj) {
         Object.keys(currentObj).forEach((key) => {
             currentObj[key] = getColour(currentObj[key], key, parent_obj);
             if (_.startsWith(currentObj[key], "#")) {
-                console.log(convert.hex.lab(_.trimStart(currentObj[key], "#")));
+                console.log(hexToRgb(currentObj[key]));
             }
             if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
                 stack.push(currentObj[key]);
@@ -48,6 +48,17 @@ function getColour(v, k, p_obj) {
     } catch (e) {
         aers.log(`~~ error : ${p_obj.uuid}\n->${e.message}`);
     }
+}
+
+function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result
+        ? {
+              r: parseInt(result[1], 16),
+              g: parseInt(result[2], 16),
+              b: parseInt(result[3], 16)
+          }
+        : null;
 }
 
 module.exports = {
