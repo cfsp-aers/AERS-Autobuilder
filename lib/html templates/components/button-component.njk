@@ -35,7 +35,7 @@ border-image: initial;
 " contenteditable="true">
 <span contenteditable="true" style="
 {%-if element.force_mso_colour -%}{%-else-%}mso-color-alt: auto; {% endif-%}
-{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
+{%-if element.colour -%}color: {{ element.colour | dump() }}; {% else-%}color: #FFFFFF; {% endif-%}
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
 {%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% else-%}font-weight: 18px; {% endif-%}
