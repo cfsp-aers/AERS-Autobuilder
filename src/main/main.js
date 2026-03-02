@@ -205,6 +205,8 @@ function buildEmails() {
 
         const module_array = structureEDM(db.ms, db.cs);
 
+        // Replace colour values with those from colour_library
+
         aers.writeData(
             "entity_store.json",
             db.ms.map((m) => {

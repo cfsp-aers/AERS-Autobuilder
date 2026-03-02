@@ -34,10 +34,13 @@ function getColour(v, k, p_obj) {
         v = p_obj[v.split("/")[1]];
     }
     try {
-        if (clr_lib[p_obj.brand] && clr_lib[p_obj.brand][v]) return clr_lib[p_obj.brand][v];
-        else if (clr_lib[p_obj.parent_brand] && clr_lib[p_obj.parent_brand][v]) return clr_lib[p_obj.parent_brand][v];
-        else if (clr_lib.default[v]) return clr_lib.default[v];
-        else return v;
+        let result;
+        if (clr_lib[p_obj.brand] && clr_lib[p_obj.brand][v]) result = clr_lib[p_obj.brand][v];
+        else if (clr_lib[p_obj.parent_brand] && clr_lib[p_obj.parent_brand][v]) result = clr_lib[p_obj.parent_brand][v];
+        else if (clr_lib.default[v]) result = clr_lib.default[v];
+        else result = v;
+
+        return result;
     } catch (e) {
         aers.log(`~~ error : ${p_obj.uuid}\n->${e.message}`);
     }
