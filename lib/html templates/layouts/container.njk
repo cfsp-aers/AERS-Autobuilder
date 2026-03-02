@@ -1,8 +1,8 @@
-<div name="{{ element.layout }}" class="acr-fragment acr-component" data-component-id="container" style="background-color: {{ element.colour or element.colour or "transparent" }}; border-radius: {{ element.border_radius or "24px"}}; padding: {{ element.padding or "0px" }};" contenteditable="false" data-has-int-mso-hack="true">
+<div name="{{ element.layout }}" class="acr-fragment acr-component" data-component-id="container" style="background-color: {{ element.background or element.background or "transparent" }}; border-radius: {{ element.border_radius or "24px"}}; padding: {{ element.padding or "0px" }};" contenteditable="false" data-has-int-mso-hack="true">
 <!--[if mso]>
 <table cellpadding="0" cellspacing="0" border="0" width="100%">
 <tr>
-<td style="background-color: {{ element.colour or element.colour or "transparent" }}; padding: {{ element.padding or "0px" }};" >
+<td style="background-color: {{ element.background or element.background or "transparent" }}; padding: {{ element.padding or "0px" }};" >
 <![endif]-->
 <div class="container-wrapper">
 {{ renderElement(element, currentDepth + 1) }}
