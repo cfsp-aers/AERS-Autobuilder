@@ -41,7 +41,7 @@ function getColour(v, k, p_obj) {
         else if (clr_lib.default[v]) result = clr_lib.default[v];
         else result = v;
 
-        return convert.hex.rgb(result);
+        return result;
     } catch (e) {
         aers.log(`~~ error : ${p_obj.uuid}\n->${e.message}`);
     }
