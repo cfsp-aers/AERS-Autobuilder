@@ -158,7 +158,7 @@ function structureEDM(arr, children = {}) {
             nav_label: "block",
             background: child.background,
             padding: child.block_padding,
-            transition: _(rgbToHex(_.trim(_.last(acc)?.background, "rgb()").split(", "))),
+            transition: rgbToHex(_.trim(_.last(acc)?.background, "rgb()").split(", ")[0], _.trim(_.last(acc)?.background, "rgb()").split(", ")[1], _.trim(_.last(acc)?.background, "rgb()").split(", ")[2]),
             transition_id: id_lib.transition_ids?.[_.last(acc)?.background],
             placeholder_component: child.dynamic_content?.split("/")[1] == "x" ? true : false,
             children: [item]
