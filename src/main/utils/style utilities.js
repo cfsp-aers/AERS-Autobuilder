@@ -21,7 +21,9 @@ function replaceColours(obj, parent_obj) {
         const currentObj = stack.pop();
         Object.keys(currentObj).forEach((key) => {
             currentObj[key] = getColour(currentObj[key], key, parent_obj);
-            if (_.startsWith(currentObj[key], "#")) currentObj[key] = convert.hex.rgb(_.trimStart(currentObj[key], "#"));
+            if (_.startsWith(currentObj[key], "#")) {
+                console.log(convert.hex.rgb(_.trimStart(currentObj[key], "#")));
+            }
             if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
                 stack.push(currentObj[key]);
             }
