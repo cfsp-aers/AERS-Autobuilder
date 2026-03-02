@@ -1,7 +1,7 @@
 
 <div name="{{ element.id }}" class="acr-fragment acr-component image-container "
 data-component-id="image"
-style="width:100%;text-align:{{ element.align or "center" }}; background-color: {{ element.background or "transparent"}};"
+style="width:100%;text-align:{{ element.align or "center" }}; background-color: {{ element.background.rgb or "transparent"}};"
 data-has-int-mso-hack="true"
 contenteditable="false">
 <!--[if mso]>
