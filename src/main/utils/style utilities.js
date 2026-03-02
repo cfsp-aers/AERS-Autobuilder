@@ -22,7 +22,7 @@ function replaceColours(obj, parent_obj) {
         Object.keys(currentObj).forEach((key) => {
             currentObj[key] = getColour(currentObj[key], key, parent_obj);
             if (_.startsWith(currentObj[key], "#")) {
-                console.log(JSON.stringify(hexToRgb(currentObj[key])));
+                currentObj[key] = hexToRgb(currentObj[key]);
             }
             if (typeof currentObj[key] === "object" && currentObj[key] !== null) {
                 stack.push(currentObj[key]);
@@ -52,7 +52,7 @@ function getColour(v, k, p_obj) {
 
 function hexToRgb(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? `rgb (${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : null;
+    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : null;
 }
 
 module.exports = {
