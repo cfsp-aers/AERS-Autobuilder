@@ -40,7 +40,7 @@ function structureEDM(arr, children = {}) {
             if (c_pos[key].length == 0) delete c_pos[key];
         });
 
-        m.transition = prev.background != m.background ? rgbToHex(_.trimStart(prev.background, "#")) : false;
+        m.transition = prev.background != m.background ? _.trimStart(prev.background, "#") : false;
 
         m.transition_id = id_lib.transition_ids?.[prev.background];
         m.children = [internal_layout(m, c_pos)];
@@ -158,7 +158,7 @@ function structureEDM(arr, children = {}) {
             nav_label: "block",
             background: child.background,
             padding: child.block_padding,
-            transition: rgbToHex(_.trim(_.last(acc)?.background, "rgb()").split(", ")[0], _.trim(_.last(acc)?.background, "rgb()").split(", ")[1], _.trim(_.last(acc)?.background, "rgb()").split(", ")[2]),
+            transition: _.trimStart(_.last(acc)?.background, "#"),
             transition_id: id_lib.transition_ids?.[_.last(acc)?.background],
             placeholder_component: child.dynamic_content?.split("/")[1] == "x" ? true : false,
             children: [item]
