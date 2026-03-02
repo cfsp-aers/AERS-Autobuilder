@@ -11,6 +11,10 @@ const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 const id_lib = load(user_files, "libraries/modules.json");
 
+function rgbToHex(r, g, b) {
+    return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
+}
+
 function structureEDM(arr, children = {}) {
     arr = arr.reduce((acc, o) => {
         if (o.ignore == true) {
@@ -36,9 +40,9 @@ function structureEDM(arr, children = {}) {
             if (c_pos[key].length == 0) delete c_pos[key];
         });
 
-        m.transition = prev.background.hex != m.background.hex ? _.trimStart(prev.background.hex, "#") : false;
+        m.transition = prev.background != m.background ? rgbToHex(_.trimStart(prev.background, "#")) : false;
 
-        m.transition_id = id_lib.transition_ids?.[prev.background.hex];
+        m.transition_id = id_lib.transition_ids?.[prev.background];
         m.children = [internal_layout(m, c_pos)];
 
         if (m.depth == 2) {

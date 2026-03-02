@@ -2,7 +2,7 @@
 <table class="structure__table" align="center" cellpadding="0" cellspacing="0" border="0" width="600">
 <tbody>
 <tr role="presentation">
-<th class="colspan1" style="background-color:{{ element.background.rgb or "#FFFFFE" }}; padding:{{ element.padding or "0px" }}; {%-if show_blocks-%}border: solid 2px rgba(255, 0, 255, 1);{%-endif-%}"><!-- border: solid 1px rgba(255, 0, 0, 0.5); -->
+<th class="colspan1" style="background-color:{{ element.colour or "#FFFFFE" }}; padding:{{ element.padding or "0px" }}; {%-if show_blocks-%}border: solid 2px rgba(255, 0, 255, 1);{%-endif-%}"><!-- border: solid 1px rgba(255, 0, 0, 0.5); -->
 {{ renderElement(element, currentDepth + 1) }}
 </th>
 </tr>

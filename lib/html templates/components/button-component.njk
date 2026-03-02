@@ -9,12 +9,12 @@ border-top: none; border-right: none; border-bottom: {%-if element.mode == "unde
 {%-if element.width %}width: {{ element.width }}; {% else %}width: auto; {% endif-%}
 v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 " arcsize="50%"
-{%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.background.rgb }}"{%-endif-%}
+{%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.colour }}"{%-endif-%}
 {%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
-{%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom or element.background.rgb }}"{%-endif-%}
+{%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom or element.colour }}"{%-endif-%}
 ><v:stroke {%-if element.mode == "underline" %} opacity="0"{% else %} opacity="100%"{%-endif-%}/>
 <v:textbox inset="0,0,0,0"><center style="
-{%-if element.colour.rgb -%}color: {{ element.colour.rgb }}; {% else-%}color: #FFFFFF; {% endif-%}
+{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 font-family:'Outfit', Arial, sans-serif;
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
@@ -31,11 +31,11 @@ border-image: initial;
 {%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
 {%-if element.height %}height: {{ element.height }}; {% else %}height: auto; {% endif-%}
 {%-if element.inner_padding %}padding: {{ element.inner_padding }}; {% else %}padding: 0px; {% endif-%}
-{%-if element.background.rgb %}background-color: {{ element.background.rgb }}; {% endif-%}
+{%-if element.colour %}background-color: {{ element.colour }}; {% endif-%}
 " contenteditable="true">
 <span contenteditable="true" style="
 {%-if element.force_mso_colour -%}{%-else-%}mso-color-alt: auto; {% endif-%}
-{%-if element.colour.rgb -%}color: {{ element.colour.rgb }}; {% else-%}color: #FFFFFF; {% endif-%}
+{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
 {%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% else-%}font-weight: 18px; {% endif-%}
