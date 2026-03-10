@@ -7,71 +7,6 @@ const util = load(app_dir, "main/utils/style utilities.js");
 const module_library = load(user_files, "libraries/modules.json");
 const { setBrand } = load(app_dir, "main/properties/brand.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
-function setup_excel(raw_item) {
-    let lookup;
-    let name;
-    if (raw_item.moduleType) {
-        lookup = "module";
-        name = raw_item.moduleType;
-    }
-    if (raw_item.component) {
-        lookup = "component";
-        name = raw_item.component;
-    }
-    let item_data = {};
-    item_data = _.find(module_library[lookup], (item) => {
-        if (raw_item.moduleType) {
-            return item["valid names"].indexOf(raw_item.moduleType) >= 0 || raw_item.moduleType === item.module;
-        }
-        if (raw_item.component) {
-            return item["valid names"].indexOf(raw_item.component) >= 0 || raw_item.component === item.component;
-        }
-    });
-
-    // if (raw_item.moduleType) console.log(raw_item.moduleType);
-
-    return {
-        uuid: "",
-        [lookup]: name,
-        ..._.omit(item_data, "valid names"),
-        original: { ..._.omit(raw_item, "content"), raw_id: `${Math.random().toString(36).slice(4).toUpperCase()}` },
-        user_settings: raw_item.settings ? formatUserInput(raw_item.settings) : {},
-        content: raw_item.content
-    };
-}
-
-function setup_offer_library(offer_lib) {
-    let result = {};
-    offer_lib.forEach((offer_item) => {
-        result[offer_item.offerAlias] = [];
-        _.forIn(offer_item, (value, key) => {
-            switch (key) {
-                case "offerAlias":
-                    result[offer_item.offerAlias].push({ component: "image", content: offer_item.offerAlias });
-                    break;
-                case "calloutBadge":
-                    result[offer_item.offerAlias].push({ component: "badge", content: offer_item.calloutBadge });
-                    break;
-                case "supportCallout":
-                    result[offer_item.offerAlias].push({ component: "support callout", content: offer_item.supportCallout });
-                    break;
-                case "mainOffer":
-                    result[offer_item.offerAlias].push({ component: "main offer", content: `${offer_item.mainOffer}^${offer_item.disclaimerSymbol}` });
-                    break;
-                case "secondaryOffer":
-                    result[offer_item.offerAlias].push({ component: "secondary offer", content: offer_item.secondaryOffer });
-                    break;
-                case "offerDescription":
-                    result[offer_item.offerAlias].push({ component: "description", content: offer_item.offerDescription });
-                    break;
-                case "ctaLink":
-                    result[offer_item.offerAlias].push({ component: "button", content: `${offer_item.ctaLink?.includes("store-finder") ? "FIND A STORE" : "SHOP NOW"} (${offer_item.ctaLink})` });
-                    break;
-            }
-        });
-    });
-    return result;
-}
 
 function setupContent(arr, offers) {
     let result = arr.reduce((acc, object, index) => {
@@ -233,7 +168,5 @@ function formatUserInput(string) {
 
 module.exports = {
     setupContent: setupContent,
-    setBasicProperties: setBasicProperties,
-    excel: setup_excel,
-    offer_library: setup_offer_library
+    setBasicProperties: setBasicProperties
 };
