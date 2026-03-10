@@ -16,6 +16,8 @@ function buildEmails() {
     // ---
 
     // PROCESSING
+
+    const setup = load(app_dir, "main/processing/setup.js");
     const { applyModifications } = load(app_dir, "main/processing/applyModifications.js");
     const { structureEDM } = load(app_dir, "main/processing/structureEDM.js");
 
