@@ -20,7 +20,7 @@ function buildEmails() {
     const { structureEDM } = load(app_dir, "main/processing/structureEDM.js");
 
     // SYSTEMS
-    const { setupContent, setBasicProperties, setupDataBase } = load(app_dir, "main/processing/setup.js");
+    const setup = load(app_dir, "main/processing/setup.js");
     const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
     const { setGroupingData } = load(app_dir, "main/systems/groupingSystem.js");
     const { formatRichText, insertRichText } = load(app_dir, "main/systems/richTextSystem.js");
@@ -71,13 +71,6 @@ function buildEmails() {
     }
     //
 
-    //
-
-    const test_json = load(app_dir, "../tests/test_json.json");
-    const test_js = load(app_dir, "../tests/test_js.js");
-
-    const new_json = test_js.test_function(test_json);
-
     let generatedFiles = {};
 
     SELECTED_SHEETS.forEach((brief) => {
@@ -87,6 +80,87 @@ function buildEmails() {
             user_settings: {},
             output: {}
         };
+
+        // CREATE MAIN EMAIL OBJECT
+
+        const EMAIL_OBJECT = {
+            name: brief,
+            date_created: Date(),
+            header_data: {
+                brand: ""
+            }
+        };
+
+        // Generate email data object from brief
+        let ws = wb.Sheets[brief];
+        aers.delete_row(ws, 1);
+
+        const INITIALISED_DATA = XLSX.utils.sheet_to_json(ws, { raw: false }).map((item, index) => {
+            let prepared_item = {};
+            _.forIn(item, (value, key) => {
+                if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
+            });
+
+            // ~~ initialise header data
+            if (index == 0) EMAIL_OBJECT.header_data.brand = prepared_item.brand.toLowerCase();
+
+            return setup.excel(prepared_item);
+        });
+
+        // # TO DO
+
+        // step 1: process the excel sheet to create an array of simple objects
+
+        // step 2: get all the content for the email
+        //   -> if content refers to offer library, get components from offer library
+        //   -> if module has preset content, get preset content from module.template file
+        //       -- what data is required for the preset content?
+
+        const total_content = INITIALISED_DATA.reduce((acc, item, index) => {
+            switch (true) {
+                // if button group, separate and push both buttons
+                case item.component == "button" && item.content?.includes("\n"):
+                    item.content.split("\n").forEach((btn, i) => {
+                        acc.push({ ...item, btn_indx: i + 1, content: btn });
+                    });
+                    break;
+                // if offer, push offer items
+                case setup_offer_library[item.content] != undefined:
+                    acc.push(item);
+                    setup_offer_library[item.content].forEach((offer_component) => {
+                        const offer_item = setup.excel(offer_component);
+                        offer_item.brand = item.brand;
+                        acc.push(offer_item);
+                    });
+                    break;
+                default:
+                    acc.push(item);
+                    break;
+            }
+            // check if module has presets and if so, apply preset content
+            if (item.module) {
+                try {
+                    const { preset_content } = load(user_files, item.template);
+
+                    const preset = _.find(preset_content, (x) => {
+                        const [property, target] = x.condition.toLowerCase().split("/");
+                        return target == item.original[property].toLowerCase();
+                    });
+                    console.log(preset);
+
+                    preset.content.forEach((content_item) => {
+                        const preset_item = setup.excel(content_item);
+                        preset_item.brand = item.brand;
+                        acc.push(preset_item);
+                    });
+                } catch (e) {
+                    console.log(`no preset content for ${item.module}`);
+                }
+            }
+            return acc;
+        }, []);
+
+        /*
 
         // Generate email data object from brief
         let ws = wb.Sheets[brief];
@@ -105,8 +179,9 @@ function buildEmails() {
             })
         };
 
+        */
         // Freeze original eDM content so it can't be modified
-        const edm_content = setupContent(BRIEF_JSON.content, offer_library);
+        const edm_content = setup.setupContent(BRIEF_JSON.content, offer_library);
 
         // Add offerdetails and extra buttons / any components to EDM_CONTENT before setting basic properties
         // ~~~~ Number of modules / components and order should be locked ~~~~
@@ -177,7 +252,7 @@ function buildEmails() {
         //finaliseData();
 
         db.ms = db.ms.map((m) =>
-            util.cleanUp(setBasicProperties(m), {
+            util.cleanUp(setup.setBasicProperties(m), {
                 empty: true
             })
         );
