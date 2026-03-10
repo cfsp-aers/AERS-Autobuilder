@@ -54,7 +54,7 @@ function buildEmails() {
     aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${AERS_FILES_LOCATION}\n---`, `BRIEF_PARENT_FOLDER | -> ${BRIEF_PARENT_FOLDER}\n---`, `BRIEF_LOCATION | -> ${BRIEF_LOCATION}\n---`, `OUTPUT_LOCATION | -> ${OUTPUT_LOCATION}\n---`, `SELECTED_SHEETS | -> [ ${SELECTED_SHEETS} ]`, `~~~~~~~~~~~~~~~`);
 
     let wb = XLSX.readFile(BRIEF_LOCATION);
-
+    /*
     let offer_library;
     try {
         const raw_offers = wb.Sheets["Offer Library"];
@@ -72,6 +72,28 @@ function buildEmails() {
         console.warn("no offer library sheet found");
     }
     //
+    */
+
+    let offer_library;
+    let setup_offer_library;
+    try {
+        const raw_offers = wb.Sheets["Offer Library"];
+        aers.delete_row(raw_offers, 2);
+        offer_library = XLSX.utils.sheet_to_json(raw_offers, { raw: false }).map((item) => {
+            let prepared_item = {};
+            _.forIn(item, (value, key) => {
+                if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
+            });
+            if (prepared_item.dynamicContent) console.log(prepared_item.dynamicContent);
+            return prepared_item;
+        });
+
+        setup_offer_library = setup.offer_library(offer_library);
+
+        aers.writeData("OFFER_LIBRARY.json", setup_offer_library, false, database);
+    } catch (e) {
+        console.warn("no offer library sheet found");
+    }
 
     let generatedFiles = {};
 
