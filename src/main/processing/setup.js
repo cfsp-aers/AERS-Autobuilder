@@ -21,10 +21,10 @@ function setup_excel(raw_item) {
     let item_data = {};
     item_data = _.find(module_library[lookup], (item) => {
         if (raw_item.moduleType) {
-            return item.valid_names.indexOf(raw_item.moduleType) >= 0 || raw_item.moduleType === item.module;
+            return item["valid names"].indexOf(raw_item.moduleType) >= 0 || raw_item.moduleType === item.module;
         }
         if (raw_item.component) {
-            return item.valid_names.indexOf(raw_item.component) >= 0 || raw_item.component === item.component;
+            return item["valid names"].indexOf(raw_item.component) >= 0 || raw_item.component === item.component;
         }
     });
 
@@ -33,7 +33,7 @@ function setup_excel(raw_item) {
     return {
         uuid: "",
         [lookup]: name,
-        ..._.omit(item_data, "valid_names"),
+        ..._.omit(item_data, "valid names"),
         original: { ..._.omit(raw_item, "content"), raw_id: `${Math.random().toString(36).slice(4).toUpperCase()}` },
         user_settings: raw_item.settings ? formatUserInput(raw_item.settings) : {},
         content: raw_item.content
