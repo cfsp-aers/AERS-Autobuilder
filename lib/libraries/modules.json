@@ -132,14 +132,18 @@
       "valid names": ["heading", "main offer", "main heading"],
       "properties": {
         "category": "component",
-        "type": "heading"
+        "type": "heading",
+        "template": "modules/components/heading.js",
+        "html_template": "components/text-component.njk"
       }
     },
     "subheading": {
       "valid names": ["subheading", "secondary heading", "secondary save claim", "supporting text", "top text"],
       "properties": {
         "category": "component",
-        "type": "heading"
+        "type": "heading",
+        "template": "modules/components/heading.js",
+        "html_template": "components/text-component.njk"
       }
     },
 
@@ -147,7 +151,9 @@
       "valid names": ["bodycopy", "body copy", "description", "body", "copy", "intro text"],
       "properties": {
         "category": "component",
-        "type": "body"
+        "type": "body",
+        "template": "modules/components/bodycopy.js",
+        "html_template": "components/text-component.njk"
       }
     },
 
@@ -155,7 +161,9 @@
       "valid names": ["terms", "t&cs", "t and c", "disclaimer", "terms and conditions"],
       "properties": {
         "category": "component",
-        "type": "terms"
+        "type": "terms",
+        "template": "modules/components/bodycopy.js",
+        "html_template": "components/text-component.njk"
       }
     },
 
@@ -163,7 +171,9 @@
       "valid names": ["badge", "sticker", "callout badge", "callout"],
       "properties": {
         "category": "component",
-        "type": "badge"
+        "type": "badge",
+        "template": "modules/components/badge.js",
+        "html_template": "components/text-component.njk"
       }
     },
 
@@ -171,28 +181,36 @@
       "valid names": ["image", "img", "product image"],
       "properties": {
         "category": "component",
-        "type": "image"
+        "type": "image",
+        "template": "modules/components/image.js",
+        "html_template": "components/image-component.njk"
       }
     },
     "lockup": {
       "valid names": ["lockup", "logo"],
       "properties": {
         "category": "component",
-        "type": "image"
+        "type": "image",
+        "template": "modules/components/image.js",
+        "html_template": "components/image-component.njk"
       }
     },
     "icon": {
       "valid names": ["icon"],
       "properties": {
         "category": "component",
-        "type": "image"
+        "type": "image",
+        "template": "modules/components/image.js",
+        "html_template": "components/image-component.njk"
       }
     },
     "button": {
       "valid names": ["button", "btn", "cta"],
       "properties": {
         "category": "component",
-        "type": "button"
+        "type": "button",
+        "template": "modules/components/button.js",
+        "html_template": "components/button-component.njk"
       }
     }
   },

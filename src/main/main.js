@@ -98,6 +98,53 @@ function buildEmails() {
             })
         };
 
+        // ADDED 10/03 vvv
+        const total_content = BRIEF_JSON.content.reduce((acc, item, index) => {
+            item.original = _.cloneDeep(item);
+            switch (true) {
+                // if button group, separate and push both buttons
+                case item.type == "button" && item.content?.includes("\n"):
+                    item.content.split("\n").forEach((btn, i) => {
+                        acc.push({ ...item, btn_indx: i + 1, content: btn });
+                    });
+                    break;
+                // if offer, push offer items
+                case setup_offer_library[item.content] != undefined:
+                    acc.push(item);
+                    setup_offer_library[item.content].forEach((offer_component) => {
+                        const offer_item = setup.excel(offer_component);
+                        offer_item.brand = item.brand;
+                        acc.push(offer_item);
+                    });
+                    break;
+                default:
+                    acc.push(item);
+                    break;
+            }
+            // check if module has presets and if so, apply preset content
+            if (item.entity_type == "module") {
+                try {
+                    const { preset_content } = load(user_files, item.template);
+
+                    const preset = _.find(preset_content, (x) => {
+                        const [property, target] = x.condition.toLowerCase().split("/");
+                        return target == item.original[property].toLowerCase();
+                    });
+                    console.log(preset);
+
+                    preset.content.forEach((content_item) => {
+                        const preset_item = setup.excel(content_item);
+                        preset_item.brand = item.brand;
+                        acc.push(preset_item);
+                    });
+                } catch (e) {
+                    console.log(`no preset content for ${item.type}`);
+                }
+            }
+            return acc;
+        }, []);
+        // ADDED 10/03 ^^^
+
         // Freeze original eDM content so it can't be modified
         const edm_content = setupContent(BRIEF_JSON.content, offer_library);
 

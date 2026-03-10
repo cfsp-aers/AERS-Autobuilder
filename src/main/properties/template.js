@@ -4,6 +4,7 @@ const path = require("node:path");
 const { user_files } = require("../constants.js");
 
 function setTemplate(entity_type, type, name) {
+    if (ClipboardItem.template) return item;
     let template = [`${type}`, `${name}.js`];
 
     if (entity_type == "component") {
