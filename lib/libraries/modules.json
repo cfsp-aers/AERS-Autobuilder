@@ -70,6 +70,16 @@
       }
     },
 
+    "banner": {
+      "valid names": ["banner"],
+      "properties": {
+        "category": "basic",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+
     "heading": {
       "valid names": ["heading"],
       "properties": {}
