@@ -70,8 +70,8 @@
       }
     },
 
-    "banner": {
-      "valid names": ["banner"],
+    "banner standard": {
+      "valid names": ["banner standard"],
       "properties": {
         "category": "basic",
         "type": "banner",
