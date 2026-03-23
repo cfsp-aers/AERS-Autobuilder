@@ -29,9 +29,15 @@ function formatRichText(item, text) {
             if (!item.content) {
                 item.content = item.name == "icon" ? "image_placeholder" : "banner_placeholder";
             }
-            item.content = {
-                src: item.content.includes(".") ? `images/${item.content}` : `images/${item.content}.png`
-            };
+            if (item.content.includes("http")) {
+                item.content = {
+                    src: `${item.content}`
+                };
+            } else {
+                item.content = {
+                    src: item.content.includes(".") ? `images/${item.content}` : `images/${item.content}.png`
+                };
+            }
         }
         return item;
     }
