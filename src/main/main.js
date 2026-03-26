@@ -94,7 +94,7 @@ function buildEmails() {
                 _.forIn(item, (value, key) => {
                     if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
                 });
-                return _.omitBy(prepared_item, (v, k) => v == 0);
+                return prepared_item;
             })
         };
 
