@@ -104,7 +104,7 @@ function insertRichText(c) {
                 text_template = `<span style="font-weight:${segment.properties.font_weight || c.font_weight};color:${segment.properties.colour || c.colour};font-size:${c.font_size};line-height:${c.line_height};">${_.trim(segment.text, "[]")}</span>`;
             }
 
-            c.content = c.content.replaceAll(segment.text, text_template);
+            c.content = c.content.replace(segment.text, text_template);
         });
         if (c.content.includes("\\")) {
             c.content = c.content.replaceAll(/\\(.)/g, "$1");
