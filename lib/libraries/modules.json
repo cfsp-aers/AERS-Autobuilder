@@ -85,6 +85,16 @@
       "properties": {}
     },
 
+    "article": {
+      "valid names": ["article"],
+      "properties": {
+        "category": "basic",
+        "type": "tile",
+        "max_siblings": 3,
+        "depth": 1
+      }
+    },
+
     "icon": {
       "valid names": ["icon"],
       "properties": {
