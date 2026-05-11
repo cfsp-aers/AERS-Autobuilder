@@ -90,8 +90,8 @@
       "properties": {
         "category": "basic",
         "type": "tile",
-        "max_siblings": 3,
-        "depth": 1
+        "max_siblings": 2,
+        "depth": 2
       }
     },
 
