@@ -263,8 +263,6 @@ function start_new_module_container(child, prev) {
     return true;
 }
 function start_new_block_column(child, prev) {
-    // console.log(`prev: ${prev.name} : ${prev.group_size}`, `current: ${child.name} : ${child.group_size}`)
-    if (prev.group_size != child.group_size) return true;
     if (start_new_block_row(child, prev)) return true;
     return true;
 }
@@ -276,7 +274,7 @@ function start_new_block_row(child, prev) {
 function start_new_block_container(child, prev) {
     if (start_new_structure(child, prev)) return true;
     if (child.name != prev.name) return true;
-    //if (child.group_size != prev.group_size) return true;
+    if (child.group_size != prev.group_size) return true;
     if (child.background != prev.background) return true;
     if (child.dynamicContent?.split("/")[1] != prev.dynamicContent?.split("/")[1]) return true;
     //if (child.row_index == 1) return true;
