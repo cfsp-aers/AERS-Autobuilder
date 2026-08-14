@@ -172,46 +172,55 @@ function formatUserInput(string) {
 }
 
 function parseToObject(input) {
-  input = (input || "").trim();
-  if (!input) return {};
+  if (!input || typeof input !== "string") return {};
 
-  // Single key with an object value: "key: { a: b }"
-  const braceMatch = input.match(/^([^:]+):\s*\{([\s\S]*)\}\s*$/);
-  if (braceMatch) {
-    const key = braceMatch[1].trim();
-    const inner = braceMatch[2].trim();
-    return { [key]: parseToObject(inner) };
+  function splitTopLevel(str) {
+    const parts = [];
+    let buf = "";
+    let depth = 0;
+    for (let i = 0; i < str.length; i++) {
+      const ch = str[i];
+      if (ch === "{" ) depth++;
+      if (ch === "}" ) depth = Math.max(0, depth - 1);
+      if ((ch === "," || ch === ";") && depth === 0) {
+        if (buf.trim()) parts.push(buf.trim());
+        buf = "";
+        continue;
+      }
+      buf += ch;
+    }
+    if (buf.trim()) parts.push(buf.trim());
+    return parts;
   }
 
-  const result = {};
-  const parts = input.split(/[;,]\s*/);
+  function parseValue(val) {
+    val = val.trim();
+    if (/^\{[\s\S]*\}$/.test(val)) {
+      return parseToObject(val.slice(1, -1).trim());
+    }
+    const lower = val.toLowerCase();
+    if (lower === "true") return true;
+    if (lower === "false") return false;
+    if (/^-?\d+$/.test(val)) return parseInt(val, 10);
+    return val;
+  }
+
+  const out = {};
+  const parts = splitTopLevel(input);
   parts.forEach((part) => {
     if (!part) return;
-    const i = part.indexOf(":");
-    if (i === -1) {
+    const idx = part.indexOf(":");
+    if (idx === -1) {
       const key = part.trim().replace(/ |-/g, "_");
-      result[key] = true;
+      out[key] = true;
       return;
     }
-
-    const rawKey = part.slice(0, i).trim().replace(/ |-/g, "_");
-    let value = part.slice(i + 1).trim();
-
-    // Nested object in-value: "k: { ... }"
-    if (/^\{[\s\S]*\}$/.test(value)) {
-      value = value.replace(/^\{/, "").replace(/\}$/, "").trim();
-      result[rawKey] = parseToObject(value);
-      return;
-    }
-
-    const low = value.toLowerCase();
-    if (low === "true") result[rawKey] = true;
-    else if (low === "false") result[rawKey] = false;
-    else if (/^-?\d+$/.test(value)) result[rawKey] = parseInt(value, 10);
-    else result[rawKey] = value;
+    const rawKey = part.slice(0, idx).trim().replace(/ |-/g, "_");
+    const rawVal = part.slice(idx + 1).trim();
+    out[rawKey] = parseValue(rawVal);
   });
 
-  return result;
+  return out;
 }
 
 module.exports = {
