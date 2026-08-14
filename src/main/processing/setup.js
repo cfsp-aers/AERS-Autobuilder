@@ -137,6 +137,7 @@ function formatUserInput(string) {
     // });
     
     result.output = parseToObject(processedString)
+    console.log(`parsed ${processedString} to ${result.output}`)
 
     _.forIn(result.output, (value, raw_key) => {
         // REPLACE SPACES IN KEY WITH UNDERSCORES
