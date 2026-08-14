@@ -131,9 +131,13 @@ function formatUserInput(string) {
         output: {}
     };
     const processedString = correctSpelling(string);
-    processedString.split(/[;|,]\s*/).forEach((item) => {
-        item.includes(":") ? (result.output[item.split(/[:]\s*/)[0].replaceAll(/ |-/g, "_")] = item.split(/[:]\s*/)[1]) : (result.output[item] = true);
-    });
+    
+    // processedString.split(/[;|,]\s*/).forEach((item) => {
+    //     item.includes(":") ? (result.output[item.split(/[:]\s*/)[0].replaceAll(/ |-/g, "_")] = item.split(/[:]\s*/)[1]) : (result.output[item] = true);
+    // });
+    
+    result.output = parseToObject(processedString)
+
     _.forIn(result.output, (value, raw_key) => {
         // REPLACE SPACES IN KEY WITH UNDERSCORES
         const key = raw_key.replaceAll(" ", "_");
@@ -164,6 +168,49 @@ function formatUserInput(string) {
         correctedString = correctedString.replaceAll("_p:", "palette:");
         return correctedString.toLowerCase();
     }
+}
+
+function parseToObject(input) {
+  input = (input || "").trim();
+  if (!input) return {};
+
+  // Single key with an object value: "key: { a: b }"
+  const braceMatch = input.match(/^([^:]+):\s*\{([\s\S]*)\}\s*$/);
+  if (braceMatch) {
+    const key = braceMatch[1].trim();
+    const inner = braceMatch[2].trim();
+    return { [key]: parseToObject(inner) };
+  }
+
+  const result = {};
+  const parts = input.split(/[;,]\s*/);
+  parts.forEach((part) => {
+    if (!part) return;
+    const i = part.indexOf(":");
+    if (i === -1) {
+      const key = part.trim().replace(/ |-/g, "_");
+      result[key] = true;
+      return;
+    }
+
+    const rawKey = part.slice(0, i).trim().replace(/ |-/g, "_");
+    let value = part.slice(i + 1).trim();
+
+    // Nested object in-value: "k: { ... }"
+    if (/^\{[\s\S]*\}$/.test(value)) {
+      value = value.replace(/^\{/, "").replace(/\}$/, "").trim();
+      result[rawKey] = parseToObject(value);
+      return;
+    }
+
+    const low = value.toLowerCase();
+    if (low === "true") result[rawKey] = true;
+    else if (low === "false") result[rawKey] = false;
+    else if (/^-?\d+$/.test(value)) result[rawKey] = parseInt(value, 10);
+    else result[rawKey] = value;
+  });
+
+  return result;
 }
 
 module.exports = {
