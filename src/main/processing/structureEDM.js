@@ -263,6 +263,7 @@ function start_new_module_container(child, prev) {
     return true;
 }
 function start_new_block_column(child, prev) {
+    console.log(`prev: ${prev.name} : ${prev.group_size}`, `current: ${child.name} : ${child.group_size}`)
     if (start_new_block_row(child, prev)) return true;
     return true;
 }
