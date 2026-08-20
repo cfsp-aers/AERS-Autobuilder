@@ -145,6 +145,15 @@
         "max_siblings": 1,
         "depth": 2
       }
+    },
+    "product banner reversed": {
+      "valid names": ["product banner"],
+      "properties": {
+        "category": "product",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
     }
   },
   "component": {
