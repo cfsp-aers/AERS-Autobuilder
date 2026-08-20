@@ -147,7 +147,7 @@
       }
     },
     "product banner reversed": {
-      "valid names": ["product banner"],
+      "valid names": ["product banner reversed"],
       "properties": {
         "category": "product",
         "type": "banner",
