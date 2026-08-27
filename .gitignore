@@ -137,3 +137,11 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Golden test scratch space
+tests/golden/.work/
+
+# Per-user build state, written by the app
+src/REQUIRED_DATA.json
+src/PREVIOUS_REQUIRED_DATA.json
+src/database/

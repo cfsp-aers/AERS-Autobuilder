@@ -1,0 +1,1155 @@
+[
+  {
+    "uuid": "M0001",
+    "name": "header",
+    "entity_type": "module",
+    "category": "header",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "header/header petbarn.js",
+    "config": [
+      "header config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "yellow",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "0px 0px 0px 0px",
+    "content": "Subject line:  Know the signs of osteoarthritis\nPreheader: Many health issues go unoticed in senior pets from 7 years of age",
+    "subject_line": "Know the signs of osteoarthritis",
+    "preheader": "Many health issues go unoticed in senior pets from 7 years of age",
+    "fragment": true,
+    "group_size": 1,
+    "hide_transition": true,
+    "group_padding": "0px 0px 0px 0px",
+    "background": "#FEC326",
+    "colour": "#FEC326"
+  },
+  {
+    "uuid": "M0002",
+    "name": "hero standard",
+    "entity_type": "module",
+    "category": "hero",
+    "type": "banner",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "hero/hero standard.js",
+    "config": [
+      "hero config.js",
+      "banner config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "white",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "0px 0px 0px 0px",
+    "group_size": 1,
+    "hide_transition": true,
+    "background": "#FFFFFF",
+    "colour": "#FFFFFF",
+    "children": [
+      {
+        "uuid": "C0001",
+        "entity_type": "component",
+        "category": "component",
+        "type": "image",
+        "name": "image",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/image.js",
+        "config": [
+          "component config.js",
+          "image config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "vertical_align": "middle",
+        "padding": "0px 0px 12px 0px",
+        "border_radius": "0px",
+        "width": "100%",
+        "content": {
+          "src": "GX_SeniorWellness3_HERO_Cat https://www.greencrossvets.com.au/book-online/"
+        }
+      }
+    ]
+  },
+  {
+    "uuid": "M0003",
+    "name": "text block",
+    "entity_type": "module",
+    "category": "basic",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "basic/text block.js",
+    "config": [
+      "basic config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "light",
+    "vertical_align": "top",
+    "padding": "0px 32px 0px 32px",
+    "container_padding": "16px 16px 16px 16px",
+    "block_padding": "16px 0px 0px 0px",
+    "group_size": 1,
+    "background": "#FFFFFF",
+    "colour": "#FFFFFF",
+    "children": [
+      {
+        "uuid": "C0002",
+        "entity_type": "component",
+        "category": "component",
+        "type": "body",
+        "name": "bodycopy",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/bodycopy.js",
+        "config": [
+          "component config.js",
+          "body config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 16px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "Hi firstname\n\nThe average cat has a lifespan of 15 to 20 years. Advances in veterinary treatments and nutrition alongside a tendency to keep indoor-only cats has contributed to this longer life expectancy.\n\nIf your cat is **over the age of seven**, then they are considered a senior cat, when small health changes can represent chronic conditions that benefit from early diagnosis.",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0003",
+        "entity_type": "component",
+        "category": "component",
+        "type": "heading",
+        "name": "subheading",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/subheading.js",
+        "config": [
+          "component config.js",
+          "heading config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "h4",
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "32px",
+        "line_height": "36px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "text_size_class": "heading-large",
+        "content": "Common Signs of Chronic Conditions",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0004",
+        "entity_type": "component",
+        "category": "component",
+        "type": "body",
+        "name": "bodycopy",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/bodycopy.js",
+        "config": [
+          "component config.js",
+          "body config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 16px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "**• Changes in litter tray habits or toileting outside the tray **\n**• Increased thirst or urination**\n**• Weight loss despite a good appetite**\n**• Matted fur or dandruff**\n**• Reduced jumping or climbing**",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0005",
+        "entity_type": "component",
+        "category": "component",
+        "type": "heading",
+        "name": "subheading",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/subheading.js",
+        "config": [
+          "component config.js",
+          "heading config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "h4",
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "32px",
+        "line_height": "36px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "text_size_class": "heading-large",
+        "content": "Senior Cat Wellness Blood Test",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0006",
+        "entity_type": "component",
+        "category": "component",
+        "type": "body",
+        "name": "bodycopy",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/bodycopy.js",
+        "config": [
+          "component config.js",
+          "body config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 16px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "A senior cat wellness blood screening test provides valuable insight into organ function and overall health - often before symptoms are visible.  Blood screening can help detect:\n\n**✔ Kidney and liver disease**\n**✔ Hormonal imbalances**\n**✔ Arthritis and chronic pain**\n**✔ Early organ dysfunction**\n**✔ Changes that may indicate cancer**\n\nRegular testing allows your vet to track changes over time, adjust treatment plans early, and improve long-term outcomes. ",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0007",
+        "entity_type": "component",
+        "category": "component",
+        "type": "heading",
+        "name": "subheading",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/subheading.js",
+        "config": [
+          "component config.js",
+          "heading config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "h4",
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "32px",
+        "line_height": "36px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "text_size_class": "heading-large",
+        "content": "Senior Cat Wellness Package",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0008",
+        "entity_type": "component",
+        "category": "component",
+        "type": "body",
+        "name": "bodycopy",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/bodycopy.js",
+        "config": [
+          "component config.js",
+          "body config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 16px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "Help your senior cat thrive with a Wellness Package that includes a <span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">wellness blood screen</span> and is tailored to senior cats.  It includes:\n\n**<span style=\"font-weight:normal;color:#8BC53F;font-size:16px;line-height:18px;\">✔</span> Nurse Assessment**\n<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">✔ </span><span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">Veterinary Consultation</span>\n<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">✔ </span> <span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">Wellness Blood Screen Test</span>",
+        "text_segments": [
+          {
+            "text": "[wellness blood screen]",
+            "properties": {
+              "font_weight": "bold"
+            }
+          },
+          {
+            "text": "[✔]",
+            "properties": {
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[✔ ]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[Veterinary Consultation]",
+            "properties": {
+              "font_weight": "bold"
+            }
+          },
+          {
+            "text": "[✔ ]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[Wellness Blood Screen Test]",
+            "properties": {
+              "font_weight": "bold"
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "C0009",
+        "entity_type": "component",
+        "category": "component",
+        "type": "heading",
+        "name": "subheading",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/subheading.js",
+        "config": [
+          "component config.js",
+          "heading config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "h4",
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "32px",
+        "line_height": "36px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "text_size_class": "heading-large",
+        "content": " Now $249 <span style=\"font-weight:normal;color:#000000;font-size:32px;line-height:36px;\">(save up to $100)</span><sup style=\"line-height: 0px !important;\">*</sup>",
+        "text_segments": [
+          {
+            "text": "[(save up to $100)]",
+            "properties": {
+              "font_weight": "normal"
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "C0010",
+        "entity_type": "component",
+        "category": "component",
+        "type": "button",
+        "name": "button",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/button.js",
+        "config": [
+          "component config.js",
+          "button config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "default",
+        "transition": false,
+        "palette": "black/white",
+        "colour": "#FFFFFF",
+        "background": "#000000",
+        "vertical_align": "middle",
+        "padding": "12px 16px 12px 16px",
+        "margin": "0px 0px 0px 0px",
+        "inner_padding": "8px 16px 8px 16px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "border_radius": "32px",
+        "height": "auto",
+        "width": "auto",
+        "content": {
+          "text": "MAKE APPOINTMENT https://www.greencrossvets.com.au/book-online/",
+          "href": ""
+        },
+        "align": "center",
+        "mso_height": "40px"
+      },
+      {
+        "uuid": "C0011",
+        "entity_type": "component",
+        "category": "component",
+        "type": "terms",
+        "name": "terms",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/terms.js",
+        "config": [
+          "component config.js",
+          "terms config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "light",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "12px",
+        "line_height": "14px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "*Terms and Conditions apply. Offer expires 31 May 2026",
+        "text_segments": []
+      }
+    ]
+  },
+  {
+    "uuid": "M0004",
+    "name": "text block",
+    "entity_type": "module",
+    "category": "basic",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "basic/text block.js",
+    "config": [
+      "basic config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "light yellow",
+    "vertical_align": "top",
+    "padding": "0px 32px 0px 32px",
+    "container_padding": "16px 16px 16px 16px",
+    "block_padding": "16px 0px 0px 0px",
+    "user_settings": {
+      "palette": "light yellow"
+    },
+    "group_size": 1,
+    "background": "#FFF2D4",
+    "colour": "#FFF2D4",
+    "children": [
+      {
+        "uuid": "C0012",
+        "entity_type": "component",
+        "category": "component",
+        "type": "heading",
+        "name": "heading",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/heading.js",
+        "config": [
+          "component config.js",
+          "heading config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "h2",
+        "transition": false,
+        "palette": "light yellow",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "44px",
+        "line_height": "48px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "text_size_class": "heading-extra-large",
+        "content": "One App. Everything your pet needs.",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0013",
+        "entity_type": "component",
+        "category": "component",
+        "type": "image",
+        "name": "image",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/image.js",
+        "config": [
+          "component config.js",
+          "image config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "vertical_align": "middle",
+        "padding": "0px 0px 0px 0px",
+        "border_radius": "24px",
+        "width": "100%",
+        "content": {
+          "src": "images/GXV_PB_App_Banner.png"
+        }
+      },
+      {
+        "uuid": "C0014",
+        "entity_type": "component",
+        "category": "component",
+        "type": "button",
+        "name": "button",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/button.js",
+        "config": [
+          "component config.js",
+          "button config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "row_index": 1,
+        "mode": "default",
+        "transition": false,
+        "palette": "black/white",
+        "colour": "#FFFFFF",
+        "background": "#000000",
+        "vertical_align": "middle",
+        "padding": "12px 16px 12px 16px",
+        "margin": "0px 0px 0px 0px",
+        "inner_padding": "8px 16px 8px 16px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "border_radius": "32px",
+        "height": "auto",
+        "width": "auto",
+        "content": {
+          "text": "Download on the App Store",
+          "href": "https://apps.apple.com/au/app/petbarn-pet-store-advice/id6511222021"
+        },
+        "align": "center",
+        "mso_height": "40px"
+      },
+      {
+        "uuid": "C0014",
+        "entity_type": "component",
+        "category": "component",
+        "type": "button",
+        "name": "button",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/button.js",
+        "config": [
+          "component config.js",
+          "button config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "row_index": 2,
+        "mode": "default",
+        "transition": false,
+        "palette": "black/white",
+        "colour": "#FFFFFF",
+        "background": "#000000",
+        "vertical_align": "middle",
+        "padding": "12px 16px 12px 16px",
+        "margin": "0px 0px 0px 0px",
+        "inner_padding": "8px 16px 8px 16px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "border_radius": "32px",
+        "height": "auto",
+        "width": "auto",
+        "content": {
+          "text": "Get it on Google Play",
+          "href": "https://play.google.com/store/apps/details?id=au.com.petbarn.app.prod&hl=en_AU&pli=1"
+        },
+        "align": "center",
+        "mso_height": "40px"
+      }
+    ]
+  },
+  {
+    "uuid": "M0005",
+    "name": "text block",
+    "entity_type": "module",
+    "category": "basic",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "basic/text block.js",
+    "config": [
+      "basic config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "yellow",
+    "vertical_align": "top",
+    "padding": "0px 32px 0px 32px",
+    "container_padding": "16px 16px 16px 16px",
+    "block_padding": "16px 0px 0px 0px",
+    "user_settings": {
+      "palette": "yellow"
+    },
+    "group_size": 1,
+    "background": "#FEC326",
+    "colour": "#FEC326",
+    "children": [
+      {
+        "uuid": "C0015",
+        "entity_type": "component",
+        "category": "component",
+        "type": "image",
+        "name": "lockup",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/lockup.js",
+        "config": [
+          "component config.js",
+          "image config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "vertical_align": "middle",
+        "padding": "0px 0px 0px 0px",
+        "border_radius": "0px",
+        "width": "180px",
+        "content": {
+          "src": "images/HPP-logo-green-white.png"
+        }
+      },
+      {
+        "uuid": "C0016",
+        "entity_type": "component",
+        "category": "component",
+        "type": "heading",
+        "name": "subheading",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/subheading.js",
+        "config": [
+          "component config.js",
+          "heading config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "h4",
+        "transition": false,
+        "palette": "yellow",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "32px",
+        "line_height": "36px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "text_size_class": "heading-large",
+        "content": "Senior Cat Lifestage Plan",
+        "text_segments": []
+      }
+    ]
+  },
+  {
+    "uuid": "M0006",
+    "name": "banner",
+    "entity_type": "module",
+    "category": "basic",
+    "type": "banner",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "basic/banner.js",
+    "config": [
+      "basic config.js",
+      "banner config.js"
+    ],
+    "depth": 2,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "yellow",
+    "colour": "#FEC326",
+    "background": "#FFFFFF",
+    "vertical_align": "top",
+    "padding": "8px 16px 8px 16px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "0px 16px 0px 16px",
+    "border_radius": "24px",
+    "user_settings": {
+      "palette": "yellow"
+    },
+    "group_size": 1,
+    "children": [
+      {
+        "uuid": "C0017",
+        "entity_type": "component",
+        "category": "component",
+        "type": "image",
+        "name": "image",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/image.js",
+        "config": [
+          "component config.js",
+          "image config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "vertical_align": "middle",
+        "padding": "0px 0px 0px 0px",
+        "text_align": "left",
+        "border_radius": "24px",
+        "width": "100%",
+        "content": {
+          "src": "images/HPP_SeniorCat_Banner.png"
+        },
+        "align": "left"
+      },
+      {
+        "uuid": "C0018",
+        "entity_type": "component",
+        "category": "component",
+        "type": "body",
+        "name": "bodycopy",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/bodycopy.js",
+        "config": [
+          "component config.js",
+          "body config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "yellow",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "12px 0px 0px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "normal",
+        "text_align": "left",
+        "font": "Outfit",
+        "content": "<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">+</span> Annual senior wellness screenings,\nsuch as T4 thyroid and blood tests\n<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">+</span> All standard Greencross Vet consults\n<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">+</span> Vaccinations as recommended by your vet\n<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">+</span> $200 off dental scale and polish\n<span style=\"font-weight:bold;color:#8BC53F;font-size:16px;line-height:18px;\">+</span> Emergency consultations at participating sites across the Animal Referral and Emergency Network ",
+        "align": "left",
+        "text_segments": [
+          {
+            "text": "[+]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[+]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[+]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[+]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          },
+          {
+            "text": "[+]",
+            "properties": {
+              "font_weight": "bold",
+              "colour": "#8BC53F"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "uuid": "M0007",
+    "name": "text block",
+    "entity_type": "module",
+    "category": "basic",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "basic/text block.js",
+    "config": [
+      "basic config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "yellow",
+    "vertical_align": "top",
+    "padding": "0px 32px 0px 32px",
+    "container_padding": "16px 16px 16px 16px",
+    "block_padding": "16px 0px 0px 0px",
+    "user_settings": {
+      "palette": "yellow"
+    },
+    "group_size": 1,
+    "background": "#FEC326",
+    "colour": "#FEC326",
+    "children": [
+      {
+        "uuid": "C0019",
+        "entity_type": "component",
+        "category": "component",
+        "type": "body",
+        "name": "bodycopy",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/bodycopy.js",
+        "config": [
+          "component config.js",
+          "body config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "yellow",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 16px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">$58.00 monthly</span>\non a 12 month plan. Annual cost $696",
+        "text_segments": [
+          {
+            "text": "[$58.00 monthly]",
+            "properties": {
+              "font_weight": "bold"
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "C0020",
+        "entity_type": "component",
+        "category": "component",
+        "type": "button",
+        "name": "button",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/button.js",
+        "config": [
+          "component config.js",
+          "button config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "mode": "default",
+        "transition": false,
+        "palette": "black/white",
+        "colour": "#FFFFFF",
+        "background": "#000000",
+        "vertical_align": "middle",
+        "padding": "12px 16px 12px 16px",
+        "margin": "0px 0px 0px 0px",
+        "inner_padding": "8px 16px 8px 16px",
+        "font_size": "16px",
+        "line_height": "18px",
+        "font_weight": "bold",
+        "text_align": "center",
+        "font": "Outfit",
+        "border_radius": "32px",
+        "height": "auto",
+        "width": "auto",
+        "content": {
+          "text": "LEARN MORE",
+          "href": "https://www.greencrossvets.com.au/healthy-pets-plus/senior-cat/"
+        },
+        "align": "center",
+        "mso_height": "40px"
+      },
+      {
+        "uuid": "C0021",
+        "entity_type": "component",
+        "category": "component",
+        "type": "terms",
+        "name": "terms",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/terms.js",
+        "config": [
+          "component config.js",
+          "terms config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "yellow",
+        "colour": "#000000",
+        "vertical_align": "middle",
+        "padding": "0px 0px 4px 0px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "12px",
+        "line_height": "14px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "<sup style=\"line-height: 0px !important;\">~</sup>Terms & Conditions apply",
+        "text_segments": []
+      }
+    ]
+  },
+  {
+    "uuid": "M0008",
+    "name": "signoff",
+    "entity_type": "module",
+    "category": "footer",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "footer/signoff petbarn.js",
+    "config": [
+      "footer config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "primary",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "32px 16px 16px 16px",
+    "fragment": true,
+    "group_size": 1,
+    "group_padding": "0px 0px 0px 0px",
+    "background": "#FEC326",
+    "colour": "#FEC326"
+  },
+  {
+    "uuid": "M0009",
+    "name": "footer",
+    "entity_type": "module",
+    "category": "footer",
+    "type": "block",
+    "brand": "petbarn",
+    "parent_brand": "petbarn",
+    "template": "footer/footer petbarn.js",
+    "config": [
+      "footer config.js",
+      "block config.js"
+    ],
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "dark",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "0px 0px 0px 0px",
+    "fragment": true,
+    "group_size": 1,
+    "group_padding": "0px 0px 0px 0px",
+    "background": "#000000",
+    "colour": "#000000",
+    "children": [
+      {
+        "uuid": "C0022",
+        "entity_type": "component",
+        "category": "component",
+        "type": "terms",
+        "name": "terms",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/terms.js",
+        "config": [
+          "component config.js",
+          "terms config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "dark",
+        "colour": "#FFFFFF",
+        "vertical_align": "middle",
+        "padding": "0px 16px 16px 16px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "12px",
+        "line_height": "14px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "Full T&Cs see: <a href=\"https://www.greencrossvets.com.au/senior-promotions\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">https://www.greencrossvets.com.au/senior-promotions</a>\n*Terms & Conditions apply. Offer ends 31 May 2026. Valid for cats and dogs aged from 7 years old. Cost of wellness package valued up to $349 before discount and varies per region. Additional fees may apply including additional tests, treatments or medication. Offer not available for Healthy Pets Plus Members.",
+        "text_segments": [
+          {
+            "text": "[https://www.greencrossvets.com.au/senior-promotions]",
+            "properties": {
+              "href": "https://www.greencrossvets.com.au/senior-promotions",
+              "colour": "#FFFFFF"
+            }
+          }
+        ]
+      },
+      {
+        "uuid": "C0023",
+        "entity_type": "component",
+        "category": "component",
+        "type": "terms",
+        "name": "terms",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/terms.js",
+        "config": [
+          "component config.js",
+          "terms config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "dark",
+        "colour": "#FFFFFF",
+        "vertical_align": "middle",
+        "padding": "0px 16px 16px 16px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "12px",
+        "line_height": "14px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "^Lymphoma Cancer Dx optional add-on to wellness screening blood test available for dogs 4 years or older. Price is for one test per pet. Additional fees apply such as consultations, further screenings, treatments or other.",
+        "text_segments": []
+      },
+      {
+        "uuid": "C0024",
+        "entity_type": "component",
+        "category": "component",
+        "type": "terms",
+        "name": "terms",
+        "brand": "petbarn",
+        "parent_brand": "petbarn",
+        "template": "component/terms.js",
+        "config": [
+          "component config.js",
+          "terms config.js"
+        ],
+        "depth": 1,
+        "max_siblings": 1,
+        "transition": false,
+        "palette": "dark",
+        "colour": "#FFFFFF",
+        "vertical_align": "middle",
+        "padding": "0px 16px 16px 16px",
+        "margin": "0px 0px 0px 0px",
+        "font_size": "12px",
+        "line_height": "14px",
+        "font_weight": "normal",
+        "text_align": "center",
+        "font": "Outfit",
+        "content": "<sup style=\"line-height: 0px !important;\">~</sup>A Healthy Pets Plus Senior Lifestage Plan 12-month membership costs $696 and can be paid over fortnightly or monthly payments. Healthy Pets Plus Benefits must not be abused, including in ways that are not for the benefit of the pet covered by the membership. Benefits offered subject to availability. Savings based on prices for non-Healthy Pets Plus members and cannot be used in conjunction with any other offer or discount unless stated otherwise.\nSee Healthy Pets Plus T&Cs <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/terms-and-conditions-v2/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE</a>\nFor a full list of member benefits and exclusions see:\nDog Member Benefits <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/dog-member-benefits/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE</a>\nCat Member Benefits <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/cat-member-benefits/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE</a>",
+        "text_segments": [
+          {
+            "text": "[HERE]",
+            "properties": {
+              "href": "https://www.greencrossvets.com.au/healthy-pets-plus/terms-and-conditions-v2/",
+              "colour": "#FFFFFF"
+            }
+          },
+          {
+            "text": "[HERE]",
+            "properties": {
+              "href": "https://www.greencrossvets.com.au/healthy-pets-plus/dog-member-benefits/",
+              "colour": "#FFFFFF"
+            }
+          },
+          {
+            "text": "[HERE]",
+            "properties": {
+              "href": "https://www.greencrossvets.com.au/healthy-pets-plus/cat-member-benefits/",
+              "colour": "#FFFFFF"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

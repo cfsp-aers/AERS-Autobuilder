@@ -5,6 +5,7 @@ const path = require("node:path");
 const clone = require("git-clone");
 
 const { load } = require("./utils/load.js");
+const { resetUuids } = require("./utils/uuid.js");
 
 const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = load(__dirname, "constants.js");
 
@@ -74,6 +75,10 @@ function buildEmails() {
     let generatedFiles = {};
 
     SELECTED_SHEETS.forEach((brief) => {
+        // Each sheet numbers its entities from scratch, so a sheet produces the
+        // same output whether it is built alone or after five others.
+        resetUuids();
+
         let data = {
             module_array: [],
             component_array: [],

@@ -6,7 +6,20 @@ const app_dir = path.resolve(path.join(__dirname, "../"));
 
 const user_files = path.resolve(path.join(__dirname, "../../lib"));
 
-const REQUIRED_DATA = JSON.parse(fs.readFileSync(path.join(app_dir, "../src/REQUIRED_DATA.json"), { encoding: "UTF-8" }));
+/*
+    The app writes REQUIRED_DATA.json next to the engine and it is read back
+    here, at require time. AB_REQUIRED_DATA_PATH lets a caller point somewhere
+    else -- used by the golden tests so a test run does not overwrite whatever
+    the user last built.
+
+    This is a stopgap. Under ADR 0001 the engine lives on a shared volume, where
+    writing per-user build state next to itself is wrong outright: two people
+    building at once would overwrite each other, and a read-only mount would
+    fail. The fix is configure() -- see the combination plan, section 4.3.
+*/
+const required_data_path = process.env.AB_REQUIRED_DATA_PATH || path.join(app_dir, "../src/REQUIRED_DATA.json");
+
+const REQUIRED_DATA = JSON.parse(fs.readFileSync(required_data_path, { encoding: "UTF-8" }));
 
 const { BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS } = REQUIRED_DATA;
 

@@ -1,0 +1,38 @@
+[
+    {
+        "id": "demo-petbarn",
+        "brief": "demo.xlsx",
+        "sheet": "PB Demo Email",
+        "why": "A realistic Petbarn campaign. The closest thing to a typical day's work."
+    },
+    {
+        "id": "demo-greencross",
+        "brief": "demo.xlsx",
+        "sheet": "GXV Demo Email",
+        "why": "The same, for Greencross Vets. Covers the other brand's header, footer and palette."
+    },
+    {
+        "id": "layout",
+        "brief": "beta-testing.xlsx",
+        "sheet": "AERS Layout Testing",
+        "why": "Exercises grouping and multi-column structure. The sheet phase 3 will break first."
+    },
+    {
+        "id": "styling",
+        "brief": "beta-testing.xlsx",
+        "sheet": "AERS Styling Testing",
+        "why": "Exercises user settings and the styling passes."
+    },
+    {
+        "id": "palette",
+        "brief": "beta-testing.xlsx",
+        "sheet": "Palette Testing",
+        "why": "Isolates palette resolution, which setPalettes() is marked NEEDS WORK."
+    },
+    {
+        "id": "brand-petbarn",
+        "brief": "beta-testing.xlsx",
+        "sheet": "PB Brand Testing",
+        "why": "Brand inheritance through parent_brand."
+    }
+]

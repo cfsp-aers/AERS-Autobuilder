@@ -1,5 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../utils/load.js");
+// Required directly, not through load(), so the counter is shared with main.js
+// rather than each caller getting a fresh module instance.
+const { nextUuid } = require("../utils/uuid.js");
 const { app_dir, user_files, database } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
@@ -100,7 +103,7 @@ function setBasicProperties(object, header = {}) {
     }
     //object.brand = object.brand ? object.brand.toLowerCase() : setBrand(object.brand, header.brand);
     //object.parent_brand = object.parent_brand ? object.parent_brand.toLowerCase() : setBrand(object.brand, header.brand, "parent");
-    object.uuid ??= `${Math.random().toString(36).slice(4).toUpperCase()}`;
+    object.uuid ??= nextUuid(entity_type);
 
     let object_name = _.findKey(module_library[entity_type], (o) => _.includes(o["valid names"], object[target_value]));
 
