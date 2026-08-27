@@ -2,12 +2,11 @@ const XLSX = require("xlsx");
 const _ = require("lodash");
 const fs = require("fs");
 const path = require("node:path");
-const clone = require("git-clone");
 
 const { load } = require("./utils/load.js");
 const { resetUuids } = require("./utils/uuid.js");
 
-const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS, aers_library_location } = load(__dirname, "constants.js");
+const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS } = load(__dirname, "constants.js");
 
 function buildEmails() {
     const aers = load(app_dir, "main/utils/aers utilities.js");

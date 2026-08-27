@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Builder</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body id="app_body" style="cursor: default">
+    <div style="position: absolute; bottom: 16px; left: 16px; color: #AAA;">
+        <h4 id="dev_settings" style=" line-height: 1.5;"></h4>
+    </div>
+
+    <div id="title_bar" class="titlebar">Universal Builder</div>
+    <div class="container g-2">
+        <div class="" id="settingsLayout" style="display:flex;flex-direction: row;">
+    <div class="hrz g-2" style=" position:absolute;bottom:8px;left: 8px;margin-top: 24px">
+        <button class="preview-btn btn btn-sm btn-secondary" style="background:none;color:#dedede"
+            id="updateAutobuilder">
+            Update AERS
+        </button>
+        <button class="preview-btn btn btn-sm btn-secondary" style="background:none;color:#dedede"
+            id="reloadAutobuilder">
+            Reload AERS
+        </button>
+    </div>
+            <div class="parent-panel p-3 br-24 lift-3"
+                style="height:min-content; margin-bottom: 48px; margin-right:20px;">
+                <div class="vrt">
+                    <div class="header hrz g-4" style="word-wrap: none; min-width: max-content; margin-bottom:16px; justify-content: space-between;max-width: 280px !important;">
+                        <h1>AERS Builder</h1>
+                        <h3 id="loading" style="display: none;">loading . . .</h3>
+                        <button type="button" class="" id="testBtn"
+                            style="background-color: #F5F5F5 ;width:32px;height:32px;margin:auto;display:none;">
+                            <h4>&nbsp;&nbsp;&nbsp;&nbsp;</h4>
+                        </button>
+                        <div class="invisible" id="showFileData" style="margin:8px 8px;display:none">
+                            <button class="preview-btn btn btn-sm btn-secondary" id="showFileDataBtn">show file
+                                data</button>
+                        </div>
+                        <div id="reloadExcel" style="margin:8px 8px;display:none">
+                            <button class="preview-btn btn btn-sm btn-secondary" id="reloadExcelBtn">reload sheet</button>
+                        </div>
+                    </div>
+                    <div class="header" style="margin-bottom:16px;">
+                    </div>
+                    <div class="hrz">
+                        <form id="mainForm" class="panel vrt g-2">
+                            <div class="panel vrt g-2">
+                                <div class="vrt">
+                                    <button type="button" class="btn btn-lg btn-primary" id="selectExcelBtn">
+                                        <img src="icons/folder.svg" style="margin-right:8px;" />
+                                        <h4>Select Excel File</h4>
+                                    </button>
+                                </div>
+                                <div class="vrt">
+                                    <button type="button" id="expand-excelPath" class="btn btn-sm btn-secondary"
+                                        style="z-index: 100;width:100%; justify-content: space-between;">
+                                        <h4 id="excelName">Excel File Name Here</h4>
+                                        <span id="excelSelected" class="invisible">
+                                            <img src="icons/tick.svg" style="max-width: 20px"/>
+                                        </span>
+                                    </button>
+                                    <div class="wrapper" id="excelFile">
+                                        <div class="inner collapsed" id="excelPath">Excel file path goes here</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel vrt g-2">
+                                <div class="button">
+                                    <button type="button" class="btn btn-lg btn-primary" id="selectOutputBtn">
+                                        <img src="icons/folder.svg" style="margin-right:8px;" />
+                                        <h4>Select Output Folder</h4>
+                                    </button>
+                                </div>
+                                <div class="vrt">
+                                    <button type="button" id="expand-outputPath" class="btn btn-sm btn-secondary"
+                                        style="z-index: 100;width:100%; justify-content: space-between;">
+                                        <h4 id="folderName">Output</h4>
+                                        <span id="outputSelected" class="invisible">
+                                            <img src="icons/tick.svg" style="max-width: 20px" />
+                                        </span>
+
+                                    </button>
+                                    <div class="wrapper" id="outputFolder">
+                                        <div class="inner collapsed" id="outputPath">Output path goes here</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="">
+                                <button type="submit" id="processBtn" class="btn btn-xl btn-main">
+                                    <h4>Generate HTML</h4>
+                                </button>
+                            </div>
+                        </form>
+                        <div class="wrapper-H" id="sheetListPanel">
+                            <div class="inner-H">
+                                <div class="divider">
+                                </div>
+                                <div class="panel vrt g-2" id="sheetSelection">
+                                    <div class="">
+                                        <div class="hrz g-1">
+                                            <button class="btn btn-m btn-primary" id="toggle_check"
+                                                onclick="toggleCheck()">
+                                                Select All
+                                            </button>
+                                            <button class="btn btn-m btn-primary" id="check-between-btn">
+                                                Select Between
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="vrt">
+                                        <div id="sheet-list" class="vrt g-1" style="min-height: 160px;overflow: scroll;">
+                                        </div>
+                                    </div>
+                                    <div class="hrz g-2" style="vertical-align: bottom;">
+                                        <div class="" style="margin: auto 0px !important; vertical-align: middle;">
+                                            <button class="btn btn-lg btn-secondary" style="margin: 0;"
+                                                id="downloadImages">Download Images</button>
+                                        </div>
+                                        <div class="" id="imageFolder"
+                                            style="margin: auto 0px !important; vertical-align: middle;display: none">
+                                            <button class="btn btn-sm btn-secondary"
+                                                style="margin: auto 0 0;line-height:1.2;"
+                                                id="imageFolderBtn">Images</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="parent-panel br-24 lift-4 invisible" id="outputFiles" style="margin-right:20px;max-width: 280px !important;" >
+
+                <div class="hrz p-2 ">
+                    <div class="header" style="margin-right:8px;">
+                        <h3>Generated Files</h3>
+                    </div>
+                    <div id="open-folder">
+                        <button id="openHtmlFolder" class="open-btn btn btn-m btn-primary">Open Folder</button>
+                    </div>
+                </div>
+                <div class="vrt" style="max-height: 30dvh; overflow: scroll;padding:0 16px 0 32px;">
+                    <div id="fileList" class="vrt g-1">
+                    </div>
+                </div>
+                <div style="display:none;">
+                    <div class="box status" id="status"></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="parent-panel p-2 br-24 lift-4 invisible" id="filePreview" style="height:min-content;">
+            <div class="vrt g-2">
+                <div class="hrz g-2" style="width:100%;margin:8px auto;" align="center">
+                    <button id="first" class="preview-btn btn btn-m btn-secondary">
+                        <img src="icons/navigate_first.svg" />
+                    </button>
+                    <button id="previous" class="preview-btn btn btn-m btn-primary">
+                        <img src="icons/navigate_before.svg" />
+                    </button>
+                    <h2 id="sheetName" style="width:max-content;margin: 0 auto" align="center">
+                        Sheet name here
+                    </h2>
+                    <button id="next" class="preview-btn btn btn-m btn-primary">
+                        <img src="icons/navigate_next.svg" />
+                    </button>
+                    <button id="last" class="preview-btn btn btn-m btn-secondary">
+                        <img src="icons/navigate_last.svg" />
+                    </button>
+                </div>
+                <div class="hrz g-1">
+                    <iframe class="preview-frame" id="html-preview-frame" src="" name="email" allowTransparency="true"
+                        scrolling="yes" frameborder="0">
+                    </iframe>
+                    <iframe class="preview-frame mobile" id="html-preview-frame-mob" src="" name="email"
+                        allowTransparency="true" scrolling="yes" frameborder="0" style="resize: horizontal;">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</body>
+
+
+<script src="./renderer.js"></script>
+
+<script>
+    const toggleCheck = () => {
+        let btn = document.getElementById("toggle_check");
+        let checkboxes = document.getElementsByClassName("check-btn");
+        // check all
+        if (btn.innerText == "Select All") {
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = true;
+            }
+            btn.innerText = "Deselect All";
+            btn.classList.pxove("select-all");
+            btn.classList.add("unselect-all");
+        } else {
+            // uncheck all
+            for (let j = 0; j < checkboxes.length; j++) {
+                checkboxes[j].checked = false;
+            }
+            btn.innerText = "Select All";
+            btn.classList.pxove("unselect-all");
+            btn.classList.add("select-all");
+        }
+    };
+</script>
+
+
+<script>
+    const expandBtn = document.getElementById('expand-excelPath');
+    const seeExcel = document.getElementById('excelFile');
+    const showExcel = document.getElementById('excelPath');
+    expandBtn.addEventListener('click', () => {
+        if (seeExcel.className == 'wrapper') {
+            seeExcel.classList.add('is-open');
+            showExcel.classList.pxove('collapsed');
+        }
+        else {
+            seeExcel.classList.pxove('is-open');
+            showExcel.classList.add('collapsed');
+        };
+    });
+    const expandFBtn = document.getElementById('expand-outputPath');
+    const seeOutput = document.getElementById('outputFolder');
+    const showOutput = document.getElementById('outputPath');
+    expandFBtn.addEventListener('click', () => {
+        if (seeOutput.className == 'wrapper') {
+            seeOutput.classList.add('is-open');
+            showOutput.classList.pxove('collapsed');
+        }
+        else {
+            seeOutput.classList.pxove('is-open');
+            showOutput.classList.add('collapsed');
+        };
+    });
+</script>
+
+</html>

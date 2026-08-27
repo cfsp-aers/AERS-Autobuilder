@@ -141,7 +141,12 @@ vite.config.ts.timestamp-*
 # Golden test scratch space
 tests/golden/.work/
 
-# Per-user build state, written by the app
-src/REQUIRED_DATA.json
-src/PREVIOUS_REQUIRED_DATA.json
-src/database/
+# Per-user build state. The app writes these to userData; they only appear here
+# when the engine is run straight out of the tree.
+external/src/REQUIRED_DATA.json
+external/src/PREVIOUS_REQUIRED_DATA.json
+external/src/database/
+external/dev_settings.json
+
+# macOS
+.DS_Store

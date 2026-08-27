@@ -23,25 +23,29 @@ if (!workdir) {
 }
 
 const repo_root = path.resolve(__dirname, "../..");
-const database = path.join(repo_root, "src/database");
+const database = path.join(workdir, "database");
 const artifacts = path.join(workdir, "artifacts");
 
 const required_data = JSON.parse(fs.readFileSync(path.join(workdir, "REQUIRED_DATA.json"), { encoding: "utf8" }));
 const sheet = required_data.SELECTED_SHEETS[0];
 
-// constants.js reads this instead of src/REQUIRED_DATA.json, so a test run
-// leaves the user's last real build untouched.
+/*
+    Both of these keep the run inside the scratch directory: the engine reads
+    its configuration from the first and writes its data stores to the second,
+    so a test run leaves the user's last real build untouched.
+
+    The app sets the same two variables, pointing at userData. Using them here
+    means the tests exercise the redirection rather than working around it.
+*/
 process.env.AB_REQUIRED_DATA_PATH = path.join(workdir, "REQUIRED_DATA.json");
+process.env.AB_DATABASE_PATH = database;
 
 fs.mkdirSync(artifacts, { recursive: true });
-
-// src/database holds the engine's data stores and is gitignored, so it is
-// absent from a fresh checkout and the first build would fail writing into it.
 fs.mkdirSync(database, { recursive: true });
 
 let result;
 try {
-    const { buildEmails } = require(path.join(repo_root, "src/main/main.js"));
+    const { buildEmails } = require(path.join(repo_root, "external/src/main/main.js"));
     result = buildEmails();
 } catch (error) {
     console.error(error.stack || error.message);

@@ -45,17 +45,15 @@ destructure it at require time in turn. Two cases in one process would fight
 over the module cache. A fresh process per case sidesteps the question entirely
 and costs about a second.
 
-The child sets `AB_REQUIRED_DATA_PATH` so a test run never overwrites the
-`REQUIRED_DATA.json` left behind by the user's last real build.
+The child sets `AB_REQUIRED_DATA_PATH` and `AB_DATABASE_PATH` so the whole run
+stays inside its scratch directory. The app sets the same two variables,
+pointing at `userData`, so the tests exercise that redirection rather than
+working around it.
 
 ## Known gaps
 
-- **`src/database/` is still written on every run.** The four stores are written
-  to a path hard-coded in `constants.js`, so a test run overwrites the artifacts
-  from your last real build. Nothing reads them back, so this is untidy rather
-  than unsafe. It goes away with `configure()`.
-- **Cases run sequentially** for the same reason. Seven cases take a few
-  seconds; not worth solving yet.
+- **Cases run sequentially**, for the same module-cache reason. Six cases take a
+  few seconds; not worth solving yet.
 - **`GXV Brand Testing` is not covered.** That sheet uses `offerDetails`, and
   `beta-testing.xlsx` is an older brief template whose Offer Library has one
   header row where the current template has two. `setup.js` deletes a fixed two

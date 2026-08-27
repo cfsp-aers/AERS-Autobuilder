@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automatic Email Rollout System (AERS)</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body
+    style="
+    background: radial-gradient(circle at 50% 50%, #FFFFFF 0%, #F9F9F9 100%);max-height:100%; min-height:100vh; max-width: 100vw; min-width: 100vw;">
+    <div class="titlebar" style="color:#323232">Universal Builder</div>
+    <div class="container" style="position:absolute; inset:0; margin: auto;flex-direction: column;">
+
+        <div style="">
+            <h1 style="margin: 0px 16px 32px;text-align:center">Set Your User Settings</h1>
+        </div>
+        <div style="display:grid; gap:8px; padding: 0 32px 0px 16px; align-items: left;">
+            <button type="button" class="btn btn-lg btn-primary" id="setRulesLocation" style="display: flex;"
+                >
+                <h4>Set Rules Location</h4>
+            </button>
+            <div  class=""
+                style="z-index: 100;width:100%; max-width: 280px; justify-content: space-between; min-height:16px; text-align: left;margin-bottom: 8px;cursor:default">
+                <h4 id="rulesLocation">Rules Location</h4>
+            </div>
+            <button type="button" class="btn btn-lg btn-primary" id="setModuleTemplates" style="display: flex;"
+                >
+                <h4>Set Module Templates Location</h4>
+            </button>
+            <div class=""
+                style="z-index: 100;width:100%; max-width: 280px; justify-content: space-between; height:16px; text-align: left;margin-bottom: 8px;cursor:default">
+                <h4 id="moduleTemplatesLocation" style="color:#323232;word-break: break-all;">Module Templates Location</h4>
+            </div>
+        </div>
+        <div class="">
+            <button type="submit" id="confirmUserSettings"  class="btn btn-xl btn-main"
+                style="margin: 16px 16px -16px;">
+                <h4>Confirm Settings</h4>
+            </button>
+        </div>
+    </div>
+
+</body>
+
+<script src="./config_render.js"></script>
+
+</html>
