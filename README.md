@@ -32,7 +32,8 @@ by relative path. Moving either alone breaks all of them.
 
 ```
 npm start                  run from source, against external/ in this repo
-npm test                   check the engine still builds what it should
+npm test                   golden output, then the brief-parsing failures
+npm run test:golden        just the golden cases
 npm run test:accept        record current output as expected, then review the diff
 npm run publish:external:dry   what publishing would change
 npm run publish:external       publish (runs the tests first, and refuses on a diff)
@@ -60,6 +61,12 @@ there is nothing to pull back; the repository is the only source of truth. See
 
 ## When something goes wrong
 
+**External Files** in the menu bar answers "which copy of the code am I
+running?" — where it resolved from, which candidate won, whether the offline copy
+is in use, and how to point the app somewhere else. It is a dialog owned by the
+bootstrap, not a window, because every window loads its HTML and its preload from
+the external tree, and this has to work when that tree is the problem.
+
 The bootstrap keeps a copy of the last external tree that produced a successful
 build, in `~/Library/Application Support/Universal Builder/external_cache`. If a
 publish is broken, installed apps notice on load and restart against that copy
@@ -67,3 +74,11 @@ rather than all failing at once. A bad publish is fixed by fixing the repository
 and publishing again; the cache buys the hours in between.
 
 `AB_EXTERNAL=/some/path npm start` points the app somewhere else for one run.
+
+## Where a build's files go
+
+Nothing per-user is written beside the engine — under ADR 0001 that is the shared
+volume. The engine takes its configuration as an argument to `buildEmails()`, and
+its scratch space is `~/Library/Application Support/Universal Builder/build_state`.
+Working files a designer might want (the log, per-sheet email data) go to an
+`AERS files` folder beside the brief, as they always have.

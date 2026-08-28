@@ -37,7 +37,6 @@ LOCAL="$REPO/external"
 #
 EXCLUDES=(
     --exclude=".*"
-    --exclude="REQUIRED_DATA.json"
     --exclude="PREVIOUS_REQUIRED_DATA.json"
     --exclude="database/"
     --exclude="dev_settings.json"

@@ -143,7 +143,6 @@ tests/golden/.work/
 
 # Per-user build state. The app writes these to userData; they only appear here
 # when the engine is run straight out of the tree.
-external/src/REQUIRED_DATA.json
 external/src/PREVIOUS_REQUIRED_DATA.json
 external/src/database/
 external/dev_settings.json

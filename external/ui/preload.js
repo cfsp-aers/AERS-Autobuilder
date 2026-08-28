@@ -1,4 +1,14 @@
-const { contextBridge, ipcRenderer, shell, ipcMain } = require("electron");
+/*
+    The renderer's whole view of the main process. Every function here must have
+    a matching ipcMain handler, or the button that calls it rejects at runtime
+    with nothing to say why.
+
+    That had drifted badly in the beta: downloadImages, setRules,
+    setModuleTemplates and _test_add_file_locations were all exposed with no
+    handler anywhere. The Download Images button was dead in the shipped app.
+    Keep this file and the handlers in main_external.js in step.
+*/
+const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("autobuilds", {
     updateAutobuilder: () => ipcRenderer.invoke("update-autobuilder"),
@@ -8,14 +18,10 @@ contextBridge.exposeInMainWorld("autobuilds", {
     outputPath: () => ipcRenderer.invoke("select-output-folder"),
     downloadImages: (selected_sheets_list) => ipcRenderer.invoke("download-images", selected_sheets_list),
     createHtmlFile: (selected_sheets_list) => ipcRenderer.invoke("create-html-file", selected_sheets_list),
-    _test_add_file_locations: (test_files) => ipcRenderer.invoke("_test-add-locations", test_files),
     openFolder: (folderName) => ipcRenderer.invoke("open-folder", folderName)
-    // we can also expose variables, not just functions
 });
 
 contextBridge.exposeInMainWorld("user_config", {
-    setRules: () => ipcRenderer.invoke("set-rules-location"),
-    setModuleTemplates: () => ipcRenderer.invoke("set-modules-location"),
     openFileData: () => ipcRenderer.invoke("open-file-data"),
     getFileData: () => ipcRenderer.invoke("get-file-data")
 });
@@ -23,10 +29,10 @@ contextBridge.exposeInMainWorld("user_config", {
 /*
     Handled by the bootstrap, not by anything in this tree, so they keep working
     when the external files are missing or fail to load -- which is exactly when
-    someone needs to repoint the app. The panel that uses them is phase 2; the
-    bridge is here now so the channels are reachable and testable.
+    someone needs to repoint the app.
 */
 contextBridge.exposeInMainWorld("external_files", {
+    showPanel: () => ipcRenderer.invoke("show-external-panel"),
     getLocation: () => ipcRenderer.invoke("get-external-location"),
     changeLocation: () => ipcRenderer.invoke("change-external-location"),
     resetLocation: () => ipcRenderer.invoke("reset-external-location"),
@@ -40,7 +46,8 @@ contextBridge.exposeInMainWorld("_path", {
 
 contextBridge.exposeInMainWorld("electronAPI", {
     onMainLog: (callback) => ipcRenderer.on("main-log", (_event, type, ...message) => callback(type, ...message)),
-    checkForDev: (callback) => ipcRenderer.on("check-for-dev", (_event, dev_status, dev_settings) => callback(dev_status, dev_settings))
+    checkForDev: (callback) => ipcRenderer.on("check-for-dev", (_event, dev_status, dev_settings) => callback(dev_status, dev_settings)),
+    onImageDownloadProgress: (callback) => ipcRenderer.on("image-download-progress", (_event, done, total) => callback(done, total))
 });
 
 const log = require("electron-log/preload");

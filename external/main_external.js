@@ -40,21 +40,31 @@ function load(parentLocation, fileName) {
 let bootstrap = {};
 
 /*
-    Where per-user build state is written. The engine reads REQUIRED_DATA at
-    require time from AB_REQUIRED_DATA_PATH, which the bootstrap sets before
-    loading this file, so both sides must agree on the same location.
+    Per-user scratch space, handed over by the bootstrap. Under ADR 0001 the tree
+    this file sits in is on a shared volume, so nothing per-user may be written
+    beside it: two people building at once would overwrite each other, and a
+    read-only mount would fail outright.
 
-    Falling back to the tree's own src/ keeps this file runnable outside the
-    app -- the golden tests do exactly that -- but under ADR 0001 the real run
-    is always the userData one. Phase 2 replaces the whole arrangement with a
-    configure() call and this fallback goes away with it.
+    The fallback keeps this file runnable straight out of a checkout. An older
+    .app may not send buildStateDir at all, which is the same case -- the
+    contract is versioned separately from this tree, so every key is treated as
+    possibly absent.
 */
-function required_data_path() {
-    return process.env.AB_REQUIRED_DATA_PATH || path.join(external_dir, "src/REQUIRED_DATA.json");
+function build_state_dir() {
+    return bootstrap.buildStateDir || path.join(external_dir, "src");
 }
 
-function previous_required_data_path() {
-    return process.env.AB_PREVIOUS_REQUIRED_DATA_PATH || path.join(external_dir, "src/PREVIOUS_REQUIRED_DATA.json");
+/** The four intermediate data stores the engine writes on the way through. */
+function database_location() {
+    return path.join(build_state_dir(), "database");
+}
+
+/**
+ * The last build's settings, so "reload" can pick up where the user left off.
+ * Genuine per-user session state, and the only thing here that outlives a build.
+ */
+function previous_build_path() {
+    return path.join(build_state_dir(), "PREVIOUS_REQUIRED_DATA.json");
 }
 
 // ---------------------------------------------------------------------------
@@ -84,12 +94,53 @@ let file_data_json = {};
 /*
     Every console method the main process has, mirrored into the renderer's
     devtools and to electron-log's file transport.
-
-    Phase 2 makes this safe -- arguments go over IPC raw today, so anything
-    non-cloneable throws -- and broadcasts to every window rather than just the
-    main one. Listed as a behaviour change, so it waits for its own phase.
 */
 const FORWARDED_CONSOLE_METHODS = ["assert", "clear", "count", "countReset", "debug", "dir", "dirxml", "error", "group", "groupCollapsed", "groupEnd", "info", "log", "table", "time", "timeEnd", "timeLog", "trace", "warn"];
+
+/** Send to every open window. The file data window has a console too. */
+function send_to_windows(channel, ...args) {
+    BrowserWindow.getAllWindows().forEach((window) => {
+        if (!window.isDestroyed()) {
+            window.webContents.send(channel, ...args);
+        }
+    });
+}
+
+/*
+    IPC arguments are cloned with the structured clone algorithm, which throws on
+    anything it cannot represent -- an Error, a function, a class instance, a
+    circular object. The beta sent console arguments across raw, so
+    `console.error("failed:", err)` threw *inside the error handler*, replacing a
+    diagnosable failure with a confusing one.
+
+    Errors are the case that matters, since they are what gets logged when
+    something is already wrong, and they clone to `{}` even when they do get
+    through -- their message and stack are not own enumerable properties.
+*/
+function for_ipc(value, depth = 0) {
+    if (value instanceof Error) {
+        return value.stack || `${value.name}: ${value.message}`;
+    }
+    if (value === null || typeof value !== "object") {
+        return typeof value === "function" || typeof value === "symbol" || typeof value === "bigint" ? String(value) : value;
+    }
+    if (depth >= 4) {
+        return "[nested]";
+    }
+    try {
+        if (Array.isArray(value)) {
+            return value.map((item) => for_ipc(item, depth + 1));
+        }
+        const plain = {};
+        Object.keys(value).forEach((key) => {
+            plain[key] = for_ipc(value[key], depth + 1);
+        });
+        return plain;
+    } catch (_) {
+        // Getters that throw, proxies, anything else exotic.
+        return String(value);
+    }
+}
 
 let console_forwarding_installed = false;
 
@@ -103,9 +154,14 @@ function forwardConsoleToRenderer() {
         const original = console[method];
         console[method] = (...args) => {
             original(...args);
-            log.info(...args);
-            if (mainWindow && !mainWindow.isDestroyed()) {
-                mainWindow.webContents.send("main-log", method, ...args);
+            try {
+                log.info(...args);
+                send_to_windows("main-log", method, ...args.map((arg) => for_ipc(arg)));
+            } catch (error) {
+                // Never let logging be the thing that breaks a build. The
+                // original call above has already run, so the message is not
+                // lost -- it just did not reach the renderer.
+                original(`[log forwarding failed: ${error.message}]`);
             }
         };
     });
@@ -132,6 +188,12 @@ const createWindow = () => {
 };
 
 const createfileDataWindow = () => {
+    // Focus the existing one rather than stacking up duplicates.
+    if (fileDataWindow && !fileDataWindow.isDestroyed()) {
+        fileDataWindow.focus();
+        return;
+    }
+
     fileDataWindow = new BrowserWindow({
         titleBarStyle: "hidden",
         backgroundColor: "#323232",
@@ -172,14 +234,25 @@ let fileLocations = {
 };
 
 async function reloadAutobuilder() {
-    const result = { success: false, output: null };
-    const previous = fs.readFileSync(previous_required_data_path(), { encoding: "UTF-8" });
+    const result = { success: false, output: null, message: "" };
 
-    if (previous) {
+    try {
+        const previous = JSON.parse(fs.readFileSync(previous_build_path(), { encoding: "UTF-8" }));
+        // The brief has to still be there. It usually lives on a share, so
+        // "reload" a day later is exactly when this fails.
+        previous.ALL_SHEETS = XLSX.readFile(previous.BRIEF_LOCATION).SheetNames;
+
+        REQUIRED_DATA = previous;
+        selectedFiles.excel = previous.BRIEF_LOCATION;
+        selectedFiles.sheets = previous.ALL_SHEETS;
+
         result.success = true;
-        result.output = JSON.parse(previous);
-        REQUIRED_DATA = result.output;
-        result.output.ALL_SHEETS = XLSX.readFile(result.output.BRIEF_LOCATION).SheetNames;
+        result.output = previous;
+    } catch (error) {
+        // A first launch has no previous build, which is not a failure worth
+        // shouting about. Anything else is, and the renderer shows the message.
+        result.message = error.code === "ENOENT" ? "No previous build to reload." : `Could not reload the last build: ${error.message}`;
+        console.warn(result.message);
     }
 
     return result;
@@ -209,6 +282,21 @@ function registerHandlers() {
     ipcMain.handle("open-file-data", async () => createfileDataWindow());
 
     ipcMain.handle("get-file-data", async () => file_data_json);
+
+    /*
+        Removed rather than implemented: set-rules-location and
+        set-modules-location.
+
+        preload.js exposed both and nothing has ever handled them -- pressing
+        either button in the config popup rejected. They are v2.5's three-folder
+        configuration, where rules and module templates were separately
+        relocatable. There is one external location now and the bootstrap owns
+        it, so there is nothing left for them to set. See the combination plan,
+        section 4.6.
+
+        _test-add-locations went the same way: a test hook for a test that does
+        not exist. Golden tests cover this ground now.
+    */
 
     ipcMain.handle("path_basename", async (event, _path) => path.basename(_path));
 
@@ -249,32 +337,84 @@ function registerHandlers() {
 
         REQUIRED_DATA.SELECTED_SHEETS = selected_sheets_list;
 
-        // The engine reads this back at require time, which is why it is
-        // written before constants.js is loaded rather than passed as an
-        // argument. Phase 2 replaces the round-trip with configure().
-        fs.writeFileSync(required_data_path(), JSON.stringify(REQUIRED_DATA, null, 2), { encoding: "UTF-8" });
-
-        load(external_dir, "./src/main/constants.js");
-
         try {
             const aers_main = load(external_dir, "./src/main/main.js");
-            result.output = aers_main.buildEmails();
+            result.output = aers_main.buildEmails({
+                briefLocation: REQUIRED_DATA.BRIEF_LOCATION,
+                briefParentFolder: REQUIRED_DATA.BRIEF_PARENT_FOLDER,
+                outputLocation: REQUIRED_DATA.OUTPUT_LOCATION,
+                selectedSheets: selected_sheets_list,
+                databaseLocation: database_location()
+            });
         } catch (error) {
-            console.error("custom error", error.toString());
+            console.error("Build failed:", error.stack || error.message);
+            result.output = { success: false, message: error.message };
         }
 
-        fs.writeFileSync(previous_required_data_path(), JSON.stringify(REQUIRED_DATA, null, 2), { encoding: "UTF-8" });
+        // What the "show file data" window reads. Kept here rather than asked
+        // for on demand, because the build that produced it has finished by then.
+        file_data_json = {
+            original_data: (result.output && result.output.original_data) || {},
+            new_data: (result.output && result.output.new_data) || {}
+        };
 
-        /*
-            The gate on the offline cache. A tree that boots proves only that it
-            parses; a tree that has produced an email on this Mac is worth
-            falling back to. See the cache section of app/main.js.
-        */
-        if (result.output && result.output.success === true && typeof bootstrap.notifyBuildSucceeded === "function") {
-            bootstrap.notifyBuildSucceeded();
+        // Only a build worth returning to. Writing this after a failure would
+        // hand "reload" a configuration that is known not to work.
+        if (result.output && result.output.success === true) {
+            try {
+                fs.mkdirSync(path.dirname(previous_build_path()), { recursive: true });
+                fs.writeFileSync(previous_build_path(), JSON.stringify(REQUIRED_DATA, null, 2), { encoding: "UTF-8" });
+            } catch (error) {
+                console.warn(`Could not save the last build's settings: ${error.message}`);
+            }
+
+            /*
+                The gate on the offline cache. A tree that boots proves only that
+                it parses; a tree that has produced an email on this Mac is worth
+                falling back to. See the cache section of app/main.js.
+            */
+            if (typeof bootstrap.notifyBuildSucceeded === "function") {
+                bootstrap.notifyBuildSucceeded();
+            }
         }
 
         return result;
+    });
+
+    /*
+        v2.5's downloader never worked -- see the header of ilc_images.js for
+        what was wrong with it. The button in the beta was worse still: preload
+        exposed the channel and nothing registered a handler, so pressing it
+        rejected, and the renderer then read .path off the rejection.
+    */
+    ipcMain.handle("download-images", async (event, selected_sheets_list) => {
+        if (!REQUIRED_DATA.BRIEF_LOCATION) {
+            return { path: null, total: 0, downloaded: 0, failed: [], message: "Select a brief first." };
+        }
+        if (!selected_sheets_list || selected_sheets_list.length === 0) {
+            return { path: null, total: 0, downloaded: 0, failed: [], message: "Select at least one sheet." };
+        }
+
+        const chosen = await dialog.showOpenDialog(mainWindow, {
+            title: "Where should the images be saved?",
+            properties: ["openDirectory", "createDirectory"]
+        });
+        if (chosen.canceled) {
+            return { path: null, total: 0, downloaded: 0, failed: [], message: "Cancelled." };
+        }
+
+        try {
+            const { downloadImages } = load(external_dir, "./src/main/ilc_images.js");
+            return await downloadImages({
+                briefLocation: REQUIRED_DATA.BRIEF_LOCATION,
+                selectedSheets: selected_sheets_list,
+                saveTo: chosen.filePaths[0],
+                onProgress: (done, total) => send_to_windows("image-download-progress", done, total)
+            });
+        } catch (error) {
+            console.error("Image download failed:", error.stack || error.message);
+            return { path: chosen.filePaths[0], total: 0, downloaded: 0, failed: [], message: `Could not download images: ${error.message}` };
+        }
     });
 
     ipcMain.handle("open-folder", async (event, folderPath) => shell.showItemInFolder(folderPath));

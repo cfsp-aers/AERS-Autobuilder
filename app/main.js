@@ -21,7 +21,7 @@
  * build, which is the problem this arrangement exists to solve.
  */
 
-const { app, BrowserWindow, ipcMain, dialog, shell } = require("electron/main");
+const { app, BrowserWindow, Menu, ipcMain, dialog, shell } = require("electron/main");
 const path = require("node:path");
 const fs = require("node:fs");
 const Module = require("node:module");
@@ -182,32 +182,23 @@ function add_app_modules_to_search_path() {
 // ---------------------------------------------------------------------------
 
 /*
-    The engine writes its build configuration and its intermediate data stores
-    to fixed paths beside itself. Under ADR 0001 that is the shared volume:
-    two people building at once would overwrite each other's brief path
-    mid-build, and a read-only mount would fail outright.
+    The engine's scratch space: the intermediate data stores it writes on the way
+    through a build, and the settings of the last build so "reload" can pick them
+    up again.
 
-    Pointing those two paths at userData is the smallest change that makes the
-    published tree safe to run from. It is not the fix -- the fix is passing
-    configuration in memory, planned for phase 2 (combination plan, 4.3). This
-    is the stopgap that lets phase 1 be exercised against the real volume.
+    This has to be per-user. Under ADR 0001 the external tree is on a shared
+    volume, so anything written beside it is written for everyone: two people
+    building at once would overwrite each other, and a read-only mount would fail
+    outright.
+
+    The bootstrap owns it because the bootstrap is what knows where userData is.
+    It is passed over as buildStateDir; the external tree decides what to put in
+    it. Phase 1 did this by setting three environment variables that constants.js
+    read at require time -- a stopgap for the file round-trip that is now gone.
 */
-function redirect_build_state() {
+function make_build_state_dir() {
     const state_dir = path.join(app.getPath("userData"), "build_state");
-    const database_dir = path.join(state_dir, "database");
-
-    fs.mkdirSync(database_dir, { recursive: true });
-
-    process.env.AB_REQUIRED_DATA_PATH = path.join(state_dir, "REQUIRED_DATA.json");
-    process.env.AB_PREVIOUS_REQUIRED_DATA_PATH = path.join(state_dir, "PREVIOUS_REQUIRED_DATA.json");
-    process.env.AB_DATABASE_PATH = database_dir;
-
-    // constants.js reads REQUIRED_DATA at require time and throws if it is not
-    // there, so a first launch needs an empty one to exist.
-    if (!fs.existsSync(process.env.AB_REQUIRED_DATA_PATH)) {
-        fs.writeFileSync(process.env.AB_REQUIRED_DATA_PATH, JSON.stringify({ BRIEF_PARENT_FOLDER: "", BRIEF_LOCATION: "", OUTPUT_LOCATION: "", SELECTED_SHEETS: "", ALL_SHEETS: "" }, null, 2), { encoding: "utf8" });
-    }
-
+    fs.mkdirSync(state_dir, { recursive: true });
     return state_dir;
 }
 
@@ -443,10 +434,101 @@ function offer_relaunch(parent_window, location) {
     return false;
 }
 
+// ---------------------------------------------------------------------------
+// The external files panel
+// ---------------------------------------------------------------------------
+
+/*
+    v2.5 had a config popup for three separately relocatable folders, backed by a
+    user_config.json. All of that is gone: there is one external location now and
+    this file owns it. What is left is worth showing -- where the code came from,
+    which candidate won, and whether the offline copy is in use -- because when
+    something is wrong, "which copy am I running?" is the first question.
+
+    A dialog rather than a window, deliberately. The panel has to work when the
+    external tree is missing or broken, and every window in this application
+    loads its HTML and its preload from that tree. A dialog needs neither, so
+    this keeps working in exactly the case it exists for.
+*/
+function external_panel_detail() {
+    const resolved = resolve_external();
+    const info = read_cache_info();
+    const user_set = read_user_location();
+
+    const lines = [resolved ? `Loaded from:\n${resolved.location}\n(${resolved.label})` : `Not found. Looked in:\n${searched_locations_text()}`];
+
+    lines.push(user_set ? `Location set by you:\n${user_set}` : `Using the default location:\n${DEFAULT_EXTERNAL_LOCATION}`);
+
+    if (info) {
+        lines.push(`Offline copy saved ${new Date(info.cachedAt).toLocaleString()}\n(${info.gate})${is_cache_dir(booted_from) ? "\n\nThis app is running from that copy." : ""}`);
+    } else {
+        lines.push("No offline copy saved yet. One is kept after a successful build.");
+    }
+
+    return lines.join("\n\n");
+}
+
+function show_external_panel(parent_window) {
+    const buttons = ["Close", "Change Location...", "Reset to Default", "Show in Finder"];
+
+    const choice = dialog.showMessageBoxSync(parent_window || undefined, {
+        type: "info",
+        title: "Universal Builder -- external files",
+        message: "The app's code lives outside the app.",
+        detail: external_panel_detail(),
+        buttons: buttons,
+        defaultId: 0,
+        cancelId: 0
+    });
+
+    if (choice === 1) {
+        const location = pick_external_location(parent_window);
+        if (location) offer_relaunch(parent_window, location);
+    } else if (choice === 2) {
+        clear_user_location();
+        offer_relaunch(parent_window, DEFAULT_EXTERNAL_LOCATION);
+    } else if (choice === 3) {
+        const resolved = resolve_external();
+        if (resolved) shell.showItemInFolder(resolved.file);
+    }
+}
+
+/*
+    Reachable from the menu bar, which this file owns, so it does not depend on a
+    button in a renderer that may never have loaded. Appended to the default menu
+    rather than replacing it -- the standard Edit and Window menus carry copy,
+    paste and the devtools shortcut, and losing those to add one item would be a
+    poor trade.
+*/
+function install_menu() {
+    const existing = Menu.getApplicationMenu();
+    if (!existing) return;
+
+    const template = existing.items.map((item) => item);
+    const built = Menu.buildFromTemplate([
+        ...template,
+        {
+            label: "External Files",
+            submenu: [
+                { label: "External Files...", click: () => show_external_panel(BrowserWindow.getFocusedWindow()) },
+                { type: "separator" },
+                { label: "Show in Finder", click: () => shell.showItemInFolder(main_file_in(booted_from) || booted_from) }
+            ]
+        }
+    ]);
+
+    Menu.setApplicationMenu(built);
+}
+
 /*
     Registered here, not in the external tree, so they keep working when it is
     missing or broken -- which is exactly when someone needs to repoint the app.
 */
+ipcMain.handle("show-external-panel", async (event) => {
+    show_external_panel(BrowserWindow.fromWebContents(event.sender));
+    return null;
+});
+
 ipcMain.handle("get-external-location", async () => {
     const resolved = resolve_external();
     const info = read_cache_info();
@@ -555,7 +637,7 @@ function boot(resolved) {
     console.log(`Loading external tree from: ${booted_from}  (${resolved.label})`);
     console.log(`Packages resolvable from:   ${add_app_modules_to_search_path()}`);
 
-    build_state_dir = redirect_build_state();
+    build_state_dir = make_build_state_dir();
     console.log(`Per-user build state in:    ${build_state_dir}`);
 
     delete require.cache[require.resolve(resolved.file)];
@@ -566,6 +648,8 @@ function boot(resolved) {
         handle_boot_failure(resolved, error);
         return;
     }
+
+    app.whenReady().then(install_menu);
 
     if (is_cache_dir(booted_from)) {
         warn_running_from_cache();

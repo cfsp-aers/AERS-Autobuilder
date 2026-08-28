@@ -38,27 +38,28 @@ to real output.
 
 If it is *not* what you intended, you have caught a regression.
 
-## Why a child process per case
+## How a case is run
 
-`constants.js` resolves `REQUIRED_DATA` at require time and around 44 files
-destructure it at require time in turn. Two cases in one process would fight
-over the module cache. A fresh process per case sidesteps the question entirely
-and costs about a second.
+Each case is a folder holding a `REQUIRED_DATA.json` and a copy of its brief.
+That file is the fixture format — a readable way to write a case down — not
+something the engine reads. `build-case.js` turns it into the configuration
+object it passes to `buildEmails()`, which is the same call the app makes, with
+`databaseLocation` pointed at the case's scratch directory so a test run leaves
+the user's last real build untouched.
 
-The child sets `AB_REQUIRED_DATA_PATH` and `AB_DATABASE_PATH` so the whole run
-stays inside its scratch directory. The app sets the same two variables,
-pointing at `userData`, so the tests exercise that redirection rather than
-working around it.
+One child process per case. That used to be forced: `constants.js` read
+`REQUIRED_DATA` at require time and every importer destructured it at require
+time in turn, so two cases in one process fought over the module cache.
+`buildEmails()` taking its configuration as an argument removed that constraint.
+It stays for the isolation — the engine holds the module library and rule files
+in module-level state, and a case that dies part way through cannot leave that
+behind for the next one — and costs about a second.
 
 ## Known gaps
 
-- **Cases run sequentially**, for the same module-cache reason. Six cases take a
-  few seconds; not worth solving yet.
-- **`GXV Brand Testing` is not covered.** That sheet uses `offerDetails`, and
-  `beta-testing.xlsx` is an older brief template whose Offer Library has one
-  header row where the current template has two. `setup.js` deletes a fixed two
-  rows, so the first offer is consumed as the header, every alias lookup misses,
-  and the build dies with `Cannot read properties of undefined (reading
-  'offerAlias')`. Greencross is covered by `demo-greencross` instead. The
-  underlying fragility — a fixed row count where the header should be located by
-  its contents — is worth fixing, but after these tests exist, not before.
+- **Cases run sequentially.** Seven cases take a few seconds; not worth solving
+  yet, though it is now possible (see above).
+- **Nothing covers a brief that is wrong.** Every case here is a brief that
+  builds. The errors a user is most likely to hit — an offer alias that is not in
+  the Offer Library, a sheet with no header row — are raised by
+  `sheet_to_objects` and `setupContent` and are not exercised by anything.

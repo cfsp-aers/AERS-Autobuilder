@@ -115,8 +115,15 @@ document.getElementById("updateAutobuilder").addEventListener("click", async () 
 });
 
 const updateAutobuilder = async () => {
-    const message = await window.autobuilds.updateAutobuilder();
+    // The message used to be assigned and dropped. There is no auto-updater --
+    // changes ship through the published tree -- so say so rather than looking
+    // like the button did something.
+    showStatus(await window.autobuilds.updateAutobuilder(), "success");
 };
+
+document.getElementById("externalFiles").addEventListener("click", async () => {
+    await window.external_files.showPanel();
+});
 
 document.getElementById("reloadAutobuilder").addEventListener("click", async () => {
     document.body.classList.add("loading");
@@ -128,6 +135,13 @@ document.getElementById("reloadAutobuilder").addEventListener("click", async () 
 
 const reloadAutobuilder = async () => {
     const result = await window.autobuilds.reloadAutobuilder();
+
+    if (!result.success) {
+        // A first launch has nothing to reload, and a brief that has moved since
+        // the last build is the common case after that. Both used to be silent.
+        showStatus(result.message || "Could not reload the last build.", "error");
+        return;
+    }
 
     if (result.success) {
         console.log("previous data", result.output);
@@ -157,7 +171,11 @@ function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-const openFileData = async () => {};
+// Was an empty function in the beta, so the "show file data" button did nothing.
+// The channel and its handler both existed; only this was missing.
+const openFileData = async () => {
+    await window.user_config.openFileData();
+};
 
 const excelWorkbook = async (previous_data = null) => {
     const brief = previous_data ? previous_data : await window.autobuilds.getExcel();
@@ -279,29 +297,50 @@ const outputFolder = async (previous_data = null) => {
     }
 };
 
-const _test_add_file_locations = async (test_files) => {
-    const test_location = await window.autobuilds._test_add_file_locations(test_files);
-    return test_location;
-};
+window.electronAPI.onImageDownloadProgress((done, total) => {
+    showStatus(`Downloading images... ${done} of ${total}`, "processing");
+});
 
-const downloadImages = async (selected_sheets_list) => {
-    const result = await window.autobuilds.downloadImages(selected_sheets_list);
-    return result;
-};
+/*
+    The beta waited a fixed three seconds and then offered the folder, whether or
+    not anything had been downloaded -- and in fact nothing ever was, because the
+    channel had no handler. It now waits for the real result and says what
+    happened.
+*/
 document.getElementById("downloadImages").addEventListener("click", async () => {
-    const allSheets = document.getElementsByClassName("check-btn");
-    let selectedSheetObjects = Array.from(allSheets).filter((cb) => cb.checked);
-    let j = 0;
-    selectedSheetObjects.forEach((sheet) => {
-        let sheetName = sheet.value;
-        selectedSheets[j] = sheetName;
-        j++;
-    });
-    let image_data = await downloadImages(selectedSheets);
-    images_folder = image_data.path;
-    setTimeout(() => {
-        document.getElementById("imageFolder").style.display = "flex";
-    }, 3000);
+    const button = document.getElementById("downloadImages");
+    updateSelectedSheets();
+
+    if (selectedSheets.length === 0) {
+        showStatus("Select at least one sheet first", "error");
+        return;
+    }
+
+    button.disabled = true;
+    showStatus('Looking up product images... <span class="spinner"></span>', "processing");
+
+    try {
+        const result = await window.autobuilds.downloadImages(selectedSheets);
+        images_folder = result.path;
+
+        if (result.failed && result.failed.length) {
+            const detail = result.failed
+                .slice(0, 5)
+                .map((f) => `${f.ilc}: ${f.reason}`)
+                .join("<br>");
+            showStatus(`${result.message}<br>${detail}${result.failed.length > 5 ? "<br>..." : ""}`, "error");
+        } else {
+            showStatus(result.message, result.downloaded > 0 ? "success" : "error");
+        }
+
+        if (result.downloaded > 0) {
+            document.getElementById("imageFolder").style.display = "flex";
+        }
+    } catch (error) {
+        showStatus(`Error: ${error.message}`, "error");
+    } finally {
+        button.disabled = false;
+    }
 });
 document.getElementById("imageFolderBtn").addEventListener("click", async () => {
     openFolder(images_folder);
@@ -358,14 +397,13 @@ document.getElementById("mainForm").addEventListener("submit", async (e) => {
     showStatus('Processing Excel file... <span class="spinner"></span>', "processing");
     document.getElementById("processBtn").disabled = true;
 
-    const allSheets = document.getElementsByClassName("check-btn");
-    let selectedSheetObjects = Array.from(allSheets).filter((cb) => cb.checked);
-    let j = 0;
-    selectedSheetObjects.forEach((sheet) => {
-        let sheetName = sheet.value;
-        selectedSheets[j] = sheetName;
-        j++;
-    });
+    updateSelectedSheets();
+
+    if (selectedSheets.length === 0) {
+        showStatus("Select at least one sheet to build", "error");
+        document.getElementById("processBtn").disabled = false;
+        return;
+    }
 
     try {
         document.getElementById("loading").style.display = "flex";

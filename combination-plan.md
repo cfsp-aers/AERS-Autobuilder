@@ -236,6 +236,12 @@ Passing configuration as explicit arguments is better still, and is the directio
 of travel for new code. It is not a precondition, because it is a ~44-file
 refactor on the critical path buying correctness nothing currently needs.
 
+> **This last paragraph was wrong, and phase 2 did the better thing instead.**
+> The 44 came from counting `require("constants.js")` sites, not from what they
+> read. Forty-three of the forty-five want only `app_dir` and `user_files`, which
+> are derived from `__dirname` and are not configuration at all. Two files read
+> build configuration. See *Phase 2 — done*.
+
 `PREVIOUS_REQUIRED_DATA.json` — genuine per-user session state — moves to
 `userData`, alongside the external location setting and the cache.
 
@@ -318,7 +324,7 @@ and allows running the real thing end-to-end from week one.
 |---|---|---|
 | **0** | ✅ Golden briefs; strip uuid nondeterminism | Nothing downstream is safe without it |
 | **1** | ✅ Repo layout; bootstrap; `NODE_PATH` external loading; one cache; publish script → parallel folder | Proves the architecture first, not last |
-| **2** | `configure()` refactor; carryover slate; config panel; reconcile the drifted preload contract | Makes the shell real |
+| **2** | ✅ `configure()` refactor; carryover slate; config panel; reconcile the drifted preload contract | Makes the shell real |
 | **3** | Layout constructors across all 24 module definitions | Guarded by phase 0 |
 | **4** | `specials banner`; `hero trade` | Cheap only once phase 3 lands |
 | **5** | Parity on real briefs; cut over | The switch |
@@ -388,6 +394,98 @@ risk, and "I'll know the right constructor API when I see it" is doing real work
 in the estimate. Derive the API from the existing 24 definitions rather than
 designing it up front.
 
+### Phase 2 — done
+
+**The `configure()` refactor was two files, not forty-four.** 4.3 sized it by
+counting `require("constants.js")` sites. But 43 of the 45 want only `app_dir`
+and `user_files`, both derived from `__dirname` — static paths, not
+configuration. Only `main.js` and `aers utilities.js` read anything a build
+chooses, and two of the destructures were dead: `renderEmail.js` pulled five
+values it never used, `setup.js` pulled a sixth.
+
+So the better option — explicit arguments, which 4.3 called the direction of
+travel and deferred as too expensive — turned out to be the affordable one, and
+that is what `buildEmails(config)` now is.
+
+| | Before | After |
+|---|---|---|
+| How configuration reaches the engine | written to `REQUIRED_DATA.json`, read back at require time | an argument |
+| `constants.js` | 8 exports, read a file on load | 2 exports, both `__dirname`-relative |
+| Env vars between bootstrap and engine | 3 | 0 |
+| Per-user state on the shared volume | prevented by a stopgap | structurally impossible |
+
+`build_config.js` holds the configuration for the build in progress. Module-level
+state, deliberately: `buildEmails()` takes an argument, which is where explicitness
+matters, but `aers.log()` and `aers.writeData()` are called from sixteen places,
+and a logger that demands its log location at every call site is worse code. It
+must never be loaded through `load()`, which deletes it from `require.cache` — the
+same constraint `uuid.js` already carried.
+
+Two failures that were reachable from a first launch are now refused up front: an
+empty brief path reaching `XLSX.readFile` as `""`, and an empty
+`BRIEF_PARENT_FOLDER` making `AERS_FILES_LOCATION` resolve against the working
+directory, so the app wrote a log beside itself and carried on.
+
+**The brief parser now finds its header row by looking for it.** It scans for the
+column the sheet is required to have — `offerAlias`, `moduleType` — and takes the
+last of a run, because the current template repeats the Offer Library header and
+the data sits under the second one. Both templates now parse: `demo.xlsx` lands on
+row 2 as before, `beta-testing.xlsx` on row 1, which it never did.
+
+That closes the gap 4.5 left open. **`GXV Brand Testing` is now a golden case** —
+the sheet the tests could not cover, because it exercises `offerDetails` against
+the older template and the build died on `Cannot read properties of undefined
+(reading 'offerAlias')`. Its offers resolve correctly and the header row is no
+longer consumed as an offer.
+
+Alongside it, `tests/brief-errors.js`: ten cases over the failures the golden
+tests structurally cannot reach, because every golden brief is one that builds.
+They assert on the *message*, not on the fact of throwing — the old exception
+threw too, it just named neither the sheet nor the cause.
+
+**The preload contract is reconciled, and checkable.** Every channel the renderer
+can invoke now has a handler; `downloadImages` was implemented, `setRules`,
+`setModuleTemplates` and `_test_add_file_locations` were removed along with the
+config popup that drove two of them, which nothing had ever opened.
+
+Three more things turned out to be dead in the beta, not just drifted:
+
+- `openFileData` in `renderer.js` was `async () => {}`. The channel and its
+  handler both existed; only the renderer's half was missing, so the "show file
+  data" button did nothing.
+- The window it opens compares `original_data` against `new_data`, and the engine
+  declared both on its result and assigned neither. It showed `{}` against `{}`.
+  They now hold the brief as read and the modules that came out of it.
+- `updateAutobuilder()`'s message was assigned to a variable and dropped.
+
+**The ILC downloader works.** v2.5's had three separate reasons not to:
+`await emailData.forEach(async …)` returned before any fetch started, the
+download was fire-and-forget, and the lookup returned a *string* on failure that
+the caller then read `.image` off. The UI opened a folder after a fixed
+three-second wait regardless. It is now awaited end to end, bounded at four
+concurrent requests, and returns per-code failures that the renderer shows.
+`node-downloader-helper` is not carried over — `fetch` plus a file write covers
+it, and its resume and progress features were unused.
+
+Verified against a mocked network (bounded concurrency, `"0"` cells skipped,
+direct URLs passed through, timeouts and missing products collected rather than
+swallowed) and the live endpoint's response shape re-checked, since the port
+would have shipped broken if Petbarn's search had changed since v2.5. **Not
+verified end to end against a real brief: neither test brief has ILC columns.**
+
+**The config panel is a dialog, not a window.** 4.6 says it stays in the
+bootstrap so it works when the engine is broken — but every window in this app
+loads its HTML *and its preload* from the external tree, so a window would fail
+in precisely the case the panel exists for. A dialog needs neither. It is reached
+from an `External Files` menu the bootstrap appends to the default menu, so it
+survives the renderer never loading at all, and from a button in the app.
+
+Console forwarding is now safe and reaches every window. The beta sent arguments
+over IPC raw, so `console.error("failed:", err)` threw inside the error handler —
+`Error` does not survive structured cloning, and would arrive as `{}` if it did.
+Errors go across as their stack, and the whole thing is wrapped so logging can
+never be what breaks a build.
+
 ---
 
 ## 6. Notable findings
@@ -399,7 +497,9 @@ Things discovered during analysis that are worth acting on regardless.
   never been normalised to their base types. Moot once the rules are retired, but
   it explains any historical oddity with trade product modules.
 - **The beta's Download Images button is dead.** `preload.js` exposes the
-  channel; `app_main.js` has no handler.
+  channel; `app_main.js` has no handler. Fixed in phase 2, along with the
+  three other orphaned channels and three features that were dead in the
+  renderer rather than merely drifted.
 - **Six of the UI's icons have never loaded.** `index.html` was copied from v2.5
   along with its references to `build/folder.svg`, `build/tick.svg` and the four
   `navigate_*.svg`, but the files themselves were not. Fixed in phase 1; the
@@ -412,7 +512,7 @@ Things discovered during analysis that are worth acting on regardless.
   stub, it marks an auto-updater that was started and abandoned — the same
   mechanism ADR 0001 defers to.
 - **The beta's log forwarding will throw on non-cloneable arguments** and only
-  reaches the main window.
+  reaches the main window. Fixed in phase 2.
 - **`applyModifications` reloads every module's rule file from disk on every
   module on every pass**, busting `require.cache` each time. Not urgent; likely
   the largest easy performance win in the engine.
@@ -424,8 +524,8 @@ Things discovered during analysis that are worth acting on regardless.
   misses, and the build dies with `Cannot read properties of undefined (reading
   'offerAlias')` — which names neither the sheet nor the brief. Found in phase 0
   and left unfixed on purpose: it is a behaviour change, and it now has golden
-  tests to be made against. Worth doing in phase 2, locating the header by its
-  contents and failing with a message that names the offer and the sheet.
+  tests to be made against. **Fixed in phase 2**, and `GXV Brand Testing` — the
+  sheet this made untestable — is a golden case now.
 
 ---
 

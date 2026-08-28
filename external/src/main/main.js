@@ -5,10 +5,26 @@ const path = require("node:path");
 
 const { load } = require("./utils/load.js");
 const { resetUuids } = require("./utils/uuid.js");
+// Required directly, not through load(): both hold state that must be shared
+// with everything this build loads, and load() hands out fresh instances.
+const { configure } = require("./build_config.js");
 
-const { app_dir, user_files, database, AERS_FILES_LOCATION, BRIEF_PARENT_FOLDER, BRIEF_LOCATION, OUTPUT_LOCATION, SELECTED_SHEETS } = load(__dirname, "constants.js");
+const { app_dir, user_files } = load(__dirname, "constants.js");
 
-function buildEmails() {
+/**
+ * Build the selected sheets of a brief into .html files.
+ *
+ * @param {object} config see build_config.js for the fields
+ * @returns {{success: boolean, files: object, message: string}}
+ */
+function buildEmails(config) {
+    /*
+        First, before anything else is loaded. aers utilities and everything
+        underneath it read the configuration at call time, so it has to be set
+        before the first of those calls -- which is aers.startLog(), below.
+    */
+    const { briefLocation, briefParentFolder, outputLocation, selectedSheets, databaseLocation, aersFilesLocation } = configure(config);
+
     const aers = load(app_dir, "main/utils/aers utilities.js");
     const util = load(app_dir, "main/utils/style utilities.js");
 
@@ -33,8 +49,10 @@ function buildEmails() {
     const { renderEmail } = load(app_dir, "main/utils/renderEmail.js");
 
     // CREATE DATA DIRECTORY
-    const edm_data_location = path.resolve(path.join(AERS_FILES_LOCATION, "email data"));
+    const edm_data_location = path.resolve(path.join(aersFilesLocation, "email data"));
     fs.mkdirSync(edm_data_location, { recursive: true });
+    // Per-user scratch, in userData under ADR 0001. Absent on a first build.
+    fs.mkdirSync(databaseLocation, { recursive: true });
 
     aers.startLog();
 
@@ -49,31 +67,25 @@ function buildEmails() {
         message: ""
     };
 
-    aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${AERS_FILES_LOCATION}\n---`, `BRIEF_PARENT_FOLDER | -> ${BRIEF_PARENT_FOLDER}\n---`, `BRIEF_LOCATION | -> ${BRIEF_LOCATION}\n---`, `OUTPUT_LOCATION | -> ${OUTPUT_LOCATION}\n---`, `SELECTED_SHEETS | -> [ ${SELECTED_SHEETS} ]`, `~~~~~~~~~~~~~~~`);
+    aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${aersFilesLocation}\n---`, `BRIEF_PARENT_FOLDER | -> ${briefParentFolder}\n---`, `BRIEF_LOCATION | -> ${briefLocation}\n---`, `OUTPUT_LOCATION | -> ${outputLocation}\n---`, `SELECTED_SHEETS | -> [ ${selectedSheets} ]`, `~~~~~~~~~~~~~~~`);
 
-    let wb = XLSX.readFile(BRIEF_LOCATION);
+    let wb = XLSX.readFile(briefLocation);
 
     let offer_library;
-    try {
-        const raw_offers = wb.Sheets["Offer Library"];
-        aers.delete_row(raw_offers, 2);
-        offer_library = XLSX.utils.sheet_to_json(raw_offers, { raw: false }).map((item) => {
-            let prepared_item = {};
-            _.forIn(item, (value, key) => {
-                if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
-            });
-            return prepared_item;
-        });
-
-        aers.writeData("offer_library.json", offer_library, false, database);
-    } catch (e) {
+    if (wb.Sheets["Offer Library"]) {
+        // Not caught: a brief that has an Offer Library the engine cannot read is
+        // a brief whose offers will all silently miss. Better to stop here, where
+        // the message can say which sheet, than at the first lookup.
+        offer_library = aers.sheet_to_objects(wb.Sheets["Offer Library"], "offerAlias", `the Offer Library sheet of ${path.basename(briefLocation)}`);
+        aers.writeData("offer_library.json", offer_library, false, databaseLocation);
+    } else {
         console.warn("no offer library sheet found");
     }
     //
 
     let generatedFiles = {};
 
-    SELECTED_SHEETS.forEach((brief) => {
+    selectedSheets.forEach((brief) => {
         // Each sheet numbers its entities from scratch, so a sheet produces the
         // same output whether it is built alone or after five others.
         resetUuids();
@@ -86,24 +98,23 @@ function buildEmails() {
         };
 
         // Generate email data object from brief
-        let ws = wb.Sheets[brief];
-        aers.delete_row(ws, 1);
-
         const BRIEF_JSON = {
             name: brief,
             created: Date(),
             success: null,
-            content: XLSX.utils.sheet_to_json(ws, { raw: false }).map((item) => {
-                let prepared_item = {};
-                _.forIn(item, (value, key) => {
-                    if (!_.isEmpty(value)) prepared_item[_.camelCase(key.split("\n")[0])] = value;
-                });
-                return prepared_item;
-            })
+            content: aers.sheet_to_objects(wb.Sheets[brief], "moduleType", `the "${brief}" sheet`)
         };
 
+        /*
+            What the "show file data" window compares. The beta declared these
+            two fields on the result and never assigned either, so the window
+            showed {} against {}. They are the two ends of the build: the brief
+            as it was read, and the modules that came out of it.
+        */
+        result.original_data[brief] = BRIEF_JSON.content;
+
         // Freeze original eDM content so it can't be modified
-        const edm_content = setupContent(BRIEF_JSON.content, offer_library);
+        const edm_content = setupContent(BRIEF_JSON.content, offer_library, `the "${brief}" sheet`);
 
         // Add offerdetails and extra buttons / any components to EDM_CONTENT before setting basic properties
         // ~~~~ Number of modules / components and order should be locked ~~~~
@@ -198,7 +209,9 @@ function buildEmails() {
             db.cs[key] = value.map((c) => insertRichText(c, `${c.content}`));
         });
 
-        aers.writeData("module_store.json", db.ms, false, database);
+        aers.writeData("module_store.json", db.ms, false, databaseLocation);
+
+        result.new_data[brief] = db.ms;
 
         const module_array = structureEDM(db.ms, db.cs);
 
@@ -211,14 +224,14 @@ function buildEmails() {
                 return m;
             }),
             false,
-            database
+            databaseLocation
         );
-        aers.writeData("component_store.json", db.cs, false, database);
+        aers.writeData("component_store.json", db.cs, false, databaseLocation);
 
         //const formatted_output = formatData(); //structureEDM(formatData());
 
         // Write data files
-        aers.writeData("email_json.json", module_array, false, database);
+        aers.writeData("email_json.json", module_array, false, databaseLocation);
 
         data.output = Object.freeze(module_array);
 
@@ -229,10 +242,10 @@ function buildEmails() {
         };
 
         try {
-            let renderedEmail = renderEmail(OUTPUT_LOCATION, finalised_data);
+            let renderedEmail = renderEmail(outputLocation, finalised_data);
             generatedFiles[brief] = {
                 fileName: `${brief}.html`,
-                filePath: path.join(OUTPUT_LOCATION, `${brief}.html`)
+                filePath: path.join(outputLocation, `${brief}.html`)
                 //fileContent: renderedEmail
             };
 

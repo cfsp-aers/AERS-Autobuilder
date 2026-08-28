@@ -3,7 +3,7 @@ const { load } = require("../utils/load.js");
 // Required directly, not through load(), so the counter is shared with main.js
 // rather than each caller getting a fresh module instance.
 const { nextUuid } = require("../utils/uuid.js");
-const { app_dir, user_files, database } = require("../constants.js");
+const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 
@@ -11,7 +11,7 @@ const module_library = load(user_files, "libraries/modules.json");
 const { setBrand } = load(app_dir, "main/properties/brand.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
-function setupContent(arr, offers) {
+function setupContent(arr, offers, sheet_name = "this sheet") {
     let result = arr.reduce((acc, object, index) => {
         if (index == 0) {
             object.subject_line = _.trim(object.content.split("\n")[0].split(":")[1]);
@@ -32,6 +32,16 @@ function setupContent(arr, offers) {
         if (object.offerDetails) {
             acc.push(item);
             const offerItem = _.find(offers, (o) => o.offerAlias == object.content);
+
+            /*
+                Without this the next line throws `Cannot read properties of
+                undefined (reading 'offerAlias')`, which says nothing about which
+                offer, which sheet, or which of the two likely causes: a typo in
+                the brief, or an Offer Library that was read one row out.
+            */
+            if (!offerItem) {
+                throw new Error(`"${object.content}" on ${sheet_name} is not in the Offer Library.\n\n` + `The Offer Library has ${offers ? offers.length : 0} offers${offers && offers.length ? `, starting with "${offers[0].offerAlias}"` : ""}. Check the offer alias in the brief matches one of them.`);
+            }
 
             acc.push({ ...setBasicProperties({ component: "image", content: offerItem.offerAlias }, arr[0]), ...{ component: "image", content: offerItem.offerAlias } });
 

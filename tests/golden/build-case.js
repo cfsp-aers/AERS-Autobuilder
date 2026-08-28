@@ -1,11 +1,18 @@
 /*
     Builds one golden case and collects its artifacts.
 
-    Runs as a child process, one per case. That is deliberate: constants.js
-    resolves REQUIRED_DATA at require time and ~44 files destructure it at
-    require time in turn, so two cases in one process would fight over the
-    module cache. A fresh process per case sidesteps the whole question, and
-    costs about a second.
+    Runs as a child process, one per case.
+
+    Originally that was forced: constants.js read REQUIRED_DATA at require time
+    and every importer destructured it at require time in turn, so two cases in
+    one process fought over the module cache. buildEmails() taking its
+    configuration as an argument removed that constraint.
+
+    It stays because the isolation is still worth its second: the engine loads
+    the module library and rule files into module-level state, and a case that
+    dies part way through cannot leave that state behind for the next one. If
+    these ever get slow enough to matter, running them in-process is now a real
+    option -- it was not before.
 
     Usage: node build-case.js <workdir>
 
@@ -29,24 +36,27 @@ const artifacts = path.join(workdir, "artifacts");
 const required_data = JSON.parse(fs.readFileSync(path.join(workdir, "REQUIRED_DATA.json"), { encoding: "utf8" }));
 const sheet = required_data.SELECTED_SHEETS[0];
 
-/*
-    Both of these keep the run inside the scratch directory: the engine reads
-    its configuration from the first and writes its data stores to the second,
-    so a test run leaves the user's last real build untouched.
-
-    The app sets the same two variables, pointing at userData. Using them here
-    means the tests exercise the redirection rather than working around it.
-*/
-process.env.AB_REQUIRED_DATA_PATH = path.join(workdir, "REQUIRED_DATA.json");
-process.env.AB_DATABASE_PATH = database;
-
 fs.mkdirSync(artifacts, { recursive: true });
-fs.mkdirSync(database, { recursive: true });
 
+/*
+    The same object the app passes, built from the case's own REQUIRED_DATA.json.
+    databaseLocation keeps the data stores inside the scratch directory, so a
+    test run leaves the user's last real build untouched.
+
+    REQUIRED_DATA.json is the case fixture format, not something the engine reads
+    any more -- it predates buildEmails() taking its configuration as an argument
+    and is kept because it is a readable way to write a case down.
+*/
 let result;
 try {
     const { buildEmails } = require(path.join(repo_root, "external/src/main/main.js"));
-    result = buildEmails();
+    result = buildEmails({
+        briefLocation: required_data.BRIEF_LOCATION,
+        briefParentFolder: required_data.BRIEF_PARENT_FOLDER,
+        outputLocation: required_data.OUTPUT_LOCATION,
+        selectedSheets: required_data.SELECTED_SHEETS,
+        databaseLocation: database
+    });
 } catch (error) {
     console.error(error.stack || error.message);
     process.exit(1);

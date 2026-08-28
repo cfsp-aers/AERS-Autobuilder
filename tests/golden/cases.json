@@ -34,5 +34,11 @@
         "brief": "beta-testing.xlsx",
         "sheet": "PB Brand Testing",
         "why": "Brand inheritance through parent_brand."
+    },
+    {
+        "id": "brand-greencross",
+        "brief": "beta-testing.xlsx",
+        "sheet": "GXV Brand Testing",
+        "why": "The offerDetails path against an older brief template. This sheet could not be built at all until the header row was located by looking for it rather than by counting -- beta-testing.xlsx carries one header row in its Offer Library where demo.xlsx carries two. It is here to keep that fixed."
     }
 ]
