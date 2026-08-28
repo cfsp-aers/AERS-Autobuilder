@@ -1,8 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const { setComponents } = load(app_dir, "main/systems/setComponents.js");
+const { single_column } = load(app_dir, "main/systems/layout.js");
 
 `~~~~~~~~~~~ DEFAULT ~~~~~~~~~~~`;
 
@@ -25,18 +25,7 @@ const component_positions = {
     all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const internal_layout = (current, content) => {
-    return {
-        block: "gridContainer",
-        innerLayout: "single_row",
-        children: [
-            {
-                block: "gridCol",
-                children: setComponents("all", content)
-            }
-        ]
-    };
-};
+const internal_layout = (current, content) => single_column(content);
 
 function modes() {}
 

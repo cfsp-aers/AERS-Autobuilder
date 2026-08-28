@@ -325,7 +325,7 @@ and allows running the real thing end-to-end from week one.
 | **0** | ✅ Golden briefs; strip uuid nondeterminism | Nothing downstream is safe without it |
 | **1** | ✅ Repo layout; bootstrap; `NODE_PATH` external loading; one cache; publish script → parallel folder | Proves the architecture first, not last |
 | **2** | ✅ `configure()` refactor; carryover slate; config panel; reconcile the drifted preload contract | Makes the shell real |
-| **3** | Layout constructors across all 24 module definitions | Guarded by phase 0 |
+| **3** | ✅ Layout constructors across all 19 module definitions | Guarded by phase 0 |
 | **4** | `specials banner`; `hero trade` | Cheap only once phase 3 lands |
 | **5** | Parity on real briefs; cut over | The switch |
 
@@ -485,6 +485,79 @@ over IPC raw, so `console.error("failed:", err)` threw inside the error handler 
 `Error` does not survive structured cloning, and would arrive as `{}` if it did.
 Errors go across as their stack, and the whole thing is wrapped so logging can
 never be what breaks a build.
+
+### Phase 3 — done
+
+**Nineteen module definitions, not twenty-four.** The count in the table came
+from `ls`. Nine of the files under `lib/modules/` are components, which have no
+`internal_layout` — a component does not decide where it goes, the module
+holding it does — and two are scaffolds to copy.
+
+The constructors were derived from those nineteen rather than designed, and what
+they turned out to be is one point for each level of a grammar the `.njk`
+templates already enforce:
+
+| | emits | children are |
+|---|---|---|
+| `container(options, rows)` | `gridContainer` | rows |
+| `columns(options, cols)` | `gridContainer` + an implied row | columns |
+| `row(options, cols)` | `gridRow` | columns |
+| `stack(options, components)` | `gridRow` + an implied column | components |
+| `col(options, children)` | `gridCol` | components, or a container |
+
+`columns()` and `stack()` are the two shorthands, and they exist for a reason
+found while reading the definitions: the implied row and column are selected by
+writing a bare string key, `innerLayout: "single_row"`, that nothing validates.
+Two footers spell it `inner_block`. More on that below.
+
+Alongside them `component()`, `image()` and `button()` for components a layout
+declares itself, and `nothing()` for a branch that drops part of a layout —
+which was written as `{}` and read like an oversight.
+
+**Three presets, not seven.** ADR 0003 says presets should mirror v2.5's seven
+templates. Three of the seven have an analogue here — `single_column`,
+`two_columns`, `stacked_rows` — and between them they are the whole layout of
+twelve of the nineteen modules. The other four of v2.5's seven describe how it
+grouped *whole modules*, which in this engine is `structureEDM`'s job, not a
+module's. Writing them now would be the speculative design the ADR warns
+against; each is three lines when something needs it.
+
+The seven that stayed hand-built are the two headers and five footers — the ones
+the ADR predicted would never fit, and they still get per-node overrides,
+branching on module state, and inline literal components, because the
+constructors and the presets emit the same nodes and mix at any depth.
+
+| | Before | After |
+|---|---|---|
+| Lines across the 19 definitions | 2558 | 1936 |
+| `banner.js` vs `banner flipped.js` | 111 lines each, structurally duplicated | 96 each, differing in two padding values |
+| `header greencross vets.js` | 253 | 159 |
+| `footer greencross vets.js` | 271 | 143 |
+
+**The rewrite is provably a no-op.** `tests/layouts/` calls every module's
+`internal_layout` directly, once per branch it can take, and snapshots the tree.
+It was recorded before a single definition was touched, and all nineteen were
+byte-identical afterwards — key order included, because `email_json.json` is
+compared byte for byte and every constructor emits
+`{ block, [innerLayout], ...options, children }` so an options bag lands in the
+order it was written.
+
+This test exists because the golden briefs only reach twelve of the nineteen
+modules. `article`, `banner flipped`, `banner stacked`, `default`, `footer
+default`, `product banner` and `product banner reversed` appear in no brief in
+the repository, and the refactor rewrote all seven.
+
+**Two footers have been shipping malformed tables.** `signoff petbarn.js` and
+`shop your way petbarn.js` set `inner_block: "single_row"` where they meant
+`innerLayout`. Nothing reads `inner_block`, so the container held a column with
+no row between them and the rendered email put a `<td>` straight inside a
+`<tbody>` — seven times across the golden cases, in two modules that go out on
+real Petbarn campaigns.
+
+Fixed as a separate step, after the byte-identical rewrite, so the golden diff
+shows only the fix: seven `<tr>`/`</tr>` pairs added across four cases, nothing
+removed, nothing else changed. It is the class of bug the constructors are meant
+to end — `columns()` cannot be misspelled into silence.
 
 ---
 

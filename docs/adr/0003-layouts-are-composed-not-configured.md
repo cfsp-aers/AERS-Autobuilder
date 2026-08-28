@@ -78,3 +78,25 @@ This refactor rewrites `internal_layout` across all 24 existing module
 definitions. It must not be attempted before golden-file output tests exist,
 because the only way to know the rewrite preserved behaviour is to diff the
 output.
+
+## Addendum, 2026-08-28
+
+Done, in `external/src/main/systems/layout.js`. The decision above stands; three
+things about it were wrong in detail, recorded here rather than edited into the
+text above.
+
+There were 19 definitions, not 24 — nine of the files counted are components,
+which have no `internal_layout`, and two are scaffolds.
+
+There are three presets, not seven. Only three of v2.5's seven shapes have an
+analogue here, and between them they are the whole layout of twelve of the
+nineteen modules; the rest of v2.5's seven describe how it grouped whole
+modules, which is `structureEDM`'s job in this engine.
+
+The golden tests were not sufficient on their own. They only reach the modules a
+golden brief happens to use — twelve of the nineteen — so `tests/layouts/`
+snapshots each module's `internal_layout` directly. That test, recorded before
+any definition was touched, is what showed the rewrite was byte-identical.
+
+The prediction that held: the two headers and five footers did not fit the
+presets, and are still hand-built.

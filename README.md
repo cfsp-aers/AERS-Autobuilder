@@ -11,13 +11,14 @@ is left to do, [CONTEXT.md](CONTEXT.md) for the language, and
 ## Layout
 
 ```
-app/          the .app -- a bootstrap and nothing else
-external/     everything that does anything
-  src/          the build engine
-  lib/          module definitions, templates, palettes
-  ui/           the renderer
-tests/golden/ real briefs and the output they are expected to produce
-scripts/      publishing
+app/           the .app -- a bootstrap and nothing else
+external/      everything that does anything
+  src/           the build engine
+  lib/           module definitions, templates, palettes
+  ui/            the renderer
+tests/golden/  real briefs and the output they are expected to produce
+tests/layouts/ every module's layout, snapshotted on its own
+scripts/       publishing
 ```
 
 The split is the point. `app/` is compiled into a `.app` and changes almost
@@ -32,9 +33,10 @@ by relative path. Moving either alone breaks all of them.
 
 ```
 npm start                  run from source, against external/ in this repo
-npm test                   golden output, then the brief-parsing failures
+npm test                   golden output, module layouts, brief-parsing failures
 npm run test:golden        just the golden cases
-npm run test:accept        record current output as expected, then review the diff
+npm run test:layouts       just the module layouts
+npm run test:accept        record current golden output, then review the diff
 npm run publish:external:dry   what publishing would change
 npm run publish:external       publish (runs the tests first, and refuses on a diff)
 npm run build              package the .app
@@ -42,6 +44,17 @@ npm run build              package the .app
 
 `npm start` always uses this repository's `external/`, never the published copy,
 so a dev checkout is never shadowed by whatever is on the volume.
+
+## Adding or changing a module
+
+A module definition in `external/lib/modules/` says what its defaults are, which
+components go in which slot, and what shape it takes. The shape is built from
+the constructors in `external/src/main/systems/layout.js` -- `container`, `row`,
+`col` and friends, with three presets for the shapes that recur. Start from
+`modules/module template.js`, which explains the vocabulary.
+
+`npm run test:layouts` snapshots every module's shape on its own, which is how a
+module no golden brief happens to use still gets covered.
 
 ## Publishing
 

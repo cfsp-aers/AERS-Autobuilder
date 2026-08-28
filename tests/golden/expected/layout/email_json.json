@@ -3750,9 +3750,9 @@
     "children": [
       {
         "block": "gridContainer",
+        "innerLayout": "single_row",
         "transition": "F3F3F3",
         "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
-        "inner_block": "single_row",
         "children": [
           {
             "block": "gridCol",
@@ -3983,9 +3983,9 @@
     "children": [
       {
         "block": "gridContainer",
+        "innerLayout": "single_row",
         "transition": "FFFFFF",
         "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
-        "inner_block": "single_row",
         "children": [
           {
             "block": "gridCol",

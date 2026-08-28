@@ -1,0 +1,882 @@
+{
+  "plain": {
+    "block": "gridContainer",
+    "children": [
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "top",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "top",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "padding": "16px 12px 16px",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "bottom",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "bottom",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "transition": {
+    "block": "gridContainer",
+    "children": [
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "top",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "top",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "padding": "16px 12px 16px",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "bottom",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "bottom",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "transactional": {
+    "block": "gridContainer",
+    "children": [
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "top",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "top",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "padding": "16px 12px 16px",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "bottom",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "bottom",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "no_nav": {
+    "block": "gridContainer",
+    "children": [
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "top",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "top",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "padding": "16px 12px 16px",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "bottom",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "bottom",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hpp": {
+    "block": "gridContainer",
+    "children": [
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "top",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "top",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "top",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "top",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridRow",
+        "innerLayout": "single_column",
+        "padding": "16px 12px 16px",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "bottom",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "bottom",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "bottom",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "bottom",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

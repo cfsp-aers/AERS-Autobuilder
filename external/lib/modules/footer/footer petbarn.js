@@ -1,8 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const { setComponents } = load(app_dir, "main/systems/setComponents.js");
+const { container, row, col, component, setComponents } = load(app_dir, "main/systems/layout.js");
 //
 //
 
@@ -33,37 +33,18 @@ const component_positions = {
     all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const internal_layout = (current, content) => {
-    return {
-        block: "gridContainer",
-        transition: current.transition,
-        transition_id: current.transition_id,
-        children: [
-            {
-                block: "gridRow",
-                children: [
-                    {
-                        block: "gridCol",
-                        padding: "32px 32px 0px",
-                        children: setComponents("all", content)
-                    }
-                ]
-            },
-            {
-                block: "gridRow",
-                children: [
-                    {
-                        block: "gridCol",
-                        padding: "0px 32px 32px",
-                        children: [
-                            {
-                                entity_type: "component",
-                                colour: "white",
-                                font_size: "12px",
-                                line_height: "14px",
-                                content: current.transactional
-                                    ? `transactional footer`
-                                    : `^For Shop Your Way full terms and conditions see our
+const internal_layout = (current, content) =>
+    container({ transition: current.transition, transition_id: current.transition_id }, [
+        row({}, [col({ padding: "32px 32px 0px" }, setComponents("all", content))]),
+        row({}, [
+            col({ padding: "0px 32px 32px" }, [
+                component({
+                    colour: "white",
+                    font_size: "12px",
+                    line_height: "14px",
+                    content: current.transactional
+                        ? `transactional footer`
+                        : `^For Shop Your Way full terms and conditions see our
 <a href="https://www.petbarn.com.au/delivery-information" style="color:#FFFFFF;line-height:14px;">Delivery Information page.</a>
 
 Make sure emails from Petbarn make it to your inbox.
@@ -78,14 +59,10 @@ Petbarn Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113
 P: 1300 655 896 E: Petbarn@edm.petbarn.com
 
 If you wish to unsubscribe, please <a class="arc-link" data-nl-type="unsubscription" style="text-decoration:underline;color:rgb(255, 255, 255);" href="https://t1.edm.petbarn.com.au/lp/unsubscribe" data-tracking-type="OPT_OUT">click here.</a>`
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    };
-};
+                })
+            ])
+        ])
+    ]);
 
 function modes() {}
 

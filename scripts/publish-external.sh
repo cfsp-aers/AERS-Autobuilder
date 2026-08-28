@@ -83,8 +83,10 @@ fi
 echo "Checking the engine still builds what it is expected to..."
 if ! (cd "$REPO" && npm test --silent); then
     echo >&2
-    echo "Golden tests failed. Not publishing." >&2
-    echo "If the change in output is intended, run: npm run test:accept" >&2
+    echo "Tests failed. Not publishing." >&2
+    echo "If the change in output is intended, record it:" >&2
+    echo "  npm run test:accept                          for the golden cases" >&2
+    echo "  node tests/layouts/layouts.js --accept       for the module layouts" >&2
     echo "then review and commit the new expected files." >&2
     exit 1
 fi

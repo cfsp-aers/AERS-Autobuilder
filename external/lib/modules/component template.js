@@ -1,10 +1,16 @@
+/*
+    Copy this into modules/component/ and rename it. The relative paths below
+    are written for that destination, one folder deeper than this file sits, so
+    the copy resolves and this template itself does not. Nothing loads it.
+
+    A component has no internal_layout: the module that holds it decides where
+    it goes, through component_positions and its layout.
+*/
+
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const { setComponents } = load(app_dir, "main/systems/setComponents.js");
-//
-//
 
 `~~~~~~~~~~~ COMPONENT NAME ~~~~~~~~~~~`;
 

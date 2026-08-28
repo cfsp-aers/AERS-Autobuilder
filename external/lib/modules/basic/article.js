@@ -1,8 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const { setComponents } = load(app_dir, "main/systems/setComponents.js");
+const { stacked_rows } = load(app_dir, "main/systems/layout.js");
 
 `~~~~~~~~~~~ article ~~~~~~~~~~~`;
 
@@ -34,24 +34,10 @@ const component_positions = {
     bottom: ["badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const internal_layout = (current, content) => {
-    return {
-        block: "gridContainer",
-        children: [
-            {
-                block: "gridRow",
-                innerLayout: "single_column",
-                children: setComponents("top", content)
-            },
-            {
-                block: "gridRow",
-                innerLayout: "single_column",
-                padding: "16px 12px 16px",
-                children: setComponents("bottom", content)
-            }
-        ]
-    };
-};
+const internal_layout = (current, content) =>
+    stacked_rows(content, {
+        bottom: { padding: "16px 12px 16px" }
+    });
 
 function modes() {}
 

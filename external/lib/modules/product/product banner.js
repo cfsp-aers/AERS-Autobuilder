@@ -1,8 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const { setComponents } = load(app_dir, "main/systems/setComponents.js");
+const { two_columns } = load(app_dir, "main/systems/layout.js");
 
 `~~~~~~~~~~~ PRODUCT BANNER ~~~~~~~~~~~`;
 
@@ -55,26 +55,11 @@ const component_positions = {
     right: ["badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const internal_layout = (current, content) => {
-    return {
-        block: "gridContainer",
-        innerLayout: "single_row",
-        children: [
-            {
-                block: "gridCol",
-                padding: "0px",
-                width: "50%",
-                children: setComponents("left", content)
-            },
-            {
-                block: "gridCol",
-                padding: "16px 16px 24px",
-                width: "50%",
-                children: setComponents("right", content)
-            }
-        ]
-    };
-};
+const internal_layout = (current, content) =>
+    two_columns(content, {
+        left: { padding: "0px", width: "50%" },
+        right: { padding: "16px 16px 24px", width: "50%" }
+    });
 
 function modes() {}
 

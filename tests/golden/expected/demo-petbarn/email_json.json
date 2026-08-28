@@ -1657,9 +1657,9 @@
     "children": [
       {
         "block": "gridContainer",
+        "innerLayout": "single_row",
         "transition": false,
         "transition_id": "urn:aaid:aem:28f51a94-996b-469a-aa7b-4e9aaa8826f7",
-        "inner_block": "single_row",
         "children": [
           {
             "block": "gridCol",

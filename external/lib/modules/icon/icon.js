@@ -1,8 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const { setComponents } = load(app_dir, "main/systems/setComponents.js");
+const { stacked_rows } = load(app_dir, "main/systems/layout.js");
 
 `~~~~~~~~~~~ PRODUCT TILE ~~~~~~~~~~~`;
 
@@ -36,25 +36,11 @@ const component_positions = {
     bottom: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const internal_layout = (current, content) => {
-    return {
-        block: "gridContainer",
-        children: [
-            {
-                block: "gridRow",
-                innerLayout: "single_column",
-                padding: "0px 0px 16px",
-                children: setComponents("top", content)
-            },
-            {
-                block: "gridRow",
-                innerLayout: "single_column",
-                padding: "0px",
-                children: setComponents("bottom", content)
-            }
-        ]
-    };
-};
+const internal_layout = (current, content) =>
+    stacked_rows(content, {
+        top: { padding: "0px 0px 16px" },
+        bottom: { padding: "0px" }
+    });
 
 function modes() {}
 
