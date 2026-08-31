@@ -76,6 +76,20 @@
       "secondary": "yellow/black"
     }
   },
+  "red": {
+    "background": "red",
+    "primary": "white",
+    "secondary": "white",
+    "text": {
+      "primary": "white",
+      "secondary": "white",
+      "body": "white"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "white/black"
+    }
+  },
   "promo": {
     "background": "white",
     "primary": "sale red",

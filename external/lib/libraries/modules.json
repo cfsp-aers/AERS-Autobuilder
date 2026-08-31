@@ -19,6 +19,15 @@
         "depth": 1
       }
     },
+    "hero trade": {
+      "valid names": ["hero trade", "trade hero"],
+      "properties": {
+        "category": "hero",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
     "shop your way": {
       "valid names": ["shop your way"],
       "properties": {
@@ -72,6 +81,16 @@
 
     "banner": {
       "valid names": ["banner"],
+      "properties": {
+        "category": "basic",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+
+    "specials banner": {
+      "valid names": ["specials banner", "specials", "weekly specials"],
       "properties": {
         "category": "basic",
         "type": "banner",

@@ -53,8 +53,17 @@ the constructors in `external/src/main/systems/layout.js` -- `container`, `row`,
 `col` and friends, with three presets for the shapes that recur. Start from
 `modules/module template.js`, which explains the vocabulary.
 
+A **new** type also needs an entry in `lib/libraries/modules.json`, which is
+what turns what a designer types in the brief into a module. Its `valid names`
+are the spellings that reach it; its `category` and `name` are the folder and
+filename the definition has to sit at, so `"category": "hero"` for `hero trade`
+means `modules/hero/hero trade.js` and nothing else. A type with no matching
+file silently falls back to `modules/default/default.js`.
+
 `npm run test:layouts` snapshots every module's shape on its own, which is how a
-module no golden brief happens to use still gets covered.
+module no golden brief happens to use still gets covered. That covers the shape
+only -- defaults, palettes and rules need a brief, so a new type also wants a
+sheet in `tests/golden/briefs/new-modules.js`.
 
 ## Publishing
 

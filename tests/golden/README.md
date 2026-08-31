@@ -47,6 +47,17 @@ object it passes to `buildEmails()`, which is the same call the app makes, with
 `databaseLocation` pointed at the case's scratch directory so a test run leaves
 the user's last real build untouched.
 
+Most briefs here are real ones, saved as designers sent them. `new-modules.xlsx`
+is not: it is written by `briefs/new-modules.js`, and covers module types no
+campaign has used yet. A committed `.xlsx` cannot be read in a diff or edited
+without Excel, so the type added in the next phase is four lines of that script
+rather than a spreadsheet round trip:
+
+```
+node tests/golden/briefs/new-modules.js               # rewrite the brief
+node tests/golden/golden.js --case new-modules --accept
+```
+
 One child process per case. That used to be forced: `constants.js` read
 `REQUIRED_DATA` at require time and every importer destructured it at require
 time in turn, so two cases in one process fought over the module cache.
