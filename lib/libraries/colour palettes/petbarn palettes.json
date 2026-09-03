@@ -89,5 +89,19 @@
       "primary": "blue/white",
       "secondary": "yellow/black"
     }
-  }
+  },
+  "nosh green": {
+    "background": "nosh-green",
+    "primary": "white",
+    "secondary": "white",
+    "text": {
+      "primary": "white",
+      "secondary": "white",
+      "body": "white"
+    },
+    "button": {
+      "primary": "white/black",
+      "secondary": "yellow/black"
+    }
+  
 }

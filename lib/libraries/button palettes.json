@@ -74,6 +74,10 @@
     "blue/white": {
       "background": "blue",
       "colour": "white"
+    },
+    "nosh-green/black": {
+      "background": "nosh-green",
+      "colour": "black"
     }
   },
   "greencross vets": {
