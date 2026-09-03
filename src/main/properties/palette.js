@@ -154,12 +154,15 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
 
   if (button.user_settings) {
     if (button.user_settings.palette?.includes("/") && !button_palettes[button.palette]) {
+      console.log(button.user_settings.palette)
       button.background = button.user_settings.palette.split("/")[0];
       //button.user_settings.background = button.user_settings.palette.split("/")[0];
       button.colour = button.user_settings.palette.split("/")[1];
       //button.user_settings.colour = button.user_settings.palette.split("/")[1];
     }
   }
+
+  console.log(button.background)
 
   if (button.mode == "underline" || button.mode == "outline") {
     button.colour = button.user_settings.colour ? button.user_settings.colour : parent_palette.text.body;
