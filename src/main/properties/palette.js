@@ -179,6 +179,8 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
   if (button.border_bottom == "match/background") button.border_bottom = result.background;
   if (button.border_left == "match/background") button.border_left = result.background;
 
+  console.log(button, result)
+
   return { ...button, ...result };
 }
 
