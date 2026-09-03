@@ -162,12 +162,6 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
     }
   }
 
-  console.log(button.background)
-
-  if (button.mode == "underline" || button.mode == "outline") {
-    button.colour = button.user_settings.colour ? button.user_settings.colour : parent_palette.text.body;
-    button.background = parent_palette.background;
-  }
 
   const result = {
     background: button.user_settings.background ? button.user_settings.background : active_palette.background,
@@ -179,7 +173,12 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
   if (button.border_bottom == "match/background") button.border_bottom = result.background;
   if (button.border_left == "match/background") button.border_left = result.background;
 
-  console.log(button, result)
+  console.log(button.background)
+
+  if (button.mode == "underline" || button.mode == "outline") {
+    button.colour = button.user_settings.colour ? button.user_settings.colour : parent_palette.text.body;
+    button.background = parent_palette.background;
+  }
 
   return { ...button, ...result };
 }
