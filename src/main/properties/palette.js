@@ -159,6 +159,11 @@ function setButtonColours(button, user, button_palettes, parent_palette) {
       //button.user_settings.background = button.user_settings.palette.split("/")[0];
       button.colour = button.user_settings.palette.split("/")[1];
       //button.user_settings.colour = button.user_settings.palette.split("/")[1];
+
+      active_palette = {
+        background: button.background = button.user_settings.palette.split("/")[0],
+        color: button.background = button.user_settings.palette.split("/")[1]
+      }
     }
   }
 
