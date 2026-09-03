@@ -23,10 +23,10 @@ text-align:center;
 "><![endif]-->
 <a href="{{-element.content.href-}}" class="arc-link" style="text-decoration: none;" data-nl-type="externalLink">
 <div class="button-container" style="width: auto; text-align: center; margin: auto; max-width: 100%; display: inline-block;
-{%-if element.border_top -%}border-top: 3px solid {{ element.border_top }}; {% else-%}border-top: 3px solid {{ element.background }}; {% endif-%}
-{%-if element.border_right -%}border-right: 3px solid {{ element.border_right }}; {% else-%}border-right: 3px solid {{ element.background }}; {% endif-%}
-{%-if element.border_bottom -%}border-bottom: 3px solid {{ element.border_bottom }}; {% else-%}border-bottom: 3px solid {{ element.background }}; {% endif-%}
-{%-if element.border_left -%}border-left: 3px solid {{ element.border_left }}; {% else-%}border-left: 3px solid {{ element.background }}; {% endif-%}
+{%-if element.border_top -%}border-top: 3px solid {{ element.border_top }}; {% else-%}{% if element.mode == "underline" %} border-top: none; {%else%}border-top: 3px solid {{ element.background }}; {%endif%} {% endif-%}
+{%-if element.border_right -%}border-right: 3px solid {{ element.border_right }}; {% else-%}{% if element.mode == "underline" %} border-right: none {%else%}border-right: 3px solid {{ element.background }}; {%endif%} {% endif-%}
+{%-if element.border_bottom -%}border-bottom: 3px solid {{ element.border_bottom }}; {% else-%}{% if element.mode == "underline" %} border-bottom: 3px solid {{ element.border_bottom }} {%else%}border-bottom: 3px solid {{ element.background }}; {%endif%} {% endif-%}
+{%-if element.border_left -%}border-left: 3px solid {{ element.border_left }}; {% else-%}{% if element.mode == "underline" %} border-left: none; {%else%}border-left: 3px solid {{ element.background }}; {%endif%} {% endif-%}
 border-image: initial;
 {%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
 {%-if element.height %}height: {{ element.height }}; {% else %}height: auto; {% endif-%}
