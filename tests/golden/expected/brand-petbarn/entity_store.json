@@ -28,6 +28,7 @@
     "group_size": 1,
     "hide_transition": true,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "yellow",
     "background": "#FEC326",
     "colour": "#FEC326"
   },
@@ -48,17 +49,17 @@
     "max_siblings": 1,
     "row_index": 1,
     "transition": false,
-    "palette": "white",
+    "palette": "primary",
     "vertical_align": "top",
-    "padding": "0px 0px 0px 0px",
+    "padding": "16px 0px 0px 0px",
     "container_padding": "0px 0px 0px 0px",
     "block_padding": "0px 0px 0px 0px",
     "dynamicContent": "b/x",
     "inVersions": "b/x",
     "group_size": 1,
-    "hide_transition": true,
-    "background": "#FFFFFF",
-    "colour": "#FFFFFF",
+    "resolved_palette": "primary",
+    "background": "#FEC326",
+    "colour": "#FEC326",
     "children": [
       {
         "uuid": "C0001",
@@ -77,10 +78,10 @@
         "max_siblings": 1,
         "mode": "h2",
         "transition": false,
-        "palette": "white",
+        "resolved_palette": "primary",
         "colour": "#000000",
         "vertical_align": "middle",
-        "padding": "16px 32px 0px 32px",
+        "padding": "16px 32px 8px 32px",
         "margin": "0px 0px 0px 0px",
         "font_size": "44px",
         "line_height": "48px",
@@ -107,7 +108,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
-        "palette": "white",
+        "resolved_palette": "primary",
         "colour": "#000000",
         "vertical_align": "middle",
         "padding": "0px 32px 8px 32px",
@@ -145,6 +146,7 @@
     "container_padding": "16px 16px 16px 16px",
     "block_padding": "16px 0px 0px 0px",
     "group_size": 1,
+    "resolved_palette": "light",
     "background": "#FFFFFF",
     "colour": "#FFFFFF",
     "children": [
@@ -165,7 +167,7 @@
         "max_siblings": 1,
         "mode": "h2",
         "transition": false,
-        "palette": "light",
+        "resolved_palette": "light",
         "colour": "#000000",
         "vertical_align": "middle",
         "padding": "0px 0px 4px 0px",
@@ -196,7 +198,7 @@
         "max_siblings": 1,
         "mode": "h4",
         "transition": false,
-        "palette": "light",
+        "resolved_palette": "light",
         "colour": "#000000",
         "vertical_align": "middle",
         "padding": "0px 0px 4px 0px",
@@ -226,7 +228,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
-        "palette": "light",
+        "resolved_palette": "light",
         "colour": "#000000",
         "vertical_align": "middle",
         "padding": "0px 0px 16px 0px",
@@ -256,7 +258,8 @@
         "max_siblings": 1,
         "mode": "default",
         "transition": false,
-        "palette": "black/white",
+        "palette": "primary",
+        "resolved_palette": "black/white",
         "colour": "#FFFFFF",
         "background": "#000000",
         "vertical_align": "middle",
@@ -294,7 +297,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
-        "palette": "light",
+        "resolved_palette": "light",
         "colour": "#000000",
         "vertical_align": "middle",
         "padding": "0px 0px 4px 0px",
@@ -334,6 +337,7 @@
     "block_padding": "0px 24px 0px 24px",
     "border_radius": "24px",
     "group_size": 3,
+    "resolved_palette": "light",
     "colour": "#FFFFFF",
     "children": [
       {
@@ -387,9 +391,7 @@
     "block_padding": "0px 24px 0px 24px",
     "border_radius": "24px",
     "group_size": 3,
-    "locked_settings": {
-      "depth": 1
-    },
+    "resolved_palette": "light",
     "colour": "#FFFFFF",
     "children": [
       {
@@ -443,9 +445,7 @@
     "block_padding": "0px 24px 0px 24px",
     "border_radius": "24px",
     "group_size": 3,
-    "locked_settings": {
-      "depth": 1
-    },
+    "resolved_palette": "light",
     "colour": "#FFFFFF",
     "children": [
       {
@@ -499,6 +499,7 @@
     "fragment": true,
     "group_size": 1,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "light",
     "background": "#FFFFFF",
     "colour": "#FFFFFF"
   },
@@ -527,6 +528,7 @@
     "fragment": true,
     "group_size": 1,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "primary",
     "background": "#FEC326",
     "colour": "#FEC326"
   },
@@ -555,6 +557,7 @@
     "fragment": true,
     "group_size": 1,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "dark",
     "background": "#000000",
     "colour": "#000000",
     "children": [
@@ -574,7 +577,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
-        "palette": "dark",
+        "resolved_palette": "dark",
         "colour": "#FFFFFF",
         "vertical_align": "middle",
         "padding": "0px 16px 16px 16px",

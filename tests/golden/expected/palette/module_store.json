@@ -28,6 +28,7 @@
     "group_size": 1,
     "hide_transition": true,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "yellow",
     "background": "#FEC326",
     "colour": "#FEC326"
   },
@@ -56,6 +57,7 @@
     "block_padding": "16px 24px 0px 24px",
     "border_radius": "24px",
     "group_size": 2,
+    "resolved_palette": "promo",
     "colour": "#FFFFFF"
   },
   {
@@ -86,6 +88,7 @@
       "palette": "white"
     },
     "group_size": 2,
+    "resolved_palette": "white",
     "colour": "#FFFFFF"
   },
   {
@@ -116,6 +119,7 @@
       "palette": "black"
     },
     "group_size": 2,
+    "resolved_palette": "black",
     "colour": "#000000"
   },
   {
@@ -146,6 +150,7 @@
       "palette": "light yellow"
     },
     "group_size": 2,
+    "resolved_palette": "light yellow",
     "colour": "#FFF2D4"
   },
   {
@@ -171,6 +176,7 @@
     "container_padding": "16px 16px 16px 16px",
     "block_padding": "16px 0px 0px 0px",
     "group_size": 1,
+    "resolved_palette": "light",
     "background": "#FFFFFF",
     "colour": "#FFFFFF"
   },
@@ -199,6 +205,7 @@
     "fragment": true,
     "group_size": 1,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "dark",
     "background": "#000000",
     "colour": "#000000"
   }

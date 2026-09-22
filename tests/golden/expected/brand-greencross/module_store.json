@@ -28,6 +28,7 @@
     "group_size": 1,
     "hide_transition": true,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "primary",
     "background": "#00A651",
     "colour": "#00A651"
   },
@@ -48,15 +49,15 @@
     "max_siblings": 1,
     "row_index": 1,
     "transition": false,
-    "palette": "white",
+    "palette": "primary",
     "vertical_align": "top",
-    "padding": "0px 0px 0px 0px",
+    "padding": "16px 0px 0px 0px",
     "container_padding": "0px 0px 0px 0px",
     "block_padding": "0px 0px 0px 0px",
     "group_size": 1,
-    "hide_transition": true,
-    "background": "#FFFFFF",
-    "colour": "#FFFFFF"
+    "resolved_palette": "primary",
+    "background": "#00A651",
+    "colour": "#00A651"
   },
   {
     "uuid": "M0003",
@@ -81,6 +82,7 @@
     "container_padding": "16px 16px 16px 16px",
     "block_padding": "16px 0px 0px 0px",
     "group_size": 1,
+    "resolved_palette": "light",
     "background": "#FFFFFF",
     "colour": "#FFFFFF"
   },
@@ -109,6 +111,7 @@
     "block_padding": "0px 24px 0px 24px",
     "border_radius": "24px",
     "group_size": 1,
+    "resolved_palette": "light",
     "colour": "#FFFFFF"
   },
   {
@@ -137,6 +140,7 @@
     "border_radius": "24px",
     "content": "Offer 04",
     "group_size": 2,
+    "resolved_palette": "promo",
     "colour": "#FFFFFF"
   },
   {
@@ -165,6 +169,7 @@
     "border_radius": "24px",
     "content": "Offer 01",
     "group_size": 2,
+    "resolved_palette": "promo",
     "colour": "#FFFFFF"
   },
   {
@@ -193,6 +198,7 @@
     "border_radius": "24px",
     "content": "Offer 06",
     "group_size": 2,
+    "resolved_palette": "promo",
     "colour": "#FFFFFF"
   },
   {
@@ -221,6 +227,7 @@
     "border_radius": "24px",
     "content": "Offer 03",
     "group_size": 2,
+    "resolved_palette": "promo",
     "colour": "#FFFFFF"
   },
   {
@@ -248,6 +255,7 @@
     "fragment": true,
     "group_size": 1,
     "group_padding": "0px 0px 0px 0px",
+    "resolved_palette": "dark",
     "background": "#001939",
     "colour": "#001939"
   }

@@ -76,29 +76,6 @@
                                 "content": "Free on orders $99 & over"
                               }
                             ]
-                          },
-                          {
-                            "block": "gridCol",
-                            "padding": "4px",
-                            "children": [
-                              {
-                                "entity_type": "component",
-                                "type": "image",
-                                "width": "180px",
-                                "content": {
-                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
-                                  "href": "https://www.petbarn.com.au/delivery-information",
-                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
-                                }
-                              },
-                              {
-                                "entity_type": "component",
-                                "colour": "black",
-                                "font_size": "14px",
-                                "line_height": "16px",
-                                "content": "Free on orders over $49"
-                              }
-                            ]
                           }
                         ]
                       }
@@ -126,6 +103,29 @@
                                 "type": "image",
                                 "width": "180px",
                                 "content": {
+                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
+                                  "href": "https://www.petbarn.com.au/delivery-information",
+                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
+                                }
+                              },
+                              {
+                                "entity_type": "component",
+                                "colour": "black",
+                                "font_size": "14px",
+                                "line_height": "16px",
+                                "content": "Free on orders over $49"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "4px",
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "width": "180px",
+                                "content": {
                                   "src": "images/SYW_clickcollect_wShadow_2x.png",
                                   "href": "https://www.petbarn.com.au/delivery-information",
                                   "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
@@ -139,7 +139,24 @@
                                 "content": "Available within 30 mins"
                               }
                             ]
-                          },
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "block": "gridRow",
+                "group": "internal",
+                "children": [
+                  {
+                    "block": "gridCol",
+                    "children": [
+                      {
+                        "block": "gridContainer",
+                        "innerLayout": "single_row",
+                        "children": [
                           {
                             "block": "gridCol",
                             "padding": "4px",
@@ -276,29 +293,6 @@
                                 "content": "Free on orders $99 & over"
                               }
                             ]
-                          },
-                          {
-                            "block": "gridCol",
-                            "padding": "4px",
-                            "children": [
-                              {
-                                "entity_type": "component",
-                                "type": "image",
-                                "width": "180px",
-                                "content": {
-                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
-                                  "href": "https://www.petbarn.com.au/delivery-information",
-                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
-                                }
-                              },
-                              {
-                                "entity_type": "component",
-                                "colour": "black",
-                                "font_size": "14px",
-                                "line_height": "16px",
-                                "content": "Free on orders over $49"
-                              }
-                            ]
                           }
                         ]
                       }
@@ -326,6 +320,29 @@
                                 "type": "image",
                                 "width": "180px",
                                 "content": {
+                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
+                                  "href": "https://www.petbarn.com.au/delivery-information",
+                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
+                                }
+                              },
+                              {
+                                "entity_type": "component",
+                                "colour": "black",
+                                "font_size": "14px",
+                                "line_height": "16px",
+                                "content": "Free on orders over $49"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "4px",
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "width": "180px",
+                                "content": {
                                   "src": "images/SYW_clickcollect_wShadow_2x.png",
                                   "href": "https://www.petbarn.com.au/delivery-information",
                                   "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
@@ -339,7 +356,24 @@
                                 "content": "Available within 30 mins"
                               }
                             ]
-                          },
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "block": "gridRow",
+                "group": "internal",
+                "children": [
+                  {
+                    "block": "gridCol",
+                    "children": [
+                      {
+                        "block": "gridContainer",
+                        "innerLayout": "single_row",
+                        "children": [
                           {
                             "block": "gridCol",
                             "padding": "4px",
@@ -475,29 +509,6 @@
                                 "content": "Free on orders $99 & over"
                               }
                             ]
-                          },
-                          {
-                            "block": "gridCol",
-                            "padding": "4px",
-                            "children": [
-                              {
-                                "entity_type": "component",
-                                "type": "image",
-                                "width": "180px",
-                                "content": {
-                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
-                                  "href": "https://www.petbarn.com.au/delivery-information",
-                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
-                                }
-                              },
-                              {
-                                "entity_type": "component",
-                                "colour": "black",
-                                "font_size": "14px",
-                                "line_height": "16px",
-                                "content": "Free on orders over $49"
-                              }
-                            ]
                           }
                         ]
                       }
@@ -525,6 +536,29 @@
                                 "type": "image",
                                 "width": "180px",
                                 "content": {
+                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
+                                  "href": "https://www.petbarn.com.au/delivery-information",
+                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
+                                }
+                              },
+                              {
+                                "entity_type": "component",
+                                "colour": "black",
+                                "font_size": "14px",
+                                "line_height": "16px",
+                                "content": "Free on orders over $49"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "4px",
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "width": "180px",
+                                "content": {
                                   "src": "images/SYW_clickcollect_wShadow_2x.png",
                                   "href": "https://www.petbarn.com.au/delivery-information",
                                   "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
@@ -538,7 +572,24 @@
                                 "content": "Available within 30 mins"
                               }
                             ]
-                          },
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "block": "gridRow",
+                "group": "internal",
+                "children": [
+                  {
+                    "block": "gridCol",
+                    "children": [
+                      {
+                        "block": "gridContainer",
+                        "innerLayout": "single_row",
+                        "children": [
                           {
                             "block": "gridCol",
                             "padding": "4px",
@@ -674,29 +725,6 @@
                                 "content": "Free on orders $99 & over"
                               }
                             ]
-                          },
-                          {
-                            "block": "gridCol",
-                            "padding": "4px",
-                            "children": [
-                              {
-                                "entity_type": "component",
-                                "type": "image",
-                                "width": "180px",
-                                "content": {
-                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
-                                  "href": "https://www.petbarn.com.au/delivery-information",
-                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
-                                }
-                              },
-                              {
-                                "entity_type": "component",
-                                "colour": "black",
-                                "font_size": "14px",
-                                "line_height": "16px",
-                                "content": "Free on orders over $49"
-                              }
-                            ]
                           }
                         ]
                       }
@@ -724,6 +752,29 @@
                                 "type": "image",
                                 "width": "180px",
                                 "content": {
+                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
+                                  "href": "https://www.petbarn.com.au/delivery-information",
+                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
+                                }
+                              },
+                              {
+                                "entity_type": "component",
+                                "colour": "black",
+                                "font_size": "14px",
+                                "line_height": "16px",
+                                "content": "Free on orders over $49"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "4px",
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "width": "180px",
+                                "content": {
                                   "src": "images/SYW_clickcollect_wShadow_2x.png",
                                   "href": "https://www.petbarn.com.au/delivery-information",
                                   "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
@@ -737,7 +788,24 @@
                                 "content": "Available within 30 mins"
                               }
                             ]
-                          },
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "block": "gridRow",
+                "group": "internal",
+                "children": [
+                  {
+                    "block": "gridCol",
+                    "children": [
+                      {
+                        "block": "gridContainer",
+                        "innerLayout": "single_row",
+                        "children": [
                           {
                             "block": "gridCol",
                             "padding": "4px",
@@ -873,29 +941,6 @@
                                 "content": "Free on orders $99 & over"
                               }
                             ]
-                          },
-                          {
-                            "block": "gridCol",
-                            "padding": "4px",
-                            "children": [
-                              {
-                                "entity_type": "component",
-                                "type": "image",
-                                "width": "180px",
-                                "content": {
-                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
-                                  "href": "https://www.petbarn.com.au/delivery-information",
-                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
-                                }
-                              },
-                              {
-                                "entity_type": "component",
-                                "colour": "black",
-                                "font_size": "14px",
-                                "line_height": "16px",
-                                "content": "Free on orders over $49"
-                              }
-                            ]
                           }
                         ]
                       }
@@ -923,6 +968,29 @@
                                 "type": "image",
                                 "width": "180px",
                                 "content": {
+                                  "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
+                                  "href": "https://www.petbarn.com.au/delivery-information",
+                                  "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
+                                }
+                              },
+                              {
+                                "entity_type": "component",
+                                "colour": "black",
+                                "font_size": "14px",
+                                "line_height": "16px",
+                                "content": "Free on orders over $49"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "4px",
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "width": "180px",
+                                "content": {
                                   "src": "images/SYW_clickcollect_wShadow_2x.png",
                                   "href": "https://www.petbarn.com.au/delivery-information",
                                   "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
@@ -936,7 +1004,24 @@
                                 "content": "Available within 30 mins"
                               }
                             ]
-                          },
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "block": "gridRow",
+                "group": "internal",
+                "children": [
+                  {
+                    "block": "gridCol",
+                    "children": [
+                      {
+                        "block": "gridContainer",
+                        "innerLayout": "single_row",
+                        "children": [
                           {
                             "block": "gridCol",
                             "padding": "4px",
