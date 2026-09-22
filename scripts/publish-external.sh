@@ -73,21 +73,42 @@ if [ ! -d "$LOCAL" ]; then
 fi
 
 #
-# The gate.
+# The gate, in two parts.
 #
 # Publishing puts this code in front of the whole team at once, so it happens
-# only when the engine still produces the output it is expected to. An intended
-# change is accepted with `npm run test:accept` and committed, which makes the
-# change reviewable before it ships rather than after.
+# only when the engine still does what it is supposed to. What that means splits
+# cleanly in two, and the two deserve different treatment -- see
+# docs/adr/0006-snapshots-record-their-inputs.md.
 #
-echo "Checking the engine still builds what it is expected to..."
-if ! (cd "$REPO" && npm test --silent); then
+# The invariants say what correct IS, written against the decisions rather than
+# against today's output. Nothing about editing the library can move them, so a
+# failure here is always a real one and is never waived.
+#
+echo "Checking the rules the engine is supposed to follow..."
+if ! (cd "$REPO" && npm run test:invariants --silent); then
     echo >&2
-    echo "Tests failed. Not publishing." >&2
-    echo "If the change in output is intended, record it:" >&2
-    echo "  npm run test:accept                          for the golden cases" >&2
-    echo "  node tests/layouts/layouts.js --accept       for the module layouts" >&2
-    echo "then review and commit the new expected files." >&2
+    echo "An invariant failed. Not publishing." >&2
+    echo "These assert what correct means, so this is a defect rather than a change" >&2
+    echo "in output -- there is nothing to accept. Fix it first." >&2
+    exit 1
+fi
+echo
+
+#
+# The snapshots say what the engine currently produces. They move whenever the
+# library is edited, which is most days, so they judge themselves: drift every
+# difference of which lies inside a library file that changed is reported and
+# allowed through, and anything unaccounted for stops the publish. The old
+# behaviour -- any difference at all being fatal -- meant `--accept` was the only
+# way out, and `--accept` approves whatever else happened to ride along.
+#
+echo "Checking what the engine builds against the recorded baselines..."
+if ! (cd "$REPO" && npm run test:snapshots --silent); then
+    echo >&2
+    echo "The output changed in a way nothing accounts for. Not publishing." >&2
+    echo "Read the differences above. If they are what you intended, record them:" >&2
+    echo "  npm run test:accept" >&2
+    echo "then review and commit the new expected files and inputs.json." >&2
     exit 1
 fi
 echo

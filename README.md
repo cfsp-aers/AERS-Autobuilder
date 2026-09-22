@@ -33,17 +33,47 @@ by relative path. Moving either alone breaks all of them.
 
 ```
 npm start                  run from source, against external/ in this repo
-npm test                   golden output, module layouts, brief-parsing failures
+npm test                   everything
+npm run test:invariants    what correct means -- precedence, palettes, brief errors
+npm run test:snapshots     what the engine currently produces -- golden, layouts
+npm run test:strict        the snapshots, with accounted-for drift failing too
 npm run test:golden        just the golden cases
 npm run test:layouts       just the module layouts
-npm run test:accept        record current golden output, then review the diff
+npm run test:accept        re-record both snapshot suites, then review the diff
 npm run publish:external:dry   what publishing would change
-npm run publish:external       publish (runs the tests first, and refuses on a diff)
+npm run publish:external       publish (runs the tests first)
 npm run build              package the .app
 ```
 
 `npm start` always uses this repository's `external/`, never the published copy,
 so a dev checkout is never shadowed by whatever is on the volume.
+
+### Two kinds of test, and why a publish stops
+
+The **invariants** say what correct means, written against the decisions rather
+than against today's output. Editing the library cannot move them, so a failure
+is always a defect and there is nothing to accept. A publish stops dead.
+
+The **snapshots** say what the engine currently produces. They move whenever a
+module definition or an HTML template is edited, which is most days. Each records
+what it was built from in `expected/inputs.json`, and charges every difference to
+the file that produced it:
+
+```
+styling             drift
+  email_json.json        10 differences
+         10  footer/shop your way petbarn.js
+```
+
+That is **drift** -- the output followed an edit you made -- and it does not stop
+a publish. Anything unaccounted for is **CHANGED**: the engine moved, or a
+difference landed outside the definitions that changed. That stops a publish and
+prints the diff.
+
+Either way the baselines are now behind. `npm run test:accept` re-records them;
+review and commit that separately, so the commit is a record of what the change
+did to real output. See
+[ADR 0006](docs/adr/0006-snapshots-record-their-inputs.md).
 
 ## Adding or changing a module
 
@@ -64,6 +94,22 @@ file silently falls back to `modules/default/default.js`.
 module no golden brief happens to use still gets covered. That covers the shape
 only -- defaults, palettes and rules need a brief, so a new type also wants a
 sheet in `tests/golden/briefs/new-modules.js`.
+
+## The two brief templates
+
+Designers have live campaigns written in two different spreadsheets, and the
+builder reads both.
+
+| | Shape | Recognised by |
+|---|---|---|
+| The one the beta was built for | One row per **component**, under a module row | It has a `component` column |
+| The one v2.5 was built for | One row per **module**, components spread across columns | It has not |
+
+`external/src/main/processing/brief_format.js` turns the second into the first
+as the sheet is read, so nothing downstream knows which one a brief came from.
+A column that only the wide template has -- the disclaimer symbol, a button
+split across a label and a link, the palette -- is translated there, and that
+file is the place to look when a wide brief renders something unexpected.
 
 ## Publishing
 

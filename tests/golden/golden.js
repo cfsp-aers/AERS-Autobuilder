@@ -9,26 +9,44 @@
         node tests/golden/golden.js --case layout   run one
         node tests/golden/golden.js --accept        record current output as expected
         node tests/golden/golden.js --keep          leave .work/ behind for inspection
+        node tests/golden/golden.js --strict        treat accounted-for drift as failure
 
-    A failure means the engine's output changed. That is not automatically bad
-    -- most of the time it is the change you just made. Read the diff, and if it
-    is what you intended, re-run with --accept and commit the new expected
-    files. The commit is then a reviewable record of what the change did to real
-    output, which is the entire point.
+    Each case records what it was built from in expected/inputs.json, and a
+    difference is charged to the definition that produced it. That splits what
+    used to be one verdict into two:
+
+        DRIFT     the output moved, and every difference lies inside a library
+                  file that changed. This is the shape of an ordinary day's
+                  work -- a module definition edited, its output following. It
+                  reports and does not fail.
+
+        CHANGED   the output moved and something is unaccounted for: the engine
+                  changed, or a difference falls outside the definitions that
+                  did. This is the alarm the suite exists to raise.
+
+    Either way the baseline is now behind, and re-running with --accept records
+    it. The commit is a reviewable record of what the change did to real output,
+    which is the entire point. What changed is that you are told which of the
+    two you are looking at instead of having to work it out from a diff of a
+    thousand lines.
+
+    See docs/adr/0006-snapshots-record-their-inputs.md.
 */
 
 const fs = require("node:fs");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 
+const inputs = require("../inputs.js");
+
 const here = __dirname;
 const repo_root = path.resolve(here, "../..");
 const work_root = path.join(here, ".work");
 const expected_root = path.join(here, "expected");
 const briefs_root = path.join(here, "briefs");
+const manifest_file = path.join(expected_root, "inputs.json");
 
-const STORES = ["module_store.json", "entity_store.json", "component_store.json", "email_json.json"];
-const ARTIFACTS = STORES.concat(["email.html"]);
+const ARTIFACTS = inputs.STORES.concat(["email.html"]);
 
 const MAX_DIFFS = 25;
 
@@ -37,6 +55,7 @@ const MAX_DIFFS = 25;
 const argv = process.argv.slice(2);
 const accept = argv.includes("--accept");
 const keep = argv.includes("--keep");
+const strict = argv.includes("--strict");
 
 let only = null;
 const case_flag = argv.indexOf("--case");
@@ -163,19 +182,21 @@ function runCase(test_case) {
     return { status: "built", workdir: workdir, artifacts: path.join(workdir, "artifacts") };
 }
 
-function compareCase(test_case, artifacts) {
+function compareCase(test_case, artifacts, changed) {
     const expected_dir = path.join(expected_root, test_case.id);
 
     if (!fs.existsSync(expected_dir)) return { status: "no-baseline", expected_dir: expected_dir };
 
     const problems = [];
+    const formatting = [];
+    const attribute = inputs.attributor(artifacts);
 
     ARTIFACTS.forEach((name) => {
         const expected_file = path.join(expected_dir, name);
         const actual_file = path.join(artifacts, name);
 
         if (!fs.existsSync(expected_file)) {
-            problems.push({ artifact: name, diffs: ["no expected file recorded"] });
+            problems.push({ artifact: name, diffs: ["no expected file recorded"], explained: false, reason: "nothing recorded for this artifact" });
             return;
         }
 
@@ -184,15 +205,41 @@ function compareCase(test_case, artifacts) {
 
         if (expected_text === actual_text) return;
 
-        const diffs = name.endsWith(".json") ? diffJson(JSON.parse(expected_text), JSON.parse(actual_text), "", []) : diffText(expected_text, actual_text);
+        if (!name.endsWith(".json")) {
+            const verdict = inputs.explains(name, [], changed);
+            problems.push({ artifact: name, diffs: diffText(expected_text, actual_text), explained: verdict.explained, reason: verdict.reason });
+            return;
+        }
 
-        // Identical parsed content but differing bytes: formatting only.
-        if (diffs.length === 0) diffs.push("content matches but bytes differ (whitespace or key order)");
+        const expected_json = JSON.parse(expected_text);
+        const actual_json = JSON.parse(actual_text);
+        const diffs = diffJson(expected_json, actual_json, "", []);
 
-        problems.push({ artifact: name, diffs: diffs });
+        /*
+            Identical parsed content, different bytes: key order or whitespace.
+            Byte-exactness was deliberate while the layout constructors were
+            being written -- key order was the evidence the rewrite emitted the
+            same nodes the hand-written literals had -- and that refactor is
+            finished. It costs a failed publish now and proves nothing, so it is
+            noted and passed. ADR 0003's addendum is where it was load-bearing.
+        */
+        if (diffs.length === 0) {
+            formatting.push(name);
+            return;
+        }
+
+        const owners = attribute(expected_json, actual_json);
+        const verdict = inputs.explains(name, owners, changed);
+        problems.push({ artifact: name, diffs: diffs, owners: owners, explained: verdict.explained, reason: verdict.reason });
     });
 
-    return problems.length ? { status: "changed", problems: problems } : { status: "match" };
+    if (!problems.length) return { status: formatting.length ? "formatting" : "match", formatting: formatting };
+
+    return {
+        status: problems.every((problem) => problem.explained) ? "drift" : "changed",
+        problems: problems,
+        formatting: formatting
+    };
 }
 
 function acceptCase(test_case, artifacts) {
@@ -202,10 +249,24 @@ function acceptCase(test_case, artifacts) {
     ARTIFACTS.forEach((name) => fs.copyFileSync(path.join(artifacts, name), path.join(expected_dir, name)));
 }
 
+/*
+    The brief and the definitions this case loaded, on top of the engine and the
+    shared library. Read off the artifacts it just produced, so a case that
+    starts using a new module type starts tracking it without being told.
+*/
+function fingerprintOf(test_case, artifacts) {
+    return inputs.fingerprint(repo_root, {
+        brief: path.join(briefs_root, test_case.brief),
+        templates: inputs.templatesUsed(artifacts)
+    });
+}
+
 // -------------------------------------------------------------------- driver
 
 fs.rmSync(work_root, { recursive: true, force: true });
 fs.mkdirSync(work_root, { recursive: true });
+
+const manifest = inputs.readManifest(manifest_file);
 
 console.log(`${accept ? "Recording" : "Checking"} ${cases.length} case${cases.length === 1 ? "" : "s"}\n`);
 
@@ -222,49 +283,114 @@ cases.forEach((test_case) => {
         return;
     }
 
+    const current = fingerprintOf(test_case, build.artifacts);
+
     if (accept) {
         acceptCase(test_case, build.artifacts);
+        manifest[test_case.id] = current;
         console.log("recorded");
         results.push({ id: test_case.id, ok: true });
         return;
     }
 
-    const comparison = compareCase(test_case, build.artifacts);
+    const changed = inputs.compare(manifest[test_case.id], current);
+    const comparison = compareCase(test_case, build.artifacts, changed);
 
     if (comparison.status === "match") {
         console.log("ok");
         results.push({ id: test_case.id, ok: true });
+    } else if (comparison.status === "formatting") {
+        console.log("ok (formatting)");
+        results.push({ id: test_case.id, ok: true, formatting: comparison.formatting });
     } else if (comparison.status === "no-baseline") {
         console.log("NO BASELINE");
         results.push({ id: test_case.id, ok: false, kind: "no-baseline" });
+    } else if (comparison.status === "drift") {
+        console.log(strict ? "DRIFT" : "drift");
+        results.push({ id: test_case.id, ok: !strict, kind: "drift", problems: comparison.problems, changed: changed, formatting: comparison.formatting.length ? comparison.formatting : undefined });
     } else {
         console.log("CHANGED");
-        results.push({ id: test_case.id, ok: false, kind: "changed", problems: comparison.problems });
+        results.push({ id: test_case.id, ok: false, kind: "changed", problems: comparison.problems, changed: changed, formatting: comparison.formatting.length ? comparison.formatting : undefined });
     }
 });
 
-const failures = results.filter((r) => !r.ok);
+if (accept) inputs.writeManifest(manifest_file, manifest);
+
+const failures = results.filter((result) => !result.ok);
+const drifted = results.filter((result) => result.kind === "drift");
+const reformatted = results.filter((result) => result.formatting);
+
+/*
+    Drift is reported as a count and an attribution, never as the diff itself.
+    The whole complaint against the old output was that a deliberate edit to one
+    definition printed a thousand lines nobody could read, so printing them
+    again under a friendlier heading would fix nothing.
+*/
+drifted.forEach((result) => {
+    console.log(`\n${"-".repeat(72)}\n${result.id} -- drift, accounted for\n${"-".repeat(72)}`);
+    result.problems.forEach((problem) => {
+        const count = `${problem.diffs.length}${problem.diffs.length >= MAX_DIFFS ? "+" : ""} difference${problem.diffs.length === 1 ? "" : "s"}`;
+        console.log(`  ${problem.artifact.padEnd(22)} ${count}`);
+        if (problem.owners) inputs.tally(problem.owners).forEach(([owner, n]) => console.log(`      ${String(n).padStart(5)}  ${owner}`));
+        else console.log(`      ${problem.reason}`);
+    });
+});
 
 if (failures.length) {
-    console.log("");
     failures.forEach((failure) => {
         console.log(`\n${"-".repeat(72)}\n${failure.id}\n${"-".repeat(72)}`);
+
         if (failure.kind === "build") {
             console.log(`  build failed:\n${indent(failure.detail, 4)}`);
-        } else if (failure.kind === "no-baseline") {
+            return;
+        }
+
+        if (failure.kind === "no-baseline") {
             console.log(`  no expected output recorded yet.`);
             console.log(`  run: node tests/golden/golden.js --accept --case ${failure.id}`);
-        } else {
-            failure.problems.forEach((problem) => {
-                console.log(`\n  ${problem.artifact} -- ${problem.diffs.length}${problem.diffs.length >= MAX_DIFFS ? "+" : ""} difference${problem.diffs.length === 1 ? "" : "s"}`);
-                problem.diffs.forEach((d) => console.log(`    ${d}`));
-            });
+            return;
         }
+
+        if (failure.changed) console.log(`  inputs: ${summarise(failure.changed)}\n`);
+
+        failure.problems.forEach((problem) => {
+            const count = `${problem.diffs.length}${problem.diffs.length >= MAX_DIFFS ? "+" : ""} difference${problem.diffs.length === 1 ? "" : "s"}`;
+            console.log(`  ${problem.artifact} -- ${count}, ${problem.explained ? "accounted for" : problem.reason}`);
+            if (problem.owners) inputs.tally(problem.owners).forEach(([owner, n]) => console.log(`      ${String(n).padStart(5)}  ${owner}`));
+            if (problem.explained) return;
+            console.log("");
+            problem.diffs.forEach((d) => console.log(`    ${d}`));
+        });
     });
 }
 
+/*
+    What moved underneath a baseline, in the order it matters. The engine leads
+    because it is the one that turns drift into a failure.
+*/
+function summarise(changed) {
+    if (changed.unknown) return "not recorded for this baseline -- re-run with --accept to start tracking them";
+    const moved = [];
+    if (changed.engine) moved.push("the engine");
+    if (changed.brief) moved.push("the brief");
+    if (changed.html_templates) moved.push("the HTML templates");
+    if (changed.libraries) moved.push("the colour libraries");
+    if (changed.modules.size) moved.push(inputs.describe(changed.modules));
+    return moved.length ? moved.join(", ") : "unchanged";
+}
+
 console.log(`\n${"=".repeat(72)}`);
-console.log(`${results.length - failures.length}/${results.length} ${accept ? "recorded" : "passing"}`);
+console.log(`${results.length - failures.length}/${results.length} ${accept ? "recorded" : "passing"}${drifted.length ? `, ${drifted.length} drifted` : ""}`);
+
+if (reformatted.length) {
+    console.log(`${reformatted.length} case${reformatted.length === 1 ? "" : "s"} differ in key order or whitespace only -- content matches`);
+}
+
+if (drifted.length && !strict) {
+    console.log(`drift is accounted for by the library files listed above, so this is not a failure.`);
+    console.log(`the baselines are behind: re-run with --accept and commit them.`);
+}
+
 if (failures.length && !keep) console.log(`re-run with --keep to inspect ${path.relative(repo_root, work_root)}/`);
 console.log("");
 

@@ -14,25 +14,37 @@
         node tests/layouts/layouts.js              check every module
         node tests/layouts/layouts.js --accept     record current output
         node tests/layouts/layouts.js --module "basic/banner.js"
+        node tests/layouts/layouts.js --strict     treat accounted-for drift as failure
 
     A diff here is a change to a module's structure. During the constructor
     refactor there should be none: the whole claim is that the constructors
     emit the same nodes the hand-written object literals did, key order
     included, because email_json.json is compared byte for byte.
+
+    That refactor is done, and what remains is the ordinary case: a definition
+    is edited and its own snapshot follows. Each module records the definition
+    and the engine it was snapshotted against in expected/inputs.json, so an
+    edit to the definition reports as DRIFT and an edit underneath it -- to the
+    constructors in systems/layout.js, or anywhere else in the engine -- still
+    fails. See docs/adr/0006-snapshots-record-their-inputs.md.
 */
 
 const fs = require("node:fs");
 const path = require("node:path");
 
+const inputs = require("../inputs.js");
+
 const here = __dirname;
 const repo_root = path.resolve(here, "../..");
 const modules_root = path.join(repo_root, "external/lib/modules");
 const expected_root = path.join(here, "expected");
+const manifest_file = path.join(expected_root, "inputs.json");
 
 // ---------------------------------------------------------------- arguments
 
 const argv = process.argv.slice(2);
 const accept = argv.includes("--accept");
+const strict = argv.includes("--strict");
 
 let only = null;
 const module_flag = argv.indexOf("--module");
@@ -193,6 +205,7 @@ function expected_path(id) {
 
 console.log(`\n${accept ? "Recording" : "Checking"} ${modules.length} module${modules.length === 1 ? "" : "s"}\n`);
 
+const manifest = inputs.readManifest(manifest_file);
 const results = [];
 
 modules.forEach((entry) => {
@@ -208,10 +221,12 @@ modules.forEach((entry) => {
     }
 
     const target = expected_path(entry.id);
+    const current = inputs.fingerprint(repo_root, { module_file: entry.file });
 
     if (accept) {
         fs.mkdirSync(path.dirname(target), { recursive: true });
         fs.writeFileSync(target, actual, { encoding: "utf8" });
+        manifest[entry.id] = current;
         console.log("recorded");
         results.push({ id: entry.id, ok: true });
         return;
@@ -232,13 +247,41 @@ modules.forEach((entry) => {
     }
 
     const diffs = diffJson(JSON.parse(expected), JSON.parse(actual), "", []);
-    if (diffs.length === 0) diffs.push("content matches but bytes differ (whitespace or key order)");
+
+    // Identical parsed content, different bytes. See ADR 0006.
+    if (diffs.length === 0) {
+        console.log("ok (formatting)");
+        results.push({ id: entry.id, ok: true, formatting: true });
+        return;
+    }
+
+    const verdict = inputs.explainsModule(inputs.compareModule(manifest[entry.id], current));
+
+    if (verdict.explained) {
+        console.log(strict ? "DRIFT" : "drift");
+        results.push({ id: entry.id, ok: !strict, kind: "drift", diffs: diffs, reason: verdict.reason });
+        return;
+    }
 
     console.log("CHANGED");
-    results.push({ id: entry.id, ok: false, kind: "changed", diffs: diffs });
+    results.push({ id: entry.id, ok: false, kind: "changed", diffs: diffs, reason: verdict.reason });
 });
 
+if (accept) inputs.writeManifest(manifest_file, manifest);
+
 const failures = results.filter((result) => !result.ok);
+const drifted = results.filter((result) => result.kind === "drift");
+const reformatted = results.filter((result) => result.formatting);
+
+/*
+    A definition's own snapshot moving because the definition was edited is the
+    expected outcome of editing it, so it is reported as a count rather than as
+    the tree.
+*/
+drifted.forEach((result) => {
+    console.log(`\n${"-".repeat(72)}\n${result.id} -- drift, accounted for\n${"-".repeat(72)}`);
+    console.log(`  ${result.diffs.length}${result.diffs.length >= MAX_DIFFS ? "+" : ""} difference${result.diffs.length === 1 ? "" : "s"}, and ${result.reason}`);
+});
 
 failures.forEach((failure) => {
     console.log(`\n${"-".repeat(72)}\n${failure.id}\n${"-".repeat(72)}`);
@@ -247,11 +290,23 @@ failures.forEach((failure) => {
     } else if (failure.kind === "no-baseline") {
         console.log(`  nothing recorded yet. run: node tests/layouts/layouts.js --accept`);
     } else {
+        if (failure.reason) console.log(`  unaccounted for -- ${failure.reason}\n`);
         failure.diffs.forEach((diff) => console.log(`  ${diff}`));
     }
 });
 
 console.log(`\n${"=".repeat(72)}`);
-console.log(`${results.length - failures.length}/${results.length} ${accept ? "recorded" : "passing"}\n`);
+console.log(`${results.length - failures.length}/${results.length} ${accept ? "recorded" : "passing"}${drifted.length ? `, ${drifted.length} drifted` : ""}`);
+
+if (reformatted.length) {
+    console.log(`${reformatted.length} module${reformatted.length === 1 ? "" : "s"} differ in key order or whitespace only -- content matches`);
+}
+
+if (drifted.length && !strict) {
+    console.log(`drift is accounted for by the definitions listed above, so this is not a failure.`);
+    console.log(`the baselines are behind: re-run with --accept and commit them.`);
+}
+
+console.log("");
 
 process.exit(failures.length ? 1 : 0);
