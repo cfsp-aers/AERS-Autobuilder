@@ -149,3 +149,4 @@ external/dev_settings.json
 
 # macOS
 .DS_Store
+tests/.precedence-work/

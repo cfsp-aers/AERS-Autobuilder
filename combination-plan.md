@@ -327,7 +327,7 @@ and allows running the real thing end-to-end from week one.
 | **2** | ✅ `configure()` refactor; carryover slate; config panel; reconcile the drifted preload contract | Makes the shell real |
 | **3** | ✅ Layout constructors across all 19 module definitions | Guarded by phase 0 |
 | **4** | ✅ `specials banner`; `hero trade` | Cheap only once phase 3 lands |
-| **5** | Parity on real briefs; cut over | The switch |
+| **5** | 🔄 Parity on real briefs; cut over | The switch |
 
 ### Phase 0 — done
 
@@ -604,6 +604,11 @@ original, and not worth reproducing.
 said. It is a rounded image on grey; `hero trade` is a square one bled to the
 edges on yellow. Aliasing them would have been wrong.
 
+> Reversed in phase 5. The shape reading was right, the conclusion was not:
+> briefs name `trade image banner` as a type, and an unregistered type stops a
+> build. It is defined now — still an image on grey, but a module rather than an
+> instruction to use a different one.
+
 **A golden case, because the layout tests cannot reach this.**
 `tests/layouts/` snapshots `internal_layout` — the shape. Everything phase 4
 actually decides is elsewhere: defaults, the palette lookup, the component
@@ -620,6 +625,79 @@ be read in a diff or edited without Excel.
 Suite after: 8 golden cases, 21 module layouts, 10 brief-error cases. The seven
 existing golden cases are unchanged, which is the useful part — a new palette
 entry and two new module types moved nothing that was already working.
+
+### Phase 5 — in progress
+
+Running real briefs is what phase 5 is for, and the first three ran turned up
+the thing the whole plan had missed: **there are two brief templates in live
+use, and the engine only read one of them.**
+
+The beta's template gives every *component* a row, under the module row it
+belongs to. v2.5's gives every *module* a row and spreads its components across
+columns — `image`, `badge`, `heading_text`, `subheading1_text` and the rest —
+under a machine-readable key row sitting beneath the human-readable headings.
+Section 2 compared the two engines and section 4.2 compared their module
+libraries; neither compared their *briefs*. A wide brief died at
+`Cannot read properties of undefined (reading 'split')` in `setupContent`,
+because the wide template has no `Content` column and never had a subject line.
+
+**One content model, translated at the edge.** The fix is
+`processing/brief_format.js`, which turns a wide sheet into the shape
+`setupContent` already consumes — a module row followed by its component rows —
+at the point the sheet becomes objects. Nothing downstream changed, and nothing
+downstream can tell which template a brief came from. The alternative, teaching
+`setupContent` both shapes, would have spread spreadsheet knowledge through
+every pass that touches content.
+
+Detection is on the header, not the data: only the beta's template has a
+`component` column. Reading the header rather than the rows matters for a short
+sheet, where a tall brief might carry no components at all and still be tall.
+
+What the translation has to know, and where each came from:
+
+| Wide column | Becomes | Established by |
+|---|---|---|
+| `disclaimer` | `^x` on the main offer, which formatRichText makes a `<sup>` | `components.njk:208` puts it on `subheading1_text`, not in a component of its own |
+| `button1_text` + `button1_link` | one `TEXT (link)` string | v2.5's button macro reads both |
+| `button1_link` | *also* the image's href | every image macro in `components.njk` wraps in `<a href="{{ button1_link }}">` |
+| `palette` | a `palette: x` user setting | the only setting the wide template can carry |
+| an absolute image URL | passed through, cut at the first quote | designers paste the whole `<img>` tag a timer service hands them |
+| a row with no `moduleType` | components belonging to the module above | v2.5 calls these INLINE rows |
+
+The order components are emitted in is load-bearing. `structureEDM` filters a
+module's children by `component_positions` and never sorts them, so emission
+order is render order — it follows the order every definition already lists.
+
+**Two more module types, for the same reason as the format.** `trade image
+banner` and `countdown timer` were used by a real brief and registered nowhere,
+which stopped the build. Both are depth-1 image banners on light grey, straight
+from their v2.5 rules; the countdown's artwork is a remote GIF, which needs no
+special handling because `formatRichText` already passes an `http` src through
+untouched.
+
+**Errors that name the problem.** An unregistered type used to throw
+`Cannot read properties of undefined (reading 'properties')`, naming neither the
+spelling nor the sheet. It now says which is which — the same treatment the
+Offer Library lookup got in phase 0.
+
+**A subject line with a colon in it was being truncated.** `setupContent` split
+on `:` and took the second field, so `Keep [PET NAME | FALLBACK: them]
+protected` became `Keep [PET NAME | FALLBACK`. Personalised subject lines are
+routine in trigger briefs, so this was mangling real sends. No golden case had a
+colon in its subject, which is why nothing caught it.
+
+Suite after: 9 golden cases, 23 module layouts, 10 brief-error cases. The new
+case, `wide-format`, is the only one in the second template and is generated by
+`tests/golden/briefs/wide-format.js` — what needs covering is the translation,
+not a typical email, and no real brief exercises every column at once.
+
+Verified against the three real briefs to hand: the two already building produce
+byte-identical output (`Mt Barker`), bar the subject-line fix and uuid
+determinism from earlier phases (`FTW Triggers`); the wide one builds all three
+of its sheets.
+
+Still open before cutover: parity on a wider set of real campaigns, the ILC
+downloader end to end, and the cutover itself.
 
 ---
 
@@ -668,6 +746,19 @@ Things discovered during analysis that are worth acting on regardless.
   output for `demo-petbarn` and `demo-greencross` today (`M0002`). Either the
   parser should accept both forms or the brief template should stop offering
   one it does not.
+- **Nothing in this plan compared the two brief *templates*.** Sections 2 and
+  4.2 compared engines and module libraries and stopped there, so the fact that
+  v2.5's spreadsheet and the beta's are different documents — one row per module
+  against one row per component — went unnoticed until a real brief was run in
+  phase 5. Both are in live use. The lesson is cheap to state and was expensive
+  to find: the artifact users actually hand the software is part of the surface
+  to be combined, and it is not visible from either codebase alone.
+- **`formatRichText` ignores an absolute image URL when the image is linked.**
+  The branch that parses `artwork (https://...)` never tests for `http` on the
+  src, so an image that is itself a URL *and* carries a link comes out as
+  `images/https://...`. Only the unbracketed branch handles absolute URLs. Not
+  hit today — `brief_format.js` declines to link an absolute src for exactly
+  this reason — and worth fixing at the source.
 - **The brief parser locates its header row by counting, not by looking.**
   `setup.js` deletes a fixed two rows from the Offer Library sheet and one from
   a content sheet. The current brief template happens to carry two header rows

@@ -28,8 +28,11 @@ function replaceColours(obj, parent_obj) {
     return obj;
 }
 function getColour(v, k, p_obj) {
-    //console.log(clr_lib[p_obj.brand], v);
-    if (k == "palette") return v;
+    // Neither key holds a colour. They hold the name of a palette, which is a
+    // different kind of thing -- `dark` is a palette and not a colour, and
+    // letting the colour library near it is how `background-color: dark` used
+    // to reach the email.
+    if (k == "palette" || k == "resolved_palette") return v;
     if (typeof v == "string" && v.includes("match/")) {
         v = p_obj[v.split("/")[1]];
     }
@@ -44,11 +47,6 @@ function getColour(v, k, p_obj) {
     } catch (e) {
         aers.log(`~~ error : ${p_obj.uuid}\n->${e.message}`);
     }
-}
-
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : null;
 }
 
 module.exports = {

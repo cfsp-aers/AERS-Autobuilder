@@ -38,8 +38,8 @@ border-image: initial;
 {%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
 {%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
 {%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
-{%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% else-%}font-weight: 18px; {% endif-%}
-{%-if element.font_style -%}font-style: {{ element.font_style }}; {% else-%}font-style: bold; {% endif-%}
+{%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% endif-%}
+{%-if element.font_style -%}font-style: {{ element.font_style }}; {% else-%}font-style: normal; {% endif-%}
 text-decoration: none;">
 {{-element.content.text }}
 </span></div>

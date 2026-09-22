@@ -1,10 +1,8 @@
 const _ = require("lodash");
-const fs = require("fs");
-const path = require("node:path");
 
 const { load } = require("../utils/load.js");
 
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir } = require("../constants.js");
 
 const aers = load(app_dir, "main/utils/aers utilities.js");
 

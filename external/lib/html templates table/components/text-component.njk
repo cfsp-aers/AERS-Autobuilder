@@ -1,8 +1,0 @@
-<table name="{{ element.id }}" class="acr-fragment acr-component" data-component-id="text" style="padding: {% if element.name == "badge" %}{{ element.inner_padding or "4px" }}{% else %}{{ element.padding or "0px" }}{% endif %};
-margin:{%if element.name == "badge" %}{{ element.padding or "0px auto" }}{% else %}{{ element.margin or "0px auto" }}{% endif %}; max-width: {%-if element.background-%} max-content{%-else-%}100%{%-endif-%}; background-color: {{ element.background or "transparent" }}; border-radius: {{ element.border_radius or "0px" }}; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" contenteditable="false"  data-has-ext-mso-hack="true" data-has-int-mso-hack="true">
-<tr class="text-container {{ element.text_size_class }}" contenteditable="true">
-<td style="font-size: {{ element.font_size or "16px" }}; line-height: {{ element.line_height or "100%" }}; font-family: '{{ element.font or "Outfit" }}', Arial, sans-serif; color: {{ element.colour or "#000000" }}; text-align: {{ element.text_align or element.align or "center" }}; font-weight: {{ element.font_weight or "normal" }}; font-style: normal;">
-{{ element.content | nl2br | safe }}
-</td>
-</tr>
-</table>

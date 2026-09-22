@@ -95,13 +95,7 @@ function buildConfig() {
     return current;
 }
 
-/** True when a build has been configured. For code that must not throw. */
-function isConfigured() {
-    return current !== null;
-}
-
 module.exports = {
     configure: configure,
-    buildConfig: buildConfig,
-    isConfigured: isConfigured
+    buildConfig: buildConfig
 };

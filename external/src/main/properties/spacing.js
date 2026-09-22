@@ -1,7 +1,9 @@
 const _ = require("lodash");
 
 function formatSpacingToArray(arg) {
-    if (!_.isString(arg) && !_.isArray(arg)) return arg;
+    // A bare number means that many pixels -- briefs write `padding: 24`, and the
+    // brief parser coerces bare digits to integers before spacing ever sees them.
+    if (!_.isString(arg) && !_.isArray(arg) && !_.isFinite(arg)) return arg;
     let spacing = _.toString(arg).split(/,| /);
     spacing = spacing.map((value) => _.trimEnd(value, "px"));
 
@@ -15,7 +17,6 @@ function formatSpacingToArray(arg) {
 function updateSpacing(arg, updated_value) {
     const spacing = formatSpacingToArray(arg);
     const updated_spacing = formatSpacingToArray(updated_value);
-    //console.log(spacing, updated_spacing);
 
     const result = formatSpacingToString(
         updated_spacing.map((value, index) => {
@@ -23,7 +24,6 @@ function updateSpacing(arg, updated_value) {
             else return value;
         })
     );
-    //console.log(result);
 
     // returns "#px #px #px #px"
 

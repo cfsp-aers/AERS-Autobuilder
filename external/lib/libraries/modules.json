@@ -99,6 +99,26 @@
       }
     },
 
+    "trade image banner": {
+      "valid names": ["trade image banner", "trade banner", "image banner"],
+      "properties": {
+        "category": "basic",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+
+    "countdown timer": {
+      "valid names": ["countdown timer", "countdown", "timer"],
+      "properties": {
+        "category": "basic",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 1
+      }
+    },
+
     "heading": {
       "valid names": ["heading"],
       "properties": {}

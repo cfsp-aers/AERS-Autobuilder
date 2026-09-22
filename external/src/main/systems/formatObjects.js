@@ -1,9 +1,8 @@
 const _ = require("lodash");
 const { load } = require("../utils/load.js");
-const { app_dir, user_files } = require("../constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
+const { app_dir } = require("../constants.js");
 
-const { formatSpacingToArray, formatSpacingToString, updateSpacing } = load(app_dir, "main/properties/spacing.js");
+const { formatSpacingToString, updateSpacing } = load(app_dir, "main/properties/spacing.js");
 
 function formatProperties(item) {
     let new_item = {
@@ -27,7 +26,11 @@ function formatProperties(item) {
         mode: item.mode || null,
         transition: item.transition || false,
         // ~~ palette ~~
+        // What was asked for, and what the derivation in properties/palette.js
+        // made of it. Two keys because they are two different facts -- see the
+        // note at the top of setPalette().
         palette: item.palette || null,
+        resolved_palette: item.resolved_palette || null,
         colour: item.colour || null,
         background: item.background || null,
         // ~~ spacing ~~
@@ -60,7 +63,6 @@ function formatProperties(item) {
         user_settings: item.user_settings || {}
     };
 
-    //_.forIn(new_item, (value, key) => delete original[key]);
     const result = {
         ...new_item,
         ...item,

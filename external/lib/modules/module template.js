@@ -3,14 +3,12 @@
     written for that destination, one folder deeper than this file sits, so the
     copy resolves and this template itself does not. Nothing loads it.
 
-    lodash and `aers` are here for the rules blocks further down, which is where
-    a module does anything conditional. Delete them if you write no rules.
+    Only what the layout needs is imported. Add lodash, or anything under
+    src/main/properties/, when a rule block wants it.
 */
 
-const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
 const { app_dir } = require("../../../src/main/constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
 const { single_column } = load(app_dir, "main/systems/layout.js");
 
 `~~~~~~~~~~~ MODULE NAME ~~~~~~~~~~~`;
@@ -107,9 +105,6 @@ let update;
 function setupRules(the, apply) {
     [current, prev, next, module_at, child_at, childOf] = [the.current_item, the.previous_item, the.next_item, the.module_at, the.child_at, the.childOf];
     [update] = [apply.update];
-
-    update(current, default_properties);
-    update(current, current.user_settings);
 }
 
 module.exports = {

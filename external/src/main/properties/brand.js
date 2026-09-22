@@ -1,6 +1,4 @@
 const _ = require("lodash");
-const fs = require("fs");
-const path = require("node:path");
 
 const { user_files } = require("../constants.js");
 const { load } = require("../utils/load.js");

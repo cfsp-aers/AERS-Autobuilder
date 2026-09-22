@@ -2,28 +2,50 @@ const { load } = require("../../../src/main/utils/load.js");
 const { app_dir } = require("../../../src/main/constants.js");
 const { single_column } = load(app_dir, "main/systems/layout.js");
 
-`~~~~~~~~~~~ BANNER STACKED ~~~~~~~~~~~`;
+`~~~~~~~~~~~ TRADE IMAGE BANNER ~~~~~~~~~~~`;
+
+/*
+    A single piece of artwork, inset from the edges with rounded corners, on
+    light grey.
+
+    The combination plan read this as `text block` carrying one image and left
+    it out of the module library on that basis. That was right about the shape
+    and wrong about the consequence: trade briefs name it as a type of its own,
+    so a brief that uses it stopped at "not a module this builder knows". It is
+    cheaper to define than to explain, and it does differ from `text block` --
+    light grey rather than white, and no text slots at all.
+
+    v2.5's rule, for the record:
+        _depth 1, order ["image"], modulePaddingTop 32px, modulePaddingSide 32px,
+        image_borderRadius 24px, palette "Light Grey"
+*/
 
 const default_properties = {
     // ~~ module data ~~
-    depth: 2,
+    depth: 1,
     max_siblings: 1,
 
     // ~~ palette ~~
-    palette: "light",
+    palette: "light grey",
 
     // ~~ spacing ~~
+    // v2.5 set top and side padding and left the bottom at its 0px default, so
+    // consecutive banners sit flush and the next module provides the gap.
     vertical_align: "top",
-    block_padding: "16px 0px 0px",
+    block_padding: "32px 0px 0px",
     padding: "0px 32px",
-    container_padding: "16px",
-    button: {
-        padding: "12px 16px 12px"
-    }
+
+    // ~~ components ~~
+    image: { border_radius: "24px" }
 };
 
+/*
+    The artwork and nothing else, which is what `order: ["image"]` said. Terms
+    are kept because a trade banner routinely carries a date or a legal line and
+    there is nowhere else on the module to put one.
+*/
 const component_positions = {
-    all: ["image", "lockup", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
+    all: ["image", "terms"]
 };
 
 const internal_layout = (current, content) => single_column(content);

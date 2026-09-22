@@ -1,7 +1,7 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
 const { app_dir } = require("../../../src/main/constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
+const { leading } = load(app_dir, "main/properties/typography.js");
 
 `~~~~~~~~~~~ HEADING ~~~~~~~~~~~`;
 
@@ -69,7 +69,15 @@ function modes() {
             line_height: "20px"
         }
     };
-    if (presets[current.mode]) update(current, presets[current.mode]);
+    if (presets[current.mode]) update(current, { font_size: presets[current.mode].font_size });
+
+    /*
+        Read back rather than taking the preset's own `line_height`: what
+        `current.font_size` resolves to is the explicit size if the brief gave
+        one, and the preset's if it did not. That is what makes an explicit size
+        drag its leading along instead of keeping the mode's.
+    */
+    update(current, { line_height: leading(current.font_size, presets) });
 
     switch (true) {
         case _.toInteger(_.trimEnd(current.font_size, "px")) >= 44:
@@ -93,12 +101,12 @@ function modes() {
     }
 }
 
-function modify(childrenOf) {
+function modify(parent) {
     // ------------- BEGIN RULES ------------- //
     // -------------- END RULES -------------- //
 }
 
-function style(childrenOf) {
+function style(parent) {
     // ------------- BEGIN RULES ------------- //
     // -------------- END RULES -------------- //
 }
@@ -109,9 +117,6 @@ let update;
 function setupRules(the, apply) {
     [current, prev, next] = [the.current_item, the.previous_item, the.next_item];
     [update] = [apply.update];
-
-    update(current, default_properties, false);
-    update(current, current.user_settings);
 }
 
 module.exports = {

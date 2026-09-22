@@ -9,7 +9,7 @@ const { resetUuids } = require("./utils/uuid.js");
 // with everything this build loads, and load() hands out fresh instances.
 const { configure } = require("./build_config.js");
 
-const { app_dir, user_files } = load(__dirname, "constants.js");
+const { app_dir } = load(__dirname, "constants.js");
 
 /**
  * Build the selected sheets of a brief into .html files.
@@ -32,13 +32,13 @@ function buildEmails(config) {
     // ---
 
     // PROCESSING
-    const { applyModifications } = load(app_dir, "main/processing/applyModifications.js");
+    const { applyModifications, applyIdentity } = load(app_dir, "main/processing/applyModifications.js");
     const { structureEDM } = load(app_dir, "main/processing/structureEDM.js");
+    const { read_content_sheet } = load(app_dir, "main/processing/brief_format.js");
 
     // SYSTEMS
-    const { setupContent, setBasicProperties, setupDataBase } = load(app_dir, "main/processing/setup.js");
+    const { setupContent, setBasicProperties } = load(app_dir, "main/processing/setup.js");
     const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
-    const { setGroupingData } = load(app_dir, "main/systems/groupingSystem.js");
     const { formatRichText, insertRichText } = load(app_dir, "main/systems/richTextSystem.js");
 
     // PROPERTIES
@@ -102,7 +102,8 @@ function buildEmails(config) {
             name: brief,
             created: Date(),
             success: null,
-            content: aers.sheet_to_objects(wb.Sheets[brief], "moduleType", `the "${brief}" sheet`)
+            // Reads either brief template. See processing/brief_format.js.
+            content: read_content_sheet(wb.Sheets[brief], `the "${brief}" sheet`)
         };
 
         /*
@@ -119,25 +120,19 @@ function buildEmails(config) {
         // Add offerdetails and extra buttons / any components to EDM_CONTENT before setting basic properties
         // ~~~~ Number of modules / components and order should be locked ~~~~
 
-        //aers.log(edm_content);
-
         const setup_content = edm_content.map((object) => formatProperties(object)); //setBasicProperties(object));
-
-        //aers.log(setup_content);
 
         let db = {
             ms: [],
             cs: {},
             user_settings: []
         };
-        let r_i = 0;
         setup_content.forEach((object, index) => {
             const item = util.cleanUp(object, {
                 empty: true,
                 remove: ["offerDetails", "moduleType", "component", "settings", "styling"],
                 keep: ["user_settings"]
             });
-            if (item.settings) console.log(item);
             const parent_id = _.findLast(setup_content, (m) => m.entity_type == "module", index).uuid;
             switch (item.entity_type) {
                 case "module":
@@ -166,23 +161,24 @@ function buildEmails(config) {
             m.parent_brand = setBrand(m.brand, db.ms[0].brand, "parent");
         });
 
-        setGroupingData(db.ms);
+        /*
+            Three phases, in this order, because each one depends on the last
+            having settled. ADR 0005 has the reasoning.
 
-        // db.ms = db.ms.map((m) => util.cleanUp(formatProperties(m), { empty: true }));
-        // db.ms = db.ms.map((m) => util.cleanUp(setBasicProperties(m), { empty: true }));
+            Identity: what a module is. Grouping and modify() loop together
+            until no module changes its name, because a rename changes which
+            rules the module runs and which group it belongs to.
+        */
+        applyIdentity(db, 4);
 
-        applyModifications(db, "modify", 2);
+        // Properties: every layer, to a fixed point.
+        applyModifications(db, "style", 4);
 
-        //db.ms = db.ms.map((m) => util.cleanUp(formatProperties(m), { empty: true }));
-        // db.ms = db.ms.map((m) => util.cleanUp(setBasicProperties(m), { empty: true }));
-
-        applyModifications(db, "style", 2);
-
-        applyModifications(db, "modes", 1);
+        // Derivations: values computed from resolved values, not layers of
+        // their own. `mode` -> `font_size` -> leading and size class.
+        applyModifications(db, "modes", 2);
 
         setPalettes(db); // NEEDS WORK
-
-        //finaliseData();
 
         db.ms = db.ms.map((m) =>
             util.cleanUp(setBasicProperties(m), {

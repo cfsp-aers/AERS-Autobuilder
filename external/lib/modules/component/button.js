@@ -1,13 +1,4 @@
-const _ = require("lodash");
-const { load } = require("../../../src/main/utils/load.js");
-const { app_dir } = require("../../../src/main/constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
-
-`
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            MODULE NAME HERE
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-`;
+`~~~~~~~~~~~ BUTTON ~~~~~~~~~~~`;
 
 const default_properties = {
     // ~~ palette ~~
@@ -38,6 +29,21 @@ const default_properties = {
     mode: "default"
 };
 
+/*
+    `match/background` is resolved by setButtonColours() in
+    properties/palette.js, which runs after these and swaps it for whatever the
+    button's background settled on. It is a button-only token: the same string
+    in component/lockup.js resolves to nothing, because nothing outside that one
+    function reads it and no template renders a lockup's border.
+
+    Both presets used to carry `background: "match/parent"` as well. Nothing in
+    the engine has ever read that token -- the behaviour it names is real, but
+    setButtonColours does it two lines further on by assigning the parent
+    palette's background directly for exactly these two modes. Removing it
+    changed no golden file and no rendered button in any of the three modes. It
+    is left out rather than left in because this file is the one other component
+    definitions get copied from, and a token that reads as supported travels.
+*/
 function modes() {
     const presets = {
         default: {
@@ -47,13 +53,11 @@ function modes() {
             border_top: "match/background",
             border_right: "match/background",
             border_bottom: "match/background",
-            border_left: "match/background",
-            background: "match/parent"
+            border_left: "match/background"
         },
         underline: {
             border_radius: "0px",
             border_bottom: "match/background",
-            background: "match/parent",
             inner_padding: "4px",
             mso_height: "32px"
         }
@@ -77,9 +81,6 @@ let update;
 function setupRules(the, apply) {
     [current, prev, next] = [the.current_item, the.previous_item, the.next_item];
     [update] = [apply.update];
-
-    update(current, default_properties, false);
-    update(current, current.user_settings);
 }
 
 module.exports = {

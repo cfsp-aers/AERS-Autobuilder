@@ -3,23 +3,31 @@ const { load } = require("../utils/load.js");
 // Required directly, not through load(), so the counter is shared with main.js
 // rather than each caller getting a fresh module instance.
 const { nextUuid } = require("../utils/uuid.js");
-const { app_dir, user_files } = require("../constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
-const util = load(app_dir, "main/utils/style utilities.js");
+const { user_files } = require("../constants.js");
 
 const module_library = load(user_files, "libraries/modules.json");
-const { setBrand } = load(app_dir, "main/properties/brand.js");
-const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 
 function setupContent(arr, offers, sheet_name = "this sheet") {
     let result = arr.reduce((acc, object, index) => {
+        /*
+            The subject line and preheader ride on the header module's content,
+            as two labelled lines. They become the <title> and the hidden
+            preheader span in main.njk.
+
+            Read defensively: the wide brief template has no column for either
+            (see processing/brief_format.js), and a header row in the tall one
+            can be left blank or have only the subject filled in. An email with
+            no subject line is worth building -- one that dies on
+            `Cannot read properties of undefined (reading 'split')` is not.
+        */
         if (index == 0) {
-            object.subject_line = _.trim(object.content.split("\n")[0].split(":")[1]);
-            object.preheader = _.trim(object.content.split("\n")[1].split(":")[1]);
+            const [subject_line, preheader] = String(object.content ?? "").split("\n");
+            object.subject_line = _.trim(String(subject_line ?? "").split(":").slice(1).join(":"));
+            object.preheader = _.trim(String(preheader ?? "").split(":").slice(1).join(":"));
         }
 
         if (!object.entity_type && !object.moduleType && !object.component && !object.content) return acc;
-        const item = { ...setBasicProperties(object, arr[0]), ...object, user_settings: getUserSettings(object) };
+        const item = { ...setBasicProperties(object, arr[0], sheet_name), ...object, user_settings: getUserSettings(object) };
 
         if (acc[0] && acc[0].user_settings?.transactional === true) {
             item.transactional = true;
@@ -71,7 +79,7 @@ function setupContent(arr, offers, sheet_name = "this sheet") {
     return result;
 }
 
-function setBasicProperties(object, header = {}) {
+function setBasicProperties(object, header = {}, sheet_name = "this sheet") {
     /*
     Object being recieved: {
         moduleType: "",
@@ -111,11 +119,24 @@ function setBasicProperties(object, header = {}) {
         object.dynamicContent ??= object.versions;
         object.dynamicContent ??= object.inVersions;
     }
-    //object.brand = object.brand ? object.brand.toLowerCase() : setBrand(object.brand, header.brand);
-    //object.parent_brand = object.parent_brand ? object.parent_brand.toLowerCase() : setBrand(object.brand, header.brand, "parent");
     object.uuid ??= nextUuid(entity_type);
 
     let object_name = _.findKey(module_library[entity_type], (o) => _.includes(o["valid names"], object[target_value]));
+
+    /*
+        Without this the next lines throw `Cannot read properties of undefined
+        (reading 'properties')`, which names neither the spelling that missed nor
+        the sheet it is on. A type the library does not know is the single most
+        likely thing to be wrong with a brief: a typo, or a module that exists in
+        one of the two brief templates and has never been defined here.
+    */
+    if (!entity_type || !module_library[entity_type] || !module_library[entity_type][object_name]) {
+        const spelling = object[target_value] || object.moduleType || object.component;
+        if (!entity_type) {
+            throw new Error(`A row in ${sheet_name} names both a module type ("${object.moduleType}") and a component ("${object.component}").\n\n` + `Put the module type on its own row, with its components on the rows beneath it.`);
+        }
+        throw new Error(`"${spelling}" on ${sheet_name} is not a ${entity_type} this builder knows.\n\n` + `Check the spelling against libraries/modules.json, which lists every ${entity_type} and the names that reach it.`);
+    }
 
     let result = {
         uuid: object.uuid,
@@ -123,8 +144,7 @@ function setBasicProperties(object, header = {}) {
         entity_type: entity_type,
         ...object,
         ...module_library[entity_type][object_name].properties,
-        ...object.user_settings,
-        ...object.locked_settings
+        ...object.user_settings
     };
 
     return _.omit(result, "valid names");
@@ -135,7 +155,6 @@ function getUserSettings(object) {
 }
 
 function formatUserInput(string) {
-    //aers.log(`...Formatting User Input\n`);
     let result = {
         info: {
             Process: "formatUserInput: Formats user settings and styling",
@@ -144,13 +163,7 @@ function formatUserInput(string) {
         output: {}
     };
     const processedString = correctSpelling(string);
-    
-    // processedString.split(/[;|,]\s*/).forEach((item) => {
-    //     item.includes(":") ? (result.output[item.split(/[:]\s*/)[0].replaceAll(/ |-/g, "_")] = item.split(/[:]\s*/)[1]) : (result.output[item] = true);
-    // });
-    
-    result.output = parseToObject(processedString)
-    console.log(`parsed ${processedString} to ${result.output}`)
+    result.output = parseToObject(processedString);
 
     _.forIn(result.output, (value, raw_key) => {
         // REPLACE SPACES IN KEY WITH UNDERSCORES

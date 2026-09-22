@@ -1,12 +1,13 @@
 /*
     What the engine does with a brief that is wrong.
 
-    The golden tests cover briefs that build. These cover the two failures a user
-    is actually likely to hit, because both used to surface as an exception that
+    The golden tests cover briefs that build. These cover the failures a user is
+    actually likely to hit, because each used to surface as an exception that
     named neither the sheet nor the cause:
 
       - a sheet whose header row is not where the old fixed row counts assumed
       - an offer alias in the brief that is not in the Offer Library
+      - a spacing value written as a bare number, e.g. `padding: 24`
 
     Assertions are on the message, not just on "it threw". The message is the
     whole point -- `Cannot read properties of undefined (reading 'offerAlias')`
@@ -159,6 +160,58 @@ check("aersFilesLocation is derived from the brief, not the working directory", 
     if (config.aersFilesLocation !== path.join("/tmp/campaign", "AERS files")) {
         throw new Error(`got ${config.aersFilesLocation}`);
     }
+});
+
+// ------------------------------------------------------------------ spacing
+
+/*
+    `padding: 24` and `padding: 0` in a settings cell used to end the build with
+    `TypeError: updated_spacing.map is not a function`, naming no sheet, module
+    or cell. A brief writing a bare number means that many pixels, and the brief
+    parser coerces bare digits to integers -- but formatSpacingToArray returned
+    anything that was not a string or an array untouched, so the number reached
+    .map.
+
+    Fixed in spacing.js rather than in the parser, because the parser should not
+    have to know which properties are spacing.
+*/
+
+const spacing = require(path.join(repo_root, "external/src/main/properties/spacing.js"));
+
+function spacingIs(actual, expected) {
+    if (actual !== expected) throw new Error(`expected "${expected}", got ${JSON.stringify(actual)}`);
+}
+
+check("a bare number is that many pixels on all four sides", () => {
+    spacingIs(spacing.formatSpacingToString(24), "24px 24px 24px 24px");
+    spacingIs(spacing.formatSpacingToArray(24).join(" "), "24 24 24 24");
+});
+
+check("padding: 0 builds rather than throwing", () => {
+    // Separate from the case above because 0 is falsy: every guard on this path
+    // has to test for a number rather than for truthiness.
+    spacingIs(spacing.formatSpacingToString(0), "0px 0px 0px 0px");
+    spacingIs(spacing.updateSpacing("12px", 0), "0px 0px 0px 0px");
+});
+
+check("a number overrides a default the way a string does", () => {
+    // The shape applyModifications calls it in: the module's default padding as
+    // an array, the value being written second.
+    spacingIs(spacing.updateSpacing(["12", "12", "12", "12"], 24), "24px 24px 24px 24px");
+    spacingIs(spacing.updateSpacing(["12", "12", "12", "12"], "24px"), "24px 24px 24px 24px");
+});
+
+check("strings and arrays are untouched by the number handling", () => {
+    spacingIs(spacing.formatSpacingToString("12px 32px"), "12px 32px 12px 32px");
+    spacingIs(spacing.formatSpacingToString("8px"), "8px 8px 8px 8px");
+    spacingIs(spacing.formatSpacingToString(["1", "2", "3", "4"]), "1px 2px 3px 4px");
+    spacingIs(spacing.updateSpacing("12px 32px 12px 32px", "_ _ 24px"), "12px 32px 24px 32px");
+});
+
+check("a value that is neither spacing nor a number still passes through", () => {
+    // undefined arrives here whenever a module has no default for the property.
+    if (spacing.formatSpacingToArray(undefined) !== undefined) throw new Error("undefined should pass through");
+    if (spacing.formatSpacingToArray(null) !== null) throw new Error("null should pass through");
 });
 
 // ------------------------------------------------------------------- report

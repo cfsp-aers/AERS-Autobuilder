@@ -1,7 +1,5 @@
-const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
 const { app_dir } = require("../../../src/main/constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
 const { single_column } = load(app_dir, "main/systems/layout.js");
 
 `~~~~~~~~~~~ HERO STANDARD ~~~~~~~~~~~`;
@@ -48,8 +46,6 @@ function modify(childrenOf) {
 function style(childrenOf) {
     // ------------- BEGIN RULES ------------- //
 
-    update(current, default_properties);
-
     if (childrenOf[current.uuid][0].type == "image" && childrenOf[current.uuid].length <= 1) {
         update(current, {
             padding: "0px 0px 0px 0px",
@@ -72,15 +68,6 @@ function style(childrenOf) {
         });
     }
 
-        update(current, {
-            hide_transition: true,
-            padding: "0px",
-            palette: "white",
-            image: {
-                border_radius: "0px"
-            }
-        });
-
     // -------------- END RULES -------------- //
 }
 
@@ -94,9 +81,6 @@ let update;
 function setupRules(the, apply) {
     [current, prev, next, module_at, child_at, childOf] = [the.current_item, the.previous_item, the.next_item, the.module_at, the.child_at, the.childOf];
     [update] = [apply.update];
-
-    update(current, default_properties, false);
-    update(current, current.user_settings);
 }
 
 module.exports = {

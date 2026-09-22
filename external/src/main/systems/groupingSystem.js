@@ -1,9 +1,5 @@
 const _ = require("lodash");
 
-const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
-const aers = load(app_dir, "main/utils/aers utilities.js");
-
 function setGroupingData(arr) {
     const groups = arr.reduce((acc, item, index) => {
         const child_index = _.findIndex(arr, (m) => m.uuid == item.uuid);
@@ -29,17 +25,14 @@ function setGroupingData(arr) {
                     break;
                 case total <= item.max_siblings:
                     for (let i = 1; i <= total; i++) count_array.push(`${i}/${total}`);
-                    //count_array.push(total)
                     total -= total;
                     break;
                 case total >= item.max_siblings * 2:
                     for (let i = 1; i <= item.max_siblings; i++) count_array.push(`${i}/${item.max_siblings}`);
-                    //count_array.push(item.max_siblings);
                     total -= item.max_siblings;
                     break;
                 case total > item.max_siblings && total < item.max_siblings * 2:
                     for (let i = 1; i <= Math.round(total / 2); i++) count_array.push(`${i}/${Math.round(total / 2)}`);
-                    //count_array.push(Math.round(total / 2));
                     total -= Math.round(total / 2);
                     break;
                 default:

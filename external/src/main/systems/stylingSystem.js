@@ -1,12 +1,4 @@
 const _ = require("lodash");
-const fs = require("fs");
-const path = require("node:path");
-
-const { load } = require("../utils/load.js");
-
-const { app_dir, user_files } = require("../constants.js");
-
-const aers = load(app_dir, "main/utils/aers utilities.js");
 
 const target = (arr, i) => (modifier) => {
     if (_.isEmpty(arr)) return {};
@@ -20,7 +12,7 @@ function moduleTargets(db, i) {
         current_item: current_item(db, i),
         next_item: next_item(db, i),
         module_at: module_at(db, i),
-        childAt: childAt(db, i),
+        child_at: child_at(db, i),
         childOf: childOf(db, i)
     };
     return module_targets;
@@ -38,10 +30,17 @@ function componentTargets(db, i, m) {
 const previous_item = (db, i) => target(db.ms, i)(-1);
 const current_item = (db, i) => target(db.ms, i)(0);
 const next_item = (db, i) => target(db.ms, i)(1);
-const module_at = (db, i) => (x) => {
-    target(db.ms, i)(x);
-};
-const childAt =
+/*
+    The name a rule file reaches one of these by is the name the key has above:
+    every rule file destructures `the.module_at` and `the.child_at`, so a key
+    spelled `childAt` hands back undefined and reads as "no such neighbour".
+
+    The two do not count the same way. `module_at(x)` is relative to the module
+    the rule is running on -- `module_at(-1)` is `prev` -- while
+    `child_at(module, n)` is the module's nth child counting from 1.
+*/
+const module_at = (db, i) => (x) => target(db.ms, i)(x);
+const child_at =
     (db, i) =>
     (x, indx = 1) =>
         target(db.cs[x.uuid], indx - 1)(0);

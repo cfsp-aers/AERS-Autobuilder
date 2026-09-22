@@ -11,10 +11,6 @@ const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 const id_lib = load(user_files, "libraries/modules.json");
 
-function rgbToHex(r, g, b) {
-    return "#" + ((1 << 24) | (r << 16) | (g << 8) | b).toString(16).slice(1);
-}
-
 function structureEDM(arr, children = {}) {
     arr = arr.reduce((acc, o) => {
         if (o.ignore == true) {
@@ -141,7 +137,6 @@ function structureEDM(arr, children = {}) {
 
     // blockContainer
     result = result.reduce((acc, item, index) => {
-        console.log("block row length : ", item.children.length);
         item.children = item.children.map((block_col, index) => {
             block_col.width = `${_.round(100 / _.toInteger(item.children.length), 4)}%`;
             block_col.bc_row_index = index;
@@ -252,8 +247,6 @@ function structureEDM(arr, children = {}) {
     }, []);
 
     return result;
-
-    //aers.updateEntityStore(es);
 }
 function start_new_module_column(child, prev) {
     return true;
@@ -280,22 +273,6 @@ function start_new_block_container(child, prev) {
     //if (child.row_index == 1) return true;
     return false;
 }
-/*
-function start_new_group_column(child, prev) {
-    //if (start_new_group_row(child, prev)) return true;
-    return false;
-}
-function start_new_group_row(child, prev) {
-    //if (start_new_group_container(child, prev)) return true;
-    return false;
-}
-function start_new_group_container(child, prev) {
-    if (start_new_structure(child, prev)) return true;
-    //if (child.inVersions != prev.inVersions) return true;
-    //if (child.dynamic_content != prev.dynamic_content) return true;
-    return false;
-}
-*/
 function start_new_structure(child, prev) {
     if (child.dynamicContent?.split("/")[0] != prev.dynamicContent?.split("/")[0]) {
         return true;
