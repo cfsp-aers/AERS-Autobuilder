@@ -8,10 +8,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "header/header greencross vets.js",
-    "config": [
-      "header config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -41,10 +37,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "hero/hero standard.js",
-    "config": [
-      "hero config.js",
-      "banner config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -69,10 +61,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/image.js",
-        "config": [
-          "component config.js",
-          "image config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -95,10 +83,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "basic/text block.js",
-    "config": [
-      "basic config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -122,10 +106,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/bodycopy.js",
-        "config": [
-          "component config.js",
-          "body config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -151,10 +131,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/subheading.js",
-        "config": [
-          "component config.js",
-          "heading config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "h4",
@@ -182,10 +158,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/bodycopy.js",
-        "config": [
-          "component config.js",
-          "body config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -211,10 +183,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/subheading.js",
-        "config": [
-          "component config.js",
-          "heading config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "h4",
@@ -242,10 +210,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/bodycopy.js",
-        "config": [
-          "component config.js",
-          "body config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -271,10 +235,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/subheading.js",
-        "config": [
-          "component config.js",
-          "heading config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "h4",
@@ -302,10 +262,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/bodycopy.js",
-        "config": [
-          "component config.js",
-          "body config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -370,10 +326,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/subheading.js",
-        "config": [
-          "component config.js",
-          "heading config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "h4",
@@ -408,10 +360,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/button.js",
-        "config": [
-          "component config.js",
-          "button config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "default",
@@ -448,10 +396,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/terms.js",
-        "config": [
-          "component config.js",
-          "terms config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -479,10 +423,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "basic/text block.js",
-    "config": [
-      "basic config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -509,10 +449,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/heading.js",
-        "config": [
-          "component config.js",
-          "heading config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "h2",
@@ -540,10 +476,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/image.js",
-        "config": [
-          "component config.js",
-          "image config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -564,10 +496,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/button.js",
-        "config": [
-          "component config.js",
-          "button config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "row_index": 1,
@@ -605,10 +533,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/button.js",
-        "config": [
-          "component config.js",
-          "button config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "row_index": 2,
@@ -648,10 +572,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "basic/text block.js",
-    "config": [
-      "basic config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -678,10 +598,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/lockup.js",
-        "config": [
-          "component config.js",
-          "image config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -702,10 +618,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/subheading.js",
-        "config": [
-          "component config.js",
-          "heading config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "h4",
@@ -735,10 +647,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "basic/banner.js",
-    "config": [
-      "basic config.js",
-      "banner config.js"
-    ],
     "depth": 2,
     "max_siblings": 1,
     "row_index": 1,
@@ -766,10 +674,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/image.js",
-        "config": [
-          "component config.js",
-          "image config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -792,10 +696,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/bodycopy.js",
-        "config": [
-          "component config.js",
-          "body config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -860,10 +760,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "basic/text block.js",
-    "config": [
-      "basic config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -890,10 +786,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/bodycopy.js",
-        "config": [
-          "component config.js",
-          "body config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -926,10 +818,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/button.js",
-        "config": [
-          "component config.js",
-          "button config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "mode": "default",
@@ -966,10 +854,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/terms.js",
-        "config": [
-          "component config.js",
-          "terms config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -997,10 +881,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "footer/footer greencross vets.js",
-    "config": [
-      "footer config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -1026,10 +906,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/terms.js",
-        "config": [
-          "component config.js",
-          "terms config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -1063,10 +939,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/terms.js",
-        "config": [
-          "component config.js",
-          "terms config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
@@ -1092,10 +964,6 @@
         "brand": "greencross vets",
         "parent_brand": "Petbarn",
         "template": "component/terms.js",
-        "config": [
-          "component config.js",
-          "terms config.js"
-        ],
         "depth": 1,
         "max_siblings": 1,
         "transition": false,

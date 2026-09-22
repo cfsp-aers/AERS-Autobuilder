@@ -17,7 +17,6 @@ function formatProperties(item) {
         brand: item.brand || null,
         parent_brand: item.parent_brand || null,
         template: `${item.category ? item.category : "default"}/${item.name ? (item.fragment ? `${item.name} ${item.brand}` : item.name) : "default"}.js` || null,
-        config: [`${item.category ? item.category : "default"} config.js`, `${item.type ? item.type : "default"} config.js`] || null,
         position: item.position || null,
         //btn_group: item.btn_group || null,
         depth: item.depth || 1,

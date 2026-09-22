@@ -8,10 +8,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "header/header petbarn.js",
-    "config": [
-      "header config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -41,10 +37,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "hero/hero standard.js",
-    "config": [
-      "hero config.js",
-      "banner config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -70,10 +62,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "basic/text block.js",
-    "config": [
-      "basic config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -97,10 +85,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "icon/icon.js",
-    "config": [
-      "icon config.js",
-      "tile config.js"
-    ],
     "depth": 1,
     "max_siblings": 3,
     "row_index": 1,
@@ -125,10 +109,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "icon/icon.js",
-    "config": [
-      "icon config.js",
-      "tile config.js"
-    ],
     "depth": 1,
     "max_siblings": 3,
     "row_index": 2,
@@ -153,10 +133,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "icon/icon.js",
-    "config": [
-      "icon config.js",
-      "tile config.js"
-    ],
     "depth": 1,
     "max_siblings": 3,
     "row_index": 3,
@@ -181,10 +157,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "footer/shop your way petbarn.js",
-    "config": [
-      "footer config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -210,10 +182,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "footer/signoff petbarn.js",
-    "config": [
-      "footer config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -239,10 +207,6 @@
     "brand": "petbarn",
     "parent_brand": "petbarn",
     "template": "footer/footer petbarn.js",
-    "config": [
-      "footer config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,

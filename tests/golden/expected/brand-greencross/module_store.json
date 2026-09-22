@@ -8,10 +8,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "header/header greencross vets.js",
-    "config": [
-      "header config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -41,10 +37,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "hero/hero standard.js",
-    "config": [
-      "hero config.js",
-      "banner config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -68,10 +60,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "basic/text block.js",
-    "config": [
-      "basic config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
@@ -95,10 +83,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "icon/icon block.js",
-    "config": [
-      "icon config.js",
-      "tile config.js"
-    ],
     "depth": 2,
     "max_siblings": 1,
     "row_index": 1,
@@ -123,10 +107,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "product/product tile.js",
-    "config": [
-      "product config.js",
-      "tile config.js"
-    ],
     "depth": 2,
     "max_siblings": 2,
     "row_index": 1,
@@ -152,10 +132,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "product/product tile.js",
-    "config": [
-      "product config.js",
-      "tile config.js"
-    ],
     "depth": 2,
     "max_siblings": 2,
     "row_index": 2,
@@ -181,10 +157,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "product/product tile.js",
-    "config": [
-      "product config.js",
-      "tile config.js"
-    ],
     "depth": 2,
     "max_siblings": 2,
     "row_index": 1,
@@ -210,10 +182,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "product/product tile.js",
-    "config": [
-      "product config.js",
-      "tile config.js"
-    ],
     "depth": 2,
     "max_siblings": 2,
     "row_index": 2,
@@ -239,10 +207,6 @@
     "brand": "greencross vets",
     "parent_brand": "Petbarn",
     "template": "footer/footer greencross vets.js",
-    "config": [
-      "footer config.js",
-      "block config.js"
-    ],
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,

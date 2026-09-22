@@ -9,10 +9,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/heading.js",
-      "config": [
-        "component config.js",
-        "heading config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "mode": "h2",
@@ -40,10 +36,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/terms.js",
-      "config": [
-        "component config.js",
-        "terms config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
@@ -71,10 +63,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/heading.js",
-      "config": [
-        "component config.js",
-        "heading config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "mode": "h2",
@@ -102,10 +90,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/subheading.js",
-      "config": [
-        "component config.js",
-        "heading config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "mode": "h4",
@@ -133,10 +117,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/bodycopy.js",
-      "config": [
-        "component config.js",
-        "body config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
@@ -162,10 +142,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/button.js",
-      "config": [
-        "component config.js",
-        "button config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "mode": "default",
@@ -202,10 +178,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/terms.js",
-      "config": [
-        "component config.js",
-        "terms config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
@@ -233,10 +205,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/image.js",
-      "config": [
-        "component config.js",
-        "image config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
@@ -259,10 +227,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/image.js",
-      "config": [
-        "component config.js",
-        "image config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
@@ -285,10 +249,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/image.js",
-      "config": [
-        "component config.js",
-        "image config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
@@ -311,10 +271,6 @@
       "brand": "petbarn",
       "parent_brand": "petbarn",
       "template": "component/terms.js",
-      "config": [
-        "component config.js",
-        "terms config.js"
-      ],
       "depth": 1,
       "max_siblings": 1,
       "transition": false,

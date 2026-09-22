@@ -10,9 +10,16 @@
   - `structureEDM.js:148` and `:273`, two disabled conditions inside live
     predicates. They say a condition was tried and turned off; turning that into
     prose needs the reason, which is not in the code.
-  - The dead `config` key at `formatObjects.js:21`. Nothing reads it, but it
-    persists 954 times into the stores, so removing it moves every golden file.
-    Its own commit.
+  - ~~The dead `config` key at `formatObjects.js:21`.~~ **Done**, in its own
+    commit as planned. It was at `systems/formatObjects.js:20`, and it was the
+    only mention of the property in any code -- every other `config` in the
+    engine is `build_config` or `user_config`, a different name. 954 keys went,
+    exactly as predicted, across 36 expected files: 3848 deletions against 32
+    insertions, and all 32 insertions are the engine hash in the two
+    `inputs.json` manifests. `email.html` did not move in any of the nine cases,
+    which is what says the key was never rendered. Two lines of the design notes
+    at `main.js:316` and `:327` still name it; they are aspirational prose about
+    a pipeline that was never built, so they were left alone.
   - `external/lib/` is now swept too: the dead `config/` library deleted, 82
     dead imports gone, the stale component template rewritten to match the nine
     real component files, and 23 files' section banners corrected to name the
