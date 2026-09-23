@@ -17,7 +17,8 @@
             "content": {
               "src": "images/PLP_Logo_Dog.png",
               "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
-            }
+            },
+            "vertical_align": "middle"
           },
           {
             "entity_type": "component",
@@ -25,7 +26,15 @@
             "font_size": "16px",
             "line_height": "18px",
             "padding": "16px",
-            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!"
+            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
+            "mode": null,
+            "background": null,
+            "vertical_align": "middle",
+            "margin": "0px",
+            "font_weight": "normal",
+            "text_align": "center",
+            "font": "Outfit",
+            "text_size_class": null
           },
           {
             "block": "gridContainer",
@@ -54,7 +63,9 @@
                               "src": "images/pb-fb.png",
                               "href": "https://www.facebook.com/petbarn",
                               "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -71,7 +82,9 @@
                               "src": "images/pb-in.png",
                               "href": "https://www.instagram.com/petbarn/#",
                               "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -88,7 +101,9 @@
                               "src": "images/pb-yt.png",
                               "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                               "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -105,7 +120,9 @@
                               "src": "images/pb-tt.png",
                               "href": "https://www.tiktok.com/@petbarnau",
                               "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       }
@@ -141,7 +158,8 @@
             "content": {
               "src": "images/PLP_Logo_Dog.png",
               "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
-            }
+            },
+            "vertical_align": "middle"
           },
           {
             "entity_type": "component",
@@ -149,7 +167,15 @@
             "font_size": "16px",
             "line_height": "18px",
             "padding": "16px",
-            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!"
+            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
+            "mode": null,
+            "background": null,
+            "vertical_align": "middle",
+            "margin": "0px",
+            "font_weight": "normal",
+            "text_align": "center",
+            "font": "Outfit",
+            "text_size_class": null
           },
           {
             "block": "gridContainer",
@@ -178,7 +204,9 @@
                               "src": "images/pb-fb.png",
                               "href": "https://www.facebook.com/petbarn",
                               "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -195,7 +223,9 @@
                               "src": "images/pb-in.png",
                               "href": "https://www.instagram.com/petbarn/#",
                               "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -212,7 +242,9 @@
                               "src": "images/pb-yt.png",
                               "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                               "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -229,7 +261,9 @@
                               "src": "images/pb-tt.png",
                               "href": "https://www.tiktok.com/@petbarnau",
                               "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       }
@@ -264,7 +298,8 @@
             "content": {
               "src": "images/PLP_Logo_Dog.png",
               "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
-            }
+            },
+            "vertical_align": "middle"
           },
           {
             "entity_type": "component",
@@ -272,7 +307,15 @@
             "font_size": "16px",
             "line_height": "18px",
             "padding": "16px",
-            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!"
+            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
+            "mode": null,
+            "background": null,
+            "vertical_align": "middle",
+            "margin": "0px",
+            "font_weight": "normal",
+            "text_align": "center",
+            "font": "Outfit",
+            "text_size_class": null
           },
           {
             "block": "gridContainer",
@@ -301,7 +344,9 @@
                               "src": "images/pb-fb.png",
                               "href": "https://www.facebook.com/petbarn",
                               "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -318,7 +363,9 @@
                               "src": "images/pb-in.png",
                               "href": "https://www.instagram.com/petbarn/#",
                               "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -335,7 +382,9 @@
                               "src": "images/pb-yt.png",
                               "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                               "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -352,7 +401,9 @@
                               "src": "images/pb-tt.png",
                               "href": "https://www.tiktok.com/@petbarnau",
                               "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       }
@@ -387,7 +438,8 @@
             "content": {
               "src": "images/PLP_Logo_Dog.png",
               "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
-            }
+            },
+            "vertical_align": "middle"
           },
           {
             "entity_type": "component",
@@ -395,7 +447,15 @@
             "font_size": "16px",
             "line_height": "18px",
             "padding": "16px",
-            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!"
+            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
+            "mode": null,
+            "background": null,
+            "vertical_align": "middle",
+            "margin": "0px",
+            "font_weight": "normal",
+            "text_align": "center",
+            "font": "Outfit",
+            "text_size_class": null
           },
           {
             "block": "gridContainer",
@@ -424,7 +484,9 @@
                               "src": "images/pb-fb.png",
                               "href": "https://www.facebook.com/petbarn",
                               "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -441,7 +503,9 @@
                               "src": "images/pb-in.png",
                               "href": "https://www.instagram.com/petbarn/#",
                               "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -458,7 +522,9 @@
                               "src": "images/pb-yt.png",
                               "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                               "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -475,7 +541,9 @@
                               "src": "images/pb-tt.png",
                               "href": "https://www.tiktok.com/@petbarnau",
                               "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       }
@@ -510,7 +578,8 @@
             "content": {
               "src": "images/PLP_Logo_Dog.png",
               "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
-            }
+            },
+            "vertical_align": "middle"
           },
           {
             "entity_type": "component",
@@ -518,7 +587,15 @@
             "font_size": "16px",
             "line_height": "18px",
             "padding": "16px",
-            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!"
+            "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
+            "mode": null,
+            "background": null,
+            "vertical_align": "middle",
+            "margin": "0px",
+            "font_weight": "normal",
+            "text_align": "center",
+            "font": "Outfit",
+            "text_size_class": null
           },
           {
             "block": "gridContainer",
@@ -547,7 +624,9 @@
                               "src": "images/pb-fb.png",
                               "href": "https://www.facebook.com/petbarn",
                               "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -564,7 +643,9 @@
                               "src": "images/pb-in.png",
                               "href": "https://www.instagram.com/petbarn/#",
                               "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -581,7 +662,9 @@
                               "src": "images/pb-yt.png",
                               "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                               "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       },
@@ -598,7 +681,9 @@
                               "src": "images/pb-tt.png",
                               "href": "https://www.tiktok.com/@petbarnau",
                               "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
-                            }
+                            },
+                            "vertical_align": "middle",
+                            "padding": "0px"
                           }
                         ]
                       }

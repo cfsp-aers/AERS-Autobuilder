@@ -51,8 +51,11 @@
     the same bytes.
 */
 
+const fs = require("node:fs");
+const path = require("node:path");
+
 const { load } = require("../utils/load.js");
-const { app_dir } = require("../constants.js");
+const { app_dir, user_files } = require("../constants.js");
 
 const { setComponents } = load(app_dir, "main/systems/setComponents.js");
 
@@ -85,17 +88,70 @@ function col(options, children) {
 
 // ---------------------------------------------------------------- component
 
-/** A component declared by the layout itself. With no `type`, it renders as text. */
+/*
+    Where a layout-declared component gets its defaults.
+
+    A component from the brief is built by setBasicProperties, lands in db.cs,
+    and applyModifications gives it its rule file's `default_properties` as
+    layer 1. A component a layout declares is born here instead -- structureEDM
+    calls internal_layout() long after the three phases have finished -- so
+    there is no pass left to resolve it. It arrived carrying only the keys its
+    call site wrote.
+
+    The keys it did not write were still being answered, just not here: the
+    templates answered them, through `{{ element.font or "Outfit" }}` and the
+    `{%-if element.border_radius %}...{% else %}0px{% endif-%}` pairs in
+    button-component.njk. That is the same design opinion living in a second
+    place, and a place that cannot be overridden by a brief or read by a rule.
+
+    So the defaults come from the component rule files -- the same files, and
+    the same `default_properties`, a brief-declared component resolves against.
+    This is not a new home for styling opinions; it is the existing one, reached
+    by the one kind of component that was missing it.
+
+    See docs/adr/0005-property-resolution-is-layered.md, and step 4 of
+    property-resolution-plan.md, which this unblocks.
+*/
+function defaultsFor(name) {
+    const file = `modules/component/${name}.js`;
+    if (!fs.existsSync(path.resolve(path.join(user_files, file)))) return {};
+    return load(user_files, file).default_properties || {};
+}
+
+/*
+    Fill what the call site left unsaid, and nothing it said.
+
+    Written as an append rather than as `Object.assign({}, defaults, options)`
+    because of the key-order contract above: the options bag has to land in the
+    order it was written, so defaults are added after it, not merged in front of
+    it. A key the call site wrote is never touched, whatever its value -- an
+    explicit `padding: 0` has to beat a default, and `0` is falsy.
+*/
+function fill(node, defaults) {
+    Object.keys(defaults).forEach((key) => {
+        if (node[key] === undefined) node[key] = defaults[key];
+    });
+    return node;
+}
+
+/*
+    A component declared by the layout itself. With no `type`, it renders as
+    text, so it defaults against `bodycopy` -- the library's plain paragraph.
+    `component({ name: "terms", ... })` reaches terms.js instead, and a name
+    with no rule file falls back to no defaults rather than throwing, which is
+    what applyModifications does with an unknown template.
+*/
 function component(options) {
-    return Object.assign({ entity_type: "component" }, options);
+    const settings = options || {};
+    return fill(Object.assign({ entity_type: "component" }, settings), defaultsFor(settings.name || "bodycopy"));
 }
 
 function image(options) {
-    return Object.assign({ entity_type: "component", type: "image" }, options);
+    return fill(Object.assign({ entity_type: "component", type: "image" }, options || {}), defaultsFor("image"));
 }
 
 function button(options) {
-    return Object.assign({ entity_type: "component", type: "button" }, options);
+    return fill(Object.assign({ entity_type: "component", type: "button" }, options || {}), defaultsFor("button"));
 }
 
 /*

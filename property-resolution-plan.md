@@ -5,8 +5,8 @@ Written 01/09/2026.
 
 ## Status
 
-**Done.** Every step except the blocked half of step 4, which is not this plan's
-to finish — see below.
+**Done.** Every step, step 4 included: the premise that blocked its second half
+was fixed on 23/09/2026 in `systems/layout.js`. See step 4.
 
 `npm test` is green at 122: 9 golden, 23 layout, 46 update, 9 precedence, 20
 palette, 15 brief-error. `tests/precedence.js` joined `npm test` when phase 3
@@ -93,6 +93,31 @@ against.
    The real fix is that a layout-declared component should get its defaults from
    somewhere. That is a change to the layout constructors, not to the templates,
    and it is a separate piece of work from this one.
+
+   **Unblocked, 23/09/2026.** The constructors now fill from the component rule
+   files — `component()` from `bodycopy.js` or `options.name`, `image()` from
+   `image.js`, `button()` from `button.js` — so a layout-declared component
+   resolves against the same `default_properties` a brief-declared one does.
+   Defaults are appended rather than merged in front, to keep the key-order
+   contract at the top of `layout.js`, and a key the call site wrote is never
+   touched whatever its value, so an explicit `padding: 0` still wins.
+
+   The counts above reproduced exactly from the baselines: 138 layout-declared
+   nodes, 36 text, 65 image, 37 button. After the change the text nodes are
+   missing 3 of 9 properties instead of 9, buttons 1 of 7, images 4 of 5 — and
+   every one that is still missing is missing because *the rule file does not
+   define it*: `bodycopy.js` has `border_radius` commented out, `image.js`
+   defines three properties in total, and `button.js` has no `colour` because
+   colour comes from the palette. That is a library gap, which a library edit
+   closes and the snapshot gate now passes as drift. It is no longer an engine
+   one.
+
+   Two defects fell out, both invisible until the nodes carried the keys:
+   `text-component.njk:11` has no fallback where line 14 does, so 36 nodes were
+   emitting `font-family: ''` and 33 `font-weight: ;` — declarations a browser
+   discards. Both resolve properly now.
+
+   Deleting the fallbacks this step named is still not done; it is now possible.
 
 ## Phase 1 — extract and test `update()` ✅
 
@@ -276,8 +301,8 @@ The substance.
 
 - **Phase-boundary enforcement.** Deferred by decision, not oversight. Nothing
   stops a `modify` rule writing `padding`.
-- **Defaults for layout-declared components.** Surfaced by step 4 above. It is
-  the reason step 4 cannot finish, and it is its own piece of work.
+- **Defaults for layout-declared components.** ✅ Closed. Surfaced by step 4,
+  and done as its own piece of work on 23/09/2026 — see step 4.
 - **Renaming `m.template`.** ✅ Closed, and decided the other way: the glossary
   moved, not the code. CONTEXT.md had retired the name in favour of *module
   definition*, which would have meant renaming one writer and six reads across

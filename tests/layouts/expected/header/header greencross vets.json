@@ -29,7 +29,9 @@
                           "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
-                        }
+                        },
+                        "vertical_align": "middle",
+                        "padding": "0px"
                       }
                     ]
                   },
@@ -69,7 +71,12 @@
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
-                        }
+                        },
+                        "border_top": false,
+                        "border_right": false,
+                        "border_bottom": false,
+                        "border_left": false,
+                        "mso_height": "40px"
                       }
                     ]
                   }
@@ -112,7 +119,20 @@
                         "content": {
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -137,7 +157,20 @@
                         "content": {
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -162,7 +195,20 @@
                         "content": {
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   }
@@ -204,7 +250,9 @@
                           "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
-                        }
+                        },
+                        "vertical_align": "middle",
+                        "padding": "0px"
                       }
                     ]
                   },
@@ -244,7 +292,12 @@
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
-                        }
+                        },
+                        "border_top": false,
+                        "border_right": false,
+                        "border_bottom": false,
+                        "border_left": false,
+                        "mso_height": "40px"
                       }
                     ]
                   }
@@ -287,7 +340,20 @@
                         "content": {
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -312,7 +378,20 @@
                         "content": {
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -337,7 +416,20 @@
                         "content": {
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   }
@@ -379,7 +471,9 @@
                           "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
-                        }
+                        },
+                        "vertical_align": "middle",
+                        "padding": "0px"
                       }
                     ]
                   },
@@ -419,7 +513,12 @@
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
-                        }
+                        },
+                        "border_top": false,
+                        "border_right": false,
+                        "border_bottom": false,
+                        "border_left": false,
+                        "mso_height": "40px"
                       }
                     ]
                   }
@@ -462,7 +561,20 @@
                         "content": {
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -487,7 +599,20 @@
                         "content": {
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -512,7 +637,20 @@
                         "content": {
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   }
@@ -554,7 +692,9 @@
                           "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
-                        }
+                        },
+                        "vertical_align": "middle",
+                        "padding": "0px"
                       }
                     ]
                   },
@@ -594,7 +734,12 @@
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
-                        }
+                        },
+                        "border_top": false,
+                        "border_right": false,
+                        "border_bottom": false,
+                        "border_left": false,
+                        "mso_height": "40px"
                       }
                     ]
                   }
@@ -637,7 +782,9 @@
                           "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
-                        }
+                        },
+                        "vertical_align": "middle",
+                        "padding": "0px"
                       }
                     ]
                   },
@@ -677,7 +824,12 @@
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
-                        }
+                        },
+                        "border_top": false,
+                        "border_right": false,
+                        "border_bottom": false,
+                        "border_left": false,
+                        "mso_height": "40px"
                       }
                     ]
                   }
@@ -720,7 +872,20 @@
                         "content": {
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -745,7 +910,20 @@
                         "content": {
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   },
@@ -770,7 +948,20 @@
                         "content": {
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
-                        }
+                        },
+                        "palette": "primary",
+                        "vertical_align": "middle",
+                        "margin": "0px",
+                        "align": "center",
+                        "font_size": "16px",
+                        "line_height": "18px",
+                        "text_align": "center",
+                        "font": "Outfit",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false,
+                        "height": "auto",
+                        "width": "auto"
                       }
                     ]
                   }

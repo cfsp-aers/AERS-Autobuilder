@@ -43,7 +43,28 @@
   - Not yet swept: `app/`, `external/ui/` and `external/main_external.js`.
 - Explore creating a property registry to dictate what properties exist and how they are handled throughout processing
 - Review palette application logic and determine opportunities to refactor for simplicity
-- Review `.njk` html templates to determine ways to simplify and ensure styling defaults aren't scattered across multiple locations
+- Review `.njk` html templates to determine ways to simplify and ensure styling
+  defaults aren't scattered across multiple locations
+  - **Prerequisite done, 23/09/2026.** A layout-declared component -- the logo in
+    a header, the legal line in a footer -- never went through
+    `setBasicProperties`, so it never got `default_properties` and the templates
+    were answering for it. The constructors in `systems/layout.js` now fill from
+    the component rule files, which is what makes a fallback deletable rather
+    than load-bearing. Step 4 of `property-resolution-plan.md` has the detail.
+  - Still to do: delete the fallbacks that are now redundant. Note that `or "..."`
+    undercounts them -- `button-component.njk` writes its defaults as
+    `{%-if element.x %}...{% else %}<default>{% endif-%}` pairs instead, and
+    hardcodes `#FFFFFF`, `16px`, `border-radius: 0px`, `height: auto` and
+    `padding: 0px` that way.
+  - Two library gaps found on the way, each the reason a fallback is still
+    load-bearing: `bodycopy.js` has `border_radius` commented out, and
+    `image.js` defines only `vertical_align`, `padding` and `width` -- so
+    `align`, `background`, `max_width` and `border_radius` have nowhere to come
+    from but the template. Filling those in is a library edit, which the
+    snapshot gate now passes as drift.
+  - `text-component.njk:4` reads `{{ element.margin or element.padding or "0px" }}`
+    -- it uses margin as the td's padding, and where both were set the same value
+    was applied twice, outer and inner. Worth a decision on its own.
 
 **Review and simplify styling rules**
 

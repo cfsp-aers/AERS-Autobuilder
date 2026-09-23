@@ -18,7 +18,9 @@
                   "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d",
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
-                }
+                },
+                "vertical_align": "middle",
+                "padding": "0px"
               }
             ]
           }
@@ -68,7 +70,12 @@
                         "content": {
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -104,7 +111,12 @@
                         "content": {
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -140,7 +152,12 @@
                         "content": {
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   }
@@ -171,7 +188,9 @@
                   "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d",
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
-                }
+                },
+                "vertical_align": "middle",
+                "padding": "0px"
               }
             ]
           }
@@ -221,7 +240,12 @@
                         "content": {
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -257,7 +281,12 @@
                         "content": {
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -293,7 +322,12 @@
                         "content": {
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   }
@@ -324,7 +358,9 @@
                   "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d",
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
-                }
+                },
+                "vertical_align": "middle",
+                "padding": "0px"
               }
             ]
           }
@@ -374,7 +410,12 @@
                         "content": {
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -410,7 +451,12 @@
                         "content": {
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -446,7 +492,12 @@
                         "content": {
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   }
@@ -477,7 +528,9 @@
                   "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d",
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
-                }
+                },
+                "vertical_align": "middle",
+                "padding": "0px"
               }
             ]
           }
@@ -527,7 +580,12 @@
                         "content": {
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -563,7 +621,12 @@
                         "content": {
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -599,7 +662,12 @@
                         "content": {
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   }
@@ -630,7 +698,9 @@
                   "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d",
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
-                }
+                },
+                "vertical_align": "middle",
+                "padding": "0px"
               }
             ]
           }
@@ -680,7 +750,12 @@
                         "content": {
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -716,7 +791,12 @@
                         "content": {
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   },
@@ -752,7 +832,12 @@
                         "content": {
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                        }
+                        },
+                        "palette": "primary",
+                        "align": "center",
+                        "border_top": false,
+                        "border_right": false,
+                        "border_left": false
                       }
                     ]
                   }

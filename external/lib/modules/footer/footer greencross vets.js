@@ -31,11 +31,22 @@ const component_positions = {
     all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
+/*
+    Square, and tight to its text. Both are written out because they are
+    decisions: a layout-declared button takes component/button.js's defaults,
+    which are a 32px radius and 8px 16px of inner padding, and these buttons
+    want neither. They used to come out square by accident -- the key was
+    absent and the template's own fallback happened to be 0px -- which read as
+    an oversight rather than as the intent it is. nav_button in
+    header/header greencross vets.js says the same thing the same way.
+*/
 const footer_button = (text, href) =>
     col({}, [
         button({
             brand: "greencross vets",
             background: "#001939",
+            border_radius: "0px",
+            inner_padding: "0px",
             font_size: "12px",
             line_height: "14px",
             content: { text: text, href: href }

@@ -48,7 +48,9 @@
                       "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d",
                       "src": "images/Petbarn_HeaderLogo_wBG.png",
                       "href": "https://www.petbarn.com.au"
-                    }
+                    },
+                    "vertical_align": "middle",
+                    "padding": "0px"
                   }
                 ]
               }
@@ -98,7 +100,12 @@
                             "content": {
                               "text": "Download the App!",
                               "href": "https://www.petbarn.com.au/petbarn-app"
-                            }
+                            },
+                            "palette": "primary",
+                            "align": "center",
+                            "border_top": false,
+                            "border_right": false,
+                            "border_left": false
                           }
                         ]
                       },
@@ -134,7 +141,12 @@
                             "content": {
                               "text": "Shop Special Offers",
                               "href": "https://www.petbarn.com.au/special-offers"
-                            }
+                            },
+                            "palette": "primary",
+                            "align": "center",
+                            "border_top": false,
+                            "border_right": false,
+                            "border_left": false
                           }
                         ]
                       },
@@ -170,7 +182,12 @@
                             "content": {
                               "text": "Find your local Vet",
                               "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                            }
+                            },
+                            "palette": "primary",
+                            "align": "center",
+                            "border_top": false,
+                            "border_right": false,
+                            "border_left": false
                           }
                         ]
                       }
@@ -1471,7 +1488,16 @@
                     "colour": "white",
                     "font_size": "12px",
                     "line_height": "14px",
-                    "content": "^For Shop Your Way full terms and conditions see our\n<a href=\"https://www.petbarn.com.au/delivery-information\" style=\"color:#FFFFFF;line-height:14px;\">Delivery Information page.</a>\n\nMake sure emails from Petbarn make it to your inbox.\nAdd Petbarn@edm.petbarn.com.au to your address book.\nCan't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"\">View online.</a>\n\nPlease refer to our <a href=\"https://www.petbarn.com.au/w/privacy-policy\" style=\"color:#FFFFFF;line-height:14px;\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.\n\nThis email was sent to you by Petbarn Pty Ltd.\n\nPetbarn Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.\nP: 1300 655 896 E: Petbarn@edm.petbarn.com\n\nIf you wish to unsubscribe, please <a class=\"arc-link\" data-nl-type=\"unsubscription\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"https://t1.edm.petbarn.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">click here.</a>"
+                    "content": "^For Shop Your Way full terms and conditions see our\n<a href=\"https://www.petbarn.com.au/delivery-information\" style=\"color:#FFFFFF;line-height:14px;\">Delivery Information page.</a>\n\nMake sure emails from Petbarn make it to your inbox.\nAdd Petbarn@edm.petbarn.com.au to your address book.\nCan't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"\">View online.</a>\n\nPlease refer to our <a href=\"https://www.petbarn.com.au/w/privacy-policy\" style=\"color:#FFFFFF;line-height:14px;\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.\n\nThis email was sent to you by Petbarn Pty Ltd.\n\nPetbarn Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.\nP: 1300 655 896 E: Petbarn@edm.petbarn.com\n\nIf you wish to unsubscribe, please <a class=\"arc-link\" data-nl-type=\"unsubscription\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"https://t1.edm.petbarn.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">click here.</a>",
+                    "mode": null,
+                    "background": null,
+                    "vertical_align": "middle",
+                    "padding": "0px 0px 4px",
+                    "margin": "0px",
+                    "font_weight": "normal",
+                    "text_align": "center",
+                    "font": "Outfit",
+                    "text_size_class": null
                   }
                 ]
               }
