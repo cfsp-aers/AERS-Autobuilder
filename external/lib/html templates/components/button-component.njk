@@ -1,24 +1,45 @@
-<div class="acr-fragment acr-component" data-component-id="button:2" style="width: 100%;
-{%-if element.align -%}text-align: {{ element.align }}; {% else %}text-align: center; {%-endif-%}
-" contenteditable="false" data-lock-type="editable" data-source-uuid="aers-button-component" data-has-int-mso-hack="true">
+{#-
+    Every `{% if %}` left in this file is logic. None of them is a default.
+
+    Fourteen were: `{%-if element.x %}...{% else %}<value>{% endif-%}` pairs
+    holding #FFFFFF, 16px, border-radius 0px, height auto, padding 0px and the
+    rest. component/button.js declares all of them now, so each collapsed to
+    `{{ element.x }}`. Proven rather than assumed -- every one of the fourteen
+    had its value replaced with a unique sentinel, all nine golden cases were
+    built, and none of the sentinels reached the output.
+
+    What remains, and why it is not a default:
+
+      - `element.mode` branches. An underline or outline button is a different
+        shape, not a button missing a value: no fill, no stroke, tighter
+        margins, and a coloured bottom border. Six of them, five inside the
+        Outlook block.
+      - `element.border_*`. These fall back to another property rather than to
+        a literal -- an unset border takes the button's background -- so there
+        is nothing to move into the library.
+      - `element.background` and `element.font_weight`, which are emitted or
+        not. No value to default to.
+      - `element.force_mso_colour`, which suppresses a declaration rather than
+        supplying one.
+
+    The Outlook half is load-bearing and deliberately untouched. VML wants its
+    own attributes -- arcsize, fillcolor, strokecolor, strokeweight -- and
+    `<v:roundrect>` needs an explicit height, which is what `mso_height` is for
+    and why it is a separate key from `height`. The conditional comments must
+    stay comments: every other client ignores what is between them.
+
+    This file has no trailing newline. It is included once per button, so one
+    would put a blank line after every button in the output.
+-#}
+<div class="acr-fragment acr-component" data-component-id="button:2" style="width: 100%;text-align: {{ element.align }}; " contenteditable="false" data-lock-type="editable" data-source-uuid="aers-button-component" data-has-int-mso-hack="true">
 <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="auto"><tr><td style="text-align: center; mso-line-height-rule:exactly;
-border-top: none; border-right: none; border-bottom: {%-if element.mode == "underline" -%}3px solid {{ element.border_bottom }}; {% else-%}none; {% endif-%} border-left: none;
-{%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
-" ><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="
-{%-if element.mso_height %}height: {{ element.mso_height }}; {% else %}height: 40px; {% endif-%}
-{%-if element.width %}width: {{ element.width }}; {% else %}width: auto; {% endif-%}
-v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
+border-top: none; border-right: none; border-bottom: {%-if element.mode == "underline" -%}3px solid {{ element.border_bottom }}; {% else-%}none; {% endif-%} border-left: none;border-radius: {{ element.border_radius }}; " ><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height: {{ element.mso_height }}; width: {{ element.width }}; v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 " arcsize="50%"
 {%-if element.mode == "underline" or element.mode == "outline" %}fillcolor="none"{%-else-%}fillcolor="{{ element.background }}"{%-endif-%}
 {%-if element.mode == "underline" %}strokeweight=""{%-else-%}strokeweight="2pt"{%-endif-%}
 {%-if element.mode == "underline" %}strokecolor=""{%-else-%}strokecolor="{{ element.border_bottom or element.background }}"{%-endif-%}
 ><v:stroke {%-if element.mode == "underline" %} opacity="0"{% else %} opacity="100%"{%-endif-%}/>
-<v:textbox inset="0,0,0,0"><center style="
-{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
-font-family:'Outfit', Arial, sans-serif;
-{%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
-{%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
-{%-if element.mode == "underline" or element.mode == "outline" %}margin: 0px 8px; {% else %}margin: 0px 16px; {% endif-%}
+<v:textbox inset="0,0,0,0"><center style="color: {{ element.colour }}; font-family:'{{ element.font }}', Arial, sans-serif;font-size: {{ element.font_size }}; line-height: {{ element.line_height }}; {%if element.mode == "underline" or element.mode == "outline" %}margin: 0px 8px; {% else %}margin: 0px 16px; {% endif-%}
 text-align:center;
 "><![endif]-->
 <a href="{{-element.content.href-}}" class="arc-link" style="text-decoration: none;" data-nl-type="externalLink">
@@ -27,20 +48,12 @@ text-align:center;
 {%-if element.border_right -%}border-right: 3px solid {{ element.border_right }}; {% else-%}border-right: 3px solid {{ element.background }}; {% endif-%}
 {%-if element.border_bottom -%}border-bottom: 3px solid {{ element.border_bottom }}; {% else-%}border-bottom: 3px solid {{ element.background }}; {% endif-%}
 {%-if element.border_left -%}border-left: 3px solid {{ element.border_left }}; {% else-%}border-left: 3px solid {{ element.background }}; {% endif-%}
-border-image: initial;
-{%-if element.border_radius %}border-radius: {{ element.border_radius }}; {% else %}border-radius: 0px; {% endif-%}
-{%-if element.height %}height: {{ element.height }}; {% else %}height: auto; {% endif-%}
-{%-if element.inner_padding %}padding: {{ element.inner_padding }}; {% else %}padding: 0px; {% endif-%}
-{%-if element.background %}background-color: {{ element.background }}; {% endif-%}
+border-image: initial;border-radius: {{ element.border_radius }}; height: {{ element.height }}; padding: {{ element.inner_padding }}; {%if element.background %}background-color: {{ element.background }}; {% endif-%}
 " contenteditable="true">
 <span contenteditable="true" style="
 {%-if element.force_mso_colour -%}{%-else-%}mso-color-alt: auto; {% endif-%}
-{%-if element.colour -%}color: {{ element.colour }}; {% else-%}color: #FFFFFF; {% endif-%}
-{%-if element.font_size -%}font-size: {{ element.font_size }}; {% else-%}font-size: 16px; {% endif-%}
-{%-if element.line_height -%}line-height: {{ element.line_height }}; {% else-%}line-height: 16px; {% endif-%}
-{%-if element.font_weight -%}font-weight: {{ element.font_weight }}; {% endif-%}
-{%-if element.font_style -%}font-style: {{ element.font_style }}; {% else-%}font-style: normal; {% endif-%}
-text-decoration: none;">
+color: {{ element.colour }}; font-size: {{ element.font_size }}; line-height: {{ element.line_height }}; {%if element.font_weight -%}font-weight: {{ element.font_weight }}; {% endif-%}
+font-style: {{ element.font_style }}; text-decoration: none;">
 {{-element.content.text }}
 </span></div>
 </a>
