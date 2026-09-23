@@ -60,16 +60,26 @@
     each. Worth repeating for the remaining templates -- it found a gap reading
     the files could not, and it is the difference between deleting a fallback
     and deleting a fallback you can show nothing reaches.
-  - Still to do: `button-component.njk`, which is the larger half and was
-    undercounted by the `or "..."` search -- it writes its defaults as
-    `{%-if element.x %}...{% else %}<default>{% endif-%}` pairs, hardcoding
-    `#FFFFFF`, `16px`, `line-height: 16px`, `border-radius: 0px`, `height: auto`,
-    `width: auto`, `mso height: 40px` and `padding: 0px` that way. `button.js`
-    declares all but `colour`. Also unswept: `structure.njk`, `container.njk`,
-    `gridContainer.njk`, `transition-component.njk` and
-    `placeholder-component.njk` -- but those render layout nodes, which come
-    from the constructors in `layout.js` and have no rule file to default from.
-    A different problem, and the one the property registry would answer.
+  - ~~`button-component.njk`.~~ **Done, 23/09/2026.** Fourteen defaults, held
+    as `{%-if element.x %}...{% else %}<value>{% endif-%}` pairs rather than as
+    `or "..."`, which is why the first sweep missed them. `button.js` gained
+    `colour` and `font_style`; the other twelve it already declared. 47 lines to
+    27, all nine cases byte-identical, every mso and VML token intact. The
+    remaining `{% if %}`s are logic, not defaults, and the file's header says
+    which is which.
+    - The file must not end in a newline -- it is included once per button, so
+      one puts a blank line after every button in the output.
+    - `text_align` is set on all 78 buttons, 11 of them `"left"`, and the
+      template reads `align` for the outer position and then hardcodes
+      `text-align: center` in three inner places. Those 11 render centred. It
+      is either a dead property on buttons or a bug; worth deciding, and
+      deliberately not decided here because it moves output.
+  - Still unswept: `structure.njk`, `container.njk`, `gridContainer.njk`,
+    `transition-component.njk` and `placeholder-component.njk`. Those render
+    layout nodes -- gridContainer, gridRow, gridCol, container -- which come
+    from the constructors in `layout.js` and have no rule file to default from,
+    so there is nowhere to move their values yet. A different problem, and the
+    one the property registry would answer.
   - **Three fallbacks are load-bearing because `component/icon.js` does not
     exist.** `align`, `background` and `max_width` in `image-component.njk`
     fire 7 times, all on `icon` components in the layout case. `modules.json`
