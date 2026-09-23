@@ -358,6 +358,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
                                         "content": "Hero main heading",
                                         "text_segments": []
                                       },
@@ -383,6 +384,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "*Terms and conditions apply.",
                                         "text_segments": []
                                       }
@@ -496,6 +498,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
                                         "content": "Text block heading",
                                         "text_segments": []
                                       },
@@ -523,6 +526,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": "text block subheading",
                                         "text_segments": []
                                       },
@@ -623,6 +627,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "*text block terms and conditions",
                                         "text_segments": []
                                       }
@@ -750,6 +755,7 @@
                                             "text_align": "center",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "icon heading 1",
                                             "text_segments": []
                                           },
@@ -993,6 +999,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "Main Callout 4<sup style=\"line-height: 0px !important;\">*</sup>",
                                             "align": "left",
                                             "text_segments": []
@@ -1021,6 +1028,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "Secondary Callout 4",
                                             "align": "left",
                                             "text_segments": []
@@ -1245,6 +1253,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "Main Callout 1<sup style=\"line-height: 0px !important;\">†</sup>",
                                             "align": "left",
                                             "text_segments": []
@@ -1273,6 +1282,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "Secondary Callout 1",
                                             "align": "left",
                                             "text_segments": []
@@ -1505,6 +1515,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "Main Callout 6<sup style=\"line-height: 0px !important;\">*</sup>",
                                             "align": "left",
                                             "text_segments": []
@@ -1533,6 +1544,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "Secondary Callout 6",
                                             "align": "left",
                                             "text_segments": []
@@ -1757,6 +1769,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "Main Callout 3<sup style=\"line-height: 0px !important;\">†</sup>",
                                             "align": "left",
                                             "text_segments": []
@@ -1785,6 +1798,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "Secondary Callout 3",
                                             "align": "left",
                                             "text_segments": []
@@ -2147,6 +2161,7 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
+                    "border_radius": "0px",
                     "content": "<sup style=\"line-height: 0px !important;\">*</sup>T&Cs apply. Ends XX/XX/XX.",
                     "text_segments": []
                   }

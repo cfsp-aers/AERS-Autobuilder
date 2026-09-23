@@ -22,9 +22,9 @@ const default_properties = {
     font_weight: "bold",
     text_align: "center",
     font: "Outfit",
-    text_size_class: "heading-large"
+    text_size_class: "heading-large",
     // ~~ border ~~
-    // border_radius: "0px"
+    border_radius: "0px"
 };
 
 function modes() {

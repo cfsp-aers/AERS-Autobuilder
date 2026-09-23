@@ -135,6 +135,7 @@
         "text_align": "center",
         "font": "Outfit",
         "text_size_class": "heading-large",
+        "border_radius": "0px",
         "content": "Members Double Up & Save<sup style=\"line-height: 0px !important;\">*</sup>",
         "text_segments": []
       },
@@ -222,6 +223,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "#T&Cs apply, ends 07/09/26.",
         "text_segments": []
       }
@@ -330,6 +332,7 @@
         "text_align": "left",
         "font": "Outfit",
         "text_size_class": "heading-medium",
+        "border_radius": "0px",
         "content": "This week only",
         "align": "left",
         "text_segments": []
@@ -358,6 +361,7 @@
         "text_align": "left",
         "font": "Outfit",
         "text_size_class": "heading-small",
+        "border_radius": "0px",
         "content": "Buy 2 & Save up to 25% off<sup style=\"line-height: 0px !important;\">*</sup>",
         "align": "left",
         "text_segments": []
@@ -386,6 +390,7 @@
         "text_align": "left",
         "font": "Outfit",
         "text_size_class": "heading-small",
+        "border_radius": "0px",
         "content": "Save up to $8.75",
         "align": "left",
         "text_segments": []
@@ -529,6 +534,7 @@
         "text_align": "left",
         "font": "Outfit",
         "text_size_class": "heading-small",
+        "border_radius": "0px",
         "content": "From $74 each\nWhen you buy 2<sup style=\"line-height: 0px !important;\">*</sup>",
         "align": "left",
         "text_segments": []
@@ -672,6 +678,7 @@
         "text_align": "left",
         "font": "Outfit",
         "text_size_class": "heading-small",
+        "border_radius": "0px",
         "content": "From $68 each\nWhen you buy 2<sup style=\"line-height: 0px !important;\">*</sup>",
         "align": "left",
         "text_segments": []
@@ -983,6 +990,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "*Specials available in store and online while stocks last.",
         "text_segments": []
       }
@@ -1176,6 +1184,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "*Full terms at petbarn.com.au/special-offers.",
         "text_segments": []
       }

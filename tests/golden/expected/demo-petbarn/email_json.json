@@ -457,6 +457,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": "Common Signs of Chronic Conditions",
                                         "text_segments": []
                                       },
@@ -510,6 +511,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": "Senior Cat Wellness Blood Test",
                                         "text_segments": []
                                       },
@@ -563,6 +565,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": "Senior Cat Wellness Package",
                                         "text_segments": []
                                       },
@@ -655,6 +658,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": " Now $249 <span style=\"font-weight:normal;color:#000000;font-size:32px;line-height:36px;\">(save up to $100)</span><sup style=\"line-height: 0px !important;\">*</sup>",
                                         "text_segments": [
                                           {
@@ -736,6 +740,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "*Terms and Conditions apply. Offer expires 31 May 2026",
                                         "text_segments": []
                                       }
@@ -852,6 +857,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
                                         "content": "One App. Everything your pet needs.",
                                         "text_segments": []
                                       },
@@ -1096,13 +1102,16 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "transition": false,
+                                                "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 0px 0px",
                                                 "border_radius": "0px",
                                                 "width": "180px",
                                                 "content": {
                                                   "src": "images/HPP-logo-green-white.png"
-                                                }
+                                                },
+                                                "align": "center",
+                                                "max_width": "100%"
                                               }
                                             ]
                                           }
@@ -1132,6 +1141,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": "Senior Cat Lifestage Plan",
                                         "text_segments": []
                                       }
@@ -1536,6 +1546,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "<sup style=\"line-height: 0px !important;\">~</sup>Terms & Conditions apply",
                                         "text_segments": []
                                       }
@@ -1816,6 +1827,7 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
+                    "border_radius": "0px",
                     "content": "Full T&Cs see: <a href=\"https://www.greencrossvets.com.au/senior-promotions\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">https://www.greencrossvets.com.au/senior-promotions</a>\n*Terms & Conditions apply. Offer ends 31 May 2026. Valid for cats and dogs aged from 7 years old. Cost of wellness package valued up to $349 before discount and varies per region. Additional fees may apply including additional tests, treatments or medication. Offer not available for Healthy Pets Plus Members.",
                     "text_segments": [
                       {
@@ -1849,6 +1861,7 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
+                    "border_radius": "0px",
                     "content": "^Lymphoma Cancer Dx optional add-on to wellness screening blood test available for dogs 4 years or older. Price is for one test per pet. Additional fees apply such as consultations, further screenings, treatments or other.",
                     "text_segments": []
                   },
@@ -1874,6 +1887,7 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
+                    "border_radius": "0px",
                     "content": "<sup style=\"line-height: 0px !important;\">~</sup>A Healthy Pets Plus Senior Lifestage Plan 12-month membership costs $696 and can be paid over fortnightly or monthly payments. Healthy Pets Plus Benefits must not be abused, including in ways that are not for the benefit of the pet covered by the membership. Benefits offered subject to availability. Savings based on prices for non-Healthy Pets Plus members and cannot be used in conjunction with any other offer or discount unless stated otherwise.\nSee Healthy Pets Plus T&Cs <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/terms-and-conditions-v2/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE</a>\nFor a full list of member benefits and exclusions see:\nDog Member Benefits <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/dog-member-benefits/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE</a>\nCat Member Benefits <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/cat-member-benefits/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE</a>",
                     "text_segments": [
                       {

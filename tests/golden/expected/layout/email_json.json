@@ -311,6 +311,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
                                         "content": "test 3 heading",
                                         "text_segments": []
                                       },
@@ -336,6 +337,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "<sup style=\"line-height: 0px !important;\">*</sup>Terms and conditions apply.\n<sup style=\"line-height: 0px !important;\">^</sup>Terms and conditions apply.",
                                         "text_segments": []
                                       }
@@ -466,6 +468,7 @@
                                             "text_align": "center",
                                             "font": "Outfit",
                                             "text_size_class": "heading-extra-large",
+                                            "border_radius": "0px",
                                             "content": "max_siblings: 1",
                                             "text_segments": []
                                           },
@@ -493,6 +496,7 @@
                                             "text_align": "center",
                                             "font": "Outfit",
                                             "text_size_class": "heading-large",
+                                            "border_radius": "0px",
                                             "user_settings": {
                                               "colour": "secondary"
                                             },
@@ -633,6 +637,7 @@
                                             "font_weight": "normal",
                                             "text_align": "center",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "terms and conditions",
                                             "text_segments": []
                                           }
@@ -749,6 +754,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
                                         "content": "max_siblings: 1, petbarn branded",
                                         "text_segments": []
                                       },
@@ -776,6 +782,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -916,6 +923,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -1070,6 +1078,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "icon 1 max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -1097,6 +1106,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -1237,6 +1247,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -1370,6 +1381,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "icon 2 max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -1397,6 +1409,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -1537,6 +1550,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -1691,6 +1705,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -1718,6 +1733,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -1858,6 +1874,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -1991,6 +2008,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "icon 1 max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -2018,6 +2036,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -2163,6 +2182,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -2296,6 +2316,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -2323,6 +2344,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -2463,6 +2485,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -2623,6 +2646,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -2650,6 +2674,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -2790,6 +2815,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -2922,6 +2948,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-small",
+                                        "border_radius": "0px",
                                         "content": "icon block max_siblings: 3",
                                         "text_segments": []
                                       },
@@ -2949,6 +2976,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-small",
+                                        "border_radius": "0px",
                                         "user_settings": {
                                           "colour": "secondary"
                                         },
@@ -3089,6 +3117,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "terms and conditions",
                                         "text_segments": []
                                       }
@@ -4093,6 +4122,7 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
+                    "border_radius": "0px",
                     "content": "<sup style=\"line-height: 0px !important;\">*</sup>T&Cs apply. Ends XX/XX/XX.",
                     "text_segments": []
                   }

@@ -75,6 +75,7 @@
         "text_align": "center",
         "font": "Outfit",
         "text_size_class": "heading-extra-large",
+        "border_radius": "0px",
         "content": "test 2 heading",
         "text_segments": []
       },
@@ -100,6 +101,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "<sup style=\"line-height: 0px !important;\">*</sup>Terms and conditions apply.\n<sup style=\"line-height: 0px !important;\">^</sup>Terms and conditions apply.",
         "text_segments": []
       }
@@ -410,6 +412,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "<sup style=\"line-height: 0px !important;\">*</sup>T&Cs apply. Ends XX/XX/XX.",
         "text_segments": []
       }

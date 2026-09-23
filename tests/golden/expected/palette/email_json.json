@@ -320,6 +320,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "hero heading A",
                                             "align": "left",
                                             "text_segments": []
@@ -348,6 +349,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "hero subheading A",
                                             "align": "left",
                                             "text_segments": []
@@ -450,6 +452,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero terms A",
                                             "align": "left",
                                             "text_segments": []
@@ -561,6 +564,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "hero heading A",
                                             "align": "left",
                                             "text_segments": []
@@ -589,6 +593,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "hero subheading A",
                                             "align": "left",
                                             "text_segments": []
@@ -691,6 +696,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero terms A",
                                             "align": "left",
                                             "text_segments": []
@@ -810,6 +816,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "hero heading A",
                                             "align": "left",
                                             "text_segments": []
@@ -838,6 +845,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "hero subheading A",
                                             "align": "left",
                                             "text_segments": []
@@ -940,6 +948,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero terms A",
                                             "align": "left",
                                             "text_segments": []
@@ -1051,6 +1060,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
                                             "content": "hero heading A",
                                             "align": "left",
                                             "text_segments": []
@@ -1079,6 +1089,7 @@
                                             "text_align": "left",
                                             "font": "Outfit",
                                             "text_size_class": "heading-small",
+                                            "border_radius": "0px",
                                             "content": "hero subheading A",
                                             "align": "left",
                                             "text_segments": []
@@ -1181,6 +1192,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero terms A",
                                             "align": "left",
                                             "text_segments": []
@@ -1297,6 +1309,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
                                         "content": "text block heading A",
                                         "text_segments": []
                                       },
@@ -1324,6 +1337,7 @@
                                         "text_align": "center",
                                         "font": "Outfit",
                                         "text_size_class": "heading-large",
+                                        "border_radius": "0px",
                                         "content": "text block subheading A",
                                         "text_segments": []
                                       },
@@ -1424,6 +1438,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "text block terms A",
                                         "text_segments": []
                                       }

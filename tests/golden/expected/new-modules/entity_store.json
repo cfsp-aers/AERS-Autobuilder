@@ -97,6 +97,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "*Trade prices available to approved account holders only.",
         "text_segments": []
       }
@@ -172,6 +173,7 @@
         "text_align": "center",
         "font": "Outfit",
         "text_size_class": "heading-extra-large",
+        "border_radius": "0px",
         "content": "Trade Catalogue",
         "text_segments": []
       },
@@ -259,6 +261,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "<sup style=\"line-height: 0px !important;\">P</sup>rices correct at time of publication.",
         "text_segments": []
       }
@@ -333,6 +336,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "*Specials available in store and online while stocks last.",
         "text_segments": []
       }
@@ -406,6 +410,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "*Pantry specials exclude clearance lines.",
         "text_segments": []
       }
@@ -573,6 +578,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "*Full terms at <a href=\"https://www.petbarn.com.au/special-offers\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">petbarn.com.au/special-offers</a>",
         "text_segments": [
           {

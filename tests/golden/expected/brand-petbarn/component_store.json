@@ -24,6 +24,7 @@
       "text_align": "center",
       "font": "Outfit",
       "text_size_class": "heading-extra-large",
+      "border_radius": "0px",
       "content": "Hero main heading",
       "text_segments": []
     },
@@ -49,6 +50,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "*Terms and conditions apply.",
       "text_segments": []
     }
@@ -78,6 +80,7 @@
       "text_align": "center",
       "font": "Outfit",
       "text_size_class": "heading-extra-large",
+      "border_radius": "0px",
       "content": "Text block heading",
       "text_segments": []
     },
@@ -105,6 +108,7 @@
       "text_align": "center",
       "font": "Outfit",
       "text_size_class": "heading-large",
+      "border_radius": "0px",
       "content": "text block subheading",
       "text_segments": []
     },
@@ -192,6 +196,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "*text block terms and conditions",
       "text_segments": []
     }
@@ -294,6 +299,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "<sup style=\"line-height: 0px !important;\">*</sup>T&Cs apply. Ends XX/XX/XX.",
       "text_segments": []
     }
