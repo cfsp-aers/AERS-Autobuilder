@@ -114,7 +114,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -237,7 +238,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -360,7 +362,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -483,7 +486,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -606,7 +610,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }

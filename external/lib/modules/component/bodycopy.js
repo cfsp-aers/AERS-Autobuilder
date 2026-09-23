@@ -17,9 +17,9 @@ const default_properties = {
     font_weight: "normal",
     text_align: "center",
     font: "Outfit",
-    text_size_class: null
+    text_size_class: null,
     // ~~ border ~~
-    // border_radius: "0px"
+    border_radius: "0px"
 };
 
 function modes() {}

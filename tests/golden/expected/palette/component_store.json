@@ -78,6 +78,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "hero body copy A",
       "align": "left",
       "text_segments": []
@@ -224,6 +225,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "hero body copy A",
       "align": "left",
       "text_segments": []
@@ -370,6 +372,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "hero body copy A",
       "align": "left",
       "text_segments": []
@@ -516,6 +519,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "hero body copy A",
       "align": "left",
       "text_segments": []
@@ -660,6 +664,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "text block body copy A",
       "text_segments": []
     },

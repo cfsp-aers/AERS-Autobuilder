@@ -205,10 +205,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "24px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -235,6 +238,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "body copy placeholder",
         "text_segments": []
       },
@@ -394,10 +398,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "24px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -424,6 +431,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "body copy placeholder",
         "text_segments": []
       },
@@ -602,10 +610,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -632,6 +643,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 1 body copy placeholder",
         "text_segments": []
       },
@@ -810,10 +822,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -840,6 +855,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 2 body copy placeholder",
         "text_segments": []
       },
@@ -1018,10 +1034,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -1048,6 +1067,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 3 body copy placeholder",
         "text_segments": []
       },
@@ -1226,10 +1246,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -1256,6 +1279,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 1 body copy placeholder",
         "text_segments": []
       },
@@ -1439,10 +1463,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -1469,6 +1496,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 2 body copy placeholder",
         "text_segments": []
       },
@@ -1646,10 +1674,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -1676,6 +1707,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 3 body copy placeholder",
         "text_segments": []
       },
@@ -1853,10 +1885,13 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "12px",
         "width": "100%",
+        "align": "center",
+        "max_width": "100%",
         "content": {
           "src": "images/banner_placeholder.png"
         }
@@ -1883,6 +1918,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon 3 body copy placeholder",
         "text_segments": []
       },

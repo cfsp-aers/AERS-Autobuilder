@@ -28,8 +28,11 @@
                           "src": "images/logo_GreencrossVets_HalfColour.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "align": "center",
+                        "max_width": "100%"
                       }
                     ]
                   }
@@ -313,7 +316,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -355,8 +359,12 @@
                                   "href": "https://www.facebook.com/GreencrossVets/",
                                   "aem_id": "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -375,8 +383,12 @@
                                   "href": "https://www.instagram.com/greencrossvets/",
                                   "aem_id": "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -395,8 +407,12 @@
                                   "href": "https://www.youtube.com/user/Greenxvets",
                                   "aem_id": "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           }
@@ -445,8 +461,11 @@
                           "src": "images/logo_GreencrossVets_HalfColour.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "align": "center",
+                        "max_width": "100%"
                       }
                     ]
                   }
@@ -730,7 +749,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -772,8 +792,12 @@
                                   "href": "https://www.facebook.com/GreencrossVets/",
                                   "aem_id": "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -792,8 +816,12 @@
                                   "href": "https://www.instagram.com/greencrossvets/",
                                   "aem_id": "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -812,8 +840,12 @@
                                   "href": "https://www.youtube.com/user/Greenxvets",
                                   "aem_id": "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           }
@@ -858,7 +890,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -895,8 +928,11 @@
                           "src": "images/logo_GreencrossVets_HalfColour.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "align": "center",
+                        "max_width": "100%"
                       }
                     ]
                   }
@@ -1180,7 +1216,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -1222,8 +1259,12 @@
                                   "href": "https://www.facebook.com/GreencrossVets/",
                                   "aem_id": "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1242,8 +1283,12 @@
                                   "href": "https://www.instagram.com/greencrossvets/",
                                   "aem_id": "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1262,8 +1307,12 @@
                                   "href": "https://www.youtube.com/user/Greenxvets",
                                   "aem_id": "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           }
@@ -1311,8 +1360,11 @@
                           "src": "images/logo_GreencrossVets_HalfColour.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "align": "center",
+                        "max_width": "100%"
                       }
                     ]
                   }
@@ -1595,7 +1647,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               },
               {
                 "entity_type": "component",
@@ -1612,7 +1665,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               }
             ]
           }
@@ -1654,8 +1708,12 @@
                                   "href": "https://www.facebook.com/GreencrossVets/",
                                   "aem_id": "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1674,8 +1732,12 @@
                                   "href": "https://www.instagram.com/greencrossvets/",
                                   "aem_id": "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1694,8 +1756,12 @@
                                   "href": "https://www.youtube.com/user/Greenxvets",
                                   "aem_id": "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           }

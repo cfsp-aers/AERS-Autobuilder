@@ -63,6 +63,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "0px",
@@ -70,7 +71,9 @@
         "content": {
           "src": "images/PB_Trade_Hero.png",
           "href": "https://www.petbarn.com.au/trade"
-        }
+        },
+        "align": "center",
+        "max_width": "100%"
       },
       {
         "uuid": "C0002",
@@ -134,13 +137,16 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "border_radius": "0px",
         "width": "100%",
         "content": {
           "src": "images/PB_Trade_Catalogue.png"
-        }
+        },
+        "align": "center",
+        "max_width": "100%"
       },
       {
         "uuid": "C0004",
@@ -191,6 +197,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "Every line in this month's catalogue, in one place.",
         "text_segments": []
       },
@@ -292,13 +299,17 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
+        "border_radius": "24px",
         "width": "100%",
         "content": {
           "src": "images/PB_Weekly_Specials.png",
           "href": "https://www.petbarn.com.au/special-offers"
-        }
+        },
+        "align": "center",
+        "max_width": "100%"
       },
       {
         "uuid": "C0009",
@@ -362,12 +373,16 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
+        "border_radius": "24px",
         "width": "100%",
         "content": {
           "src": "images/PB_Weekly_Specials_Pantry.png"
-        }
+        },
+        "align": "center",
+        "max_width": "100%"
       },
       {
         "uuid": "C0011",
@@ -444,6 +459,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "An ordinary module after the new ones, so the change of background is exercised.",
         "text_segments": []
       },

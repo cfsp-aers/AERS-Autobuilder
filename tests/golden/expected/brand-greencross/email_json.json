@@ -61,8 +61,10 @@
                               "src": "images/GreencrossVets_HeaderLogo.png",
                               "href": "https://www.greencrossvets.com.au"
                             },
+                            "background": "transparent",
                             "vertical_align": "middle",
-                            "padding": "0px"
+                            "padding": "0px",
+                            "max_width": "100%"
                           }
                         ]
                       },
@@ -546,6 +548,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "text block body copy",
                                         "text_segments": []
                                       },
@@ -772,6 +775,7 @@
                                             "font_weight": "normal",
                                             "text_align": "center",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "icon bodycopy 1",
                                             "text_segments": []
                                           },
@@ -942,6 +946,7 @@
                                                     "depth": 1,
                                                     "max_siblings": 1,
                                                     "transition": false,
+                                                    "background": "transparent",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 0px 0px",
                                                     "text_align": "left",
@@ -950,7 +955,8 @@
                                                     "content": {
                                                       "src": "images/Offer 04.png"
                                                     },
-                                                    "align": "left"
+                                                    "align": "left",
+                                                    "max_width": "100%"
                                                   }
                                                 ]
                                               }
@@ -1041,6 +1047,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "Offer description 4",
                                             "align": "left",
                                             "text_segments": []
@@ -1191,6 +1198,7 @@
                                                     "depth": 1,
                                                     "max_siblings": 1,
                                                     "transition": false,
+                                                    "background": "transparent",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 0px 0px",
                                                     "text_align": "left",
@@ -1199,7 +1207,8 @@
                                                     "content": {
                                                       "src": "images/Offer 01.png"
                                                     },
-                                                    "align": "left"
+                                                    "align": "left",
+                                                    "max_width": "100%"
                                                   }
                                                 ]
                                               }
@@ -1290,6 +1299,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "Offer description 1\nLonger than the others",
                                             "align": "left",
                                             "text_segments": []
@@ -1448,6 +1458,7 @@
                                                     "depth": 1,
                                                     "max_siblings": 1,
                                                     "transition": false,
+                                                    "background": "transparent",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 0px 0px",
                                                     "text_align": "left",
@@ -1456,7 +1467,8 @@
                                                     "content": {
                                                       "src": "images/Offer 06.png"
                                                     },
-                                                    "align": "left"
+                                                    "align": "left",
+                                                    "max_width": "100%"
                                                   }
                                                 ]
                                               }
@@ -1547,6 +1559,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "Offer description 6",
                                             "align": "left",
                                             "text_segments": []
@@ -1697,6 +1710,7 @@
                                                     "depth": 1,
                                                     "max_siblings": 1,
                                                     "transition": false,
+                                                    "background": "transparent",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 0px 0px",
                                                     "text_align": "left",
@@ -1705,7 +1719,8 @@
                                                     "content": {
                                                       "src": "images/Offer 03.png"
                                                     },
-                                                    "align": "left"
+                                                    "align": "left",
+                                                    "max_width": "100%"
                                                   }
                                                 ]
                                               }
@@ -1796,6 +1811,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "Offer description 3",
                                             "align": "left",
                                             "text_segments": []
@@ -1927,8 +1943,11 @@
                               "src": "images/logo_GreencrossVets_HalfColour.png",
                               "href": "https://www.greencrossvets.com.au"
                             },
+                            "background": "transparent",
                             "vertical_align": "middle",
-                            "padding": "0px"
+                            "padding": "0px",
+                            "align": "center",
+                            "max_width": "100%"
                           }
                         ]
                       }
@@ -2158,7 +2177,8 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
-                    "text_size_class": null
+                    "text_size_class": null,
+                    "border_radius": "0px"
                   }
                 ]
               }
@@ -2200,8 +2220,12 @@
                                       "href": "https://www.facebook.com/GreencrossVets/",
                                       "aem_id": "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   }
                                 ]
                               },
@@ -2220,8 +2244,12 @@
                                       "href": "https://www.instagram.com/greencrossvets/",
                                       "aem_id": "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   }
                                 ]
                               },
@@ -2240,8 +2268,12 @@
                                       "href": "https://www.youtube.com/user/Greenxvets",
                                       "aem_id": "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   }
                                 ]
                               }

@@ -50,6 +50,7 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
       "border_radius": "0px",
@@ -57,7 +58,9 @@
       "content": {
         "src": "images/PB_Wide_Hero.png",
         "href": "https://www.petbarn.com.au/c/meow-mania"
-      }
+      },
+      "align": "center",
+      "max_width": "100%"
     },
     {
       "uuid": "C0003",
@@ -108,6 +111,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "Selected Cat Favourites",
       "text_segments": []
     },
@@ -186,6 +190,7 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
       "text_align": "left",
@@ -195,7 +200,8 @@
         "src": "images/PB_Wide_Food.png",
         "href": "https://www.petbarn.com.au/c/meow-mania/food"
       },
-      "align": "left"
+      "align": "left",
+      "max_width": "100%"
     },
     {
       "uuid": "C0008",
@@ -332,6 +338,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "Selected Cat Food",
       "align": "left",
       "text_segments": []
@@ -386,6 +393,7 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
       "text_align": "left",
@@ -395,7 +403,8 @@
         "src": "images/PB_Wide_Tile_A.png",
         "href": "https://www.petbarn.com.au/royal-canin"
       },
-      "align": "left"
+      "align": "left",
+      "max_width": "100%"
     },
     {
       "uuid": "C0015",
@@ -447,6 +456,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "Royal Canin Adult Indoor 4kg",
       "align": "left",
       "text_segments": []
@@ -501,6 +511,7 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
       "text_align": "left",
@@ -510,7 +521,8 @@
         "src": "images/PB_Wide_Tile_B.png",
         "href": "https://www.petbarn.com.au/hills"
       },
-      "align": "left"
+      "align": "left",
+      "max_width": "100%"
     },
     {
       "uuid": "C0019",
@@ -562,6 +574,7 @@
       "font_weight": "normal",
       "text_align": "left",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "Hill's Science Diet 4kg",
       "align": "left",
       "text_segments": []
@@ -616,6 +629,7 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
       "border_radius": "24px",
@@ -623,7 +637,9 @@
       "content": {
         "src": "images/PB_Wide_Trade_Banner.png",
         "href": "https://www.petbarn.com.au/trade"
-      }
+      },
+      "align": "center",
+      "max_width": "100%"
     },
     {
       "uuid": "C0023",
@@ -675,6 +691,7 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
       "border_radius": "24px",
@@ -682,6 +699,7 @@
       "content": {
         "src": "https://s.example.invalid/t/ABC1/scale_2x"
       },
+      "align": "center",
       "max_width": "80%"
     }
   ],
@@ -698,13 +716,17 @@
       "depth": 1,
       "max_siblings": 1,
       "transition": false,
+      "background": "transparent",
       "vertical_align": "middle",
       "padding": "0px 0px 0px 0px",
+      "border_radius": "24px",
       "width": "100%",
       "content": {
         "src": "images/PB_Wide_Specials.png",
         "href": "https://www.petbarn.com.au/special-offers"
-      }
+      },
+      "align": "center",
+      "max_width": "100%"
     },
     {
       "uuid": "C0026",
@@ -791,6 +813,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "An ordinary module, to exercise the background transition.",
       "text_segments": []
     },
@@ -816,6 +839,7 @@
       "font_weight": "normal",
       "text_align": "center",
       "font": "Outfit",
+      "border_radius": "0px",
       "content": "A second line, from a row that names no module type.",
       "text_segments": []
     },

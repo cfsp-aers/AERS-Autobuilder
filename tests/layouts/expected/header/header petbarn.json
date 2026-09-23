@@ -20,8 +20,11 @@
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "background": "transparent",
                 "vertical_align": "middle",
-                "padding": "0px"
+                "padding": "0px",
+                "align": "center",
+                "max_width": "100%"
               }
             ]
           }
@@ -194,8 +197,11 @@
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "background": "transparent",
                 "vertical_align": "middle",
-                "padding": "0px"
+                "padding": "0px",
+                "align": "center",
+                "max_width": "100%"
               }
             ]
           }
@@ -368,8 +374,11 @@
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "background": "transparent",
                 "vertical_align": "middle",
-                "padding": "0px"
+                "padding": "0px",
+                "align": "center",
+                "max_width": "100%"
               }
             ]
           }
@@ -542,8 +551,11 @@
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "background": "transparent",
                 "vertical_align": "middle",
-                "padding": "0px"
+                "padding": "0px",
+                "align": "center",
+                "max_width": "100%"
               }
             ]
           }
@@ -716,8 +728,11 @@
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "background": "transparent",
                 "vertical_align": "middle",
-                "padding": "0px"
+                "padding": "0px",
+                "align": "center",
+                "max_width": "100%"
               }
             ]
           }

@@ -31,8 +31,10 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "max_width": "100%"
                       }
                     ]
                   },
@@ -257,8 +259,10 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "max_width": "100%"
                       }
                     ]
                   },
@@ -483,8 +487,10 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "max_width": "100%"
                       }
                     ]
                   },
@@ -709,8 +715,10 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "max_width": "100%"
                       }
                     ]
                   },
@@ -801,8 +809,10 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "background": "transparent",
                         "vertical_align": "middle",
-                        "padding": "0px"
+                        "padding": "0px",
+                        "max_width": "100%"
                       }
                     ]
                   },

@@ -50,8 +50,11 @@
                       "src": "images/Petbarn_HeaderLogo_wBG.png",
                       "href": "https://www.petbarn.com.au"
                     },
+                    "background": "transparent",
                     "vertical_align": "middle",
-                    "padding": "0px"
+                    "padding": "0px",
+                    "align": "center",
+                    "max_width": "100%"
                   }
                 ]
               }
@@ -371,6 +374,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero body copy A",
                                             "align": "left",
                                             "text_segments": []
@@ -611,6 +615,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero body copy A",
                                             "align": "left",
                                             "text_segments": []
@@ -859,6 +864,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero body copy A",
                                             "align": "left",
                                             "text_segments": []
@@ -1099,6 +1105,7 @@
                                             "font_weight": "normal",
                                             "text_align": "left",
                                             "font": "Outfit",
+                                            "border_radius": "0px",
                                             "content": "hero body copy A",
                                             "align": "left",
                                             "text_segments": []
@@ -1342,6 +1349,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "text block body copy A",
                                         "text_segments": []
                                       },
@@ -1502,7 +1510,8 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
-                    "text_size_class": null
+                    "text_size_class": null,
+                    "border_radius": "0px"
                   }
                 ]
               }

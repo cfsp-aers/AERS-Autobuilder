@@ -204,6 +204,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "text block body copy",
         "text_segments": []
       },
@@ -343,6 +344,7 @@
         "font_weight": "normal",
         "text_align": "center",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "icon bodycopy 1",
         "text_segments": []
       },
@@ -421,6 +423,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "text_align": "left",
@@ -429,7 +432,8 @@
         "content": {
           "src": "images/Offer 04.png"
         },
-        "align": "left"
+        "align": "left",
+        "max_width": "100%"
       },
       {
         "uuid": "C0012",
@@ -509,6 +513,7 @@
         "font_weight": "normal",
         "text_align": "left",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "Offer description 4",
         "align": "left",
         "text_segments": []
@@ -588,6 +593,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "text_align": "left",
@@ -596,7 +602,8 @@
         "content": {
           "src": "images/Offer 01.png"
         },
-        "align": "left"
+        "align": "left",
+        "max_width": "100%"
       },
       {
         "uuid": "C0017",
@@ -676,6 +683,7 @@
         "font_weight": "normal",
         "text_align": "left",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "Offer description 1\nLonger than the others",
         "align": "left",
         "text_segments": []
@@ -755,6 +763,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "text_align": "left",
@@ -763,7 +772,8 @@
         "content": {
           "src": "images/Offer 06.png"
         },
-        "align": "left"
+        "align": "left",
+        "max_width": "100%"
       },
       {
         "uuid": "C0022",
@@ -843,6 +853,7 @@
         "font_weight": "normal",
         "text_align": "left",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "Offer description 6",
         "align": "left",
         "text_segments": []
@@ -922,6 +933,7 @@
         "depth": 1,
         "max_siblings": 1,
         "transition": false,
+        "background": "transparent",
         "vertical_align": "middle",
         "padding": "0px 0px 0px 0px",
         "text_align": "left",
@@ -930,7 +942,8 @@
         "content": {
           "src": "images/Offer 03.png"
         },
-        "align": "left"
+        "align": "left",
+        "max_width": "100%"
       },
       {
         "uuid": "C0027",
@@ -1010,6 +1023,7 @@
         "font_weight": "normal",
         "text_align": "left",
         "font": "Outfit",
+        "border_radius": "0px",
         "content": "Offer description 3",
         "align": "left",
         "text_segments": []

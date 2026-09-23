@@ -50,8 +50,11 @@
                       "src": "images/Petbarn_HeaderLogo_wBG.png",
                       "href": "https://www.petbarn.com.au"
                     },
+                    "background": "transparent",
                     "vertical_align": "middle",
-                    "padding": "0px"
+                    "padding": "0px",
+                    "align": "center",
+                    "max_width": "100%"
                   }
                 ]
               }
@@ -503,6 +506,7 @@
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
+                                        "border_radius": "0px",
                                         "content": "text block body copy",
                                         "text_segments": []
                                       },
@@ -696,10 +700,13 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "transition": false,
+                                                "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 0px 0px",
                                                 "border_radius": "12px",
                                                 "width": "100%",
+                                                "align": "center",
+                                                "max_width": "100%",
                                                 "content": {
                                                   "src": "images/banner_placeholder.png"
                                                 }
@@ -803,10 +810,13 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "transition": false,
+                                                "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 0px 0px",
                                                 "border_radius": "12px",
                                                 "width": "100%",
+                                                "align": "center",
+                                                "max_width": "100%",
                                                 "content": {
                                                   "src": "images/banner_placeholder.png"
                                                 }
@@ -910,10 +920,13 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "transition": false,
+                                                "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 0px 0px",
                                                 "border_radius": "12px",
                                                 "width": "100%",
+                                                "align": "center",
+                                                "max_width": "100%",
                                                 "content": {
                                                   "src": "images/banner_placeholder.png"
                                                 }
@@ -993,7 +1006,8 @@
                 "margin": "0px",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               },
               {
                 "block": "gridContainer",
@@ -1023,8 +1037,12 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:7eb1dacb-aa15-4f85-9729-9e31a0396bc1"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
@@ -1041,7 +1059,8 @@
                                     "font_weight": "normal",
                                     "text_align": "center",
                                     "font": "Outfit",
-                                    "text_size_class": null
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
                                   }
                                 ]
                               },
@@ -1059,8 +1078,12 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:422f4133-d29d-49b8-a0de-530b1eb100a9"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
@@ -1077,7 +1100,8 @@
                                     "font_weight": "normal",
                                     "text_align": "center",
                                     "font": "Outfit",
-                                    "text_size_class": null
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
                                   }
                                 ]
                               }
@@ -1112,8 +1136,12 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
@@ -1130,7 +1158,8 @@
                                     "font_weight": "normal",
                                     "text_align": "center",
                                     "font": "Outfit",
-                                    "text_size_class": null
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
                                   }
                                 ]
                               },
@@ -1148,8 +1177,12 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
@@ -1166,7 +1199,8 @@
                                     "font_weight": "normal",
                                     "text_align": "center",
                                     "font": "Outfit",
-                                    "text_size_class": null
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
                                   }
                                 ]
                               }
@@ -1201,8 +1235,12 @@
                                       "href": "https://www.petbarn.com.au/store-finder",
                                       "aem_id": "urn:aaid:aem:6058991b-13b5-4caf-b67c-f98492bcd1f3"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
@@ -1219,7 +1257,8 @@
                                     "font_weight": "normal",
                                     "text_align": "center",
                                     "font": "Outfit",
-                                    "text_size_class": null
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
                                   }
                                 ]
                               },
@@ -1237,8 +1276,12 @@
                                       "href": "https://www.petbarn.com.au/w/repeat-delivery",
                                       "aem_id": "urn:aaid:aem:2df6bdde-994a-4aa4-8980-005fcc4e44f6"
                                     },
+                                    "background": "transparent",
                                     "vertical_align": "middle",
-                                    "padding": "0px"
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
@@ -1255,7 +1298,8 @@
                                     "font_weight": "normal",
                                     "text_align": "center",
                                     "font": "Outfit",
-                                    "text_size_class": null
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
                                   }
                                 ]
                               }
@@ -1322,7 +1366,10 @@
                   "src": "images/PLP_Logo_Dog.png",
                   "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
                 },
-                "vertical_align": "middle"
+                "background": "transparent",
+                "vertical_align": "middle",
+                "align": "center",
+                "max_width": "100%"
               },
               {
                 "entity_type": "component",
@@ -1339,7 +1386,8 @@
                 "font_weight": "normal",
                 "text_align": "center",
                 "font": "Outfit",
-                "text_size_class": null
+                "text_size_class": null,
+                "border_radius": "0px"
               },
               {
                 "block": "gridContainer",
@@ -1370,8 +1418,12 @@
                                   "href": "https://www.facebook.com/petbarn",
                                   "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1390,8 +1442,12 @@
                                   "href": "https://www.instagram.com/petbarn/#",
                                   "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1410,8 +1466,12 @@
                                   "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                                   "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           },
@@ -1430,8 +1490,12 @@
                                   "href": "https://www.tiktok.com/@petbarnau",
                                   "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
                                 },
+                                "background": "transparent",
                                 "vertical_align": "middle",
-                                "padding": "0px"
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
                               }
                             ]
                           }
@@ -1541,7 +1605,8 @@
                     "font_weight": "normal",
                     "text_align": "center",
                     "font": "Outfit",
-                    "text_size_class": null
+                    "text_size_class": null,
+                    "border_radius": "0px"
                   }
                 ]
               }
