@@ -2,7 +2,7 @@
     "brand-greencross": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "8e148df15e8e",
         "modules": {
             "basic/text block.js": "d6d65a38293d",
@@ -22,7 +22,7 @@
     "brand-petbarn": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "8e148df15e8e",
         "modules": {
             "basic/text block.js": "d6d65a38293d",
@@ -43,7 +43,7 @@
     "demo-greencross": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "b4b862fec024",
         "modules": {
             "basic/banner.js": "ffe906034a17",
@@ -63,7 +63,7 @@
     "demo-petbarn": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "b4b862fec024",
         "modules": {
             "basic/banner.js": "ffe906034a17",
@@ -84,7 +84,7 @@
     "layout": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "8e148df15e8e",
         "modules": {
             "basic/text block.js": "d6d65a38293d",
@@ -107,7 +107,7 @@
     "new-modules": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "b3f77a8dcdd4",
         "modules": {
             "basic/specials banner.js": "c990418adc65",
@@ -126,7 +126,7 @@
     "palette": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "8e148df15e8e",
         "modules": {
             "basic/text block.js": "d6d65a38293d",
@@ -144,7 +144,7 @@
     "styling": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "8e148df15e8e",
         "modules": {
             "basic/text block.js": "d6d65a38293d",
@@ -163,7 +163,7 @@
     "wide-format": {
         "engine": "fd0e8f844c10",
         "html_templates": "2abd19b6671b",
-        "libraries": "22b0e1bcf2ac",
+        "libraries": "de2aad0f3713",
         "brief": "b0a7dac66a4d",
         "modules": {
             "basic/countdown timer.js": "32a61da2e406",

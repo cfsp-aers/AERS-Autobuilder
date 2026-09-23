@@ -41,7 +41,56 @@
       `default/content banner`, `default/heading` and `component/icon`. Each
       silently falls back to the default rules. Part of **Review Libraries**.
   - Not yet swept: `app/`, `external/ui/` and `external/main_external.js`.
-- Explore creating a property registry to dictate what properties exist and how they are handled throughout processing
+- **Property registry.** What properties exist, and how they are handled
+  throughout processing.
+  - ~~Step 1: the vocabulary, with a test and no behaviour change.~~ **Done,
+    23/09/2026.** `libraries/properties.json` lists all 82 properties -- 73 on
+    an entity, 4 inside `content`, 2 in a text segment, 3 in a segment's
+    `properties` -- with its kind, value shape, who sets it, which node kinds
+    were observed carrying it, and its brief aliases. Nothing reads it yet.
+    `tests/properties.js` is what makes it worth having: 11 invariants holding
+    the rule files, the templates and the recorded artifacts to it, in both
+    directions. Each one confirmed load-bearing by mutation.
+
+    It runs off `tests/golden/expected` and `tests/layouts/expected` rather
+    than building anything, so it is the cheapest suite in the repo.
+
+    What writing it turned up, none of it findable without a list to check
+    against:
+    - `formatObjects.formatProperties` named 42 keys, the component rule files
+      31, the templates 39, and the artifacts carried 65. Only 20 were known to
+      all four.
+    - **`vertical_align` renders for no component, ever.** All nine component
+      rule files declare it and 362 of 369 components carry it. The only
+      template that reads it is `gridCol.njk`, and no column gets it from a
+      component. Same shape as the `text_align`-on-buttons question above, and
+      probably the same cause.
+    - **`id` and `layout` are read by three templates and set by nothing.**
+      `image-component.njk:2`, `text-component.njk:6` and `container.njk:1`
+      each render one into a `name` attribute, so 335 elements across the nine
+      golden cases ship `name=""`. Deleting the reads is byte-neutral -- the
+      attribute is already empty -- but it is a change, so it is recorded here
+      rather than made.
+    - **`parent_uuid`, `ignore` and `border_colour` are declared by
+      `formatObjects` and assigned by nothing.** They are always null and
+      `cleanUp()` strips them, which is why they appear in no artifact.
+      `ignore` is still read, by `main.njk:200` and `applyModifications`; the
+      other two are dead.
+    - **`content` is two shapes under one name.** A plain string on a module or
+      a text component -- the copy itself -- and an object on an image or a
+      button.
+    - **`group_padding` is the one spacing property nothing normalises.** Its
+      `formatSpacingToString` call is commented out at `formatObjects.js:40`.
+  - Step 2: **validate brief settings against it.** `formatUserInput` parses
+    any key a designer types and `setup.js:146` spreads it in unfiltered, so
+    `paddng: 8px` becomes a real property that nothing reads, with no error and
+    nothing in the output to say why the instruction did nothing. Confirmed by
+    running it. This is the step with a person on the other end of it.
+  - Step 3: **`applies_to` becomes enforced, and structural nodes get
+    defaults.** That is what unblocks the nine live fallbacks in the layout
+    templates below.
+  - Step 4: **`formatObjects` reads the registry** instead of its hand-written
+    42-key literal, and the `value` shapes become the coercions.
 - Review palette application logic and determine opportunities to refactor for simplicity
 - Review `.njk` html templates to determine ways to simplify and ensure styling
   defaults aren't scattered across multiple locations
@@ -74,12 +123,29 @@
       `text-align: center` in three inner places. Those 11 render centred. It
       is either a dead property on buttons or a bug; worth deciding, and
       deliberately not decided here because it moves output.
-  - Still unswept: `structure.njk`, `container.njk`, `gridContainer.njk`,
-    `transition-component.njk` and `placeholder-component.njk`. Those render
-    layout nodes -- gridContainer, gridRow, gridCol, container -- which come
-    from the constructors in `layout.js` and have no rule file to default from,
-    so there is nowhere to move their values yet. A different problem, and the
-    one the property registry would answer.
+  - **The layout templates, measured but not swept**: `structure.njk`,
+    `container.njk`, `gridContainer.njk`, `transition-component.njk` and
+    `placeholder-component.njk`. All 14 fallbacks sentinelled, all nine cases
+    built, output searched. **Five are dead and can go now**: `background` and
+    `padding` twice each in `container.njk`, and `background` in
+    `placeholder-component.njk`. Container nodes always carry both, so
+    `{{ element.background or element.background or "transparent" }}` on lines
+    1 and 5 -- the term is doubled, which is its own small bug -- reduces to
+    `{{ element.background }}`.
+
+    **Nine are load-bearing**, and unlike the component templates they cannot
+    be moved yet. `gridContainer.njk`'s `background` and `padding` fire 256 and
+    258 times; `structure.njk`'s fire 13 times each; `transition`'s 15; and
+    `container.njk`'s `border_radius` fires on every one of the 22 containers.
+    These nodes have no rule file to default from. The sharpest case is the
+    node `structureEDM.js:236` builds --
+    `{ name: "structure", structure: "structure", uuid }`, three keys -- which
+    takes every styling value it renders with from the template. Step 3 of the
+    property registry is what gives them a home.
+
+    `container.njk` is reachable, contrary to what was written here before:
+    `external/src/database/email_json.json` is a stale build and has no
+    `block: "container"`, but a real build has 22.
   - **Three fallbacks are load-bearing because `component/icon.js` does not
     exist.** `align`, `background` and `max_width` in `image-component.njk`
     fire 7 times, all on `icon` components in the layout case. `modules.json`
