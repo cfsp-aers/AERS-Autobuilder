@@ -45,26 +45,50 @@
 - Review palette application logic and determine opportunities to refactor for simplicity
 - Review `.njk` html templates to determine ways to simplify and ensure styling
   defaults aren't scattered across multiple locations
-  - **Prerequisite done, 23/09/2026.** A layout-declared component -- the logo in
-    a header, the legal line in a footer -- never went through
+  - ~~The component templates.~~ **Done, 23/09/2026**, for
+    `image-component.njk` and `text-component.njk`. A layout-declared component
+    -- the logo in a header, the legal line in a footer -- never went through
     `setBasicProperties`, so it never got `default_properties` and the templates
-    were answering for it. The constructors in `systems/layout.js` now fill from
-    the component rule files, which is what makes a fallback deletable rather
-    than load-bearing. Step 4 of `property-resolution-plan.md` has the detail.
-  - Still to do: delete the fallbacks that are now redundant. Note that `or "..."`
-    undercounts them -- `button-component.njk` writes its defaults as
-    `{%-if element.x %}...{% else %}<default>{% endif-%}` pairs instead, and
-    hardcodes `#FFFFFF`, `16px`, `border-radius: 0px`, `height: auto` and
-    `padding: 0px` that way.
-  - Two library gaps found on the way, each the reason a fallback is still
-    load-bearing: `bodycopy.js` has `border_radius` commented out, and
-    `image.js` defines only `vertical_align`, `padding` and `width` -- so
-    `align`, `background`, `max_width` and `border_radius` have nowhere to come
-    from but the template. Filling those in is a library edit, which the
-    snapshot gate now passes as drift.
-  - `text-component.njk:4` reads `{{ element.margin or element.padding or "0px" }}`
-    -- it uses margin as the td's padding, and where both were set the same value
-    was applied twice, outer and inner. Worth a decision on its own.
+    were answering for it. `systems/layout.js` fills from the component rule
+    files now; the values moved into `image.js`, `bodycopy.js`, `lockup.js`,
+    `heading.js`, `subheading.js` and `terms.js`; and 14 fallbacks were deleted
+    once they were proven dead. Step 4 of `property-resolution-plan.md` has the
+    detail.
+
+    Proven, not assumed: every fallback value in both files was replaced with a
+    unique sentinel, all nine cases built, and the rendered HTML searched for
+    each. Worth repeating for the remaining templates -- it found a gap reading
+    the files could not, and it is the difference between deleting a fallback
+    and deleting a fallback you can show nothing reaches.
+  - Still to do: `button-component.njk`, which is the larger half and was
+    undercounted by the `or "..."` search -- it writes its defaults as
+    `{%-if element.x %}...{% else %}<default>{% endif-%}` pairs, hardcoding
+    `#FFFFFF`, `16px`, `line-height: 16px`, `border-radius: 0px`, `height: auto`,
+    `width: auto`, `mso height: 40px` and `padding: 0px` that way. `button.js`
+    declares all but `colour`. Also unswept: `structure.njk`, `container.njk`,
+    `gridContainer.njk`, `transition-component.njk` and
+    `placeholder-component.njk` -- but those render layout nodes, which come
+    from the constructors in `layout.js` and have no rule file to default from.
+    A different problem, and the one the property registry would answer.
+  - **Three fallbacks are load-bearing because `component/icon.js` does not
+    exist.** `align`, `background` and `max_width` in `image-component.njk`
+    fire 7 times, all on `icon` components in the layout case. `modules.json`
+    names `component/icon`, the loader finds no file and falls back to
+    `component/default.js`, whose `default_properties` is `{}`. This is one of
+    the four names-with-no-file already listed under **Review Libraries**, and
+    it is what one of them costs.
+  - **Two more are load-bearing because `background` defaults to `null`.**
+    `element.background or "transparent"` fires 183 times on each of two lines
+    in `text-component.njk`. Every text definition declares `background`, but
+    declares it `null`, which is falsy. Making it `"transparent"` would feed
+    `properties/palette.js` -- which has one `!= "transparent"` test, currently
+    reachable only by buttons -- so it wants deciding on its own rather than as
+    part of a template sweep.
+  - `text-component.njk:4` reads `{{ element.margin or element.padding }}` -- it
+    uses margin as the td's padding. The `or "0px"` tail is gone, but the oddity
+    is not: where both keys were set the same value used to be applied twice,
+    outer and inner, and nine nodes tightened by 16px when `margin` started
+    resolving. Still worth a decision on its own.
 
 **Review and simplify styling rules**
 
