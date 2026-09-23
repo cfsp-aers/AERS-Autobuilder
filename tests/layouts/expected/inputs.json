@@ -78,7 +78,7 @@
         "module": "a4d025dd9a38",
         "modules": {
             "component/bodycopy.js": "d2303487471c",
-            "component/button.js": "f84b0c84d058",
+            "component/button.js": "c3a50a5456fb",
             "component/image.js": "6101cd10bf01"
         }
     },
@@ -117,7 +117,7 @@
         "libraries": "22b0e1bcf2ac",
         "module": "7264c3358978",
         "modules": {
-            "component/button.js": "f84b0c84d058",
+            "component/button.js": "c3a50a5456fb",
             "component/image.js": "6101cd10bf01"
         }
     },
@@ -127,7 +127,7 @@
         "libraries": "22b0e1bcf2ac",
         "module": "87a6caef6242",
         "modules": {
-            "component/button.js": "f84b0c84d058",
+            "component/button.js": "c3a50a5456fb",
             "component/image.js": "6101cd10bf01"
         }
     },

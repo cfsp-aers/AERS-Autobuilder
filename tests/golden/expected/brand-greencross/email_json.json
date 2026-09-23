@@ -106,6 +106,7 @@
                               "text": "BOOK NOW",
                               "href": "https://www.greencrossvets.com.au/book-online/"
                             },
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_bottom": false,
@@ -156,6 +157,7 @@
                               "href": "https://www.greencrossvets.com.au/webvet/"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "margin": "0px",
                             "align": "center",
@@ -163,6 +165,7 @@
                             "line_height": "18px",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_left": false,
@@ -195,6 +198,7 @@
                               "href": "https://www.emergencyvet.com.au/"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "margin": "0px",
                             "align": "center",
@@ -202,6 +206,7 @@
                             "line_height": "18px",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_left": false,
@@ -234,6 +239,7 @@
                               "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "margin": "0px",
                             "align": "center",
@@ -241,6 +247,7 @@
                             "line_height": "18px",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_left": false,
@@ -599,6 +606,7 @@
                                                   "href": ""
                                                 },
                                                 "align": "center",
+                                                "font_style": "normal",
                                                 "mso_height": "40px"
                                               }
                                             ]
@@ -828,6 +836,7 @@
                                                       "href": ""
                                                     },
                                                     "align": "center",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1103,6 +1112,7 @@
                                                       "href": "https://www.link4.com.au"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1357,6 +1367,7 @@
                                                       "href": "https://www.petbarn.com.au/store-finder"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1619,6 +1630,7 @@
                                                       "href": "https://www.link5.com.au"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1873,6 +1885,7 @@
                                                       "href": "https://www.link3.com.au"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -2000,6 +2013,7 @@
                               "href": "https://www.greencrossvets.com.au/book-online"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "padding": "0px 0px 4px",
                             "margin": "0px",
@@ -2007,6 +2021,7 @@
                             "font_weight": "bold",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_bottom": false,
@@ -2036,6 +2051,7 @@
                               "href": "https://www.greencrossvets.com.au/services"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "padding": "0px 0px 4px",
                             "margin": "0px",
@@ -2043,6 +2059,7 @@
                             "font_weight": "bold",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_bottom": false,
@@ -2072,6 +2089,7 @@
                               "href": "https://www.greencrossvets.com.au/contact"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "padding": "0px 0px 4px",
                             "margin": "0px",
@@ -2079,6 +2097,7 @@
                             "font_weight": "bold",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_bottom": false,
@@ -2108,6 +2127,7 @@
                               "href": "https://www.greencrossvets.com.au/about-greencross-vets"
                             },
                             "palette": "primary",
+                            "colour": "#FFFFFF",
                             "vertical_align": "middle",
                             "padding": "0px 0px 4px",
                             "margin": "0px",
@@ -2115,6 +2135,7 @@
                             "font_weight": "bold",
                             "text_align": "center",
                             "font": "Outfit",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_bottom": false,

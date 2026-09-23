@@ -237,6 +237,7 @@
           "href": "https://www.petbarn.com.au/trade"
         },
         "align": "center",
+        "font_style": "normal",
         "mso_height": "40px"
       },
       {
@@ -502,6 +503,7 @@
           "href": "https://www.petbarn.com.au/special-offers"
         },
         "align": "center",
+        "font_style": "normal",
         "mso_height": "40px"
       }
     ]

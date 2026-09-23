@@ -3,6 +3,15 @@
 const default_properties = {
     // ~~ palette ~~
     palette: "primary",
+    /*
+        The last resort, and only that. Every button that comes through a brief
+        has this overwritten by setPalettes, which assigns `colour` outright
+        rather than filling a gap -- so this is the answer for a button the
+        palette never sees, which is a button a layout declared. It is the value
+        button-component.njk used to hold as `{% else %}color: #FFFFFF{% endif %}`,
+        in the same two places it still needed it.
+    */
+    colour: "#FFFFFF",
     // ~~ spacing ~~
     vertical_align: "middle",
     padding: "0px 0px 4px",
@@ -15,6 +24,7 @@ const default_properties = {
     font_weight: "bold",
     text_align: "center",
     font: "Outfit",
+    font_style: "normal",
     // ~~ border ~~
     border_radius: "32px",
     border_top: false,

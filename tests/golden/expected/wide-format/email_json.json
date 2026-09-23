@@ -105,6 +105,7 @@
                             },
                             "palette": "primary",
                             "align": "center",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_left": false
@@ -147,6 +148,7 @@
                             },
                             "palette": "primary",
                             "align": "center",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_left": false
@@ -189,6 +191,7 @@
                             },
                             "palette": "primary",
                             "align": "center",
+                            "font_style": "normal",
                             "border_top": false,
                             "border_right": false,
                             "border_left": false
@@ -416,6 +419,7 @@
                                                   "href": "https://www.petbarn.com.au/c/meow-mania"
                                                 },
                                                 "align": "center",
+                                                "font_style": "normal",
                                                 "mso_height": "40px"
                                               }
                                             ]
@@ -776,6 +780,7 @@
                                                       "href": "https://www.petbarn.com.au/c/meow-mania/food"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1023,6 +1028,7 @@
                                                       "href": "https://www.petbarn.com.au/royal-canin"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1249,6 +1255,7 @@
                                                       "href": "https://www.petbarn.com.au/hills"
                                                     },
                                                     "align": "left",
+                                                    "font_style": "normal",
                                                     "mso_height": "40px"
                                                   }
                                                 ]
@@ -1850,6 +1857,7 @@
                                                   "href": "https://www.petbarn.com.au/"
                                                 },
                                                 "align": "center",
+                                                "font_style": "normal",
                                                 "mso_height": "40px"
                                               }
                                             ]
