@@ -22,6 +22,7 @@
                       {
                         "entity_type": "component",
                         "type": "image",
+                        "template": "component/image.js",
                         "width": "180px",
                         "border_radius": "0px",
                         "align": "left",
@@ -43,6 +44,7 @@
                     "children": [
                       {
                         "entity_type": "component",
+                        "template": "component/button.js",
                         "category": "component",
                         "type": "button",
                         "name": "button",
@@ -106,6 +108,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -144,6 +147,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -182,6 +186,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -243,6 +248,7 @@
                       {
                         "entity_type": "component",
                         "type": "image",
+                        "template": "component/image.js",
                         "width": "180px",
                         "border_radius": "0px",
                         "align": "left",
@@ -264,6 +270,7 @@
                     "children": [
                       {
                         "entity_type": "component",
+                        "template": "component/button.js",
                         "category": "component",
                         "type": "button",
                         "name": "button",
@@ -327,6 +334,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -365,6 +373,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -403,6 +412,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -464,6 +474,7 @@
                       {
                         "entity_type": "component",
                         "type": "image",
+                        "template": "component/image.js",
                         "width": "180px",
                         "border_radius": "0px",
                         "align": "left",
@@ -485,6 +496,7 @@
                     "children": [
                       {
                         "entity_type": "component",
+                        "template": "component/button.js",
                         "category": "component",
                         "type": "button",
                         "name": "button",
@@ -548,6 +560,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -586,6 +599,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -624,6 +638,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -685,6 +700,7 @@
                       {
                         "entity_type": "component",
                         "type": "image",
+                        "template": "component/image.js",
                         "width": "180px",
                         "border_radius": "0px",
                         "align": "left",
@@ -706,6 +722,7 @@
                     "children": [
                       {
                         "entity_type": "component",
+                        "template": "component/button.js",
                         "category": "component",
                         "type": "button",
                         "name": "button",
@@ -775,6 +792,7 @@
                       {
                         "entity_type": "component",
                         "type": "image",
+                        "template": "component/image.js",
                         "width": "180px",
                         "border_radius": "0px",
                         "align": "left",
@@ -796,6 +814,7 @@
                     "children": [
                       {
                         "entity_type": "component",
+                        "template": "component/button.js",
                         "category": "component",
                         "type": "button",
                         "name": "button",
@@ -859,6 +878,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -897,6 +917,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
@@ -935,6 +956,7 @@
                       {
                         "entity_type": "component",
                         "type": "button",
+                        "template": "component/button.js",
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",

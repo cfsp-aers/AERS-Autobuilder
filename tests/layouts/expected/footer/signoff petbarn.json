@@ -11,6 +11,7 @@
           {
             "entity_type": "component",
             "type": "image",
+            "template": "component/image.js",
             "padding": "16px 0px",
             "border_radius": "0px",
             "width": "180px",
@@ -22,6 +23,7 @@
           },
           {
             "entity_type": "component",
+            "template": "component/bodycopy.js",
             "colour": "black",
             "font_size": "16px",
             "line_height": "18px",
@@ -58,6 +60,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-fb.png",
@@ -77,6 +80,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-in.png",
@@ -96,6 +100,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-yt.png",
@@ -115,6 +120,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-tt.png",
@@ -152,6 +158,7 @@
           {
             "entity_type": "component",
             "type": "image",
+            "template": "component/image.js",
             "padding": "16px 0px",
             "border_radius": "0px",
             "width": "180px",
@@ -163,6 +170,7 @@
           },
           {
             "entity_type": "component",
+            "template": "component/bodycopy.js",
             "colour": "black",
             "font_size": "16px",
             "line_height": "18px",
@@ -199,6 +207,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-fb.png",
@@ -218,6 +227,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-in.png",
@@ -237,6 +247,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-yt.png",
@@ -256,6 +267,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-tt.png",
@@ -292,6 +304,7 @@
           {
             "entity_type": "component",
             "type": "image",
+            "template": "component/image.js",
             "padding": "16px 0px",
             "border_radius": "0px",
             "width": "180px",
@@ -303,6 +316,7 @@
           },
           {
             "entity_type": "component",
+            "template": "component/bodycopy.js",
             "colour": "black",
             "font_size": "16px",
             "line_height": "18px",
@@ -339,6 +353,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-fb.png",
@@ -358,6 +373,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-in.png",
@@ -377,6 +393,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-yt.png",
@@ -396,6 +413,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-tt.png",
@@ -432,6 +450,7 @@
           {
             "entity_type": "component",
             "type": "image",
+            "template": "component/image.js",
             "padding": "16px 0px",
             "border_radius": "0px",
             "width": "180px",
@@ -443,6 +462,7 @@
           },
           {
             "entity_type": "component",
+            "template": "component/bodycopy.js",
             "colour": "black",
             "font_size": "16px",
             "line_height": "18px",
@@ -479,6 +499,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-fb.png",
@@ -498,6 +519,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-in.png",
@@ -517,6 +539,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-yt.png",
@@ -536,6 +559,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-tt.png",
@@ -572,6 +596,7 @@
           {
             "entity_type": "component",
             "type": "image",
+            "template": "component/image.js",
             "padding": "16px 0px",
             "border_radius": "0px",
             "width": "180px",
@@ -583,6 +608,7 @@
           },
           {
             "entity_type": "component",
+            "template": "component/bodycopy.js",
             "colour": "black",
             "font_size": "16px",
             "line_height": "18px",
@@ -619,6 +645,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-fb.png",
@@ -638,6 +665,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-in.png",
@@ -657,6 +685,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-yt.png",
@@ -676,6 +705,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "32px",
                             "content": {
                               "src": "images/pb-tt.png",

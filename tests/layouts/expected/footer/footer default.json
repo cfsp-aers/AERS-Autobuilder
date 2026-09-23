@@ -101,6 +101,7 @@
             "children": [
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "white",
                 "font_size": "12px",
                 "line_height": "14px",
@@ -223,6 +224,7 @@
             "children": [
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "white",
                 "font_size": "12px",
                 "line_height": "14px",
@@ -345,6 +347,7 @@
             "children": [
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "white",
                 "font_size": "12px",
                 "line_height": "14px",
@@ -467,6 +470,7 @@
             "children": [
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "white",
                 "font_size": "12px",
                 "line_height": "14px",
@@ -589,6 +593,7 @@
             "children": [
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "white",
                 "font_size": "12px",
                 "line_height": "14px",

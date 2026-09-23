@@ -119,6 +119,31 @@ function defaultsFor(name) {
 }
 
 /*
+    Which definition produced this node.
+
+    `template` means the same thing here it means everywhere else -- the file
+    that configures the item -- and formatObjects writes it as `category/name.js`
+    for everything that comes through the brief. A layout-declared component had
+    no such record, which cost twice.
+
+    A human reading email_json.json could not tell which definition to open for a
+    node that had no name, no uuid and no template. And tests/golden attributes
+    each difference to the nearest ancestor carrying `template`, so a change to
+    `component/image.js` was charged to whichever module happened to enclose the
+    image -- reported as differences falling outside the definitions that
+    changed, when they fell squarely inside one. The manifest already records a
+    hash per `component/*.js`; the node was the only part not saying which it
+    used.
+
+    Nothing dispatches on it. Every reader of `.template` is in structureEDM or
+    applyModifications, and both work from db.ms and db.cs, which these nodes are
+    never in.
+*/
+function templateFor(name) {
+    return `component/${name}.js`;
+}
+
+/*
     Fill what the call site left unsaid, and nothing it said.
 
     Written as an append rather than as `Object.assign({}, defaults, options)`
@@ -143,15 +168,16 @@ function fill(node, defaults) {
 */
 function component(options) {
     const settings = options || {};
-    return fill(Object.assign({ entity_type: "component" }, settings), defaultsFor(settings.name || "bodycopy"));
+    const name = settings.name || "bodycopy";
+    return fill(Object.assign({ entity_type: "component", template: templateFor(name) }, settings), defaultsFor(name));
 }
 
 function image(options) {
-    return fill(Object.assign({ entity_type: "component", type: "image" }, options || {}), defaultsFor("image"));
+    return fill(Object.assign({ entity_type: "component", type: "image", template: templateFor("image") }, options || {}), defaultsFor("image"));
 }
 
 function button(options) {
-    return fill(Object.assign({ entity_type: "component", type: "button" }, options || {}), defaultsFor("button"));
+    return fill(Object.assign({ entity_type: "component", type: "button", template: templateFor("button") }, options || {}), defaultsFor("button"));
 }
 
 /*

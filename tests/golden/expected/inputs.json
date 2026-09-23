@@ -1,6 +1,6 @@
 {
     "brand-greencross": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
@@ -20,7 +20,7 @@
         }
     },
     "brand-petbarn": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
@@ -41,7 +41,7 @@
         }
     },
     "demo-greencross": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "b4b862fec024",
@@ -61,7 +61,7 @@
         }
     },
     "demo-petbarn": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "b4b862fec024",
@@ -82,7 +82,7 @@
         }
     },
     "layout": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
@@ -105,7 +105,7 @@
         }
     },
     "new-modules": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "b3f77a8dcdd4",
@@ -124,7 +124,7 @@
         }
     },
     "palette": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
@@ -133,6 +133,7 @@
             "component/bodycopy.js": "b6a374924b45",
             "component/button.js": "f84b0c84d058",
             "component/heading.js": "a4aee5b7e33d",
+            "component/image.js": "a76e578d88e6",
             "component/subheading.js": "3c3d0f9705fe",
             "component/terms.js": "6e7c30964ff8",
             "footer/footer petbarn.js": "e0bca767637c",
@@ -141,14 +142,16 @@
         }
     },
     "styling": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
         "modules": {
             "basic/text block.js": "d6d65a38293d",
+            "component/bodycopy.js": "b6a374924b45",
             "component/button.js": "f84b0c84d058",
             "component/heading.js": "a4aee5b7e33d",
+            "component/image.js": "a76e578d88e6",
             "component/terms.js": "6e7c30964ff8",
             "footer/footer petbarn.js": "e0bca767637c",
             "footer/shop your way petbarn.js": "da0e36ae576d",
@@ -158,7 +161,7 @@
         }
     },
     "wide-format": {
-        "engine": "c57b134b3695",
+        "engine": "fd0e8f844c10",
         "html_templates": "5b1a5a4b3ecc",
         "libraries": "22b0e1bcf2ac",
         "brief": "b0a7dac66a4d",

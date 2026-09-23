@@ -46,6 +46,7 @@
                   {
                     "entity_type": "component",
                     "type": "image",
+                    "template": "component/image.js",
                     "width": "180px",
                     "border_radius": "0px",
                     "content": {
@@ -78,6 +79,7 @@
                         "children": [
                           {
                             "entity_type": "component",
+                            "template": "component/button.js",
                             "category": "component",
                             "type": "button",
                             "name": "button",
@@ -119,6 +121,7 @@
                         "children": [
                           {
                             "entity_type": "component",
+                            "template": "component/button.js",
                             "category": "component",
                             "type": "button",
                             "name": "button",
@@ -160,6 +163,7 @@
                         "children": [
                           {
                             "entity_type": "component",
+                            "template": "component/button.js",
                             "category": "component",
                             "type": "button",
                             "name": "button",
@@ -3467,6 +3471,7 @@
             "children": [
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "black",
                 "font_size": "32px",
                 "line_height": "36px",
@@ -3502,6 +3507,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
                                       "src": "images/SYW_2hrdelivery_wShadow_2x.png",
@@ -3513,6 +3519,7 @@
                                   },
                                   {
                                     "entity_type": "component",
+                                    "template": "component/bodycopy.js",
                                     "colour": "black",
                                     "font_size": "14px",
                                     "line_height": "16px",
@@ -3536,6 +3543,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
                                       "src": "images/SYW_nextdaydelivery_wShadow_2x.png",
@@ -3547,6 +3555,7 @@
                                   },
                                   {
                                     "entity_type": "component",
+                                    "template": "component/bodycopy.js",
                                     "colour": "black",
                                     "font_size": "14px",
                                     "line_height": "16px",
@@ -3587,6 +3596,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
                                       "src": "images/SYW_freestandarddelivery_wShadow_2x.png",
@@ -3598,6 +3608,7 @@
                                   },
                                   {
                                     "entity_type": "component",
+                                    "template": "component/bodycopy.js",
                                     "colour": "black",
                                     "font_size": "14px",
                                     "line_height": "16px",
@@ -3621,6 +3632,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
                                       "src": "images/SYW_clickcollect_wShadow_2x.png",
@@ -3632,6 +3644,7 @@
                                   },
                                   {
                                     "entity_type": "component",
+                                    "template": "component/bodycopy.js",
                                     "colour": "black",
                                     "font_size": "14px",
                                     "line_height": "16px",
@@ -3672,6 +3685,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
                                       "src": "images/SYW_over220stores_wShadow_2x.png",
@@ -3683,6 +3697,7 @@
                                   },
                                   {
                                     "entity_type": "component",
+                                    "template": "component/bodycopy.js",
                                     "colour": "black",
                                     "font_size": "14px",
                                     "line_height": "16px",
@@ -3706,6 +3721,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
                                       "src": "images/SYW_repeatdelivery_wShadow_2x.png",
@@ -3717,6 +3733,7 @@
                                   },
                                   {
                                     "entity_type": "component",
+                                    "template": "component/bodycopy.js",
                                     "colour": "black",
                                     "font_size": "14px",
                                     "line_height": "16px",
@@ -3788,6 +3805,7 @@
               {
                 "entity_type": "component",
                 "type": "image",
+                "template": "component/image.js",
                 "padding": "16px 0px",
                 "border_radius": "0px",
                 "width": "180px",
@@ -3799,6 +3817,7 @@
               },
               {
                 "entity_type": "component",
+                "template": "component/bodycopy.js",
                 "colour": "black",
                 "font_size": "16px",
                 "line_height": "18px",
@@ -3835,6 +3854,7 @@
                               {
                                 "entity_type": "component",
                                 "type": "image",
+                                "template": "component/image.js",
                                 "width": "32px",
                                 "content": {
                                   "src": "images/pb-fb.png",
@@ -3854,6 +3874,7 @@
                               {
                                 "entity_type": "component",
                                 "type": "image",
+                                "template": "component/image.js",
                                 "width": "32px",
                                 "content": {
                                   "src": "images/pb-in.png",
@@ -3873,6 +3894,7 @@
                               {
                                 "entity_type": "component",
                                 "type": "image",
+                                "template": "component/image.js",
                                 "width": "32px",
                                 "content": {
                                   "src": "images/pb-yt.png",
@@ -3892,6 +3914,7 @@
                               {
                                 "entity_type": "component",
                                 "type": "image",
+                                "template": "component/image.js",
                                 "width": "32px",
                                 "content": {
                                   "src": "images/pb-tt.png",
@@ -3996,6 +4019,7 @@
                 "children": [
                   {
                     "entity_type": "component",
+                    "template": "component/bodycopy.js",
                     "colour": "white",
                     "font_size": "12px",
                     "line_height": "14px",

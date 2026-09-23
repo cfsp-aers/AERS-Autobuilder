@@ -52,6 +52,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "180px",
                             "border_radius": "0px",
                             "align": "left",
@@ -73,6 +74,7 @@
                         "children": [
                           {
                             "entity_type": "component",
+                            "template": "component/button.js",
                             "category": "component",
                             "type": "button",
                             "name": "button",
@@ -136,6 +138,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "mode": "underline",
                             "brand": "greencross vets",
                             "background": "#001939",
@@ -174,6 +177,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "mode": "underline",
                             "brand": "greencross vets",
                             "background": "#001939",
@@ -212,6 +216,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "mode": "underline",
                             "brand": "greencross vets",
                             "background": "#001939",
@@ -1637,6 +1642,7 @@
                           {
                             "entity_type": "component",
                             "type": "image",
+                            "template": "component/image.js",
                             "width": "180px",
                             "border_radius": "0px",
                             "content": {
@@ -1672,6 +1678,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "brand": "greencross vets",
                             "background": "#001939",
                             "border_radius": "0px",
@@ -1707,6 +1714,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "brand": "greencross vets",
                             "background": "#001939",
                             "border_radius": "0px",
@@ -1742,6 +1750,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "brand": "greencross vets",
                             "background": "#001939",
                             "border_radius": "0px",
@@ -1777,6 +1786,7 @@
                           {
                             "entity_type": "component",
                             "type": "button",
+                            "template": "component/button.js",
                             "brand": "greencross vets",
                             "background": "#001939",
                             "border_radius": "0px",
@@ -1938,6 +1948,7 @@
                   {},
                   {
                     "entity_type": "component",
+                    "template": "component/bodycopy.js",
                     "colour": "white",
                     "font_size": "12px",
                     "line_height": "14px",
@@ -1985,6 +1996,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "32px",
                                     "content": {
                                       "src": "images/gxv-fb.png",
@@ -2004,6 +2016,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "32px",
                                     "content": {
                                       "src": "images/gxv-in.png",
@@ -2023,6 +2036,7 @@
                                   {
                                     "entity_type": "component",
                                     "type": "image",
+                                    "template": "component/image.js",
                                     "width": "32px",
                                     "content": {
                                       "src": "images/gxv-yt.png",
