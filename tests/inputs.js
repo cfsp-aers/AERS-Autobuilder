@@ -88,6 +88,17 @@ function templatesUsed(artifacts) {
     return Array.from(found).sort();
 }
 
+/*
+    The same, for a snapshot that is already in memory rather than on disk. The
+    layout suite builds one tree per module and never writes the stores, so it
+    has nothing for templatesUsed() to read.
+*/
+function templatesIn(value) {
+    const found = new Set();
+    collectTemplates(value, found);
+    return Array.from(found).sort();
+}
+
 function collectTemplates(node, found) {
     if (node === null || typeof node !== "object") return;
     if (typeof node.template === "string") found.add(node.template);
@@ -194,8 +205,16 @@ function collectOwners(node, map) {
     module the baseline has never seen still resolves.
 */
 function attributor(artifacts) {
-    const by_uuid = templatesByUuid(artifacts);
+    return makeAttributor(templatesByUuid(artifacts));
+}
 
+/*
+    The walker itself, given the uuid lookup rather than reading for it. A
+    layout snapshot has no uuids -- nothing in it has been through
+    setBasicProperties -- so it passes an empty map and resolves every owner
+    from `template` alone.
+*/
+function makeAttributor(by_uuid) {
     function ownerOf(node, inherited) {
         if (node === null || typeof node !== "object") return inherited;
         if (typeof node.template === "string") return node.template;
@@ -285,22 +304,63 @@ function explains(artifact, owners, changed) {
 }
 
 /*
-    The same rule for the layout snapshots, which have one input each: the
-    definition itself, sitting on the engine that supplies its constructors.
+    The same rule for the layout snapshots.
+
+    These used to have one input each -- the definition itself, on the engine
+    that supplies its constructors -- and that stopped being true when the
+    constructors started reading `default_properties` out of the component rule
+    files. `internal_layout()` calls component(), image() and button(), and each
+    of those now opens a file under modules/component/. Editing button.js moves
+    every layout that declares a button, and the suite had no way to know it: it
+    hashed the module's own file and nothing else, so the change arrived as
+    "no input for this module changed".
+
+    Attribution is per difference, as it is for the golden cases. A difference
+    under a node carrying `template` belongs to that component definition; one
+    under no template at all belongs to the module's own file, because a layout
+    snapshot is that module's tree and nothing else's.
+
+    `libraries` is deliberately not a verdict here. A layout snapshot is built by
+    calling internal_layout() with synthetic input -- no palette runs, no
+    resolution runs -- so a colour library cannot reach it, and saying it could
+    would explain away a difference it did not cause.
 */
-function explainsModule(changed) {
+function explainsModule(owners, changed) {
     if (changed.unknown) return { explained: false, reason: "no inputs recorded for this baseline" };
     if (changed.engine) return { explained: false, reason: "the engine changed" };
+
+    const unexplained = owners.filter((owner) => (owner === null ? !changed.module : !changed.modules.has(owner)));
+
+    if (unexplained.length) {
+        const anything_changed = changed.module || changed.modules.size;
+        return {
+            explained: false,
+            unexplained: unexplained,
+            reason: anything_changed ? `${unexplained.length} of ${owners.length} differences fall outside the definitions that changed` : "no input for this module changed"
+        };
+    }
+
+    if (changed.module && changed.modules.size) return { explained: true, reason: `the definition and ${describe(changed.modules)} changed` };
     if (changed.module) return { explained: true, reason: "the definition changed" };
-    return { explained: false, reason: "no input for this module changed" };
+    return { explained: true, reason: `${describe(changed.modules)} changed` };
 }
 
 function compareModule(recorded, current) {
-    if (!recorded) return { unknown: true };
+    if (!recorded) return { unknown: true, modules: new Set() };
+
+    const recorded_modules = recorded.modules || {};
+    const current_modules = current.modules || {};
+    const modules = new Set();
+
+    Array.from(new Set(Object.keys(recorded_modules).concat(Object.keys(current_modules)))).forEach((template) => {
+        if (recorded_modules[template] !== current_modules[template]) modules.add(template);
+    });
+
     return {
         unknown: false,
         engine: recorded.engine !== current.engine,
-        module: recorded.module !== current.module
+        module: recorded.module !== current.module,
+        modules: modules
     };
 }
 
@@ -333,6 +393,8 @@ module.exports = {
     describe: describe,
     explains: explains,
     explainsModule: explainsModule,
+    makeAttributor: makeAttributor,
+    templatesIn: templatesIn,
     fingerprint: fingerprint,
     readManifest: readManifest,
     tally: tally,

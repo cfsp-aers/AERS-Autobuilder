@@ -221,7 +221,18 @@ modules.forEach((entry) => {
     }
 
     const target = expected_path(entry.id);
-    const current = inputs.fingerprint(repo_root, { module_file: entry.file });
+
+    /*
+        `templates` is what the module's layout reaches for beyond its own file:
+        component/button.js and the rest, which the constructors in
+        systems/layout.js read to fill a declared component's defaults. Collected
+        from the snapshot that was just built, so a definition that stops
+        declaring a button stops recording it.
+    */
+    const current = inputs.fingerprint(repo_root, {
+        module_file: entry.file,
+        templates: inputs.templatesIn(JSON.parse(actual))
+    });
 
     if (accept) {
         fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -255,7 +266,9 @@ modules.forEach((entry) => {
         return;
     }
 
-    const verdict = inputs.explainsModule(inputs.compareModule(manifest[entry.id], current));
+    const attribute = inputs.makeAttributor(new Map());
+    const owners = attribute(JSON.parse(expected), JSON.parse(actual));
+    const verdict = inputs.explainsModule(owners, inputs.compareModule(manifest[entry.id], current));
 
     if (verdict.explained) {
         console.log(strict ? "DRIFT" : "drift");

@@ -1,7 +1,7 @@
 {
     "brand-greencross": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
         "modules": {
@@ -21,7 +21,7 @@
     },
     "brand-petbarn": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
         "modules": {
@@ -42,7 +42,7 @@
     },
     "demo-greencross": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "b4b862fec024",
         "modules": {
@@ -62,7 +62,7 @@
     },
     "demo-petbarn": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "b4b862fec024",
         "modules": {
@@ -83,7 +83,7 @@
     },
     "layout": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
         "modules": {
@@ -106,7 +106,7 @@
     },
     "new-modules": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "b3f77a8dcdd4",
         "modules": {
@@ -125,7 +125,7 @@
     },
     "palette": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
         "modules": {
@@ -143,7 +143,7 @@
     },
     "styling": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "8e148df15e8e",
         "modules": {
@@ -162,7 +162,7 @@
     },
     "wide-format": {
         "engine": "fd0e8f844c10",
-        "html_templates": "5b1a5a4b3ecc",
+        "html_templates": "9f01dc74818b",
         "libraries": "22b0e1bcf2ac",
         "brief": "b0a7dac66a4d",
         "modules": {
