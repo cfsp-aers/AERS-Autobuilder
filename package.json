@@ -72,7 +72,7 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["universal"]
+          "arch": ["arm64", "universal"]
         },
         {
           "target": "zip",

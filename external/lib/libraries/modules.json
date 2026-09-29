@@ -89,6 +89,16 @@
       }
     },
 
+    "banner flipped": {
+      "valid names": ["banner flipped", "banner reversed", "banner reverse"],
+      "properties": {
+        "category": "basic",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+
     "specials banner": {
       "valid names": ["specials banner", "specials", "weekly specials"],
       "properties": {
@@ -167,6 +177,15 @@
       "properties": {}
     },
 
+    "promo tile": {
+      "valid names": ["promo tile"],
+      "properties": {
+        "category": "product",
+        "type": "tile",
+        "max_siblings": 2,
+        "depth": 2
+      }
+    },
     "product tile": {
       "valid names": ["product tile"],
       "properties": {
@@ -236,7 +255,7 @@
     },
 
     "image": {
-      "valid names": ["image", "img", "product image"],
+      "valid names": ["image", "img", "product image", "banner"],
       "properties": {
         "category": "component",
         "type": "image"
