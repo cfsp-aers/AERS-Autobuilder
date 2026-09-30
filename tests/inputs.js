@@ -28,6 +28,38 @@ const HTML_TEMPLATES = "external/lib/html templates";
 const LIBRARIES = "external/lib/libraries";
 const MODULES = "external/lib/modules";
 
+/*
+    The library files the engine opens, and therefore the only ones that can
+    account for a difference.
+
+    `libraries` used to be one hash over every .json in that folder, and any
+    change to any of them returned "the colour libraries changed" as a blanket
+    explanation for every difference in every artifact. Wrong three ways at
+    once: it could not say which file had moved, it named the colour libraries
+    whatever had actually moved, and it answered before the per-difference
+    attribution computed below it had been consulted at all.
+
+    It became load-bearing wrong when libraries/properties.json arrived. Nothing
+    reads that file -- it is a vocabulary tests/properties.js holds the
+    repository to -- so editing it cannot move a byte of output, and under the
+    old rule it would have excused arbitrary drift in all nine cases while the
+    registry was being worked on.
+
+    So unrecognised is inert. A file dropped into this folder explains nothing
+    until it is named here, which means a library that is genuinely read arrives
+    as an unexplained difference rather than as silence. The colour palettes are
+    a directory rather than a list because properties/palette.js builds their
+    names from the brand -- `${brand} palettes.json` -- so there is no literal
+    to match.
+*/
+const LOADED_LIBRARIES = ["brands.json", "button palettes.json", "colour library.json", "modules.json"];
+const LOADED_LIBRARY_DIRS = ["colour palettes"];
+
+function isLoadedLibrary(file) {
+    if (LOADED_LIBRARIES.indexOf(file) >= 0) return true;
+    return LOADED_LIBRARY_DIRS.some((dir) => file.startsWith(`${dir}${path.sep}`));
+}
+
 const STORES = ["module_store.json", "entity_store.json", "component_store.json", "email_json.json"];
 
 // ------------------------------------------------------------------ hashing
@@ -65,6 +97,31 @@ function hashTree(root, extensions) {
     })(root);
 
     return hash(entries.sort().join("\n"));
+}
+
+/*
+    The same walk as hashTree, but keeping a hash per file instead of folding
+    them together, so a change can be named rather than merely noticed.
+*/
+function hashFiles(root, extensions) {
+    const found = {};
+    if (!fs.existsSync(root)) return found;
+
+    (function walk(dir) {
+        fs.readdirSync(dir, { withFileTypes: true }).forEach((entry) => {
+            const full = path.join(dir, entry.name);
+            if (entry.isDirectory()) return walk(full);
+            if (!entry.isFile()) return;
+            if (extensions && !extensions.some((ext) => entry.name.endsWith(ext))) return;
+            found[path.relative(root, full)] = hashFile(full);
+        });
+    })(root);
+
+    const ordered = {};
+    Object.keys(found)
+        .sort()
+        .forEach((file) => (ordered[file] = found[file]));
+    return ordered;
 }
 
 // -------------------------------------------------------------- fingerprints
@@ -106,17 +163,23 @@ function collectTemplates(node, found) {
 }
 
 /*
-    `templates` and `brief` are optional: the layout snapshots have neither, and
-    name a single definition through `module_file` instead.
+    `templates`, `brief` and `libraries` are optional: the layout snapshots have
+    none of them, and name a single definition through `module_file` instead.
+
+    `libraries` is opt-in rather than always recorded because a layout snapshot
+    cannot depend on one -- see explainsModule below -- and recording nine
+    hashes per entry that nothing reads would cost the layout manifest 192 lines
+    of noise. A manifest earns its keep by staying readable in a diff.
 */
 function fingerprint(repo_root, options) {
     const settings = options || {};
 
     const print = {
         engine: hashTree(path.join(repo_root, ENGINE), [".js"]),
-        html_templates: hashTree(path.join(repo_root, HTML_TEMPLATES), [".njk"]),
-        libraries: hashTree(path.join(repo_root, LIBRARIES), [".json"])
+        html_templates: hashTree(path.join(repo_root, HTML_TEMPLATES), [".njk"])
     };
+
+    if (settings.libraries) print.libraries = hashFiles(path.join(repo_root, LIBRARIES), [".json"]);
 
     if (settings.brief) print.brief = hashFile(settings.brief);
 
@@ -134,8 +197,26 @@ function fingerprint(repo_root, options) {
     return print;
 }
 
+/*
+    Which library files moved, split by whether the engine reads them. A change
+    to one it does not read is reported and explains nothing.
+*/
+function changedLibraries(recorded, current) {
+    const before = recorded || {};
+    const after = current || {};
+    const loaded = new Set();
+    const inert = new Set();
+
+    Array.from(new Set(Object.keys(before).concat(Object.keys(after)))).forEach((file) => {
+        if (before[file] === after[file]) return;
+        (isLoadedLibrary(file) ? loaded : inert).add(file);
+    });
+
+    return { loaded: loaded, inert: inert };
+}
+
 function compare(recorded, current) {
-    if (!recorded) return { unknown: true, modules: new Set(), any: false };
+    if (!recorded) return { unknown: true, libraries: new Set(), libraries_inert: new Set(), modules: new Set(), any: false };
 
     const recorded_modules = recorded.modules || {};
     const current_modules = current.modules || {};
@@ -145,16 +226,24 @@ function compare(recorded, current) {
         if (recorded_modules[template] !== current_modules[template]) modules.add(template);
     });
 
+    // A baseline recorded before the split has one string where the map now
+    // goes. There is nothing to compare it against, so say so rather than guess
+    // -- guessing here would guess in the permissive direction.
+    const stale = typeof recorded.libraries === "string";
+    const libraries = stale ? { loaded: new Set(), inert: new Set() } : changedLibraries(recorded.libraries, current.libraries);
+
     const changed = {
         unknown: false,
         engine: recorded.engine !== current.engine,
         html_templates: recorded.html_templates !== current.html_templates,
-        libraries: recorded.libraries !== current.libraries,
+        libraries: libraries.loaded,
+        libraries_inert: libraries.inert,
+        libraries_stale: stale,
         brief: recorded.brief !== current.brief,
         modules: modules
     };
 
-    changed.any = changed.engine || changed.html_templates || changed.libraries || changed.brief || modules.size > 0;
+    changed.any = changed.engine || changed.html_templates || changed.libraries.size > 0 || changed.libraries_stale || changed.brief || modules.size > 0;
     return changed;
 }
 
@@ -278,16 +367,30 @@ function describe(modules) {
     structure to attribute through -- which is exactly why build-case.js records
     the stores alongside it.
 */
+/*
+    A changed library file is still a blanket explanation rather than something
+    attributed difference by difference, and deliberately so: `colour
+    library.json` is read whenever any property's value is a colour name, so the
+    set of definitions it reaches is all of them. There is nothing to attribute
+    it against. What changed is that it now names the file, and that a file the
+    engine does not read no longer explains anything at all.
+*/
+function alsoInert(changed) {
+    if (!changed.libraries_inert || changed.libraries_inert.size === 0) return "";
+    return `; ${describe(changed.libraries_inert)} changed too, which the engine does not read`;
+}
+
 function explains(artifact, owners, changed) {
     if (changed.unknown) return { explained: false, reason: "no inputs recorded for this baseline" };
+    if (changed.libraries_stale) return { explained: false, reason: "this baseline records one hash for the whole library folder -- re-run with --accept to record them per file" };
     if (changed.engine) return { explained: false, reason: "the engine changed" };
     if (changed.brief) return { explained: true, reason: "the brief changed" };
-    if (changed.libraries) return { explained: true, reason: "the colour libraries changed" };
+    if (changed.libraries.size) return { explained: true, reason: `${describe(changed.libraries)} changed` };
 
     if (!artifact.endsWith(".json")) {
         if (changed.html_templates) return { explained: true, reason: "the HTML templates changed" };
         if (changed.modules.size) return { explained: true, reason: `${describe(changed.modules)} changed` };
-        return { explained: false, reason: "no input for this case changed" };
+        return { explained: false, reason: `no input for this case changed${alsoInert(changed)}` };
     }
 
     const unexplained = owners.filter((owner) => owner === null || !changed.modules.has(owner));
@@ -296,7 +399,7 @@ function explains(artifact, owners, changed) {
         return {
             explained: false,
             unexplained: unexplained,
-            reason: changed.modules.size ? `${unexplained.length} of ${owners.length} differences fall outside the definitions that changed` : "no definition used by this case changed"
+            reason: changed.modules.size ? `${unexplained.length} of ${owners.length} differences fall outside the definitions that changed` : `no definition used by this case changed${alsoInert(changed)}`
         };
     }
 
@@ -320,10 +423,10 @@ function explains(artifact, owners, changed) {
     under no template at all belongs to the module's own file, because a layout
     snapshot is that module's tree and nothing else's.
 
-    `libraries` is deliberately not a verdict here. A layout snapshot is built by
-    calling internal_layout() with synthetic input -- no palette runs, no
-    resolution runs -- so a colour library cannot reach it, and saying it could
-    would explain away a difference it did not cause.
+    `libraries` is deliberately not a verdict here, and not recorded either. A
+    layout snapshot is built by calling internal_layout() with synthetic input --
+    no palette runs, no resolution runs -- so a colour library cannot reach it,
+    and saying it could would explain away a difference it did not cause.
 */
 function explainsModule(owners, changed) {
     if (changed.unknown) return { explained: false, reason: "no inputs recorded for this baseline" };

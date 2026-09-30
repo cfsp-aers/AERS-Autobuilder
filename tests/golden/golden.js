@@ -257,6 +257,7 @@ function acceptCase(test_case, artifacts) {
 function fingerprintOf(test_case, artifacts) {
     return inputs.fingerprint(repo_root, {
         brief: path.join(briefs_root, test_case.brief),
+        libraries: true,
         templates: inputs.templatesUsed(artifacts)
     });
 }
@@ -328,6 +329,16 @@ const reformatted = results.filter((result) => result.formatting);
 */
 drifted.forEach((result) => {
     console.log(`\n${"-".repeat(72)}\n${result.id} -- drift, accounted for\n${"-".repeat(72)}`);
+
+    /*
+        What accounted for it, said once at the top. Without this the block shows
+        a per-definition tally and nothing else, and a tally is where the
+        differences are rather than what caused them -- so a case drifting on a
+        colour library lists definitions that never changed, which reads like
+        attribution and is not.
+    */
+    console.log(`  accounted for by: ${summarise(result.changed)}\n`);
+
     result.problems.forEach((problem) => {
         const count = `${problem.diffs.length}${problem.diffs.length >= MAX_DIFFS ? "+" : ""} difference${problem.diffs.length === 1 ? "" : "s"}`;
         console.log(`  ${problem.artifact.padEnd(22)} ${count}`);
@@ -370,12 +381,16 @@ if (failures.length) {
 */
 function summarise(changed) {
     if (changed.unknown) return "not recorded for this baseline -- re-run with --accept to start tracking them";
+    if (changed.libraries_stale) return "recorded with one hash for the whole library folder -- re-run with --accept";
     const moved = [];
     if (changed.engine) moved.push("the engine");
     if (changed.brief) moved.push("the brief");
     if (changed.html_templates) moved.push("the HTML templates");
-    if (changed.libraries) moved.push("the colour libraries");
+    if (changed.libraries.size) moved.push(inputs.describe(changed.libraries));
     if (changed.modules.size) moved.push(inputs.describe(changed.modules));
+    // Named even though it explains nothing, because the question a reader has
+    // when a case is unchanged is "but I edited a library".
+    if (changed.libraries_inert.size) moved.push(`${inputs.describe(changed.libraries_inert)} (not read by the engine)`);
     return moved.length ? moved.join(", ") : "unchanged";
 }
 
