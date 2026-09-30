@@ -418,10 +418,25 @@ function explains(artifact, owners, changed) {
     hashed the module's own file and nothing else, so the change arrived as
     "no input for this module changed".
 
-    Attribution is per difference, as it is for the golden cases. A difference
-    under a node carrying `template` belongs to that component definition; one
-    under no template at all belongs to the module's own file, because a layout
-    snapshot is that module's tree and nothing else's.
+    Attribution is per difference, as it is for the golden cases, but the
+    module's own file is credited for the whole tree rather than only for the
+    nodes no component claims. A layout snapshot is that module's output and
+    nothing else's, and the value under a difference is as likely to have been
+    written at a `button()` call site in the definition as to have come from
+    `component/button.js` -- the node says `template: component/button.js`
+    either way, so the two are indistinguishable from here.
+
+    Charging those to the component was the exact inverse of the bug d8f62ee
+    fixed. Before it, a layout-declared node carried no `template` and every
+    difference in one was charged to the enclosing module; giving them a
+    template fixed the golden suite and broke this one, silently, because no
+    case in the repository exercised it until a header's nav colours were edited
+    in place. It reported "5 of 5 differences fall outside the definitions that
+    changed" for a module edited in the only file it has.
+
+    The three inputs to a layout snapshot are the engine, the module's own file
+    and the component definitions it reaches. The engine fails everything, so
+    crediting the module's own file for its whole tree gives away nothing.
 
     `libraries` is deliberately not a verdict here, and not recorded either. A
     layout snapshot is built by calling internal_layout() with synthetic input --
@@ -432,7 +447,7 @@ function explainsModule(owners, changed) {
     if (changed.unknown) return { explained: false, reason: "no inputs recorded for this baseline" };
     if (changed.engine) return { explained: false, reason: "the engine changed" };
 
-    const unexplained = owners.filter((owner) => (owner === null ? !changed.module : !changed.modules.has(owner)));
+    const unexplained = changed.module ? [] : owners.filter((owner) => owner === null || !changed.modules.has(owner));
 
     if (unexplained.length) {
         const anything_changed = changed.module || changed.modules.size;
