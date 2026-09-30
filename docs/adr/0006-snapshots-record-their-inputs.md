@@ -106,6 +106,22 @@ A colour library change accounts for differences anywhere, since a palette value
 can surface in any module. That is the coarsest rule here and the one most likely
 to want narrowing, if colour resolution ever becomes attributable.
 
+**Narrowed once, 30/09/2026.** Not by making colour attributable — it still is
+not — but by two smaller steps the original was one hash short of. `libraries`
+was a single hash over every `.json` in the folder, so the reason given was "the
+colour libraries changed" whatever had actually moved, `modules.json` included.
+It is a hash per file now, and the verdict names the file. And a changed library
+only accounts for anything if the engine opens it: `libraries/properties.json`
+is read by nothing, so under the old rule editing a vocabulary file excused
+arbitrary drift in all nine cases. Unrecognised is inert, so the safe direction
+is the default — a library that is genuinely read arrives as an unexplained
+difference rather than as silence.
+
+`libraries` also became opt-in rather than always recorded. A layout snapshot is
+built by calling `internal_layout()` on synthetic input, so no library can reach
+it, and recording nine hashes per entry would have cost that manifest 192 lines
+for a verdict it does not use.
+
 The baselines were re-recorded in full against a clean tree when this landed, as
 its own commit, because the hand-patched ones could not be trusted as a starting
 point.
