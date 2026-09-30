@@ -31,7 +31,7 @@ const component_positions = {
     all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const social = (src, href, aem_id) => col({ padding: "8px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href, aem_id: aem_id } })]);
+const social = (src, href) => col({ padding: "8px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href } })]);
 
 const internal_layout = (current, content) =>
     columns({ transition: current.transition, transition_id: current.transition_id }, [
@@ -40,7 +40,7 @@ const internal_layout = (current, content) =>
                 padding: "16px 0px",
                 border_radius: "0px",
                 width: "180px",
-                content: { src: "images/PLP_Logo_Dog.png", aem_id: "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e" }
+                content: { src: "images/PLP_Logo_Dog.png" }
             }),
             component({
                 colour: "black",
@@ -53,10 +53,10 @@ const internal_layout = (current, content) =>
                 col({}),
                 col({}, [
                     columns({}, [
-                        social("images/pb-fb.png", "https://www.facebook.com/petbarn", "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"),
-                        social("images/pb-in.png", "https://www.instagram.com/petbarn/#", "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"),
-                        social("images/pb-yt.png", "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ", "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"),
-                        social("images/pb-tt.png", "https://www.tiktok.com/@petbarnau", "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48")
+                        social("images/pb-fb.png", "https://www.facebook.com/petbarn"),
+                        social("images/pb-in.png", "https://www.instagram.com/petbarn/#"),
+                        social("images/pb-yt.png", "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ"),
+                        social("images/pb-tt.png", "https://www.tiktok.com/@petbarnau")
                     ])
                 ]),
                 col({})

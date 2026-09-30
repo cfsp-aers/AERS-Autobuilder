@@ -25,8 +25,8 @@ the **library**, which supplies the content it operates on.
 
 ### Library
 
-The module templates, HTML templates, colour libraries, brand data and
-palettes the engine reads. Currently the beta's `lib/`. Welded to the engine —
+The module templates, HTML templates, colour libraries, brand data, palettes
+and image assets the engine reads. Currently the beta's `lib/`. Welded to the engine —
 library files import engine utilities — so the two are published and versioned as
 one unit, never separately.
 
@@ -164,6 +164,47 @@ values, a derivation is a *consequence* of them.
 A named bundle of property values a component type offers as shorthand — `h1`–`h8` on
 headings, `outline` and `underline` on buttons. Sets **derived properties**; loses to
 any layer that names the same property explicitly.
+
+### Asset library
+
+The image files the builder supplies itself, at `lib/libraries/assets/`. Part of
+the **library**, and published with it. It holds the transition wobbles — one PNG
+per background colour — alongside the brand logos, social icons, Shop Your Way
+tiles and placeholders that appear in a module regardless of the campaign.
+
+Distinguished from the campaign's `images/` folder, which holds artwork the
+builder neither supplies nor touches, and from the **assets folder**, which is
+where copies of these land.
+
+### Assets folder
+
+`assets/`, beside the built `.html` and the campaign's `images/`. Created by
+every build, and filled with the **asset library** files that build's email
+actually references — so a `src` reading `assets/x.png` is one the builder
+supplied, and a `src` reading `images/x.png` is the campaign's own.
+
+Note: a designer's own working folder is often called *Design Assets*, and is
+where the **brief** usually sits. It is unrelated to either of the two above,
+and nothing reads it.
+
+### AEM id
+
+An asset's identity in Adobe Experience Manager, rendered on an `<img>` as
+`data-medialibrary-id`. It is what makes the image an AEM asset rather than a
+file at a path, and is independent of the `src` — a build supplies both.
+
+`asset_ids` in `lib/libraries/modules.json` is the one table mapping a filename
+to its id, keyed the same way the **asset library** is: by the name a `src` ends
+in. `utils/assets.js` reads it at both moments an id is wanted — filling
+`content.aem_id` for an image, and answering `transitionId()` for a wobble,
+whose filename it derives from the colour.
+
+Note: until 30/09/2026 there were three shapes of this. Seventeen ids were typed
+into the five module definitions that draw a preset image, `transition_ids` held
+the same kind of id for wobbles but keyed by background colour, and
+`image-component.njk` carried two more inline. The first two are now rows of
+`asset_ids`; the template still answers for an image the table has no row for,
+which is campaign artwork and most of them.
 
 ### Spacing hole
 

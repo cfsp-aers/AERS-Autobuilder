@@ -166,6 +166,117 @@
     outer and inner, and nine nodes tightened by 16px when `margin` started
     resolving. Still worth a decision on its own.
 
+**Assets**
+
+- ~~The asset library is wired up.~~ **Done, 30/09/2026.** `lib/libraries/assets/`
+  held the transition wobbles and nothing copied them anywhere, so a campaign
+  either had the right PNG dragged into its `images/` folder by hand or shipped
+  with a hole in it. A build now creates `assets/` beside the .html and copies
+  in every library file that build's email actually references, pointing those
+  srcs at `assets/` instead. `utils/assets.js`; glossary entries in CONTEXT.md.
+  - Transitions are named in the data now, not in `transition-component.njk`.
+    The wobble was the one image in the email whose filename did not exist until
+    rendering, so it could not be looked up; `structureEDM` calls
+    `nameTransitions()` on the tree it returns and the template reads
+    `element.transition_src`. Byte-neutral: all nine golden cases render
+    identically apart from the one real change below.
+  - Only nodes with a `block` are named, which is main.njk's own condition for
+    drawing a wobble. A module node carries a `transition` as well and never
+    draws it — naming those copied a file the email did not ask for, which was
+    caught by `demo-greencross` copying an asset its .html never references.
+- ~~The library covers almost none of the colours in use.~~ **Filled in,
+  30/09/2026**, and the baselines re-accepted against it. 68 files: 44 wobbles,
+  plus the brand logos, social icons, Shop Your Way delivery tiles and the
+  placeholders -- which reaches the images a module definition declares inline,
+  not just transitions. Across the nine golden cases 117 of the 139 srcs now
+  come from `assets/`; the 22 left on `images/` are campaign artwork, which is
+  the split this is meant to produce. Every file copied is referenced by the
+  email that copied it, in all nine cases.
+  - ~~Two wobbles are still missing: `001839` and `008C59`.~~ **Resolved
+    30/09/2026** by the colour library edit finishing -- neither value appears
+    in `colour library.json` any more, so neither wobble is wanted. Coverage is
+    now complete in both directions: no golden case logs `NOT IN LIBRARY`, and
+    no baseline has a `src="images/wobble-..."` left, so every transition the
+    nine cases draw comes from `assets/`.
+  - `image-component.njk` still carries
+    `{{ element.content.src or "images/banner_placeholder.png" }}`, which is the
+    one src in the system that bypasses the copy pass -- it is invented at
+    render time, after the walk. The library now holds
+    `banner_placeholder.png`, so if that fallback ever fires it points at an
+    `images/` file nothing copied. It fires in none of the nine cases, so this
+    is latent rather than broken; the fix is the same as for the other
+    template defaults, which is to give it a home in `image.js`. Doing that
+    would also pick up an AEM id for free, once `banner_placeholder.png` has a
+    row -- see below.
+- ~~AEM ids are hardcoded in the module definitions.~~ **Done, 30/09/2026.**
+  `asset_ids` in `lib/libraries/modules.json` is now the one table mapping a
+  filename to its `data-medialibrary-id`, keyed the way the asset library is
+  keyed -- by the name a `src` ends in. 53 rows. `utils/assets.js` reads it at
+  both moments an id is wanted, in the same walk that copies the files, because
+  it is the same lookup on the same key.
+  - It replaced three shapes of the same fact. Seventeen urns were typed into
+    the five module definitions that draw a preset image, which meant a designer
+    adding an asset had to find the right definition and edit JavaScript.
+    `transition_ids` held the same kind of id for wobbles, but keyed by
+    background colour, so the one image the app supplies most often was the one
+    looked up differently from all the rest. `transitionId()` is now the
+    colour-keyed door into the filename-keyed table and there is no second
+    table.
+  - Proven byte-neutral, which was the point of doing it in two steps. Adding
+    the table and re-keying `transition_ids` changed nothing at all (9/9 golden
+    `match`). Then deleting the seventeen hardcoded urns left every `email.html`
+    byte-identical in all nine cases -- so the table reproduces all seventeen
+    exactly -- with the only diffs being `aem_id`'s key position in
+    `email_json.json` (identical parsed content, the suite's `formatting`
+    verdict) and its removal from the five layout snapshots, which is correct:
+    an id is no longer a property of a definition.
+  - `logo_GreencrossVets_HalfColour.png`'s urn was recovered from git history
+    rather than lost. The Greencross footer logo was swapped for
+    `GreencrossVets_FooterLogo.png` while this was being written, which would
+    have taken the retired file's id with it -- the file is still in the asset
+    library, so the row is worth keeping. A sweep of all 674 commits found no
+    other filename that has ever carried an urn and does not have a row now.
+  - **15 of the 68 library files still have no row**, so they render the generic
+    urn from `image-component.njk`. Nine are the newest wobbles (`002E5B`,
+    `2E2E2E`, `574545`, `967B4F`, `B3A180`, `C9A562`, `CABAA3`, `EBAB26`,
+    `F6F3F0`) and six are named assets (`GXV-WhiteGreenLogo-Horizontal.png`,
+    `ImageBanner_Placeholder.png`, `SPECIALS.png`, `lockup_RepeatDelivery.png`,
+    and the two placeholders). Every build's log lists the ones that build
+    actually used under `NO AEM ID`, so this stays visible without a test.
+  - **`banner_placeholder.png` is the one row that can be filled from the
+    repository**, and deliberately was not. `image-component.njk` carries
+    `urn:aaid:aem:9a3ebc1b-...` behind `{%-if element.content ==
+    "banner_placeholder"-%}`, a condition that compares an object to a string
+    and so never fires -- which is why the twelve placeholder images in the
+    recorded output render the generic urn instead. Adding the row would give
+    them the real one. Left out because, unlike the seventeen, that urn has
+    never appeared in rendered output, so nothing here confirms it still names
+    that asset in AEM; a wrong `data-medialibrary-id` is worse than a generic
+    one. One line to add once someone checks AEM, and the dead template branch
+    can go with it.
+
+- **`asset_location` is not built.** The other half of the original request: a
+  per-campaign folder, named on a brief row, searched before the library so a
+  designer can point one module or one email at their own art. The source list
+  in `resolveAssets()` is where a second source slots in. Two things to decide
+  first, both found while reading for it:
+  - It wants a brief *column*, not a Settings key. `setup.js` `correctSpelling()`
+    lowercases the whole settings cell, so `- Design Assets` arrives as
+    `- design assets` — which macOS's case-insensitive default hides and a
+    case-sensitive volume does not. `parseToObject` also splits on `,` and `;`
+    and reads `:` as the key separator, so paths containing any of those break.
+  - Inheritance should follow `brand` (`main.js:145-162`): a component takes its
+    module's value where unset, a module takes the first module's. That gives
+    "set it once on the header row, override per module" without a new
+    mechanism, and deliberately stays outside ADR 0005's layers, which are for
+    values rules compete over.
+- Images declared inside a module definition carry a literal
+  `src: "images/logo_GreencrossVets_HalfColour.png"` and never pass through
+  `formatRichText`. They are covered by the copy pass, since it walks the
+  finished tree rather than the brief — but they would not be covered by
+  anything that read the brief instead. Worth remembering if `asset_location`
+  ever tempts a brief-side implementation.
+
 **Review and simplify styling rules**
 
 - Refactor styling rules to ensure precedence order is kept at all times.

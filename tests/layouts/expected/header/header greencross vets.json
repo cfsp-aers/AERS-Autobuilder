@@ -27,7 +27,6 @@
                         "border_radius": "0px",
                         "align": "left",
                         "content": {
-                          "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
@@ -116,6 +115,9 @@
                         "brand": "greencross vets",
                         "background": "#001939",
                         "border_bottom": "#FFFFFF",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -136,9 +138,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -156,7 +155,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#C13C27",
+                        "border_bottom": "#EF6039",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -177,9 +179,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -197,7 +196,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#00A651",
+                        "border_bottom": "#018555",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -218,9 +220,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -262,7 +261,6 @@
                         "border_radius": "0px",
                         "align": "left",
                         "content": {
-                          "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
@@ -351,6 +349,9 @@
                         "brand": "greencross vets",
                         "background": "#001939",
                         "border_bottom": "#FFFFFF",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -371,9 +372,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -391,7 +389,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#C13C27",
+                        "border_bottom": "#EF6039",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -412,9 +413,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -432,7 +430,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#00A651",
+                        "border_bottom": "#018555",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -453,9 +454,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -497,7 +495,6 @@
                         "border_radius": "0px",
                         "align": "left",
                         "content": {
-                          "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
@@ -586,6 +583,9 @@
                         "brand": "greencross vets",
                         "background": "#001939",
                         "border_bottom": "#FFFFFF",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -606,9 +606,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -626,7 +623,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#C13C27",
+                        "border_bottom": "#EF6039",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -647,9 +647,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -667,7 +664,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#00A651",
+                        "border_bottom": "#018555",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -688,9 +688,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -732,7 +729,6 @@
                         "border_radius": "0px",
                         "align": "left",
                         "content": {
-                          "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
@@ -827,7 +823,6 @@
                         "border_radius": "0px",
                         "align": "left",
                         "content": {
-                          "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
@@ -916,6 +911,9 @@
                         "brand": "greencross vets",
                         "background": "#001939",
                         "border_bottom": "#FFFFFF",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -936,9 +934,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -956,7 +951,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#C13C27",
+                        "border_bottom": "#EF6039",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -977,9 +975,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }
@@ -997,7 +992,10 @@
                         "mode": "underline",
                         "brand": "greencross vets",
                         "background": "#001939",
-                        "border_bottom": "#00A651",
+                        "border_bottom": "#018555",
+                        "border_top": "none",
+                        "border_right": "none",
+                        "border_left": "none",
                         "border_radius": "0px",
                         "inner_padding": "0px 4px 4px",
                         "padding": "4px 0px",
@@ -1018,9 +1016,6 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false,
                         "height": "auto",
                         "width": "auto"
                       }

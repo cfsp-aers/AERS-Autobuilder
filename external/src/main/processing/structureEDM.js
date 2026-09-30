@@ -9,7 +9,7 @@ const { app_dir, user_files } = require("../constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
-const id_lib = load(user_files, "libraries/modules.json");
+const { nameTransitions, transitionId } = load(app_dir, "main/utils/assets.js");
 
 function structureEDM(arr, children = {}) {
     arr = arr.reduce((acc, o) => {
@@ -37,8 +37,7 @@ function structureEDM(arr, children = {}) {
         });
 
         m.transition = prev.background != m.background ? _.trimStart(prev.background, "#") : false;
-
-        m.transition_id = id_lib.transition_ids?.[prev.background];
+        m.transition_id = transitionId(prev.background);
         m.children = [internal_layout(m, c_pos)];
 
         if (m.depth == 2) {
@@ -154,7 +153,7 @@ function structureEDM(arr, children = {}) {
             background: child.background,
             padding: child.block_padding,
             transition: _.trimStart(_.last(acc)?.background, "#"),
-            transition_id: id_lib.transition_ids?.[_.last(acc)?.background],
+            transition_id: transitionId(_.last(acc)?.background),
             placeholder_component: child.dynamic_content?.split("/")[1] == "x" ? true : false,
             children: [item]
         };
@@ -246,7 +245,13 @@ function structureEDM(arr, children = {}) {
         return acc;
     }, []);
 
-    return result;
+    /*
+        Last, once every node that draws a wobble exists. A transition is
+        decided in two places here and forwarded into their own layouts by five
+        module definitions, so the src is given to all of them in one sweep
+        rather than beside each decision. See utils/assets.js.
+    */
+    return nameTransitions(result);
 }
 function start_new_module_column(child, prev) {
     return true;

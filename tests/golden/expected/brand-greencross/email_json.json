@@ -14,8 +14,8 @@
     "transition": false,
     "palette": "primary",
     "resolved_palette": "primary",
-    "colour": "#00A651",
-    "background": "#00A651",
+    "colour": "#018555",
+    "background": "#018555",
     "vertical_align": "top",
     "padding": "0px 0px 0px 0px",
     "container_padding": "0px 0px 0px 0px",
@@ -27,11 +27,11 @@
     "group_size": 1,
     "hide_transition": true,
     "group_padding": "0px 0px 0px 0px",
-    "transition_id": "urn:aaid:aem:14645a62-df6a-4e43-bbf9-53024de59c65",
+    "transition_id": "urn:aaid:aem:7d34be99-ee4e-4cd6-a502-a33ff018e2fa",
     "children": [
       {
         "block": "gridContainer",
-        "background": "#00A651",
+        "background": "#018555",
         "children": [
           {
             "block": "gridRow",
@@ -57,9 +57,9 @@
                             "border_radius": "0px",
                             "align": "left",
                             "content": {
-                              "aem_id": "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
-                              "src": "images/GreencrossVets_HeaderLogo.png",
-                              "href": "https://www.greencrossvets.com.au"
+                              "src": "assets/GreencrossVets_HeaderLogo.png",
+                              "href": "https://www.greencrossvets.com.au",
+                              "aem_id": "urn:aaid:aem:b096f40c-bd84-42a5-af9f-cb8247ec4bb7"
                             },
                             "background": "transparent",
                             "vertical_align": "middle",
@@ -146,6 +146,9 @@
                             "brand": "greencross vets",
                             "background": "#001939",
                             "border_bottom": "#FFFFFF",
+                            "border_top": "none",
+                            "border_right": "none",
+                            "border_left": "none",
                             "border_radius": "0px",
                             "inner_padding": "0px 4px 4px",
                             "padding": "4px 0px",
@@ -166,9 +169,6 @@
                             "text_align": "center",
                             "font": "Outfit",
                             "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false,
                             "height": "auto",
                             "width": "auto"
                           }
@@ -186,7 +186,10 @@
                             "mode": "underline",
                             "brand": "greencross vets",
                             "background": "#001939",
-                            "border_bottom": "#C13C27",
+                            "border_bottom": "#EF6039",
+                            "border_top": "none",
+                            "border_right": "none",
+                            "border_left": "none",
                             "border_radius": "0px",
                             "inner_padding": "0px 4px 4px",
                             "padding": "4px 0px",
@@ -207,9 +210,6 @@
                             "text_align": "center",
                             "font": "Outfit",
                             "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false,
                             "height": "auto",
                             "width": "auto"
                           }
@@ -227,7 +227,10 @@
                             "mode": "underline",
                             "brand": "greencross vets",
                             "background": "#001939",
-                            "border_bottom": "#00A651",
+                            "border_bottom": "#018555",
+                            "border_top": "none",
+                            "border_right": "none",
+                            "border_left": "none",
                             "border_radius": "0px",
                             "inner_padding": "0px 4px 4px",
                             "padding": "4px 0px",
@@ -248,9 +251,6 @@
                             "text_align": "center",
                             "font": "Outfit",
                             "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false,
                             "height": "auto",
                             "width": "auto"
                           }
@@ -278,10 +278,10 @@
         "block": "gridContainer",
         "uuid": "M0002",
         "nav_label": "block",
-        "background": "#00A651",
+        "background": "#018555",
         "padding": "0px 0px 0px 0px",
         "transition": false,
-        "transition_id": "urn:aaid:aem:14645a62-df6a-4e43-bbf9-53024de59c65",
+        "transition_id": "urn:aaid:aem:7d34be99-ee4e-4cd6-a502-a33ff018e2fa",
         "placeholder_component": false,
         "children": [
           {
@@ -325,14 +325,14 @@
                             "transition": false,
                             "palette": "primary",
                             "resolved_palette": "primary",
-                            "colour": "#00A651",
-                            "background": "#00A651",
+                            "colour": "#018555",
+                            "background": "#018555",
                             "vertical_align": "top",
                             "padding": "16px 0px 0px 0px",
                             "container_padding": "0px 0px 0px 0px",
                             "block_padding": "0px 0px 0px 0px",
                             "group_size": 1,
-                            "transition_id": "urn:aaid:aem:14645a62-df6a-4e43-bbf9-53024de59c65",
+                            "transition_id": "urn:aaid:aem:7d34be99-ee4e-4cd6-a502-a33ff018e2fa",
                             "children": [
                               {
                                 "block": "gridContainer",
@@ -420,8 +420,8 @@
         "nav_label": "block",
         "background": "#FFFFFF",
         "padding": "16px 0px 0px 0px",
-        "transition": "00A651",
-        "transition_id": "urn:aaid:aem:14645a62-df6a-4e43-bbf9-53024de59c65",
+        "transition": "018555",
+        "transition_id": "urn:aaid:aem:7d34be99-ee4e-4cd6-a502-a33ff018e2fa",
         "placeholder_component": false,
         "children": [
           {
@@ -462,7 +462,7 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
-                            "transition": "00A651",
+                            "transition": "018555",
                             "palette": "light",
                             "resolved_palette": "light",
                             "colour": "#FFFFFF",
@@ -472,7 +472,7 @@
                             "container_padding": "16px 16px 16px 16px",
                             "block_padding": "16px 0px 0px 0px",
                             "group_size": 1,
-                            "transition_id": "urn:aaid:aem:14645a62-df6a-4e43-bbf9-53024de59c65",
+                            "transition_id": "urn:aaid:aem:7d34be99-ee4e-4cd6-a502-a33ff018e2fa",
                             "children": [
                               {
                                 "block": "gridContainer",
@@ -495,7 +495,7 @@
                                         "mode": "h2",
                                         "transition": false,
                                         "resolved_palette": "light",
-                                        "colour": "#001939",
+                                        "colour": "#011532",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
@@ -523,7 +523,7 @@
                                         "mode": "h4",
                                         "transition": false,
                                         "resolved_palette": "light",
-                                        "colour": "#001939",
+                                        "colour": "#011532",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
@@ -550,7 +550,7 @@
                                         "max_siblings": 1,
                                         "transition": false,
                                         "resolved_palette": "light",
-                                        "colour": "#001939",
+                                        "colour": "#011532",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 16px 0px",
                                         "margin": "0px 0px 0px 0px",
@@ -588,7 +588,7 @@
                                                 "palette": "primary",
                                                 "resolved_palette": "navy/white",
                                                 "colour": "#FFFFFF",
-                                                "background": "#001939",
+                                                "background": "#011532",
                                                 "vertical_align": "middle",
                                                 "padding": "12px 16px 12px 16px",
                                                 "margin": "0px 0px 0px 0px",
@@ -626,7 +626,7 @@
                                         "max_siblings": 1,
                                         "transition": false,
                                         "resolved_palette": "light",
-                                        "colour": "#001939",
+                                        "colour": "#011532",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
@@ -655,7 +655,8 @@
               }
             ]
           }
-        ]
+        ],
+        "transition_src": "assets/wobble-bottom-018555.png"
       },
       {
         "name": "block container",
@@ -753,7 +754,7 @@
                                             "mode": "h7",
                                             "transition": false,
                                             "resolved_palette": "light",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -780,7 +781,7 @@
                                             "max_siblings": 1,
                                             "transition": false,
                                             "resolved_palette": "light",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -818,7 +819,7 @@
                                                     "palette": "primary",
                                                     "resolved_palette": "navy/white",
                                                     "colour": "#FFFFFF",
-                                                    "background": "#001939",
+                                                    "background": "#011532",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 4px 0px",
                                                     "margin": "0px 0px 0px 0px",
@@ -861,7 +862,8 @@
               }
             ]
           }
-        ]
+        ],
+        "transition_src": "assets/wobble-bottom-FFFFFF.png"
       },
       {
         "name": "block container",
@@ -1027,7 +1029,7 @@
                                             "mode": "h7",
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1055,7 +1057,7 @@
                                             "max_siblings": 1,
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1094,7 +1096,7 @@
                                                     "palette": "primary",
                                                     "resolved_palette": "primary",
                                                     "colour": "White",
-                                                    "background": "#001939",
+                                                    "background": "#011532",
                                                     "vertical_align": "middle",
                                                     "padding": "12px 0px 0px 0px",
                                                     "margin": "0px 0px 0px 0px",
@@ -1282,7 +1284,7 @@
                                             "mode": "h7",
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1310,7 +1312,7 @@
                                             "max_siblings": 1,
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1349,7 +1351,7 @@
                                                     "palette": "primary",
                                                     "resolved_palette": "primary",
                                                     "colour": "White",
-                                                    "background": "#001939",
+                                                    "background": "#011532",
                                                     "vertical_align": "middle",
                                                     "padding": "12px 0px 0px 0px",
                                                     "margin": "0px 0px 0px 0px",
@@ -1545,7 +1547,7 @@
                                             "mode": "h7",
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1573,7 +1575,7 @@
                                             "max_siblings": 1,
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1612,7 +1614,7 @@
                                                     "palette": "primary",
                                                     "resolved_palette": "primary",
                                                     "colour": "White",
-                                                    "background": "#001939",
+                                                    "background": "#011532",
                                                     "vertical_align": "middle",
                                                     "padding": "12px 0px 0px 0px",
                                                     "margin": "0px 0px 0px 0px",
@@ -1800,7 +1802,7 @@
                                             "mode": "h7",
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1828,7 +1830,7 @@
                                             "max_siblings": 1,
                                             "transition": false,
                                             "resolved_palette": "promo",
-                                            "colour": "#001939",
+                                            "colour": "#011532",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
@@ -1867,7 +1869,7 @@
                                                     "palette": "primary",
                                                     "resolved_palette": "primary",
                                                     "colour": "White",
-                                                    "background": "#001939",
+                                                    "background": "#011532",
                                                     "vertical_align": "middle",
                                                     "padding": "12px 0px 0px 0px",
                                                     "margin": "0px 0px 0px 0px",
@@ -1929,8 +1931,8 @@
     "transition": "F3F3F3",
     "palette": "dark",
     "resolved_palette": "dark",
-    "colour": "#001939",
-    "background": "#001939",
+    "colour": "#011532",
+    "background": "#011532",
     "vertical_align": "top",
     "padding": "0px 0px 0px 0px",
     "container_padding": "0px 0px 0px 0px",
@@ -1966,9 +1968,9 @@
                             "width": "180px",
                             "border_radius": "0px",
                             "content": {
-                              "aem_id": "urn:aaid:aem:b3c3b85a-967c-4906-a798-aae821debaac",
-                              "src": "images/logo_GreencrossVets_HalfColour.png",
-                              "href": "https://www.greencrossvets.com.au"
+                              "src": "assets/GreencrossVets_FooterLogo.png",
+                              "href": "https://www.greencrossvets.com.au",
+                              "aem_id": "urn:aaid:aem:f66c46f2-ac6f-4bc0-b509-87e5b9e9d2bc"
                             },
                             "background": "transparent",
                             "vertical_align": "middle",
@@ -2252,7 +2254,7 @@
                                     "template": "component/image.js",
                                     "width": "32px",
                                     "content": {
-                                      "src": "images/gxv-fb.png",
+                                      "src": "assets/gxv-fb.png",
                                       "href": "https://www.facebook.com/GreencrossVets/",
                                       "aem_id": "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"
                                     },
@@ -2276,7 +2278,7 @@
                                     "template": "component/image.js",
                                     "width": "32px",
                                     "content": {
-                                      "src": "images/gxv-in.png",
+                                      "src": "assets/gxv-in.png",
                                       "href": "https://www.instagram.com/greencrossvets/",
                                       "aem_id": "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"
                                     },
@@ -2300,7 +2302,7 @@
                                     "template": "component/image.js",
                                     "width": "32px",
                                     "content": {
-                                      "src": "images/gxv-yt.png",
+                                      "src": "assets/gxv-yt.png",
                                       "href": "https://www.youtube.com/user/Greenxvets",
                                       "aem_id": "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0"
                                     },
@@ -2328,7 +2330,8 @@
           }
         ],
         "width": "100%",
-        "bc_row_index": 0
+        "bc_row_index": 0,
+        "transition_src": "assets/wobble-bottom-F3F3F3.png"
       }
     ]
   }

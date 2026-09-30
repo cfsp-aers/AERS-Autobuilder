@@ -53,7 +53,7 @@ const footer_button = (text, href) =>
         })
     ]);
 
-const social = (src, href, aem_id) => col({ padding: "8px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href, aem_id: aem_id } })]);
+const social = (src, href) => col({ padding: "8px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href } })]);
 
 const legal = (options) => component(Object.assign({ colour: "white", font_size: "12px", line_height: "14px" }, options));
 
@@ -71,8 +71,7 @@ const marketing = (current, content) => [
                         width: "180px",
                         border_radius: "0px",
                         content: {
-                            aem_id: "urn:aaid:aem:b3c3b85a-967c-4906-a798-aae821debaac",
-                            src: "images/logo_GreencrossVets_HalfColour.png",
+                            src: "images/GreencrossVets_FooterLogo.png",
                             href: "https://www.greencrossvets.com.au"
                         }
                     })
@@ -103,9 +102,9 @@ const marketing = (current, content) => [
                 col({}),
                 col({}, [
                     columns({}, [
-                        social("images/gxv-fb.png", "https://www.facebook.com/GreencrossVets/", "urn:aaid:aem:042f6065-6098-4967-89ee-670c3b8bd540"),
-                        social("images/gxv-in.png", "https://www.instagram.com/greencrossvets/", "urn:aaid:aem:fd8c01bf-5189-4bac-938f-519889eec1fd"),
-                        social("images/gxv-yt.png", "https://www.youtube.com/user/Greenxvets", "urn:aaid:aem:c9f3614c-7e5b-4969-b219-32797bf75ac0")
+                        social("images/gxv-fb.png", "https://www.facebook.com/GreencrossVets/"),
+                        social("images/gxv-in.png", "https://www.instagram.com/greencrossvets/"),
+                        social("images/gxv-yt.png", "https://www.youtube.com/user/Greenxvets")
                     ])
                 ]),
                 col({})

@@ -71,6 +71,9 @@ const nav_button = (text, href, underline) =>
         brand: "greencross vets",
         background: "#001939",
         border_bottom: underline,
+        border_top: "none",
+        border_right: "none",
+        border_left: "none",
         border_radius: "0px",
         inner_padding: "0px 4px 4px",
         padding: "4px 0px",
@@ -88,8 +91,8 @@ const nav = () =>
         col({}, [
             columns({ background: "#001939", padding: "4px 0px" }, [
                 col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("WebVet 24/7", "https://www.greencrossvets.com.au/webvet/", "#FFFFFF")]),
-                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("Emergency Care", "https://www.emergencyvet.com.au/", "#C13C27")]),
-                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("Healthy Pets Plus", "https://www.greencrossvets.com.au/healthy-pets-plus/", "#00A651")])
+                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("Emergency Care", "https://www.emergencyvet.com.au/", "#EF6039")]),
+                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("Healthy Pets Plus", "https://www.greencrossvets.com.au/healthy-pets-plus/", "#018555")])
             ])
         ])
     ]);
@@ -105,7 +108,6 @@ const internal_layout = (current, content) =>
                             border_radius: "0px",
                             align: "left",
                             content: {
-                                aem_id: "urn:aaid:aem:e50ef17f-8070-44a3-b8fe-ad48cd8e2779",
                                 src: "images/GreencrossVets_HeaderLogo.png",
                                 href: "https://www.greencrossvets.com.au"
                             }

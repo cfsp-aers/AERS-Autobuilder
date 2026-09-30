@@ -103,5 +103,33 @@
       "primary": "blue/white",
       "secondary": "yellow/black"
     }
+  },
+  "nosh yellow": {
+    "background": "nosh yellow",
+    "primary": "nosh green",
+    "secondary": "white",
+    "text": {
+      "primary": "nosh green",
+      "secondary": "white",
+      "body": "nosh green"
+    },
+    "button": {
+      "primary": "nosh green/black",
+      "secondary": "white/nosh green"
+    }
+  },
+  "nosh green": {
+    "background": "nosh green",
+    "primary": "white",
+    "secondary": "white",
+    "text": {
+      "primary": "white",
+      "secondary": "white",
+      "body": "white"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "white/black"
+    }
   }
 }

@@ -47,6 +47,7 @@ function buildEmails(config) {
 
     // UTILITIES
     const { renderEmail } = load(app_dir, "main/utils/renderEmail.js");
+    const { resolveAssets } = load(app_dir, "main/utils/assets.js");
 
     // CREATE DATA DIRECTORY
     const edm_data_location = path.resolve(path.join(aersFilesLocation, "email data"));
@@ -210,6 +211,14 @@ function buildEmails(config) {
         result.new_data[brief] = db.ms;
 
         const module_array = structureEDM(db.ms, db.cs);
+
+        /*
+            Before the stores are written, because it rewrites the src and fills
+            in the AEM id of every image the library can supply -- so
+            email_json.json records what the .html actually renders rather than
+            what it asked for first.
+        */
+        resolveAssets(module_array, outputLocation);
 
         // Replace colour values with those from colour_library
 

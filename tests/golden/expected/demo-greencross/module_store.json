@@ -25,8 +25,8 @@
     "hide_transition": true,
     "group_padding": "0px 0px 0px 0px",
     "resolved_palette": "primary",
-    "background": "#00A651",
-    "colour": "#00A651"
+    "background": "#018555",
+    "colour": "#018555"
   },
   {
     "uuid": "M0002",
@@ -98,8 +98,8 @@
     },
     "group_size": 1,
     "resolved_palette": "light green",
-    "background": "#E6EEEA",
-    "colour": "#E6EEEA"
+    "background": "#99D1BD",
+    "colour": "#99D1BD"
   },
   {
     "uuid": "M0005",
@@ -124,8 +124,8 @@
     },
     "group_size": 1,
     "resolved_palette": "navy",
-    "background": "#001939",
-    "colour": "#001939"
+    "background": "#011532",
+    "colour": "#011532"
   },
   {
     "uuid": "M0006",
@@ -141,7 +141,7 @@
     "row_index": 1,
     "transition": false,
     "palette": "navy",
-    "colour": "#001939",
+    "colour": "#011532",
     "background": "#FFFFFF",
     "vertical_align": "top",
     "padding": "8px 16px 8px 16px",
@@ -177,8 +177,8 @@
     },
     "group_size": 1,
     "resolved_palette": "navy",
-    "background": "#001939",
-    "colour": "#001939"
+    "background": "#011532",
+    "colour": "#011532"
   },
   {
     "uuid": "M0008",
@@ -202,7 +202,7 @@
     "group_size": 1,
     "group_padding": "0px 0px 0px 0px",
     "resolved_palette": "dark",
-    "background": "#001939",
-    "colour": "#001939"
+    "background": "#011532",
+    "colour": "#011532"
   }
 ]

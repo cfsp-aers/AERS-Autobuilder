@@ -38,7 +38,7 @@
       "max_siblings": 1,
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 16px 0px",
       "margin": "0px 0px 0px 0px",
@@ -65,7 +65,7 @@
       "mode": "h4",
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 4px 0px",
       "margin": "0px 0px 0px 0px",
@@ -92,7 +92,7 @@
       "max_siblings": 1,
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 16px 0px",
       "margin": "0px 0px 0px 0px",
@@ -119,7 +119,7 @@
       "mode": "h4",
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 4px 0px",
       "margin": "0px 0px 0px 0px",
@@ -146,7 +146,7 @@
       "max_siblings": 1,
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 16px 0px",
       "margin": "0px 0px 0px 0px",
@@ -173,7 +173,7 @@
       "mode": "h4",
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 4px 0px",
       "margin": "0px 0px 0px 0px",
@@ -200,7 +200,7 @@
       "max_siblings": 1,
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 16px 0px",
       "margin": "0px 0px 0px 0px",
@@ -210,7 +210,7 @@
       "text_align": "center",
       "font": "Outfit",
       "border_radius": "0px",
-      "content": "Help your senior cat thrive with a Wellness Package that includes a <span style=\"font-weight:bold;color:#001939;font-size:16px;line-height:18px;\">wellness blood screen</span> and is tailored to senior cats.  It includes:\n\n**<span style=\"font-weight:normal;color:#00A651;font-size:16px;line-height:18px;\">✔</span> Nurse Assessment**\n<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">✔ </span><span style=\"font-weight:bold;color:#001939;font-size:16px;line-height:18px;\">Veterinary Consultation</span>\n<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">✔ </span> <span style=\"font-weight:bold;color:#001939;font-size:16px;line-height:18px;\">Wellness Blood Screen Test</span>",
+      "content": "Help your senior cat thrive with a Wellness Package that includes a <span style=\"font-weight:bold;color:#011532;font-size:16px;line-height:18px;\">wellness blood screen</span> and is tailored to senior cats.  It includes:\n\n**<span style=\"font-weight:normal;color:#018555;font-size:16px;line-height:18px;\">✔</span> Nurse Assessment**\n<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">✔ </span><span style=\"font-weight:bold;color:#011532;font-size:16px;line-height:18px;\">Veterinary Consultation</span>\n<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">✔ </span> <span style=\"font-weight:bold;color:#011532;font-size:16px;line-height:18px;\">Wellness Blood Screen Test</span>",
       "text_segments": [
         {
           "text": "[wellness blood screen]",
@@ -221,14 +221,14 @@
         {
           "text": "[✔]",
           "properties": {
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
           "text": "[✔ ]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
@@ -241,7 +241,7 @@
           "text": "[✔ ]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
@@ -266,7 +266,7 @@
       "mode": "h4",
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 4px 0px",
       "margin": "0px 0px 0px 0px",
@@ -277,7 +277,7 @@
       "font": "Outfit",
       "text_size_class": "heading-large",
       "border_radius": "0px",
-      "content": " Now $249 <span style=\"font-weight:normal;color:#001939;font-size:32px;line-height:36px;\">(save up to $100)</span><sup style=\"line-height: 0px !important;\">*</sup>",
+      "content": " Now $249 <span style=\"font-weight:normal;color:#011532;font-size:32px;line-height:36px;\">(save up to $100)</span><sup style=\"line-height: 0px !important;\">*</sup>",
       "text_segments": [
         {
           "text": "[(save up to $100)]",
@@ -303,7 +303,7 @@
       "palette": "primary",
       "resolved_palette": "navy/white",
       "colour": "#FFFFFF",
-      "background": "#001939",
+      "background": "#011532",
       "vertical_align": "middle",
       "padding": "12px 16px 12px 16px",
       "margin": "0px 0px 0px 0px",
@@ -337,7 +337,7 @@
       "max_siblings": 1,
       "transition": false,
       "resolved_palette": "light",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 4px 0px",
       "margin": "0px 0px 0px 0px",
@@ -366,7 +366,7 @@
       "mode": "h2",
       "transition": false,
       "resolved_palette": "light green",
-      "colour": "#001939",
+      "colour": "#011532",
       "vertical_align": "middle",
       "padding": "0px 0px 4px 0px",
       "margin": "0px 0px 0px 0px",
@@ -420,7 +420,7 @@
       "palette": "primary",
       "resolved_palette": "navy/white",
       "colour": "#FFFFFF",
-      "background": "#001939",
+      "background": "#011532",
       "vertical_align": "middle",
       "padding": "12px 16px 12px 16px",
       "margin": "0px 0px 0px 0px",
@@ -458,7 +458,7 @@
       "palette": "primary",
       "resolved_palette": "navy/white",
       "colour": "#FFFFFF",
-      "background": "#001939",
+      "background": "#011532",
       "vertical_align": "middle",
       "padding": "12px 16px 12px 16px",
       "margin": "0px 0px 0px 0px",
@@ -581,42 +581,42 @@
       "text_align": "left",
       "font": "Outfit",
       "border_radius": "0px",
-      "content": "<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">+</span> Annual senior wellness screenings,\nsuch as T4 thyroid and blood tests\n<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">+</span> All standard Greencross Vet consults\n<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">+</span> Vaccinations as recommended by your vet\n<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">+</span> $200 off dental scale and polish\n<span style=\"font-weight:bold;color:#00A651;font-size:16px;line-height:18px;\">+</span> Emergency consultations at participating sites across the Animal Referral and Emergency Network ",
+      "content": "<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">+</span> Annual senior wellness screenings,\nsuch as T4 thyroid and blood tests\n<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">+</span> All standard Greencross Vet consults\n<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">+</span> Vaccinations as recommended by your vet\n<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">+</span> $200 off dental scale and polish\n<span style=\"font-weight:bold;color:#018555;font-size:16px;line-height:18px;\">+</span> Emergency consultations at participating sites across the Animal Referral and Emergency Network ",
       "align": "left",
       "text_segments": [
         {
           "text": "[+]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
           "text": "[+]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
           "text": "[+]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
           "text": "[+]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         },
         {
           "text": "[+]",
           "properties": {
             "font_weight": "bold",
-            "colour": "#00A651"
+            "colour": "#018555"
           }
         }
       ]
@@ -672,7 +672,7 @@
       "palette": "primary",
       "resolved_palette": "green/white",
       "colour": "#FFFFFF",
-      "background": "#00A651",
+      "background": "#018555",
       "vertical_align": "middle",
       "padding": "12px 16px 12px 16px",
       "margin": "0px 0px 0px 0px",

@@ -29,9 +29,9 @@ const default_properties = {
 
 const component_positions = { all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"] };
 
-const delivery_tile = (src, href, aem_id, caption) =>
+const delivery_tile = (src, href, caption) =>
     col({ padding: "4px" }, [
-        image({ width: "180px", content: { src: src, href: href, aem_id: aem_id } }),
+        image({ width: "180px", content: { src: src, href: href } }),
         component({ colour: "black", font_size: "14px", line_height: "16px", content: caption })
     ]);
 
@@ -50,16 +50,16 @@ const internal_layout = (current, content) =>
             }),
             container({}, [
                 tile_row([
-                    delivery_tile("images/SYW_2hrdelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "urn:aaid:aem:7eb1dacb-aa15-4f85-9729-9e31a0396bc1", "Free on orders over $149"),
-                    delivery_tile("images/SYW_nextdaydelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "urn:aaid:aem:422f4133-d29d-49b8-a0de-530b1eb100a9", "Free on orders $99 & over"),
+                    delivery_tile("images/SYW_2hrdelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders over $149"),
+                    delivery_tile("images/SYW_nextdaydelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders $99 & over"),
                 ]),
                 tile_row([
-                    delivery_tile("images/SYW_freestandarddelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0", "Free on orders over $49"),
-                    delivery_tile("images/SYW_clickcollect_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129", "Available within 30 mins")
+                    delivery_tile("images/SYW_freestandarddelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders over $49"),
+                    delivery_tile("images/SYW_clickcollect_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Available within 30 mins")
                 ]),
                 tile_row([
-                    delivery_tile("images/SYW_over220stores_wShadow_2x.png", "https://www.petbarn.com.au/store-finder", "urn:aaid:aem:6058991b-13b5-4caf-b67c-f98492bcd1f3", "Visit our friendly team."),
-                    delivery_tile("images/SYW_repeatdelivery_wShadow_2x.png", "https://www.petbarn.com.au/w/repeat-delivery", "urn:aaid:aem:2df6bdde-994a-4aa4-8980-005fcc4e44f6", "Save up to 25%")
+                    delivery_tile("images/SYW_over220stores_wShadow_2x.png", "https://www.petbarn.com.au/store-finder", "Visit our friendly team."),
+                    delivery_tile("images/SYW_repeatdelivery_wShadow_2x.png", "https://www.petbarn.com.au/w/repeat-delivery", "Save up to 25%")
                 ])
             ])
         ])

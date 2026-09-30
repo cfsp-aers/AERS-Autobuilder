@@ -223,7 +223,7 @@
       "align": "center",
       "max_width": "100%",
       "content": {
-        "src": "images/banner_placeholder.png"
+        "src": "assets/banner_placeholder.png"
       }
     }
   ],
@@ -248,7 +248,7 @@
       "align": "center",
       "max_width": "100%",
       "content": {
-        "src": "images/banner_placeholder.png"
+        "src": "assets/banner_placeholder.png"
       }
     }
   ],
@@ -273,7 +273,7 @@
       "align": "center",
       "max_width": "100%",
       "content": {
-        "src": "images/banner_placeholder.png"
+        "src": "assets/banner_placeholder.png"
       }
     }
   ],

@@ -21,12 +21,32 @@
     "green": "#8BC53F",
     "pink": "#F4896C",
     "red": "#F05842",
-    "sale red": "#DF1220"
+    "sale red": "#DF1220",
+    "nosh green": "#1D4935",
+    "nosh yellow" : "#FFBF3F",
+    "nosh red" : "#FF585D",
+    "nosh peach" : "#FFDCC2"
   },
   "greencross vets": {
-    "green": "#00A651",
-    "light green": "#E6EEEA",
-    "navy": "#001939"
+    "cream": "#F4F7EA",
+    "dark green": "#015D3B",
+    "green": "#018555",
+    "bright green": "#33A97E",
+    "pastel green": "#80CBB0",
+    "light green": "#99D1BD",
+    "navy": "#011532",
+    "dark blue": "#000B1B",
+    "blue": "#011532",
+    "bright blue": "#334E73",
+    "pastel blue": "#8091AA",
+    "light blue": "#99A6B9",
+    "emergency": "#EF6039",
+    "recovery": "#CEBA00",
+    "wellness": "#72BF01",
+    "prevention": "#8BCAC0",
+    "specialist care": "#A78FAB",
+    "treatment": "#036860",
+    "bereavement": "#C89688"
   },
   "animal referral & emergency network": {
     "blue": "#15397F",
