@@ -1,6 +1,4 @@
 const _ = require("lodash");
-const fs = require("fs");
-const path = require("node:path");
 const { load } = require("../../../src/main/utils/load.js");
 const { app_dir, user_files } = require("../../../src/main/constants.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
@@ -11,6 +9,7 @@ const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 const { setGroupingData } = load(app_dir, "main/systems/groupingSystem.js");
 const { moduleTargets, componentTargets } = load(app_dir, "main/systems/stylingSystem.js");
 const { makeUpdate, LAYERS, layersOf, carryLayers, beginRuleExecution, endRuleExecution } = load(app_dir, "main/processing/update.js");
+const { resolveTemplate } = load(app_dir, "main/properties/template.js");
 
 /*
     Apply every layer of ADR 0005 to every module, until nothing moves.
@@ -52,8 +51,7 @@ function onePass(db, func) {
     db.ms.forEach((m, i) => {
         m.user_settings ??= {};
 
-        let rules = load(user_files, `modules/default/default.js`);
-        if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) rules = load(user_files, `modules/${m.template}`);
+        let rules = load(user_files, `modules/${resolveTemplate(m)}`);
 
         const module_targets = moduleTargets(db, i);
 
@@ -63,8 +61,7 @@ function onePass(db, func) {
         const sf = { update: makeUpdate(components_of) };
 
         const components = (db.cs[m.uuid] || []).map((c, c_i) => {
-            let component_rules = load(user_files, `modules/component/default.js`);
-            if (fs.existsSync(path.resolve(path.join(user_files, `modules/${c.template}`)))) component_rules = load(user_files, `modules/${c.template}`);
+            const component_rules = load(user_files, `modules/${resolveTemplate(c)}`);
             return { c: c, targets: componentTargets(db, c_i, m), rules: component_rules, sf: { update: makeUpdate(components_of) } };
         });
 

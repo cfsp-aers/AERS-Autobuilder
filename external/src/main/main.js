@@ -44,6 +44,7 @@ function buildEmails(config) {
     // PROPERTIES
     const { setPalettes } = load(app_dir, "main/properties/palette.js");
     const { setBrand } = load(app_dir, "main/properties/brand.js");
+    const { reportTemplateFallbacks } = load(app_dir, "main/properties/template.js");
 
     // UTILITIES
     const { renderEmail } = load(app_dir, "main/utils/renderEmail.js");
@@ -161,6 +162,13 @@ function buildEmails(config) {
             m.brand = setBrand(m.brand, db.ms[0].brand);
             m.parent_brand = setBrand(m.brand, db.ms[0].brand, "parent");
         });
+
+        /*
+            Said here because this is where a brand becomes final and where one
+            sheet begins -- properties/template.js resolves the same fallback a
+            few thousand times a build and cannot tell the two apart.
+        */
+        reportTemplateFallbacks(db.ms);
 
         /*
             Three phases, in this order, because each one depends on the last

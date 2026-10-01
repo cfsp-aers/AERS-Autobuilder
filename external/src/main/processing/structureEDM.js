@@ -1,6 +1,4 @@
 const _ = require("lodash");
-const fs = require("fs");
-const path = require("node:path");
 
 const { load } = require("../utils/load.js");
 
@@ -10,6 +8,7 @@ const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 const { nameTransitions, transitionId } = load(app_dir, "main/utils/assets.js");
+const { resolveTemplate } = load(app_dir, "main/properties/template.js");
 
 function structureEDM(arr, children = {}) {
     arr = arr.reduce((acc, o) => {
@@ -23,12 +22,7 @@ function structureEDM(arr, children = {}) {
 
     let result = arr.map((m, i) => {
         const prev = arr[i - 1] ? arr[i - 1] : arr[i];
-        let rules_location = `modules/default/default.js`;
-        if (fs.existsSync(path.resolve(path.join(user_files, `modules/${m.template}`)))) {
-            rules_location = `modules/${m.template}`;
-        }
-
-        const { internal_layout, component_positions } = load(user_files, rules_location);
+        const { internal_layout, component_positions } = load(user_files, `modules/${resolveTemplate(m)}`);
 
         let c_pos = {};
         _.forIn(component_positions, (value, key) => {

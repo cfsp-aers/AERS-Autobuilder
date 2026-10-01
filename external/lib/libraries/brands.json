@@ -1,6 +1,6 @@
 {
   "Parent Brands": {
-    "greencross vets": ["greencross", "healthy pets plus", "animal referral & emergency network", "animal referral hospital"],
+    "greencross vets": ["greencross vets", "greencross", "healthy pets plus", "animal referral & emergency network", "animal referral hospital"],
     "petbarn": ["petbarn", "petbarn foundation", "leaps & bounds", "the nosh project", "probalance", "barkers best"]
   },
   "Brand Names": {

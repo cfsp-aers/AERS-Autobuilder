@@ -1,0 +1,1683 @@
+[
+  {
+    "uuid": "M0001",
+    "entity_type": "module",
+    "category": "header",
+    "type": "block",
+    "name": "header",
+    "brand": "the nosh project",
+    "parent_brand": "petbarn",
+    "template": "header/header petbarn.js",
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "yellow",
+    "resolved_palette": "yellow",
+    "colour": "#FFBF3F",
+    "background": "#FFBF3F",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "0px 0px 0px 0px",
+    "content": "Subject line: Nosh Project, no header of its own\nPreheader: The parent brand's header, on a sub-brand's email",
+    "subject_line": "Nosh Project, no header of its own",
+    "preheader": "The parent brand's header, on a sub-brand's email",
+    "fragment": true,
+    "group_size": 1,
+    "hide_transition": true,
+    "group_padding": "0px 0px 0px 0px",
+    "transition_id": "urn:aaid:aem:caca2bff-d4c1-4350-8708-de9186f98ab4",
+    "children": [
+      {
+        "block": "gridContainer",
+        "children": [
+          {
+            "block": "gridRow",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "16px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "template": "component/image.js",
+                    "width": "180px",
+                    "border_radius": "0px",
+                    "content": {
+                      "src": "assets/Petbarn_HeaderLogo_wBG.png",
+                      "href": "https://www.petbarn.com.au",
+                      "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d"
+                    },
+                    "background": "transparent",
+                    "vertical_align": "middle",
+                    "padding": "0px",
+                    "align": "center",
+                    "max_width": "100%"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block": "gridRow",
+            "children": [
+              {
+                "block": "gridCol",
+                "children": [
+                  {
+                    "block": "gridContainer",
+                    "innerLayout": "single_row",
+                    "background": "#000000",
+                    "padding": "4px 0px",
+                    "children": [
+                      {
+                        "block": "gridCol",
+                        "padding": "4px 0px",
+                        "children": [
+                          {
+                            "entity_type": "component",
+                            "template": "component/button.js",
+                            "category": "component",
+                            "type": "button",
+                            "name": "button",
+                            "brand": "petbarn",
+                            "parent_brand": "petbarn",
+                            "mode": "underline",
+                            "colour": "#FFFFFF",
+                            "background": "#000000",
+                            "vertical_align": "middle",
+                            "padding": "12px 16px 12px 16px",
+                            "margin": "0px 0px 0px 0px",
+                            "inner_padding": "4px 4px 4px 4px",
+                            "font_size": "16px",
+                            "line_height": "18px",
+                            "font_weight": "normal",
+                            "text_align": "center",
+                            "font": "Outfit",
+                            "border_radius": "0px",
+                            "border_bottom": "#FEC326",
+                            "height": "auto",
+                            "mso_height": "32px",
+                            "width": "auto",
+                            "force_mso_colour": true,
+                            "content": {
+                              "text": "Download the App!",
+                              "href": "https://www.petbarn.com.au/petbarn-app"
+                            },
+                            "palette": "primary",
+                            "align": "center",
+                            "font_style": "normal",
+                            "border_top": false,
+                            "border_right": false,
+                            "border_left": false
+                          }
+                        ]
+                      },
+                      {
+                        "block": "gridCol",
+                        "padding": "4px 0px",
+                        "children": [
+                          {
+                            "entity_type": "component",
+                            "template": "component/button.js",
+                            "category": "component",
+                            "type": "button",
+                            "name": "button",
+                            "brand": "petbarn",
+                            "parent_brand": "petbarn",
+                            "mode": "underline",
+                            "colour": "#FFFFFF",
+                            "background": "#000000",
+                            "vertical_align": "middle",
+                            "padding": "12px 16px 12px 16px",
+                            "margin": "0px 0px 0px 0px",
+                            "inner_padding": "4px 4px 4px 4px",
+                            "font_size": "16px",
+                            "line_height": "18px",
+                            "font_weight": "normal",
+                            "text_align": "center",
+                            "font": "Outfit",
+                            "border_radius": "0px",
+                            "border_bottom": "#F05842",
+                            "height": "auto",
+                            "mso_height": "32px",
+                            "width": "auto",
+                            "force_mso_colour": true,
+                            "content": {
+                              "text": "Shop Special Offers",
+                              "href": "https://www.petbarn.com.au/special-offers"
+                            },
+                            "palette": "primary",
+                            "align": "center",
+                            "font_style": "normal",
+                            "border_top": false,
+                            "border_right": false,
+                            "border_left": false
+                          }
+                        ]
+                      },
+                      {
+                        "block": "gridCol",
+                        "padding": "4px 0px",
+                        "children": [
+                          {
+                            "entity_type": "component",
+                            "template": "component/button.js",
+                            "category": "component",
+                            "type": "button",
+                            "name": "button",
+                            "brand": "petbarn",
+                            "parent_brand": "petbarn",
+                            "mode": "underline",
+                            "colour": "#FFFFFF",
+                            "background": "#000000",
+                            "vertical_align": "middle",
+                            "padding": "12px 16px 12px 16px",
+                            "margin": "0px 0px 0px 0px",
+                            "inner_padding": "4px 4px 4px 4px",
+                            "font_size": "16px",
+                            "line_height": "18px",
+                            "font_weight": "normal",
+                            "text_align": "center",
+                            "font": "Outfit",
+                            "border_radius": "0px",
+                            "border_bottom": "#00A651",
+                            "height": "auto",
+                            "mso_height": "32px",
+                            "width": "auto",
+                            "force_mso_colour": true,
+                            "content": {
+                              "text": "Find your local Vet",
+                              "href": "https://www.greencrossvets.com.au/find-a-vet/"
+                            },
+                            "palette": "primary",
+                            "align": "center",
+                            "font_style": "normal",
+                            "border_top": false,
+                            "border_right": false,
+                            "border_left": false
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "width": "100%",
+        "bc_row_index": 0
+      }
+    ]
+  },
+  {
+    "name": "structure",
+    "structure": "structure",
+    "uuid": "M0002",
+    "children": [
+      {
+        "name": "block container",
+        "block": "gridContainer",
+        "uuid": "M0002",
+        "nav_label": "block",
+        "background": "#FFFFFF",
+        "padding": "0px 0px 0px 0px",
+        "transition": false,
+        "transition_id": "urn:aaid:aem:caca2bff-d4c1-4350-8708-de9186f98ab4",
+        "placeholder_component": false,
+        "children": [
+          {
+            "name": "block row",
+            "block": "gridRow",
+            "nav_label": "block_row",
+            "uuid": "M0002",
+            "children": [
+              {
+                "name": "block column",
+                "block": "gridCol",
+                "nav_label": "block_column",
+                "uuid": "M0002",
+                "vertical_align": "top",
+                "children": [
+                  {
+                    "name": "module container",
+                    "block": "gridContainer",
+                    "nav_label": "module",
+                    "innerLayout": "single_row",
+                    "uuid": "M0002",
+                    "children": [
+                      {
+                        "name": "module column",
+                        "block": "gridCol",
+                        "uuid": "M0002",
+                        "padding": "16px 0px 0px 0px",
+                        "children": [
+                          {
+                            "uuid": "M0002",
+                            "entity_type": "module",
+                            "category": "hero",
+                            "type": "banner",
+                            "name": "hero standard",
+                            "brand": "the nosh project",
+                            "parent_brand": "petbarn",
+                            "template": "hero/hero standard.js",
+                            "depth": 1,
+                            "max_siblings": 1,
+                            "row_index": 1,
+                            "transition": "FFBF3F",
+                            "palette": "primary",
+                            "resolved_palette": "primary",
+                            "colour": "#FFFFFF",
+                            "background": "#FFFFFF",
+                            "vertical_align": "top",
+                            "padding": "16px 0px 0px 0px",
+                            "container_padding": "0px 0px 0px 0px",
+                            "block_padding": "0px 0px 0px 0px",
+                            "group_size": 1,
+                            "transition_id": "urn:aaid:aem:caca2bff-d4c1-4350-8708-de9186f98ab4",
+                            "children": [
+                              {
+                                "block": "gridContainer",
+                                "innerLayout": "single_row",
+                                "children": [
+                                  {
+                                    "block": "gridCol",
+                                    "children": [
+                                      {
+                                        "block": "gridContainer",
+                                        "innerLayout": "single_row",
+                                        "position": "top",
+                                        "children": [
+                                          {
+                                            "block": "gridCol",
+                                            "margin": "0px",
+                                            "padding": "16px 32px 0px 32px",
+                                            "children": [
+                                              {
+                                                "uuid": "C0001",
+                                                "entity_type": "component",
+                                                "category": "component",
+                                                "type": "image",
+                                                "name": "image",
+                                                "brand": "the nosh project",
+                                                "parent_brand": "petbarn",
+                                                "template": "component/image.js",
+                                                "depth": 1,
+                                                "max_siblings": 1,
+                                                "transition": false,
+                                                "background": "transparent",
+                                                "vertical_align": "middle",
+                                                "padding": "16px 32px 0px 32px",
+                                                "border_radius": "24px",
+                                                "width": "100%",
+                                                "content": {
+                                                  "src": "images/TNP_Hero.png",
+                                                  "href": "https://www.petbarn.com.au/the-nosh-project"
+                                                },
+                                                "align": "center",
+                                                "max_width": "100%"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "uuid": "C0002",
+                                        "entity_type": "component",
+                                        "category": "component",
+                                        "type": "heading",
+                                        "name": "heading",
+                                        "brand": "the nosh project",
+                                        "parent_brand": "petbarn",
+                                        "template": "component/heading.js",
+                                        "depth": 1,
+                                        "max_siblings": 1,
+                                        "mode": "h2",
+                                        "transition": false,
+                                        "resolved_palette": "primary",
+                                        "colour": "#000000",
+                                        "vertical_align": "middle",
+                                        "padding": "0px 32px 8px 32px",
+                                        "margin": "0px 0px 0px 0px",
+                                        "font_size": "44px",
+                                        "line_height": "48px",
+                                        "font_weight": "bold",
+                                        "text_align": "center",
+                                        "font": "Outfit",
+                                        "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
+                                        "content": "Real food for real dogs",
+                                        "text_segments": []
+                                      },
+                                      {
+                                        "uuid": "C0003",
+                                        "entity_type": "component",
+                                        "category": "component",
+                                        "type": "terms",
+                                        "name": "terms",
+                                        "brand": "the nosh project",
+                                        "parent_brand": "petbarn",
+                                        "template": "component/terms.js",
+                                        "depth": 1,
+                                        "max_siblings": 1,
+                                        "transition": false,
+                                        "resolved_palette": "primary",
+                                        "colour": "body",
+                                        "vertical_align": "middle",
+                                        "padding": "0px 32px 8px 32px",
+                                        "margin": "0px 0px 0px 0px",
+                                        "font_size": "12px",
+                                        "line_height": "14px",
+                                        "font_weight": "normal",
+                                        "text_align": "center",
+                                        "font": "Outfit",
+                                        "border_radius": "0px",
+                                        "content": "*Available while stocks last.",
+                                        "text_segments": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "width": "100%",
+                "bc_row_index": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "block container",
+        "block": "gridContainer",
+        "uuid": "M0003",
+        "nav_label": "block",
+        "background": "#FFFFFF",
+        "padding": "16px 0px 0px 0px",
+        "transition": false,
+        "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+        "placeholder_component": false,
+        "children": [
+          {
+            "name": "block row",
+            "block": "gridRow",
+            "nav_label": "block_row",
+            "uuid": "M0003",
+            "children": [
+              {
+                "name": "block column",
+                "block": "gridCol",
+                "nav_label": "block_column",
+                "uuid": "M0003",
+                "vertical_align": "top",
+                "children": [
+                  {
+                    "name": "module container",
+                    "block": "gridContainer",
+                    "nav_label": "module",
+                    "innerLayout": "single_row",
+                    "uuid": "M0003",
+                    "children": [
+                      {
+                        "name": "module column",
+                        "block": "gridCol",
+                        "uuid": "M0003",
+                        "padding": "0px 32px 0px 32px",
+                        "children": [
+                          {
+                            "uuid": "M0003",
+                            "entity_type": "module",
+                            "category": "basic",
+                            "type": "block",
+                            "name": "text block",
+                            "brand": "the nosh project",
+                            "parent_brand": "petbarn",
+                            "template": "basic/text block.js",
+                            "depth": 1,
+                            "max_siblings": 1,
+                            "row_index": 1,
+                            "transition": false,
+                            "palette": "light",
+                            "resolved_palette": "light",
+                            "colour": "#FFFFFF",
+                            "background": "#FFFFFF",
+                            "vertical_align": "top",
+                            "padding": "0px 32px 0px 32px",
+                            "container_padding": "16px 16px 16px 16px",
+                            "block_padding": "16px 0px 0px 0px",
+                            "group_size": 1,
+                            "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+                            "children": [
+                              {
+                                "block": "gridContainer",
+                                "innerLayout": "single_row",
+                                "children": [
+                                  {
+                                    "block": "gridCol",
+                                    "children": [
+                                      {
+                                        "uuid": "C0004",
+                                        "entity_type": "component",
+                                        "category": "component",
+                                        "type": "heading",
+                                        "name": "heading",
+                                        "brand": "the nosh project",
+                                        "parent_brand": "petbarn",
+                                        "template": "component/heading.js",
+                                        "depth": 1,
+                                        "max_siblings": 1,
+                                        "mode": "h2",
+                                        "transition": false,
+                                        "resolved_palette": "light",
+                                        "colour": "#000000",
+                                        "vertical_align": "middle",
+                                        "padding": "0px 0px 4px 0px",
+                                        "margin": "0px 0px 0px 0px",
+                                        "font_size": "44px",
+                                        "line_height": "48px",
+                                        "font_weight": "bold",
+                                        "text_align": "center",
+                                        "font": "Outfit",
+                                        "text_size_class": "heading-extra-large",
+                                        "border_radius": "0px",
+                                        "content": "Freshly made, gently cooked",
+                                        "text_segments": []
+                                      },
+                                      {
+                                        "uuid": "C0005",
+                                        "entity_type": "component",
+                                        "category": "component",
+                                        "type": "body",
+                                        "name": "bodycopy",
+                                        "brand": "the nosh project",
+                                        "parent_brand": "petbarn",
+                                        "template": "component/bodycopy.js",
+                                        "depth": 1,
+                                        "max_siblings": 1,
+                                        "transition": false,
+                                        "resolved_palette": "light",
+                                        "colour": "#000000",
+                                        "vertical_align": "middle",
+                                        "padding": "0px 0px 16px 0px",
+                                        "margin": "0px 0px 0px 0px",
+                                        "font_size": "16px",
+                                        "line_height": "18px",
+                                        "font_weight": "normal",
+                                        "text_align": "center",
+                                        "font": "Outfit",
+                                        "border_radius": "0px",
+                                        "content": "Every Nosh recipe is cooked in small batches, then frozen so nothing is lost.",
+                                        "text_segments": []
+                                      },
+                                      {
+                                        "block": "gridContainer",
+                                        "innerLayout": "single_row",
+                                        "position": "bottom",
+                                        "children": [
+                                          {
+                                            "block": "gridCol",
+                                            "padding": "12px 16px 12px 16px",
+                                            "children": [
+                                              {
+                                                "uuid": "C0006",
+                                                "entity_type": "component",
+                                                "category": "component",
+                                                "type": "button",
+                                                "name": "button",
+                                                "brand": "the nosh project",
+                                                "parent_brand": "petbarn",
+                                                "template": "component/button.js",
+                                                "depth": 1,
+                                                "max_siblings": 1,
+                                                "mode": "default",
+                                                "transition": false,
+                                                "palette": "primary",
+                                                "resolved_palette": "black/white",
+                                                "colour": "#FFFFFF",
+                                                "background": "#000000",
+                                                "vertical_align": "middle",
+                                                "padding": "12px 16px 12px 16px",
+                                                "margin": "0px 0px 0px 0px",
+                                                "inner_padding": "8px 16px 8px 16px",
+                                                "font_size": "16px",
+                                                "line_height": "18px",
+                                                "font_weight": "bold",
+                                                "text_align": "center",
+                                                "font": "Outfit",
+                                                "border_radius": "32px",
+                                                "height": "auto",
+                                                "width": "auto",
+                                                "content": {
+                                                  "text": "SHOP NOSH",
+                                                  "href": "https://www.petbarn.com.au/the-nosh-project"
+                                                },
+                                                "align": "center",
+                                                "font_style": "normal",
+                                                "mso_height": "40px"
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "width": "100%",
+                "bc_row_index": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "block container",
+        "block": "gridContainer",
+        "uuid": "M0004",
+        "nav_label": "block",
+        "background": "#F3F3F3",
+        "padding": "16px 24px 0px 24px",
+        "transition": "FFFFFF",
+        "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+        "placeholder_component": false,
+        "children": [
+          {
+            "name": "block row",
+            "block": "gridRow",
+            "nav_label": "block_row",
+            "uuid": "M0004",
+            "children": [
+              {
+                "name": "block column",
+                "block": "gridCol",
+                "nav_label": "block_column",
+                "uuid": "M0004",
+                "vertical_align": "top",
+                "children": [
+                  {
+                    "name": "module container",
+                    "block": "gridContainer",
+                    "nav_label": "module",
+                    "innerLayout": "single_row",
+                    "uuid": "M0004",
+                    "children": [
+                      {
+                        "name": "module column",
+                        "block": "gridCol",
+                        "uuid": "M0004",
+                        "padding": "8px 8px 8px 8px",
+                        "children": [
+                          {
+                            "block": "container",
+                            "uuid": "M0004",
+                            "background": "#FFFFFF",
+                            "padding": "0px 0px 0px 0px",
+                            "children": [
+                              {
+                                "uuid": "M0004",
+                                "entity_type": "module",
+                                "category": "product",
+                                "type": "tile",
+                                "name": "product tile",
+                                "brand": "the nosh project",
+                                "parent_brand": "petbarn",
+                                "template": "product/product tile.js",
+                                "depth": 2,
+                                "max_siblings": 2,
+                                "row_index": 1,
+                                "transition": "FFFFFF",
+                                "palette": "promo",
+                                "resolved_palette": "promo",
+                                "colour": "#FFFFFF",
+                                "background": "#F3F3F3",
+                                "vertical_align": "top",
+                                "padding": "8px 8px 8px 8px",
+                                "container_padding": "0px 0px 0px 0px",
+                                "block_padding": "16px 24px 0px 24px",
+                                "border_radius": "24px",
+                                "group_size": 2,
+                                "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+                                "children": [
+                                  {
+                                    "block": "gridContainer",
+                                    "children": [
+                                      {
+                                        "block": "gridRow",
+                                        "innerLayout": "single_column",
+                                        "children": [
+                                          {
+                                            "block": "gridContainer",
+                                            "innerLayout": "single_row",
+                                            "position": "top",
+                                            "children": [
+                                              {
+                                                "block": "gridCol",
+                                                "margin": "0px",
+                                                "padding": "0px 0px 0px 0px",
+                                                "children": [
+                                                  {
+                                                    "uuid": "C0007",
+                                                    "entity_type": "component",
+                                                    "category": "component",
+                                                    "type": "image",
+                                                    "name": "image",
+                                                    "brand": "the nosh project",
+                                                    "parent_brand": "petbarn",
+                                                    "template": "component/image.js",
+                                                    "depth": 1,
+                                                    "max_siblings": 1,
+                                                    "transition": false,
+                                                    "background": "transparent",
+                                                    "vertical_align": "middle",
+                                                    "padding": "0px 0px 0px 0px",
+                                                    "text_align": "left",
+                                                    "border_radius": "24px",
+                                                    "width": "100%",
+                                                    "content": {
+                                                      "src": "images/TNP_Beef.png"
+                                                    },
+                                                    "align": "left",
+                                                    "max_width": "100%"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "block": "gridRow",
+                                        "innerLayout": "single_column",
+                                        "padding": "16px 16px 24px",
+                                        "children": [
+                                          {
+                                            "uuid": "C0008",
+                                            "entity_type": "component",
+                                            "category": "component",
+                                            "type": "heading",
+                                            "name": "heading",
+                                            "brand": "the nosh project",
+                                            "parent_brand": "petbarn",
+                                            "template": "component/heading.js",
+                                            "depth": 1,
+                                            "max_siblings": 1,
+                                            "mode": "h6",
+                                            "transition": false,
+                                            "resolved_palette": "promo",
+                                            "colour": "#DF1220",
+                                            "vertical_align": "middle",
+                                            "padding": "0px 0px 4px 0px",
+                                            "margin": "0px 0px 0px 0px",
+                                            "font_size": "24px",
+                                            "line_height": "26px",
+                                            "font_weight": "bold",
+                                            "text_align": "left",
+                                            "font": "Outfit",
+                                            "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
+                                            "content": "Beef & Pumpkin",
+                                            "align": "left",
+                                            "text_segments": []
+                                          },
+                                          {
+                                            "block": "gridContainer",
+                                            "innerLayout": "single_row",
+                                            "position": "bottom",
+                                            "children": [
+                                              {
+                                                "block": "gridCol",
+                                                "padding": "12px 0px 0px 0px",
+                                                "children": [
+                                                  {
+                                                    "uuid": "C0009",
+                                                    "entity_type": "component",
+                                                    "category": "component",
+                                                    "type": "button",
+                                                    "name": "button",
+                                                    "brand": "the nosh project",
+                                                    "parent_brand": "petbarn",
+                                                    "template": "component/button.js",
+                                                    "depth": 1,
+                                                    "max_siblings": 1,
+                                                    "mode": "default",
+                                                    "transition": false,
+                                                    "palette": "primary",
+                                                    "resolved_palette": "blue/white",
+                                                    "colour": "#FFFFFF",
+                                                    "background": "#0080C4",
+                                                    "vertical_align": "middle",
+                                                    "padding": "12px 0px 0px 0px",
+                                                    "margin": "0px 0px 0px 0px",
+                                                    "inner_padding": "8px 16px 8px 16px",
+                                                    "font_size": "16px",
+                                                    "line_height": "18px",
+                                                    "font_weight": "bold",
+                                                    "text_align": "left",
+                                                    "font": "Outfit",
+                                                    "border_radius": "32px",
+                                                    "height": "auto",
+                                                    "width": "100%",
+                                                    "content": {
+                                                      "text": "ADD TO CART",
+                                                      "href": "https://www.petbarn.com.au/the-nosh-project"
+                                                    },
+                                                    "align": "left",
+                                                    "font_style": "normal",
+                                                    "mso_height": "40px"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "width": "50%",
+                "bc_row_index": 0
+              },
+              {
+                "name": "block column",
+                "block": "gridCol",
+                "nav_label": "block_column",
+                "uuid": "M0005",
+                "vertical_align": "top",
+                "children": [
+                  {
+                    "name": "module container",
+                    "block": "gridContainer",
+                    "nav_label": "module",
+                    "innerLayout": "single_row",
+                    "uuid": "M0005",
+                    "children": [
+                      {
+                        "name": "module column",
+                        "block": "gridCol",
+                        "uuid": "M0005",
+                        "padding": "8px 8px 8px 8px",
+                        "children": [
+                          {
+                            "block": "container",
+                            "uuid": "M0005",
+                            "background": "#FFFFFF",
+                            "padding": "0px 0px 0px 0px",
+                            "children": [
+                              {
+                                "uuid": "M0005",
+                                "entity_type": "module",
+                                "category": "product",
+                                "type": "tile",
+                                "name": "product tile",
+                                "brand": "the nosh project",
+                                "parent_brand": "petbarn",
+                                "template": "product/product tile.js",
+                                "depth": 2,
+                                "max_siblings": 2,
+                                "row_index": 2,
+                                "transition": false,
+                                "palette": "promo",
+                                "resolved_palette": "promo",
+                                "colour": "#FFFFFF",
+                                "background": "#F3F3F3",
+                                "vertical_align": "top",
+                                "padding": "8px 8px 8px 8px",
+                                "container_padding": "0px 0px 0px 0px",
+                                "block_padding": "16px 24px 0px 24px",
+                                "border_radius": "24px",
+                                "group_size": 2,
+                                "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
+                                "children": [
+                                  {
+                                    "block": "gridContainer",
+                                    "children": [
+                                      {
+                                        "block": "gridRow",
+                                        "innerLayout": "single_column",
+                                        "children": [
+                                          {
+                                            "block": "gridContainer",
+                                            "innerLayout": "single_row",
+                                            "position": "top",
+                                            "children": [
+                                              {
+                                                "block": "gridCol",
+                                                "margin": "0px",
+                                                "padding": "0px 0px 0px 0px",
+                                                "children": [
+                                                  {
+                                                    "uuid": "C0010",
+                                                    "entity_type": "component",
+                                                    "category": "component",
+                                                    "type": "image",
+                                                    "name": "image",
+                                                    "brand": "the nosh project",
+                                                    "parent_brand": "petbarn",
+                                                    "template": "component/image.js",
+                                                    "depth": 1,
+                                                    "max_siblings": 1,
+                                                    "transition": false,
+                                                    "background": "transparent",
+                                                    "vertical_align": "middle",
+                                                    "padding": "0px 0px 0px 0px",
+                                                    "text_align": "left",
+                                                    "border_radius": "24px",
+                                                    "width": "100%",
+                                                    "content": {
+                                                      "src": "images/TNP_Chicken.png"
+                                                    },
+                                                    "align": "left",
+                                                    "max_width": "100%"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "block": "gridRow",
+                                        "innerLayout": "single_column",
+                                        "padding": "16px 16px 24px",
+                                        "children": [
+                                          {
+                                            "uuid": "C0011",
+                                            "entity_type": "component",
+                                            "category": "component",
+                                            "type": "heading",
+                                            "name": "heading",
+                                            "brand": "the nosh project",
+                                            "parent_brand": "petbarn",
+                                            "template": "component/heading.js",
+                                            "depth": 1,
+                                            "max_siblings": 1,
+                                            "mode": "h6",
+                                            "transition": false,
+                                            "resolved_palette": "promo",
+                                            "colour": "#DF1220",
+                                            "vertical_align": "middle",
+                                            "padding": "0px 0px 4px 0px",
+                                            "margin": "0px 0px 0px 0px",
+                                            "font_size": "24px",
+                                            "line_height": "26px",
+                                            "font_weight": "bold",
+                                            "text_align": "left",
+                                            "font": "Outfit",
+                                            "text_size_class": "heading-medium",
+                                            "border_radius": "0px",
+                                            "content": "Chicken & Rice",
+                                            "align": "left",
+                                            "text_segments": []
+                                          },
+                                          {
+                                            "block": "gridContainer",
+                                            "innerLayout": "single_row",
+                                            "position": "bottom",
+                                            "children": [
+                                              {
+                                                "block": "gridCol",
+                                                "padding": "12px 0px 0px 0px",
+                                                "children": [
+                                                  {
+                                                    "uuid": "C0012",
+                                                    "entity_type": "component",
+                                                    "category": "component",
+                                                    "type": "button",
+                                                    "name": "button",
+                                                    "brand": "the nosh project",
+                                                    "parent_brand": "petbarn",
+                                                    "template": "component/button.js",
+                                                    "depth": 1,
+                                                    "max_siblings": 1,
+                                                    "mode": "default",
+                                                    "transition": false,
+                                                    "palette": "primary",
+                                                    "resolved_palette": "blue/white",
+                                                    "colour": "#FFFFFF",
+                                                    "background": "#0080C4",
+                                                    "vertical_align": "middle",
+                                                    "padding": "12px 0px 0px 0px",
+                                                    "margin": "0px 0px 0px 0px",
+                                                    "inner_padding": "8px 16px 8px 16px",
+                                                    "font_size": "16px",
+                                                    "line_height": "18px",
+                                                    "font_weight": "bold",
+                                                    "text_align": "left",
+                                                    "font": "Outfit",
+                                                    "border_radius": "32px",
+                                                    "height": "auto",
+                                                    "width": "100%",
+                                                    "content": {
+                                                      "text": "ADD TO CART",
+                                                      "href": "https://www.petbarn.com.au/the-nosh-project"
+                                                    },
+                                                    "align": "left",
+                                                    "font_style": "normal",
+                                                    "mso_height": "40px"
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "width": "50%",
+                "bc_row_index": 1
+              }
+            ]
+          }
+        ],
+        "transition_src": "assets/wobble-bottom-FFFFFF.png"
+      }
+    ]
+  },
+  {
+    "uuid": "M0006",
+    "entity_type": "module",
+    "category": "footer",
+    "type": "block",
+    "name": "shop your way",
+    "brand": "the nosh project",
+    "parent_brand": "petbarn",
+    "template": "footer/shop your way petbarn.js",
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": "F3F3F3",
+    "palette": "light",
+    "resolved_palette": "light",
+    "colour": "#FFFFFF",
+    "background": "#FFFFFF",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "16px 16px 16px 16px",
+    "fragment": true,
+    "group_size": 1,
+    "group_padding": "0px 0px 0px 0px",
+    "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
+    "children": [
+      {
+        "block": "gridContainer",
+        "innerLayout": "single_row",
+        "transition": "F3F3F3",
+        "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
+        "children": [
+          {
+            "block": "gridCol",
+            "padding": "0px 0px 24px",
+            "children": [
+              {
+                "entity_type": "component",
+                "template": "component/bodycopy.js",
+                "colour": "black",
+                "font_size": "32px",
+                "line_height": "36px",
+                "font_weight": "bold",
+                "padding": "16px",
+                "content": "Nobody fetches like Petbarn!<sup>^</sup>",
+                "mode": null,
+                "background": null,
+                "vertical_align": "middle",
+                "margin": "0px",
+                "text_align": "center",
+                "font": "Outfit",
+                "text_size_class": null,
+                "border_radius": "0px"
+              },
+              {
+                "block": "gridContainer",
+                "children": [
+                  {
+                    "block": "gridRow",
+                    "group": "internal",
+                    "children": [
+                      {
+                        "block": "gridCol",
+                        "children": [
+                          {
+                            "block": "gridContainer",
+                            "innerLayout": "single_row",
+                            "children": [
+                              {
+                                "block": "gridCol",
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_2hrdelivery_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/delivery-information",
+                                      "aem_id": "urn:aaid:aem:7eb1dacb-aa15-4f85-9729-9e31a0396bc1"
+                                    },
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "14px",
+                                    "line_height": "16px",
+                                    "content": "Free on orders over $149",
+                                    "mode": null,
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              },
+                              {
+                                "block": "gridCol",
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_nextdaydelivery_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/delivery-information",
+                                      "aem_id": "urn:aaid:aem:422f4133-d29d-49b8-a0de-530b1eb100a9"
+                                    },
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "14px",
+                                    "line_height": "16px",
+                                    "content": "Free on orders $99 & over",
+                                    "mode": null,
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "block": "gridRow",
+                    "group": "internal",
+                    "children": [
+                      {
+                        "block": "gridCol",
+                        "children": [
+                          {
+                            "block": "gridContainer",
+                            "innerLayout": "single_row",
+                            "children": [
+                              {
+                                "block": "gridCol",
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_freestandarddelivery_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/delivery-information",
+                                      "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
+                                    },
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "14px",
+                                    "line_height": "16px",
+                                    "content": "Free on orders over $49",
+                                    "mode": null,
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              },
+                              {
+                                "block": "gridCol",
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_clickcollect_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/delivery-information",
+                                      "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
+                                    },
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "14px",
+                                    "line_height": "16px",
+                                    "content": "Available within 30 mins",
+                                    "mode": null,
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "block": "gridRow",
+                    "group": "internal",
+                    "children": [
+                      {
+                        "block": "gridCol",
+                        "children": [
+                          {
+                            "block": "gridContainer",
+                            "innerLayout": "single_row",
+                            "children": [
+                              {
+                                "block": "gridCol",
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_over220stores_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/store-finder",
+                                      "aem_id": "urn:aaid:aem:6058991b-13b5-4caf-b67c-f98492bcd1f3"
+                                    },
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "14px",
+                                    "line_height": "16px",
+                                    "content": "Visit our friendly team.",
+                                    "mode": null,
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              },
+                              {
+                                "block": "gridCol",
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_repeatdelivery_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/w/repeat-delivery",
+                                      "aem_id": "urn:aaid:aem:2df6bdde-994a-4aa4-8980-005fcc4e44f6"
+                                    },
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "24px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "14px",
+                                    "line_height": "16px",
+                                    "content": "Save up to 25%",
+                                    "mode": null,
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "width": "100%",
+        "bc_row_index": 0,
+        "transition_src": "assets/wobble-bottom-F3F3F3.png"
+      }
+    ]
+  },
+  {
+    "uuid": "M0007",
+    "entity_type": "module",
+    "category": "footer",
+    "type": "block",
+    "name": "signoff",
+    "brand": "the nosh project",
+    "parent_brand": "petbarn",
+    "template": "footer/signoff petbarn.js",
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": false,
+    "palette": "primary",
+    "resolved_palette": "primary",
+    "colour": "#FFFFFF",
+    "background": "#FFFFFF",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "32px 16px 16px 16px",
+    "fragment": true,
+    "group_size": 1,
+    "group_padding": "0px 0px 0px 0px",
+    "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+    "children": [
+      {
+        "block": "gridContainer",
+        "innerLayout": "single_row",
+        "transition": false,
+        "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+        "children": [
+          {
+            "block": "gridCol",
+            "padding": "0px 32px 24px",
+            "children": [
+              {
+                "entity_type": "component",
+                "type": "image",
+                "template": "component/image.js",
+                "padding": "16px 0px",
+                "border_radius": "0px",
+                "width": "180px",
+                "content": {
+                  "src": "assets/PLP_Logo_Dog.png",
+                  "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
+                },
+                "background": "transparent",
+                "vertical_align": "middle",
+                "align": "center",
+                "max_width": "100%"
+              },
+              {
+                "entity_type": "component",
+                "template": "component/bodycopy.js",
+                "colour": "black",
+                "font_size": "16px",
+                "line_height": "18px",
+                "padding": "16px",
+                "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
+                "mode": null,
+                "background": null,
+                "vertical_align": "middle",
+                "margin": "0px",
+                "font_weight": "normal",
+                "text_align": "center",
+                "font": "Outfit",
+                "text_size_class": null,
+                "border_radius": "0px"
+              },
+              {
+                "block": "gridContainer",
+                "innerLayout": "single_row",
+                "children": [
+                  {
+                    "block": "gridCol"
+                  },
+                  {
+                    "block": "gridCol",
+                    "children": [
+                      {
+                        "block": "gridContainer",
+                        "innerLayout": "single_row",
+                        "children": [
+                          {
+                            "block": "gridCol",
+                            "padding": "8px",
+                            "mobile_stack": false,
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "template": "component/image.js",
+                                "width": "32px",
+                                "content": {
+                                  "src": "assets/pb-fb.png",
+                                  "href": "https://www.facebook.com/petbarn",
+                                  "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
+                                },
+                                "background": "transparent",
+                                "vertical_align": "middle",
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "8px",
+                            "mobile_stack": false,
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "template": "component/image.js",
+                                "width": "32px",
+                                "content": {
+                                  "src": "assets/pb-in.png",
+                                  "href": "https://www.instagram.com/petbarn/#",
+                                  "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
+                                },
+                                "background": "transparent",
+                                "vertical_align": "middle",
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "8px",
+                            "mobile_stack": false,
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "template": "component/image.js",
+                                "width": "32px",
+                                "content": {
+                                  "src": "assets/pb-yt.png",
+                                  "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
+                                  "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
+                                },
+                                "background": "transparent",
+                                "vertical_align": "middle",
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
+                              }
+                            ]
+                          },
+                          {
+                            "block": "gridCol",
+                            "padding": "8px",
+                            "mobile_stack": false,
+                            "children": [
+                              {
+                                "entity_type": "component",
+                                "type": "image",
+                                "template": "component/image.js",
+                                "width": "32px",
+                                "content": {
+                                  "src": "assets/pb-tt.png",
+                                  "href": "https://www.tiktok.com/@petbarnau",
+                                  "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
+                                },
+                                "background": "transparent",
+                                "vertical_align": "middle",
+                                "padding": "0px",
+                                "align": "center",
+                                "border_radius": "24px",
+                                "max_width": "100%"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "block": "gridCol"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "width": "100%",
+        "bc_row_index": 0
+      }
+    ]
+  },
+  {
+    "uuid": "M0008",
+    "entity_type": "module",
+    "category": "footer",
+    "type": "block",
+    "name": "footer",
+    "brand": "the nosh project",
+    "parent_brand": "petbarn",
+    "template": "footer/footer petbarn.js",
+    "depth": 1,
+    "max_siblings": 1,
+    "row_index": 1,
+    "transition": "FFFFFF",
+    "palette": "dark",
+    "resolved_palette": "dark",
+    "colour": "#000000",
+    "background": "#000000",
+    "vertical_align": "top",
+    "padding": "0px 0px 0px 0px",
+    "container_padding": "0px 0px 0px 0px",
+    "block_padding": "0px 0px 0px 0px",
+    "fragment": true,
+    "group_size": 1,
+    "group_padding": "0px 0px 0px 0px",
+    "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+    "children": [
+      {
+        "block": "gridContainer",
+        "transition": "FFFFFF",
+        "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+        "children": [
+          {
+            "block": "gridRow",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "32px 32px 0px",
+                "children": [
+                  {
+                    "uuid": "C0013",
+                    "entity_type": "component",
+                    "category": "component",
+                    "type": "terms",
+                    "name": "terms",
+                    "brand": "the nosh project",
+                    "parent_brand": "petbarn",
+                    "template": "component/terms.js",
+                    "depth": 1,
+                    "max_siblings": 1,
+                    "transition": false,
+                    "resolved_palette": "dark",
+                    "colour": "#FFFFFF",
+                    "vertical_align": "middle",
+                    "padding": "0px 16px 16px 16px",
+                    "margin": "0px 0px 0px 0px",
+                    "font_size": "12px",
+                    "line_height": "14px",
+                    "font_weight": "normal",
+                    "text_align": "center",
+                    "font": "Outfit",
+                    "border_radius": "0px",
+                    "content": "*Full terms at <a href=\"https://www.petbarn.com.au\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">petbarn.com.au</a>",
+                    "text_segments": [
+                      {
+                        "text": "[petbarn.com.au]",
+                        "properties": {
+                          "href": "https://www.petbarn.com.au",
+                          "colour": "#FFFFFF"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "block": "gridRow",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "0px 32px 32px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "template": "component/bodycopy.js",
+                    "colour": "white",
+                    "font_size": "12px",
+                    "line_height": "14px",
+                    "content": "^For Shop Your Way full terms and conditions see our\n<a href=\"https://www.petbarn.com.au/delivery-information\" style=\"color:#FFFFFF;line-height:14px;\">Delivery Information page.</a>\n\nMake sure emails from Petbarn make it to your inbox.\nAdd Petbarn@edm.petbarn.com.au to your address book.\nCan't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"\">View online.</a>\n\nPlease refer to our <a href=\"https://www.petbarn.com.au/w/privacy-policy\" style=\"color:#FFFFFF;line-height:14px;\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.\n\nThis email was sent to you by Petbarn Pty Ltd.\n\nPetbarn Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.\nP: 1300 655 896 E: Petbarn@edm.petbarn.com\n\nIf you wish to unsubscribe, please <a class=\"arc-link\" data-nl-type=\"unsubscription\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"https://t1.edm.petbarn.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">click here.</a>",
+                    "mode": null,
+                    "background": null,
+                    "vertical_align": "middle",
+                    "padding": "0px 0px 4px",
+                    "margin": "0px",
+                    "font_weight": "normal",
+                    "text_align": "center",
+                    "font": "Outfit",
+                    "text_size_class": null,
+                    "border_radius": "0px"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "width": "100%",
+        "bc_row_index": 0,
+        "transition_src": "assets/wobble-bottom-FFFFFF.png"
+      }
+    ]
+  }
+]

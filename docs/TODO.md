@@ -32,14 +32,26 @@
       `childAt`, and `module_at` returns the module it looks up. All three
       resolve. Still read by no rule file, so no test covers them; they are
       there for the styling-rules refactor.
-    - `basic/banner flipped.js` and `footer/footer default.js` are
+    - `basic/banner flipped.js` and ~~`footer/footer default.js`~~ are
       unreachable. No `valid names` entry in `modules.json` maps to
       `banner flipped` and nothing renames a module to it; `footer default`
-      needs a brand of "default" and `setBrand` always returns a real brand.
-      Both read as finished work that was never wired up.
+      needed a brand of "default" and `setBrand` always returns a real brand.
+      Both read as finished work that was never wired up. `footer default` is
+      wired up as of 01/10/2026 — it is the third tier of the brand-keyed
+      template cascade, under the brand's own definition and its parent's. See
+      [ADR 0007](adr/0007-brand-keyed-lookups-cascade-to-the-parent-brand.md).
     - `modules.json` names four things with no file: `basic/content block`,
       `default/content banner`, `default/heading` and `component/icon`. Each
       silently falls back to the default rules. Part of **Review Libraries**.
+      Less silently as of 01/10/2026: `template` now records the file that ran,
+      so an icon component reads `component/default.js` rather than naming a
+      `component/icon.js` that is not there.
+    - `signoff` and `shop your way` have a Petbarn definition and no Greencross
+      Vets one, so a GXV brief using either gets the blank module. No GXV brief
+      does today. Closing it means designing one or writing a
+      `footer/signoff default.js`; `tests/template.js` names both in
+      `KNOWN_GAPS` and asserts they are the only two, so a third cannot appear
+      unnoticed. Part of **Review Libraries**.
   - Not yet swept: `app/`, `external/ui/` and `external/main_external.js`.
 - **Property registry.** What properties exist, and how they are handled
   throughout processing.

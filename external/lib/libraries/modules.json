@@ -89,6 +89,16 @@
       }
     },
 
+    "banner with heading": {
+      "valid names": ["banner with heading", "heading banner"],
+      "properties": {
+        "category": "basic",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
+
     "banner flipped": {
       "valid names": ["banner flipped", "banner reversed", "banner reverse"],
       "properties": {

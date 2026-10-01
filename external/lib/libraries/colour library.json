@@ -56,6 +56,18 @@
     "blue": "#002E5B",
     "gold": "#B3A180"
   },
+  "the nosh project": {
+    "nosh green": "#1D4935",
+    "sage": "#B3C26F",
+    "citrus" : "#D1D441",
+    "peach" : "#FFDCC2",
+    "yellow" : "#FFBF3F",
+    "red" : "#FF5A5A",
+    "pink" : "#F67FB4",
+    "green" : "#73BC25",
+    "teal" : "#61B9AE",
+    "purple" : "#B286B9"
+  },
   "probalance": {
     "cream": "#F6F3F0",
     "black": "#2E2E2E",

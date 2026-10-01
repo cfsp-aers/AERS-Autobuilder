@@ -64,14 +64,32 @@ than on which file it is.
 
 A module or component record carries the path to its own in a `template`
 property (`template: "header/header petbarn.js"`), and that path is what the
-engine loads to find the rules for it. Components have them too, under
-`lib/modules/component/`; `module template.js` and `component template.js` at the
-root of `lib/modules/` are blank ones to copy.
+engine loads to find the rules for it — the file that ran, not the one the
+module's brand would name if every brand had one. See **brand-keyed template**.
+Components have them too, under `lib/modules/component/`; `module template.js` and
+`component template.js` at the root of `lib/modules/` are blank ones to copy.
 
 Three different things in this system are called templates, and this is the one
 that owns the bare word — because it is the one the engine spells that way in
 code, and code is the expensive place to be wrong. The other two are always
 qualified.
+
+### Brand-keyed template
+
+A **module template** that exists once per brand, named by appending the brand to
+the file name — `header/header petbarn.js`. The module types that work this way
+are the ones `libraries/modules.json` marks `fragment: true`: `header`, `footer`,
+`signoff` and `shop your way`.
+
+Most brands have one for none of them. `brands.json` names ten and the library
+holds two sets, so the rest resolve **up**: brand, then **parent brand**, then a
+`<name> default.js`, then the blank definition. The Nosh Project has no header of
+its own and is built from Petbarn's, in Nosh's colours.
+
+Note: *keyed by brand* is the only sense in which one of these is brand-specific.
+The file still has to be told which brand it is rendering for by the record it is
+handed, which is why `header petbarn.js` names Petbarn in its nav buttons and
+reads nothing from the module's `brand`.
 
 ### HTML template
 
@@ -122,6 +140,15 @@ teammates pick them up on their next launch.
 The single set of property values a module or component ends up with, after every
 **layer** has been applied and every **derived property** recomputed. What the
 **HTML templates** read.
+
+### Parent brand
+
+The group a **brand** belongs to — Petbarn or Greencross Vets, the two keys of
+`Parent Brands` in `libraries/brands.json`. Resolved onto every module and
+component beside `brand`, and the second tier of all three brand-keyed lookups in
+the engine: a colour, a palette file, and a **brand-keyed template**. A parent
+brand is its own parent. See
+[ADR 0007](docs/adr/0007-brand-keyed-lookups-cascade-to-the-parent-brand.md).
 
 ### Layer
 

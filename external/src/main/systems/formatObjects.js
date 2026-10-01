@@ -3,6 +3,7 @@ const { load } = require("../utils/load.js");
 const { app_dir } = require("../constants.js");
 
 const { formatSpacingToString, updateSpacing } = load(app_dir, "main/properties/spacing.js");
+const { resolveTemplate } = load(app_dir, "main/properties/template.js");
 
 function formatProperties(item) {
     let new_item = {
@@ -16,7 +17,17 @@ function formatProperties(item) {
         name: item.name || null,
         brand: item.brand || null,
         parent_brand: item.parent_brand || null,
-        template: `${item.category ? item.category : "default"}/${item.name ? (item.fragment ? `${item.name} ${item.brand}` : item.name) : "default"}.js` || null,
+        /*
+            The definition this item runs, not the one its brand would name if
+            every brand had one. A sub-brand with no header of its own resolves
+            to its parent's -- see properties/template.js for the tiers.
+
+            Resolved here rather than at the three places that load it so that
+            the stores and the golden baselines record the file that actually
+            ran. tests/inputs.js hashes `template` to decide what a diff is
+            charged to, and it was hashing a path that did not exist.
+        */
+        template: resolveTemplate(item),
         position: item.position || null,
         //btn_group: item.btn_group || null,
         depth: item.depth || 1,

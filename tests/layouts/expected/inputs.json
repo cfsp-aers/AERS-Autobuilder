@@ -17,6 +17,12 @@
         "module": "34729dd3d727",
         "modules": {}
     },
+    "basic/banner with heading.js": {
+        "engine": "c804715959db",
+        "html_templates": "8365a7be0a05",
+        "module": "0cb95f4bfb96",
+        "modules": {}
+    },
     "basic/banner.js": {
         "engine": "c804715959db",
         "html_templates": "8365a7be0a05",
