@@ -34,6 +34,9 @@ function formatProperties(item) {
         max_siblings: item.max_siblings || 1,
         row_index: item.row_index || null,
         mode: item.mode || null,
+        custom_class: item.custom_class || null,
+        mobile_only: item.mobile_only || false,
+        desktop_only: item.desktop_only || false,
         transition: item.transition || false,
         // ~~ palette ~~
         // What was asked for, and what the derivation in properties/palette.js
@@ -60,6 +63,7 @@ function formatProperties(item) {
         text_size_class: item.text_size_class || null,
         // ~~ border ~~
         border_radius: item.border_radius || null,
+        border_weight: item.border_weight || null,
         border_colour: item.border_colour || null,
         border_top: item.border_top || null,
         border_right: item.border_right || null,

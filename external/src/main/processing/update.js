@@ -1,7 +1,8 @@
 const _ = require("lodash");
 const path = require("node:path");
 const { load } = require("../utils/load.js");
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir } = require("../constants.js");
+const { loadLibrary } = require("../utils/library.js");
 
 const { updateSpacing } = load(app_dir, "main/properties/spacing.js");
 
@@ -63,6 +64,11 @@ function carryLayers(from, to) {
     if (Object.prototype.hasOwnProperty.call(from, RESOLUTION)) {
         Object.defineProperty(to, RESOLUTION, { value: from[RESOLUTION], enumerable: false, writable: true, configurable: true });
     }
+    // A slot's settings are layered on a bag of their own (see updateSlot), and
+    // the rebuild is a deep clone, which drops non-enumerable keys at every depth.
+    _.forIn(from.slots, (bag, slot) => {
+        if (to.slots?.[slot]) carryLayers(bag, to.slots[slot]);
+    });
     return to;
 }
 
@@ -236,7 +242,7 @@ function splitTargetList(key) {
     spelling; a collision here would resolve to whichever `_.forIn` reached last.
 */
 const CANONICAL_NAMES = {};
-_.forIn(load(user_files, "libraries/modules.json").component, (entry, canonical) => {
+_.forIn(loadLibrary("libraries/modules.json").component, (entry, canonical) => {
     (entry["valid names"] || []).concat(canonical).forEach((spelling) => {
         CANONICAL_NAMES[spelling.replace(/[ -]/g, "_")] = canonical;
     });
@@ -319,13 +325,49 @@ function record(target, key, layer, value, source) {
     return resolve(target, key);
 }
 
+// -------------------------------------------------------------------- slots
+
+/*
+    The keys a slot keeps for its region rather than handing to its components.
+    A region's background is not a button's background, and a text component
+    takes its palette from its parent -- which, for a component in a region with
+    a palette, setPalettes makes the region. A slot's height and width size the
+    region, not each component in it. See ADR 0008.
+*/
+const REGION_KEYS = ["palette", "background", "height", "width"];
+
+/** The slot a target key names on this module, or null. Never an indexed key. */
+function slotOf(target_module, target, slots_of) {
+    if (target.includes("/")) return null;
+    const slots = slots_of(target_module) || {};
+    return Array.isArray(slots[target]) ? target : null;
+}
+
 /**
     Build the `update` a rule file is handed as `apply.update`.
 
     @param {(uuid: string) => object[]} components_of  the components of a module
+    @param {(module: object) => object} [slots_of]     its component_positions,
+        so a key naming a slot -- `bottom: { palette: "red" }` -- targets the slot
 */
-function makeUpdate(components_of) {
-    return function update(target_module, object, layer) {
+function makeUpdate(components_of, slots_of) {
+    const positions_of = slots_of || (() => ({}));
+
+    function updateSlot(target_module, slot, value, at) {
+        const own = _.pick(value, REGION_KEYS);
+        if (!_.isEmpty(own)) {
+            target_module.slots ??= {};
+            target_module.slots[slot] ??= { name: `${target_module.name} ${slot}` };
+            update(target_module.slots[slot], own, at);
+        }
+
+        const rest = _.omit(value, REGION_KEYS);
+        if (_.isEmpty(rest)) return;
+        const names = positions_of(target_module)[slot];
+        (components_of(target_module.uuid) || []).filter((c) => names.includes(c.name)).forEach((c) => update(c, rest, at));
+    }
+
+    function update(target_module, object, layer) {
         const at = layer || active_layer;
         if (!at) throw new Error("update() was called with no layer, and outside a rule execution. See LAYERS in processing/update.js.");
 
@@ -335,7 +377,9 @@ function makeUpdate(components_of) {
                 // recurses. The layer travels down with it: a module's
                 // `heading: { mode: "h6" }` is still the module's default.
                 splitTargetList(key).forEach((target) => {
-                    selectComponents(components_of(target_module.uuid), target).forEach((c) => update(c, value, at));
+                    const slot = slotOf(target_module, target, positions_of);
+                    if (slot) updateSlot(target_module, slot, value, at);
+                    else selectComponents(components_of(target_module.uuid), target).forEach((c) => update(c, value, at));
                 });
                 return;
             }
@@ -354,7 +398,9 @@ function makeUpdate(components_of) {
                 active_log.writes.set(id, history);
             }
         });
-    };
+    }
+
+    return update;
 }
 
 module.exports = {

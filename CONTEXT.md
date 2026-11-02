@@ -30,6 +30,18 @@ and image assets the engine reads. Currently the beta's `lib/`. Welded to the en
 library files import engine utilities — so the two are published and versioned as
 one unit, never separately.
 
+### Dev library
+
+`external/lib-dev/` — experimental **library** files, in the same folder
+structure as `lib/`, for one person's local testing. While the *Dev library*
+toggle is on, a file there is read in place of the `lib/` file at the same
+relative path; everything else still comes from `lib/`. Off on every launch,
+offered only when the folder holds a file, and never **published**
+([ADR 0009](docs/adr/0009-the-dev-library-overlays-lib-per-file.md)).
+
+Promoting a dev file means copying it into `lib/`. Until then nothing but a
+build with the toggle on can see it.
+
 ### Brief
 
 The Excel workbook a build reads, and by extension one selected sheet within it.
@@ -116,6 +128,25 @@ the engine wraps it in the shared block/column/container structure. A function o
 the module's resolved state, not a static shape — it may branch on properties and
 may embed literal components inline.
 
+### Card
+
+The rounded box in a module's foreground colour, on a `depth: 2` module. By
+default the engine wraps the whole internal layout in one; a layout may declare
+its own with `card()` instead, and anything outside it sits on the band. On a
+`depth: 1` module a declared card has no fill. See ADR 0008.
+
+### Slot
+
+A named place in a module's internal layout — `top`, `bottom`, `left` — that
+`component_positions` assigns components to. A slot can also be targeted with
+settings, like a component: `bottom: { palette: "red" }`.
+
+### Region
+
+A slot with its own `palette` or `background`. It is drawn as a coloured band
+by `region()`, and the components in it resolve their colours against its
+palette instead of the module's. See ADR 0008.
+
 ### Universal Builder
 
 The single application replacing both predecessors. *Universal* means one app
@@ -133,7 +164,31 @@ volume by a publish. Never authored on the volume — see
 
 Copying the external tree from the repository to the shared volume. Distinct from
 a **build**, which produces a new `.app`. Most changes need only a publish;
-teammates pick them up on their next launch.
+teammates pick them up on their next build. A change to `main_external.js` or
+`ui/` also needs a restart, which the app offers.
+
+### Published version
+
+The `version` in the stamp, `.published.json`, that each **publish** writes
+beside the tree it published. A new one for every publish. A tree with no
+`version`, either a checkout or one published before stamping, has no published
+version, and nothing can match it.
+
+While a publish is running, the stamp says `publishing` and still carries the
+previous version.
+
+### Local copy
+
+The copy of the **external tree** that the app keeps on each Mac, in
+`userData/external_cache`, together with the **published version** it was taken
+from. The app builds from it whenever that version is the one published now,
+because a build from the shared volume is far slower. A build after a newer
+publish runs from the volume, and when it succeeds it refreshes the copy
+([ADR 0010](docs/adr/0010-the-local-copy-runs-whenever-it-matches-the-published-version.md)).
+
+Also called the *offline cache* when it is used because the volume can't be
+reached, or because the published tree failed to load. It is the same folder,
+used for a different reason. Only the offline case warns the user.
 
 ### Resolved state
 
@@ -209,6 +264,13 @@ where copies of these land.
 every build, and filled with the **asset library** files that build's email
 actually references — so a `src` reading `assets/x.png` is one the builder
 supplied, and a `src` reading `images/x.png` is the campaign's own.
+
+A build normally recopies all of them, because the library is authoritative
+([ADR 0002](docs/adr/0002-the-repository-is-the-only-source-of-truth.md)).
+*Ignore existing assets*, the UI toggle, is the one thing that stops it: with it
+on a build copies only the files this folder does not have yet and leaves the
+rest exactly as they are. It changes nothing else — the srcs, the **AEM id**s
+and the log read the same either way.
 
 Note: a designer's own working folder is often called *Design Assets*, and is
 where the **brief** usually sits. It is unrelated to either of the two above,

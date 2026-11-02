@@ -39,6 +39,8 @@ const default_properties = {
     // rather than pinned to yellow so the module is not wrong for anyone else.
     palette: "primary",
 
+    "hide_transition" : true,
+
     // ~~ spacing ~~
     // Nothing anywhere: the artwork runs to the edges of the email.
     vertical_align: "top",
@@ -65,7 +67,7 @@ const default_properties = {
 };
 
 const component_positions = {
-    all: ["image", "lockup", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
+    all: ["image"]
 };
 
 const internal_layout = (current, content) => single_column(content);

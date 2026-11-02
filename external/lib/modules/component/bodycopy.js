@@ -3,6 +3,7 @@
 const default_properties = {
     // ~~ module data ~~
     mode: null,
+    custom_class: "",
     // ~~ palette ~~
     //palette: "secondary",
     colour: "body",

@@ -30,6 +30,8 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -75,7 +77,9 @@
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
                         },
+                        "custom_class": "",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -104,6 +108,7 @@
                 "children": [
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -128,16 +133,18 @@
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -145,6 +152,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -169,16 +177,18 @@
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -186,6 +196,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -210,16 +221,18 @@
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -264,6 +277,8 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -309,7 +324,9 @@
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
                         },
+                        "custom_class": "",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -338,6 +355,7 @@
                 "children": [
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -362,16 +380,18 @@
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -379,6 +399,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -403,16 +424,18 @@
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -420,6 +443,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -444,16 +468,18 @@
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -498,6 +524,8 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -543,7 +571,9 @@
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
                         },
+                        "custom_class": "",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -572,6 +602,7 @@
                 "children": [
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -596,16 +627,18 @@
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -613,6 +646,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -637,16 +671,18 @@
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -654,6 +690,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -678,16 +715,18 @@
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -732,6 +771,8 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -777,7 +818,9 @@
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
                         },
+                        "custom_class": "",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -826,6 +869,8 @@
                           "src": "images/GreencrossVets_HeaderLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -871,7 +916,9 @@
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online/"
                         },
+                        "custom_class": "",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -900,6 +947,7 @@
                 "children": [
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -924,16 +972,18 @@
                           "text": "WebVet 24/7",
                           "href": "https://www.greencrossvets.com.au/webvet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -941,6 +991,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -965,16 +1016,18 @@
                           "text": "Emergency Care",
                           "href": "https://www.emergencyvet.com.au/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }
@@ -982,6 +1035,7 @@
                   },
                   {
                     "block": "gridCol",
+                    "mobile_stack": false,
                     "padding": "4px 0px",
                     "width": "33.3333%",
                     "children": [
@@ -1006,16 +1060,18 @@
                           "text": "Healthy Pets Plus",
                           "href": "https://www.greencrossvets.com.au/healthy-pets-plus/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
                         "margin": "0px",
                         "align": "center",
-                        "font_size": "16px",
-                        "line_height": "18px",
+                        "font_size": "14px",
+                        "line_height": "16px",
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "height": "auto",
                         "width": "auto"
                       }

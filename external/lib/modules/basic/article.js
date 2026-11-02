@@ -14,15 +14,15 @@ const default_properties = {
 
     // ~~ spacing ~~
     vertical_align: "top",
-    block_padding: "0px 24px",
+    block_padding: "0px 8px",
     padding: "8px",
     container_padding: "0px 0px 0px",
 
     // ~~ border ~~
-    border_radius: "24px",
+    border_radius: "16px",
 
     // ~~ component settings ~~
-    image: { border_radius: "24px 24px 0px 0px" },
+    image: { border_radius: "16px 16px 0px 0px" },
     heading: { mode: "h6" },
     subheading: { mode: "h7" }
 };

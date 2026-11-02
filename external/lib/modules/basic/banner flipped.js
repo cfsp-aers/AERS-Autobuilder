@@ -16,12 +16,12 @@ const default_properties = {
 
     // ~~ spacing ~~
     vertical_align: "top",
-    block_padding: "0px 16px",
+    block_padding: "0px 0px",
     padding: "8px 16px",
     container_padding: "0px",
 
     // ~~ border ~~
-    border_radius: "24px",
+    border_radius: "16px",
 
     // ~~ component settings ~~
     heading: { mode: "h6" },
@@ -34,7 +34,7 @@ const default_properties = {
         padding: "12px 0px 0px"
     },
     image: {
-        border_radius: "24px"
+        border_radius: "16px"
     },
     badge: {
         padding: "0px 0px 8px"
@@ -52,8 +52,8 @@ const component_positions = {
 
 const internal_layout = (current, content) =>
     two_columns(content, {
-        left: { padding: "0px", width: "50%" },
-        right: { padding: "16px 16px 24px", width: "50%" }
+        left: { padding: "0px", width: "50%", ...current?.left, },
+        right: { padding: "16px 16px 24px", width: "50%", ...current?.right, }
     });
 
 function modes() {}

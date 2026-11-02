@@ -1,6 +1,6 @@
 const { load } = require("../../../src/main/utils/load.js");
 const { app_dir } = require("../../../src/main/constants.js");
-const { container, columns, row, col, component, image } = load(app_dir, "main/systems/layout.js");
+const { container, columns, row, col, component, image, nothing } = load(app_dir, "main/systems/layout.js");
 //
 //
 
@@ -11,6 +11,7 @@ const default_properties = {
     depth: 1,
     max_siblings: 1,
     hide_transition: true,
+    no_nav: true,
 
     // ~~ palette ~~
     palette: "yellow",
@@ -66,12 +67,25 @@ const nav_button = (text, href, underline) =>
         content: { text: text, href: href }
     });
 
+
+
+const nav = () =>
+    row({}, [
+        col({}, [
+                columns({ background: "#000000", padding: "4px 0px" }, [
+                    col({ padding: "4px 0px" }, [nav_button("Download the App!", "https://www.petbarn.com.au/petbarn-app", "#FEC326")]),
+                    col({ padding: "4px 0px" }, [nav_button("Shop Special Offers", "https://www.petbarn.com.au/special-offers", "#F05842")]),
+                    col({ padding: "4px 0px" }, [nav_button("Find your local Vet", "https://www.greencrossvets.com.au/find-a-vet/", "#00A651")])
+                ])
+        ])
+    ]);
+
 const internal_layout = (current, content) =>
     container({}, [
         row({}, [
             col({ padding: "16px" }, [
                 image({
-                    width: "180px",
+                    width: "100px",
                     border_radius: "0px",
                     content: {
                         src: "images/Petbarn_HeaderLogo_wBG.png",
@@ -80,15 +94,7 @@ const internal_layout = (current, content) =>
                 })
             ])
         ]),
-        row({}, [
-            col({}, [
-                columns({ background: "#000000", padding: "4px 0px" }, [
-                    col({ padding: "4px 0px" }, [nav_button("Download the App!", "https://www.petbarn.com.au/petbarn-app", "#FEC326")]),
-                    col({ padding: "4px 0px" }, [nav_button("Shop Special Offers", "https://www.petbarn.com.au/special-offers", "#F05842")]),
-                    col({ padding: "4px 0px" }, [nav_button("Find your local Vet", "https://www.greencrossvets.com.au/find-a-vet/", "#00A651")])
-                ])
-            ])
-        ])
+        current.no_nav ? nothing() : nav()
     ]);
 
 function modes() {}

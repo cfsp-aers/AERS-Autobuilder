@@ -15,10 +15,10 @@ const default_properties = {
     // ~~ spacing ~~
     vertical_align: "top",
     block_padding: "16px 0px 0px",
-    padding: "0px 32px",
+    padding: "0px 16px",
     container_padding: "16px",
     button: {
-        padding: "12px 16px 12px"
+        padding: "0px 16px 16px"
     }
 };
 
@@ -53,7 +53,7 @@ function style(childrenOf) {
 
     update(current, {
         image: {
-            border_radius: "24px"
+            border_radius: "16px"
         }
     });
     // -------------- END RULES -------------- //

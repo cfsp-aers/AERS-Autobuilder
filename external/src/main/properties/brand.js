@@ -1,9 +1,8 @@
 const _ = require("lodash");
 
-const { user_files } = require("../constants.js");
-const { load } = require("../utils/load.js");
+const { loadLibrary } = require("../utils/library.js");
 
-const brand_library = load(user_files, "libraries/brands.json");
+const brand_library = loadLibrary("libraries/brands.json");
 
 function setBrand(brand, fallback_brand, target_library) {
     /*

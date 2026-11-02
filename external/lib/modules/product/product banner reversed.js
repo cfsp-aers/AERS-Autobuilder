@@ -16,12 +16,12 @@ const default_properties = {
 
     // ~~ spacing ~~
     vertical_align: "top",
-    block_padding: "0px 16px",
+    block_padding: "0px 0px",
     padding: "8px 16px",
     container_padding: "0px",
 
     // ~~ border ~~
-    border_radius: "24px",
+    border_radius: "16px",
 
     // ~~ component settings ~~
     "heading/1": {
@@ -37,7 +37,7 @@ const default_properties = {
         padding: "12px 0px 0px"
     },
     image: {
-        border_radius: "24px"
+        border_radius: "16px"
     },
     badge: {
         padding: "0px 0px 8px"

@@ -1,6 +1,7 @@
 `~~~~~~~~~~~ BUTTON ~~~~~~~~~~~`;
 
 const default_properties = {
+    custom_class: "",
     // ~~ palette ~~
     palette: "primary",
     /*
@@ -19,14 +20,15 @@ const default_properties = {
     inner_padding: "8px 16px",
     align: "center",
     // ~~ font ~~
-    font_size: "16px",
-    line_height: "18px",
+    font_size: "14px",
+    line_height: "16px",
     font_weight: "bold",
     text_align: "center",
     font: "Outfit",
     font_style: "normal",
     // ~~ border ~~
     border_radius: "32px",
+    border_weight: "3px",
     border_top: false,
     border_right: false,
     border_bottom: false,

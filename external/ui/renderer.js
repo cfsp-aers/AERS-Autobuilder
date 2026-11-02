@@ -15,6 +15,31 @@ let selectedSheets = [];
 
 let previewOpen = false;
 
+/*
+    The build option, and its own state -- read at submit rather than mirrored
+    into a variable, so there is nothing to keep in step with the checkbox.
+*/
+const ignoreExistingAssetsToggle = document.getElementById("ignoreExistingAssets");
+
+/*
+    The dev library toggle. Shown only when external/lib-dev/ holds a file, off
+    on every launch, and never saved -- so it is not restored by "reload" either.
+    While it is on, the title bar says so. See dev-library-plan.md.
+*/
+const useDevLibraryToggle = document.getElementById("useDevLibrary");
+const devLibraryBadge = document.getElementById("devLibraryBadge");
+
+useDevLibraryToggle.checked = false;
+useDevLibraryToggle.addEventListener("change", () => {
+    devLibraryBadge.hidden = !useDevLibraryToggle.checked;
+});
+window.autobuilds
+    .devLibraryAvailable()
+    .then((available) => {
+        document.getElementById("devLibraryToggle").hidden = !available;
+    })
+    .catch(() => {});
+
 tick = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none">
 <path d="M9.54998 18L3.84998 12.3L5.27498 10.875L9.54998 15.15L18.725 5.97498L20.15 7.39998L9.54998 18Z" fill="currentColor"/>
 </svg>`;
@@ -106,20 +131,21 @@ document.getElementById("showFileDataBtn").addEventListener("click", async () =>
     openFileData();
 });
 
-document.getElementById("updateAutobuilder").addEventListener("click", async () => {
-    document.body.classList.add("loading");
-    await updateAutobuilder();
-    await sleep(1000).then(() => {
-        document.body.classList.remove("loading");
-    });
-});
+/*
+    There is no Update AERS button any more. Each build runs on the latest
+    publish by itself; what it cannot pick up mid-session is a change to the
+    window and its main-process half, which load once per launch. A build that
+    ran on such a publish says so, and this offers the restart. It stays up
+    until it is used, and never restarts on its own -- that would close whatever
+    the user had open just after an email built.
+*/
+function showRestartNotice() {
+    document.getElementById("restartNotice").hidden = false;
+}
 
-const updateAutobuilder = async () => {
-    // The message used to be assigned and dropped. There is no auto-updater --
-    // changes ship through the published tree -- so say so rather than looking
-    // like the button did something.
-    showStatus(await window.autobuilds.updateAutobuilder(), "success");
-};
+document.getElementById("restartToUpdate").addEventListener("click", async () => {
+    await window.autobuilds.restartToUpdate();
+});
 
 document.getElementById("externalFiles").addEventListener("click", async () => {
     await window.external_files.showPanel();
@@ -160,10 +186,8 @@ const reloadAutobuilder = async () => {
         };
         create_files_result = null;
         selectedSheets = result.output.SELECTED_SHEETS;
+        ignoreExistingAssetsToggle.checked = result.output.IGNORE_EXISTING_ASSETS === true;
         previewOpen = false;
-
-        // await updateAutobuilder();
-        // await sleep(1000).then(() => document.body.classList.remove("loading"));
     }
 };
 
@@ -358,8 +382,12 @@ let exportFile = function (file, name) {
 };
 
 const createFile = async (selected_sheets_list) => {
-    const result = await window.autobuilds.createHtmlFile(selected_sheets_list);
+    const result = await window.autobuilds.createHtmlFile(selected_sheets_list, {
+        ignoreExistingAssets: ignoreExistingAssetsToggle.checked,
+        useDevLibrary: useDevLibraryToggle.checked
+    });
     if (result.message) console.log(result.message);
+    if (result.restartToUpdate === true) showRestartNotice();
     return result.output;
 };
 
@@ -413,7 +441,13 @@ document.getElementById("mainForm").addEventListener("submit", async (e) => {
         create_files_result = result;
 
         if (result.success) {
-            showStatus("HTML files generated successfully!", "success");
+            if (result.dev_files) {
+                const count = result.dev_files.length;
+                showStatus(`HTML files generated with the <strong>dev library</strong> &mdash; ${count} file${count === 1 ? "" : "s"} from lib-dev/.`, "success");
+                console.log("Read from lib-dev/:", result.dev_files);
+            } else {
+                showStatus("HTML files generated successfully!", "success");
+            }
             generatedFiles = result.files;
 
             displayGeneratedFiles(result.files);

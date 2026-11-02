@@ -47,8 +47,8 @@ const footer_button = (text, href) =>
             background: "#001939",
             border_radius: "0px",
             inner_padding: "0px",
-            font_size: "12px",
-            line_height: "14px",
+            font_size: "10px",
+            line_height: "12px",
             content: { text: text, href: href }
         })
     ]);

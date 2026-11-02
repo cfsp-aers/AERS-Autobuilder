@@ -25,6 +25,9 @@
     --bg-black-100: #323232;
     --bg-black-0: #191919;
 
+    --dev-library-500: #E07B12;
+    --dev-library-100: #FCEBD8;
+
     --zoom-scale: 1;
 font-size: 16px
 }
@@ -626,6 +629,142 @@ body {
 }
 
 
+/* Toggle */
+
+.toggle {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: hsla(199, 10%, 85%, 0.3);
+    cursor: pointer;
+}
+
+.toggle:has(.toggle-btn:checked) {
+    background-color: var(--bg-primary-100);
+}
+
+/*
+    Hidden rather than display:none, so the label still reaches it by keyboard
+    and the :checked selectors above and below still apply.
+*/
+.toggle-btn {
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toggle-track {
+    position: relative;
+    flex: 0 0 auto;
+    width: 32px;
+    height: 18px;
+    border-radius: 10px;
+    background: var(--bg-white-100);
+    border: 1px solid var(--bg-black-500);
+    transition: border-color 0.15s ease;
+}
+
+.toggle-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+    border-radius: 8px;
+    background: var(--bg-secondary-500);
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.toggle-btn:checked + .toggle-track {
+    border-color: var(--bg-primary-600);
+}
+
+.toggle-btn:checked + .toggle-track .toggle-knob {
+    transform: translateX(14px);
+    background: var(--bg-primary-500);
+}
+
+.toggle-btn:focus-visible + .toggle-track {
+    outline: 2px solid var(--bg-primary-500);
+    outline-offset: 2px;
+}
+
+.toggle-label {
+    font-size: 14px;
+    color: var(--bg-black-100);
+    user-select: none;
+}
+
+
+/*
+    The dev library toggle. Smaller and quieter than the toggle above it while
+    off, because nobody should turn it on by accident; amber and loud once on,
+    because nobody should forget it is.
+*/
+.toggle[hidden] {
+    display: none;
+}
+
+.toggle-subtle {
+    padding: 4px 12px;
+    background-color: transparent;
+    opacity: 0.6;
+}
+
+.toggle-subtle .toggle-label {
+    font-size: 12px;
+}
+
+.toggle-subtle:has(.toggle-btn:checked) {
+    opacity: 1;
+    background-color: var(--dev-library-100);
+}
+
+.toggle-subtle .toggle-btn:checked + .toggle-track {
+    border-color: var(--dev-library-500);
+}
+
+.toggle-subtle .toggle-btn:checked + .toggle-track .toggle-knob {
+    background: var(--dev-library-500);
+}
+
+.dev-library-badge {
+    margin-left: 8px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bg-white-100);
+    background: var(--dev-library-500);
+}
+
+.dev-library-badge[hidden] {
+    display: none;
+}
+
+.restart-notice {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 2px 4px 2px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--bg-primary-700);
+    background: var(--bg-primary-100);
+}
+
+.restart-notice[hidden] {
+    display: none;
+}
+
 .invisible {
     width: 0;
     height: 0 !important;
@@ -653,7 +792,7 @@ body {
 }
 
 .preview-frame.mobile {
-    width: clamp(10px, 320px, 320px);
+    width: clamp(10px, 385px, 385px);
     background-color: #fff
 }
 

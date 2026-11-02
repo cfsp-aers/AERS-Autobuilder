@@ -1,11 +1,10 @@
 const _ = require("lodash");
-const { load } = require("../utils/load.js");
 // Required directly, not through load(), so the counter is shared with main.js
 // rather than each caller getting a fresh module instance.
 const { nextUuid } = require("../utils/uuid.js");
-const { user_files } = require("../constants.js");
+const { loadLibrary } = require("../utils/library.js");
 
-const module_library = load(user_files, "libraries/modules.json");
+const module_library = loadLibrary("libraries/modules.json");
 
 function setupContent(arr, offers, sheet_name = "this sheet") {
     let result = arr.reduce((acc, object, index) => {
@@ -20,10 +19,19 @@ function setupContent(arr, offers, sheet_name = "this sheet") {
             no subject line is worth building -- one that dies on
             `Cannot read properties of undefined (reading 'split')` is not.
         */
+       if (object.moduleType == 'header' && index != 0) { return acc }
+       
         if (index == 0) {
             const [subject_line, preheader] = String(object.content ?? "").split("\n");
             object.subject_line = _.trim(String(subject_line ?? "").split(":").slice(1).join(":"));
             object.preheader = _.trim(String(preheader ?? "").split(":").slice(1).join(":"));
+        }
+
+        if (object.content && !object.component) {
+          if (!object.moduleType) {
+            object.component = 'body copy'
+            console.log(`No component provided for row ${index + 1}. Defaulting to body copy`)
+          }
         }
 
         if (!object.entity_type && !object.moduleType && !object.component && !object.content) return acc;
@@ -66,12 +74,14 @@ function setupContent(arr, offers, sheet_name = "this sheet") {
             if (item.content.includes("\n")) {
                 const btn_list = item.content.split("\n");
                 btn_list.forEach((btn, index) => {
+                  if (btn.length > 0)
                     acc.push({ ...item, row_index: index + 1, content: btn });
                 });
             } else {
                 acc.push(item);
             }
-        } else {
+        }
+        else {
             acc.push(item);
         }
         return acc;
@@ -118,6 +128,10 @@ function setBasicProperties(object, header = {}, sheet_name = "this sheet") {
         }
         object.dynamicContent ??= object.versions;
         object.dynamicContent ??= object.inVersions;
+
+        if (object.dynamicContent && !object.dynamicContent.includes("/")) {
+          object.dynamicContent = null
+        }
     }
     object.uuid ??= nextUuid(entity_type);
 
@@ -180,8 +194,8 @@ function formatUserInput(string) {
         if (key.includes("padding")) {
             // result.output[key] = formatPadding(value);
         }
-        if (key == "container") result.output["depth"] = value == "false" ? 1 : 2;
-        if (key == "no_container") result.output["depth"] = value == "false" ? 2 : 1;
+        if (key == "container") result.output["depth"] = value == false ? 1 : 2;
+        if (key == "no_container") result.output["depth"] = value == false ? 2 : 1;
     });
 
     return result.output;

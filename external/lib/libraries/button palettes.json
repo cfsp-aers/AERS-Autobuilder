@@ -251,5 +251,60 @@
       "background": "white",
       "colour": "brown"
     }
+  },
+
+  "the nosh project": {
+    "primary": {
+      "background": "nosh green",
+      "colour": "white"
+    },
+    "secondary": {
+      "background": "white",
+      "colour": "nosh green"
+    },
+    "black/white": {
+      "background": "black",
+      "colour": "white"
+    },
+    "black/yellow": {
+      "background": "black",
+      "colour": "yellow"
+    },
+    "white/black": {
+      "background": "white",
+      "colour": "black"
+    },
+    "white/yellow": {
+      "background": "white",
+      "colour": "yellow"
+    },
+    "yellow/black": {
+      "background": "yellow",
+      "colour": "black"
+    },
+    "yellow/white": {
+      "background": "yellow",
+      "colour": "white"
+    },
+    "nosh green/black": {
+      "background": "nosh green",
+      "colour": "black"
+    },
+    "nosh green/white": {
+      "background": "nosh green",
+      "colour": "white"
+    },
+    "white/nosh green": {
+      "background": "white",
+      "colour": "nosh green"
+    },
+    "yellow/nosh green": {
+      "background": "yellow",
+      "colour": "nosh green"
+    },
+    "yellow/white": {
+      "background": "yellow",
+      "colour": "white"
+    }
   }
 }

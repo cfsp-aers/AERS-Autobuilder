@@ -35,11 +35,17 @@ LOCAL="$REPO/external"
 # engine when it runs outside the app, and must never reach the volume: they are
 # one person's last brief path, not part of the product.
 #
+# lib-dev/ is the dev library -- experimental library files for local testing,
+# read in place of lib/ only while its toggle is on. Anchored to the top of the
+# tree. Never published, so no one else's app, and no offline cache, can see it.
+# See dev-library-plan.md.
+#
 EXCLUDES=(
     --exclude=".*"
     --exclude="PREVIOUS_REQUIRED_DATA.json"
     --exclude="database/"
     --exclude="dev_settings.json"
+    --exclude="/lib-dev/"
 )
 
 DRY=""
@@ -129,6 +135,35 @@ if [ ! -d "$SHARED" ]; then
     fi
 fi
 
+STAMP="$SHARED/.published.json"
+WHO="$(whoami)@$(hostname -s)"
+
+#
+# Mark the tree as mid-publish before rsync touches it.
+#
+# rsync is not atomic: while it runs the tree is half old and half new. Every
+# app reads this stamp before a build, and while it says "publishing" it builds
+# from its local copy and never copies this tree into it. The previous version
+# is kept, so nothing mistakes the half-written tree for a new one. If rsync
+# fails, set -e leaves the stamp saying "publishing", and every app keeps
+# building from its local copy until the next good publish. See
+# local-copy-plan.md.
+#
+if [ -z "$DRY" ]; then
+    PREVIOUS_VERSION="$(node -e 'try { process.stdout.write(String(require(process.argv[1]).version || "")) } catch (_) {}' "$STAMP")"
+    PREVIOUS_SHELL="$(node -e 'try { process.stdout.write(String(require(process.argv[1]).shellHash || "")) } catch (_) {}' "$STAMP")"
+
+    cat > "$STAMP" <<EOF
+{
+    "version": "$PREVIOUS_VERSION",
+    "shellHash": "$PREVIOUS_SHELL",
+    "state": "publishing",
+    "startedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+    "publishedBy": "$WHO"
+}
+EOF
+fi
+
 echo "-> $SHARED"
 rsync -av --delete $DRY "${EXCLUDES[@]}" "$LOCAL/" "$SHARED/"
 echo
@@ -139,18 +174,31 @@ echo
 # against anything on their Mac, so "which commit is out there right now" is the
 # first question worth being able to answer.
 #
+# It is also what every app compares its local copy against. `version` is new
+# on every publish, and an app whose copy carries the same one builds from the
+# copy rather than over the network. `shellHash` covers the part of the tree an
+# app loads once per launch -- main_external.js and ui/ -- and when it differs
+# from the running app's, the app offers a restart. app/local_copy.js computes
+# it, so the script and the app cannot disagree on how.
+#
 if [ -z "$DRY" ]; then
     COMMIT="$(cd "$REPO" && git rev-parse --short HEAD 2>/dev/null || echo "unknown")"
     DIRTY=""
     if ! (cd "$REPO" && git diff --quiet HEAD 2>/dev/null); then DIRTY=" (uncommitted changes)"; fi
 
-    cat > "$SHARED/.published.json" <<EOF
+    PUBLISHED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+    SHELL_HASH="$(node "$REPO/app/local_copy.js" shell-hash "$LOCAL")"
+
+    cat > "$STAMP" <<EOF
 {
-    "publishedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-    "publishedBy": "$(whoami)@$(hostname -s)",
-    "commit": "$COMMIT$DIRTY"
+    "publishedAt": "$PUBLISHED_AT",
+    "publishedBy": "$WHO",
+    "commit": "$COMMIT$DIRTY",
+    "version": "$PUBLISHED_AT",
+    "shellHash": "$SHELL_HASH",
+    "state": "published"
 }
 EOF
 
-    echo "Published $COMMIT$DIRTY. Teammates pick this up on their next launch."
+    echo "Published $COMMIT$DIRTY. Teammates pick this up on their next build."
 fi

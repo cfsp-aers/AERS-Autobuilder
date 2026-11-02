@@ -196,6 +196,15 @@
         "depth": 2
       }
     },
+    "promo banner": {
+      "valid names": ["promo banner"],
+      "properties": {
+        "category": "product",
+        "type": "banner",
+        "max_siblings": 1,
+        "depth": 2
+      }
+    },
     "product tile": {
       "valid names": ["product tile"],
       "properties": {
@@ -295,6 +304,8 @@
   },
 
   "asset_ids": {
+    "image_placeholder.png": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667",
+    "banner_placeholder.png": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b",
     "GreencrossVets_FooterLogo.png": "urn:aaid:aem:f66c46f2-ac6f-4bc0-b509-87e5b9e9d2bc",
     "GreencrossVets_HeaderLogo.png": "urn:aaid:aem:b096f40c-bd84-42a5-af9f-cb8247ec4bb7",
     "PLP_Logo_Dog.png": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e",

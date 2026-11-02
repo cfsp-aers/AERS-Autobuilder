@@ -15,7 +15,7 @@ const default_properties = {
     // ~~ spacing ~~
     vertical_align: "top",
     block_padding: "16px 0px 0px",
-    padding: "0px 32px",
+    padding: "0px 16px",
     container_padding: "16px",
     button: {
         padding: "12px 16px 12px"

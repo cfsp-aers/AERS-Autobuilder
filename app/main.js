@@ -10,8 +10,10 @@
  *   1. find the external tree,
  *   2. make the app's node_modules reachable from it,
  *   3. require its main_external.js and call init(),
- *   4. keep a copy of the last tree that produced a working build, and fall
- *      back to it when the published one is unreachable or broken.
+ *   4. keep a copy of the last tree that produced a working build, run from it
+ *      while it matches the published version (it is far faster than the
+ *      shared volume), and fall back to it when the published one is
+ *      unreachable or broken.
  *
  * It also owns the "where is the external tree?" setting and the UI to change
  * it. That MUST stay here: if the external tree cannot be found, nothing in it
@@ -25,6 +27,8 @@ const { app, BrowserWindow, Menu, ipcMain, dialog, shell } = require("electron/m
 const path = require("node:path");
 const fs = require("node:fs");
 const Module = require("node:module");
+
+const local_copy = require("./local_copy.js");
 
 // ---------------------------------------------------------------------------
 // Where to look for the external tree
@@ -97,45 +101,84 @@ function is_external_tree(location) {
 }
 
 /**
- * Candidate locations, highest priority first. The first one that actually
- * contains main_external.js wins.
+ * The real locations, highest priority first -- everything but the local copy.
+ * The first one that actually contains main_external.js is the published tree
+ * this launch would run, if the local copy were out of the picture.
  *
  * Nothing here reads from inside the .app: the external tree is deliberately
  * not bundled, so changing it never requires rebuilding the app.
  */
-function external_candidates() {
-    const cache = { label: "Offline cache", location: cache_dir() };
-
-    /*
-        A relaunch after a failed load pins the cache to the top. Ordinary
-        priority would walk straight back into the published tree that just
-        threw, because it is present and readable -- it simply does not work.
-    */
-    if (forced_to_cache()) {
-        return [{ ...cache, label: "Offline cache (published tree failed to load)" }].map(with_file);
-    }
-
+function real_candidates() {
     return [
         { label: "AB_EXTERNAL environment variable", location: process.env.AB_EXTERNAL },
         { label: "User-set location", location: read_user_location() },
         // Only when running from source, so a dev checkout is never shadowed by
         // the published tree. Packaged builds skip straight to the default.
         { label: "Running from source", location: app.isPackaged ? null : path.join(__dirname, "..", "external") },
-        { label: "Default location", location: DEFAULT_EXTERNAL_LOCATION },
-        // Always last. While a real location is reachable the cache must never
-        // win, or published changes would silently stop taking effect.
-        cache
+        { label: "Default location", location: DEFAULT_EXTERNAL_LOCATION }
     ]
         .filter((candidate) => candidate.location)
         .map(with_file);
+}
+
+/**
+ * Every location a launch may look in, for telling the user where it looked.
+ *
+ * A relaunch after a failed load pins the cache to the top. Ordinary priority
+ * would walk straight back into the published tree that just threw, because it
+ * is present and readable -- it simply does not work.
+ */
+function external_candidates() {
+    const cache = with_file({ label: CACHE_LABELS.offline, location: cache_dir() });
+    return forced_to_cache() ? [{ ...cache, label: CACHE_LABELS.forced }] : real_candidates().concat(cache);
 }
 
 function with_file(candidate) {
     return { ...candidate, location: to_external_dir(candidate.location), file: main_file_in(candidate.location) };
 }
 
+/** What the panel and the log call the local copy, by why it was chosen. */
+const CACHE_LABELS = {
+    forced: "Offline cache (published tree failed to load)",
+    offline: "Offline cache",
+    current: "Local copy (matches published)",
+    publishing: "Local copy (publish in progress)"
+};
+
+/*
+    The local copy used to be the last candidate, on the rule that while a real
+    location is reachable the cache must never win, or published changes would
+    silently stop taking effect. That rule still holds. What enforces it now is
+    the version stamp rather than the cache's place in the list: the copy wins
+    only when it was taken from the same publish that is out there now. See
+    local-copy-plan.md and app/local_copy.js, where the decision itself lives.
+
+    Read afresh on every call. A launch asks once; every build asks again, so a
+    publish made while the app is open reaches the next build.
+*/
+function choose_tree() {
+    const forced = forced_to_cache();
+    const published = forced ? null : real_candidates().find((candidate) => is_external_tree(candidate.location)) || null;
+    const info = read_cache_info();
+
+    const choice = local_copy.chooseTree({
+        published: published ? { dir: published.location, stamp: local_copy.readStamp(published.location) } : null,
+        cache: is_external_tree(cache_dir()) ? { dir: cache_dir(), stamp: info ? info.stamp : null } : null,
+        forced: forced
+    });
+
+    return { ...choice, published: published };
+}
+
+/** The candidate to run, with the choice that picked it, or null when there is none. */
 function resolve_external() {
-    return external_candidates().find((candidate) => is_external_tree(candidate.location)) || null;
+    const choice = choose_tree();
+    if (!choice.dir) return null;
+
+    if (choice.published && choice.dir === choice.published.location) {
+        return { ...choice.published, choice: choice };
+    }
+    return { ...with_file({ label: CACHE_LABELS[choice.reason] || CACHE_LABELS.offline, location: cache_dir() }), choice: choice };
 }
 
 function searched_locations_text() {
@@ -217,6 +260,10 @@ function make_build_state_dir() {
     folders usually live on the same volume, so an offline user has a working
     app and nothing to build from. v2.5 had the same limitation.
 
+    It has a third job now, and the one it does most: while it was taken from
+    the publish that is out there now, it is what the app runs, because a build
+    over the network is many times slower. See choose_tree above.
+
     v2.5 kept two caches with two different gates -- one on the app booting, one
     on a successful build. Those guarded two things with different lifecycles.
     Here the whole tree is published by one command, so it is one unit, and only
@@ -258,19 +305,28 @@ function forced_to_cache() {
 function read_cache_info() {
     try {
         const parsed = JSON.parse(fs.readFileSync(path.join(cache_dir(), CACHE_INFO_FILENAME), "utf8"));
-        return { cachedAt: parsed.cachedAt || null, source: parsed.source || null, gate: parsed.gate || null };
+        return { cachedAt: parsed.cachedAt || null, source: parsed.source || null, gate: parsed.gate || null, stamp: parsed.stamp || null };
     } catch (_) {
         return null;
     }
 }
 
+function write_cache_info(info) {
+    fs.writeFileSync(path.join(cache_dir(), CACHE_INFO_FILENAME), JSON.stringify(info, null, 4), { encoding: "utf8" });
+}
+
 /**
- * Copy the external tree that is currently running over the cache.
+ * Copy an external tree over the cache.
  *
  * Staged in a sibling folder and swapped in by rename, because a copy
  * interrupted part way through (volume unmounts, laptop sleeps) must never
  * become the cache: a half-written cache is worse than none, since it would
  * load and then misbehave rather than being skipped.
+ *
+ * The published stamp is read on both sides of the copy. A publish that starts
+ * or finishes in between leaves a copy that may be half one version and half
+ * the other, and that is abandoned. The stamp is recorded in .cache_info.json,
+ * because .published.json is a dotfile and is not copied.
  */
 function refresh_cache(source_dir, gate) {
     const target = cache_dir();
@@ -278,6 +334,8 @@ function refresh_cache(source_dir, gate) {
     const previous = `${target}.previous`;
 
     try {
+        const before = local_copy.readStamp(source_dir);
+
         fs.rmSync(staging, { recursive: true, force: true });
         fs.rmSync(previous, { recursive: true, force: true });
 
@@ -287,14 +345,27 @@ function refresh_cache(source_dir, gate) {
             filter: (src) => path.resolve(src) === path.resolve(source_dir) || !path.basename(src).startsWith(".")
         });
 
+        /*
+            A tree published before stamping has nothing to check, and is
+            copied as it always was. A stamped one is copied only if the same
+            finished publish was there throughout.
+        */
+        const after = local_copy.readStamp(source_dir);
+        const stamped = Boolean((before && before.version) || (after && after.version));
+        if (stamped && !local_copy.refreshable(before, after)) {
+            fs.rmSync(staging, { recursive: true, force: true });
+            console.log(`Offline cache not updated: a publish was in progress at ${source_dir}. Keeping the previous copy.`);
+            return;
+        }
+
         if (fs.existsSync(target)) {
             fs.renameSync(target, previous);
         }
         fs.renameSync(staging, target);
         fs.rmSync(previous, { recursive: true, force: true });
 
-        fs.writeFileSync(path.join(target, CACHE_INFO_FILENAME), JSON.stringify({ cachedAt: new Date().toISOString(), source: source_dir, gate: gate }, null, 4), { encoding: "utf8" });
-        console.log(`Offline cache updated from: ${source_dir}  (${gate})`);
+        write_cache_info({ cachedAt: new Date().toISOString(), source: source_dir, gate: gate, stamp: stamped ? after : null });
+        console.log(`Offline cache updated from: ${source_dir}  (${gate}${stamped ? `, version ${after.version}` : ""})`);
     } catch (error) {
         // Never fatal -- the app is already running, and a stale cache still
         // beats a broken one. Leave the old copy in place.
@@ -313,12 +384,39 @@ function cacheable(source_dir) {
 }
 
 /**
- * Called by the external tree when a build succeeds. This is the gate: the
- * cache holds a tree that has demonstrably produced an email on this Mac.
+ * Called by the external tree when a build succeeds, with the tree the build
+ * ran from. This is the gate: the cache holds a tree that has demonstrably
+ * produced an email on this Mac.
+ *
+ * A build from the published tree refreshes the cache from it, and the build
+ * after that runs locally. A build from the cache copies nothing, but proves a
+ * copy that was only seeded. An older main_external.js passes no tree, and
+ * means the one this launch booted from.
  */
-function on_build_succeeded() {
-    if (!cacheable(booted_from)) return;
-    refresh_cache(booted_from, "successful build");
+function on_build_succeeded(dir) {
+    const source = typeof dir === "string" && dir ? dir : booted_from;
+
+    if (is_cache_dir(source)) {
+        promote_cache_gate();
+        return;
+    }
+    if (!cacheable(source)) return;
+    refresh_cache(source, "successful build");
+}
+
+/*
+    A copy seeded at first launch holds the same files as the publish it came
+    from, so a build from it proves exactly what a build from the volume would
+    have. Its gate is updated in place rather than recopied.
+*/
+function promote_cache_gate() {
+    const info = read_cache_info();
+    if (!info || info.gate === "successful build") return;
+    try {
+        write_cache_info({ ...info, gate: "successful build" });
+    } catch (error) {
+        console.error(`Could not update the offline cache record: ${error.message}`);
+    }
 }
 
 /**
@@ -339,7 +437,8 @@ function seed_cache_if_absent(source_dir) {
 }
 
 /**
- * Reached only when every real location was unreachable. Worth interrupting
+ * Shown only when every real location was unreachable -- not when the local
+ * copy was chosen because it matches the published version. Worth interrupting
  * for: the code is stale by definition, and briefs usually live on the same
  * volume, so there may be nothing to build from either.
  */
@@ -459,13 +558,25 @@ function external_panel_detail() {
 
     lines.push(user_set ? `Location set by you:\n${user_set}` : `Using the default location:\n${DEFAULT_EXTERNAL_LOCATION}`);
 
+    const published_stamp = resolved && resolved.choice && resolved.choice.published ? local_copy.readStamp(resolved.choice.published.location) : null;
+    if (published_stamp && published_stamp.version) {
+        lines.push(`Published version: ${published_stamp.version}${published_stamp.state === "published" ? "" : " (publish in progress)"}`);
+    }
+
     if (info) {
-        lines.push(`Offline copy saved ${new Date(info.cachedAt).toLocaleString()}\n(${info.gate})${is_cache_dir(booted_from) ? "\n\nThis app is running from that copy." : ""}`);
+        lines.push(`Local copy saved ${new Date(info.cachedAt).toLocaleString()}\n(${info.gate}${info.stamp && info.stamp.version ? `, version ${info.stamp.version}` : ""})${is_cache_dir(booted_from) ? `\n\n${in_use_text()}` : ""}`);
     } else {
         lines.push("No offline copy saved yet. One is kept after a successful build.");
     }
 
     return lines.join("\n\n");
+}
+
+/** Why this launch is running from the local copy, from what booted rather than a fresh resolve. */
+function in_use_text() {
+    if (booted_label === CACHE_LABELS.current) return "This app started from that copy, because it matches the published version.";
+    if (booted_label === CACHE_LABELS.publishing) return "This app started from that copy, because a publish was in progress.";
+    return "This app is running from that copy, because the shared folder could not be reached.";
 }
 
 function show_external_panel(parent_window) {
@@ -546,7 +657,11 @@ ipcMain.handle("get-external-location", async () => {
             // From what actually booted, not a fresh resolve: the volume may
             // have come back since launch, and the app would still be running
             // cached code.
-            inUse: is_cache_dir(booted_from)
+            inUse: is_cache_dir(booted_from),
+            // Whether that is because it matches the published version, or
+            // because nothing else could be reached.
+            inUseText: is_cache_dir(booted_from) ? in_use_text() : null,
+            version: info && info.stamp ? info.stamp.version || null : null
         }
     };
 });
@@ -574,6 +689,44 @@ ipcMain.handle("open-external-location", async () => {
     }
     return resolved ? resolved.location : null;
 });
+
+// ---------------------------------------------------------------------------
+// Which tree a build runs from
+// ---------------------------------------------------------------------------
+
+/*
+    The engine and library are loaded fresh on every build, so each build can
+    run from whichever tree is current: a publish made while the app is open
+    reaches the very next build, from the published tree, and once that build
+    has succeeded and refreshed the local copy, the one after runs locally.
+
+    The shell -- main_external.js and ui/ -- is loaded once per launch and
+    cannot be swapped in the same process, because its IPC handlers would
+    register twice. So when the publish a build runs from carries a different
+    shell from the one this launch booted, shellChanged says so, and the
+    renderer offers a restart.
+*/
+function tree_for_build() {
+    const choice = choose_tree();
+
+    // Nothing reachable and no local copy: let the build try what it booted
+    // from, and fail the way it always has.
+    const dir = choice.dir || booted_from;
+    const version = choice.stamp && choice.stamp.version ? choice.stamp.version : null;
+
+    if (!last_build || last_build.dir !== dir || last_build.version !== version) {
+        const cleared = local_copy.clearTreeRequires(require.cache, dir);
+        console.log(`Building from: ${dir}  (${choice.reason}${version ? `, version ${version}` : ""}; ${cleared} cached modules cleared)`);
+    }
+    last_build = { dir: dir, version: version };
+
+    return {
+        dir: dir,
+        version: version,
+        reason: choice.reason,
+        shellChanged: local_copy.complete(choice.stamp) && choice.stamp.shellHash !== booted_shell_hash
+    };
+}
 
 // ---------------------------------------------------------------------------
 // What the external tree is handed
@@ -605,9 +758,16 @@ function dependencies_for(external_dir) {
         buildStateDir: build_state_dir,
 
         /**
-         * Call after a build succeeds. Gates the offline cache: see the cache
-         * section above. Safe to call often -- copying half a megabyte is
-         * cheap next to rendering an email.
+         * Call before a build. Which tree to load the engine from for it --
+         * the local copy when it matches the published version, else the
+         * published tree. See tree_for_build.
+         */
+        treeForBuild: tree_for_build,
+
+        /**
+         * Call after a build succeeds, with the dir treeForBuild gave it. Gates
+         * the offline cache: see the cache section above. Safe to call often --
+         * copying half a megabyte is cheap next to rendering an email.
          */
         notifyBuildSucceeded: on_build_succeeded,
 
@@ -627,6 +787,16 @@ let booted_from = null;
 let booted_label = null;
 let build_state_dir = null;
 
+/**
+ * The shell hash of the tree booted from, out of its stamp. The shell is loaded
+ * once per launch, so this is what the running app's windows and IPC are,
+ * whatever tree a build later runs from. Null when that tree carried no stamp.
+ */
+let booted_shell_hash = null;
+
+/** The tree and version the last build ran from, to know when to clear stale requires. */
+let last_build = null;
+
 function boot(resolved) {
     if (booted) return;
     booted = true;
@@ -634,7 +804,11 @@ function boot(resolved) {
     booted_from = resolved.location;
     booted_label = resolved.label;
 
-    console.log(`Loading external tree from: ${booted_from}  (${resolved.label})`);
+    const stamp = resolved.choice ? resolved.choice.stamp : null;
+    booted_shell_hash = stamp && stamp.shellHash ? stamp.shellHash : null;
+    last_build = { dir: booted_from, version: stamp && stamp.version ? stamp.version : null };
+
+    console.log(`Loading external tree from: ${booted_from}  (${resolved.label}${last_build.version ? `, version ${last_build.version}` : ""})`);
     console.log(`Packages resolvable from:   ${add_app_modules_to_search_path()}`);
 
     build_state_dir = make_build_state_dir();
@@ -651,8 +825,10 @@ function boot(resolved) {
 
     app.whenReady().then(install_menu);
 
+    // A local copy chosen because it is current is the normal case now, and
+    // says nothing. Only one chosen because nothing else could be reached does.
     if (is_cache_dir(booted_from)) {
-        warn_running_from_cache();
+        if (resolved.choice && resolved.choice.offline) warn_running_from_cache();
     } else {
         seed_cache_if_absent(booted_from);
     }

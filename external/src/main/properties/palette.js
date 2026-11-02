@@ -1,10 +1,12 @@
 const _ = require("lodash");
 
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir } = require("../constants.js");
+const { loadLibrary } = require("../utils/library.js");
 const { load } = require("../utils/load.js");
 
 const { setBrand } = load(app_dir, "main/properties/brand.js");
 const { layersOf, LAYERS } = load(app_dir, "main/processing/update.js");
+const { resolveTemplate } = load(app_dir, "main/properties/template.js");
 
 /*
     What the brief asked for, read off the layers rather than out of the bag.
@@ -107,8 +109,21 @@ function setPalettes(db) {
         }
         m = setPalette(m, settingsOf(m), m);
 
+        /*
+            A slot with a palette is a region, and a region is the parent of the
+            components in it: they resolve against its palette, not the
+            module's. See ADR 0008. A slot with no settings is no region, and
+            its components take the module as they always have.
+        */
+        const positions = loadLibrary(`modules/${resolveTemplate(m)}`).component_positions || {};
+        const regions = setRegions(m);
+        const parentOf = (c) => {
+            const slot = Object.keys(regions).find((name) => (positions[name] || []).includes(c.name));
+            return slot ? regions[slot] : m;
+        };
+
         db.cs[m.uuid]?.forEach((c) => {
-            c = setPalette(c, settingsOf(c), m);
+            c = setPalette(c, settingsOf(c), parentOf(c));
         });
         /*
             A colour named on a depth-1 module is the band it sits on.
@@ -141,6 +156,23 @@ function setPalettes(db) {
     });
 
     return;
+}
+
+/*
+    Resolve each of a module's regions the way a module is resolved: its palette
+    is the one it named, or the module's, and its background is that palette's
+    unless one was written. `resolved_palette` is all setPalette reads off a
+    parent, so the bag can stand in for the module as one.
+
+    Only a region's own two keys are on the bag -- update() keeps every other
+    key a slot is given for the components in it.
+*/
+function setRegions(m) {
+    _.forIn(m.slots, (region) => {
+        region.resolved_palette = region.palette || m.resolved_palette;
+        region.background ??= getPalette(m.brand, m.parent_brand, region.resolved_palette).background;
+    });
+    return m.slots || {};
 }
 
 function setPalette(item, user = {}, parent = {}) {
@@ -181,7 +213,7 @@ function setPalette(item, user = {}, parent = {}) {
             item.brand = btn_brand;
             active_palette = getPalette(item.brand, item.parent_brand, parent.resolved_palette);
 
-            const btn_lib = load(user_files, "libraries/button palettes.json");
+            const btn_lib = loadLibrary("libraries/button palettes.json");
             const btn_palettes = btn_lib[btn_brand] ? btn_lib[btn_brand] : btn_lib.default;
 
             /*
@@ -381,14 +413,14 @@ function getPalette(item_brand, parent_brand, target_palette) {
         not an error -- the fallback is already assigned before the load is
         tried, which is what the empty catches are for.
     */
-    const default_palettes = load(user_files, `libraries/colour palettes/default palettes.json`);
+    const default_palettes = loadLibrary(`libraries/colour palettes/default palettes.json`);
     let parent_brand_palettes = default_palettes;
     try {
-        parent_brand_palettes = load(user_files, `libraries/colour palettes/${parent_brand?.toLowerCase()} palettes.json`);
+        parent_brand_palettes = loadLibrary(`libraries/colour palettes/${parent_brand?.toLowerCase()} palettes.json`);
     } catch (_) {}
     let brand_palettes = parent_brand_palettes;
     try {
-        brand_palettes = load(user_files, `libraries/colour palettes/${brand?.toLowerCase()} palettes.json`);
+        brand_palettes = loadLibrary(`libraries/colour palettes/${brand?.toLowerCase()} palettes.json`);
     } catch (_) {}
 
     if (brand_palettes["palette links"][palette]) {

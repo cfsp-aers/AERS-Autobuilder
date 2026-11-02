@@ -11,14 +11,15 @@
 const { contextBridge, ipcRenderer } = require("electron");
 
 contextBridge.exposeInMainWorld("autobuilds", {
-    updateAutobuilder: () => ipcRenderer.invoke("update-autobuilder"),
+    restartToUpdate: () => ipcRenderer.invoke("restart-to-update"),
     reloadAutobuilder: () => ipcRenderer.invoke("reload-autobuilder"),
     getExcel: () => ipcRenderer.invoke("select-excel-file"),
     reloadExcel: () => ipcRenderer.invoke("reload-excel-file"),
     outputPath: () => ipcRenderer.invoke("select-output-folder"),
     downloadImages: (selected_sheets_list) => ipcRenderer.invoke("download-images", selected_sheets_list),
-    createHtmlFile: (selected_sheets_list) => ipcRenderer.invoke("create-html-file", selected_sheets_list),
-    openFolder: (folderName) => ipcRenderer.invoke("open-folder", folderName)
+    createHtmlFile: (selected_sheets_list, build_options) => ipcRenderer.invoke("create-html-file", selected_sheets_list, build_options),
+    openFolder: (folderName) => ipcRenderer.invoke("open-folder", folderName),
+    devLibraryAvailable: () => ipcRenderer.invoke("dev-library-available")
 });
 
 contextBridge.exposeInMainWorld("user_config", {

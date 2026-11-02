@@ -15,14 +15,17 @@
         <h4 id="dev_settings" style=" line-height: 1.5;"></h4>
     </div>
 
-    <div id="title_bar" class="titlebar">Universal Builder</div>
+    <div id="title_bar" class="titlebar">Universal Builder<span id="devLibraryBadge" class="dev-library-badge" hidden>Dev library</span></div>
     <div class="container g-2">
         <div class="" id="settingsLayout" style="display:flex;flex-direction: row;">
     <div class="hrz g-2" style=" position:absolute;bottom:8px;left: 8px;margin-top: 24px">
-        <button class="preview-btn btn btn-sm btn-secondary" style="background:none;color:#dedede"
-            id="updateAutobuilder">
-            Update AERS
-        </button>
+        <!-- Shown when a build ran on a publish that changed main_external.js or
+             ui/, which load once per launch. Builds already use the new engine
+             and library; only the window itself waits for the restart. -->
+        <span id="restartNotice" class="restart-notice" hidden>
+            Restart to finish updating
+            <button class="preview-btn btn btn-sm btn-secondary" id="restartToUpdate">Restart</button>
+        </span>
         <button class="preview-btn btn btn-sm btn-secondary" style="background:none;color:#dedede"
             id="reloadAutobuilder">
             Reload AERS
@@ -98,6 +101,30 @@
                                         <div class="inner collapsed" id="outputPath">Output path goes here</div>
                                     </div>
                                 </div>
+                                <!-- On: copy only the library assets this output
+                                     folder does not have yet. Off, the default:
+                                     recopy them on every build. -->
+                                <label class="toggle" for="ignoreExistingAssets"
+                                    title="Only copy library assets the output folder's assets/ folder doesn't already have">
+                                    <input type="checkbox" class="toggle-btn" id="ignoreExistingAssets"
+                                        autocomplete="off">
+                                    <span class="toggle-track">
+                                        <span class="toggle-knob"></span>
+                                    </span>
+                                    <span class="toggle-label">Ignore existing assets</span>
+                                </label>
+                                <!-- On: read external/lib-dev/ before lib/. Only
+                                     shown when lib-dev/ holds a file, off on every
+                                     launch, never saved. See dev-library-plan.md. -->
+                                <label class="toggle toggle-subtle" for="useDevLibrary" id="devLibraryToggle" hidden
+                                    title="Build with the experimental files in lib-dev/ in place of lib/">
+                                    <input type="checkbox" class="toggle-btn" id="useDevLibrary"
+                                        autocomplete="off">
+                                    <span class="toggle-track">
+                                        <span class="toggle-knob"></span>
+                                    </span>
+                                    <span class="toggle-label">Dev library</span>
+                                </label>
                             </div>
                             <div class="">
                                 <button type="submit" id="processBtn" class="btn btn-xl btn-main">
@@ -143,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="parent-panel br-24 lift-4 invisible" id="outputFiles" style="margin-right:20px;max-width: 280px !important;" >
+            <div class="parent-panel br-24 lift-4 invisible" id="outputFiles" style="margin-right:20px; max-width: 532px !important;  padding: 0 0 12px;" >
 
                 <div class="hrz p-2 ">
                     <div class="header" style="margin-right:8px;">

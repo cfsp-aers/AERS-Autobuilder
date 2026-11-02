@@ -1,14 +1,26 @@
 <!--[if mso]>
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
-<tr>
-<td style="padding:{{ element.margin or element.padding }};" >
-<![endif]-->
-<div name="{{ element.id }}" class="acr-fragment acr-component" data-component-id="text" style="padding: {% if element.name == "badge" %}{{ element.inner_padding }}{% else %}{{ element.padding }}{% endif %};
-margin:{%if element.name == "badge" %}{{ element.padding }}{% else %}{{ element.margin }}{% endif %}; max-width: {%-if element.background-%} max-content{%-else-%}100%{%-endif-%}; background-color: {{ element.background or "transparent" }}; border-radius: {{ element.border_radius }}; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" contenteditable="false"  data-has-ext-mso-hack="true" data-has-int-mso-hack="true">
-<!--[if mso]>
-<table cellpadding="0" cellspacing="0" border="0" width="100%">
-<tr>
-<td style="mso-line-height-rule:exactly; padding: {% if element.name == "badge" %}{{ element.inner_padding }}{% else %}{{ element.padding }}{% endif %}; font-family: '{{ element.font }}', Arial, sans-serif; font-weight: {{ element.font_weight }}; font-style: normal; font-size: {{ element.font_size }}; line-height: {{ element.line_height }}; color: {{ element.colour }}; text-align: {{ element.text_align or element.align }}; background-color: {{ element.background or "transparent" }}; border-radius: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial;" >
+<table cellpadding="0" cellspacing="0" border="0" width="100%"><tr><td style="padding:{{ element.margin or element.padding }};" ><![endif]-->
+<div name="{{ element.id }}" class="acr-fragment acr-component {{ element.custom_class }}" data-component-id="text" style="
+
+{%- if element.name == "badge" -%}
+  padding: {{ element.inner_padding }};
+  margin: {{ element.padding }};
+  {%- if element.align ==  "center" -%} margin-left: auto; margin-right: auto;{%- endif -%}
+{%- else -%}
+  padding: {{ element.padding }};
+  margin: {{ element.margin }};
+{%- endif-%}
+
+{%-if element.height -%}height: {{ element.height }};{%-endif-%}
+{%-if element.vertical_align -%}align-content: {{ element.vertical_align }}; {%-endif-%}
+{%-if element.width -%}width: {{ element.width }};{%-endif-%}
+{%- if element.background -%}background-color: {{ element.background }};{%- endif -%}
+{%- if element.border_radius -%}border-radius: {{ element.border_radius }};{%- endif -%}
+
+max-width: {%-if element.background and element.background != "transparent" -%} max-content{%-else-%}{{ element.max_width or "100%" }}{%-endif-%};
+{# border-image: none; border-top: none; border-right: none; border-bottom: none; border-left: none; #}" contenteditable="false"  data-has-ext-mso-hack="true" data-has-int-mso-hack="true">
+<!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+<td style="mso-line-height-rule:exactly; padding: {% if element.name == "badge" %}{{ element.inner_padding }}{% else %}{{ element.padding }}{% endif %}; font-family: '{{ element.font }}', Arial, sans-serif; font-weight: {{ element.font_weight }}; font-style: normal; font-size: {{ element.font_size }}; line-height: {{ element.line_height }}; color: {{ element.colour }}; text-align: {{ element.text_align or element.align }}; background-color: {{ element.background or "transparent" }}; border-radius: 0px; border-top: none; border-right: none; border-bottom: none; border-left: none; border-image: initial; {%-if element.height -%}height: {{ element.height }};{%-endif-%} {%-if element.width -%}width: {{ element.width }};{%-endif-%}" >
 <![endif]-->
 <div class="text-container {{ element.text_size_class }}" contenteditable="true">
 <div style="font-size: {{ element.font_size }}; line-height: {{ element.line_height }}; font-family: '{{ element.font }}', Arial, sans-serif; color: {{ element.colour }}; text-align: {{ element.text_align or element.align }}; font-weight: {{ element.font_weight }}; font-style: normal;">

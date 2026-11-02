@@ -13,12 +13,14 @@
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "width": "180px",
+                "width": "100px",
                 "border_radius": "0px",
                 "content": {
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "padding": "0px",
@@ -75,9 +77,11 @@
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -118,9 +122,11 @@
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -161,9 +167,11 @@
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -192,12 +200,14 @@
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "width": "180px",
+                "width": "100px",
                 "border_radius": "0px",
                 "content": {
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "padding": "0px",
@@ -254,9 +264,11 @@
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -297,9 +309,11 @@
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -340,9 +354,11 @@
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -371,12 +387,14 @@
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "width": "180px",
+                "width": "100px",
                 "border_radius": "0px",
                 "content": {
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "padding": "0px",
@@ -433,9 +451,11 @@
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -476,9 +496,11 @@
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -519,9 +541,11 @@
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -550,12 +574,14 @@
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "width": "180px",
+                "width": "100px",
                 "border_radius": "0px",
                 "content": {
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "padding": "0px",
@@ -566,153 +592,7 @@
           }
         ]
       },
-      {
-        "block": "gridRow",
-        "children": [
-          {
-            "block": "gridCol",
-            "children": [
-              {
-                "block": "gridContainer",
-                "innerLayout": "single_row",
-                "background": "#000000",
-                "padding": "4px 0px",
-                "children": [
-                  {
-                    "block": "gridCol",
-                    "padding": "4px 0px",
-                    "children": [
-                      {
-                        "entity_type": "component",
-                        "template": "component/button.js",
-                        "category": "component",
-                        "type": "button",
-                        "name": "button",
-                        "brand": "petbarn",
-                        "parent_brand": "petbarn",
-                        "mode": "underline",
-                        "colour": "#FFFFFF",
-                        "background": "#000000",
-                        "vertical_align": "middle",
-                        "padding": "12px 16px 12px 16px",
-                        "margin": "0px 0px 0px 0px",
-                        "inner_padding": "4px 4px 4px 4px",
-                        "font_size": "16px",
-                        "line_height": "18px",
-                        "font_weight": "normal",
-                        "text_align": "center",
-                        "font": "Outfit",
-                        "border_radius": "0px",
-                        "border_bottom": "#FEC326",
-                        "height": "auto",
-                        "mso_height": "32px",
-                        "width": "auto",
-                        "force_mso_colour": true,
-                        "content": {
-                          "text": "Download the App!",
-                          "href": "https://www.petbarn.com.au/petbarn-app"
-                        },
-                        "palette": "primary",
-                        "align": "center",
-                        "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false
-                      }
-                    ]
-                  },
-                  {
-                    "block": "gridCol",
-                    "padding": "4px 0px",
-                    "children": [
-                      {
-                        "entity_type": "component",
-                        "template": "component/button.js",
-                        "category": "component",
-                        "type": "button",
-                        "name": "button",
-                        "brand": "petbarn",
-                        "parent_brand": "petbarn",
-                        "mode": "underline",
-                        "colour": "#FFFFFF",
-                        "background": "#000000",
-                        "vertical_align": "middle",
-                        "padding": "12px 16px 12px 16px",
-                        "margin": "0px 0px 0px 0px",
-                        "inner_padding": "4px 4px 4px 4px",
-                        "font_size": "16px",
-                        "line_height": "18px",
-                        "font_weight": "normal",
-                        "text_align": "center",
-                        "font": "Outfit",
-                        "border_radius": "0px",
-                        "border_bottom": "#F05842",
-                        "height": "auto",
-                        "mso_height": "32px",
-                        "width": "auto",
-                        "force_mso_colour": true,
-                        "content": {
-                          "text": "Shop Special Offers",
-                          "href": "https://www.petbarn.com.au/special-offers"
-                        },
-                        "palette": "primary",
-                        "align": "center",
-                        "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false
-                      }
-                    ]
-                  },
-                  {
-                    "block": "gridCol",
-                    "padding": "4px 0px",
-                    "children": [
-                      {
-                        "entity_type": "component",
-                        "template": "component/button.js",
-                        "category": "component",
-                        "type": "button",
-                        "name": "button",
-                        "brand": "petbarn",
-                        "parent_brand": "petbarn",
-                        "mode": "underline",
-                        "colour": "#FFFFFF",
-                        "background": "#000000",
-                        "vertical_align": "middle",
-                        "padding": "12px 16px 12px 16px",
-                        "margin": "0px 0px 0px 0px",
-                        "inner_padding": "4px 4px 4px 4px",
-                        "font_size": "16px",
-                        "line_height": "18px",
-                        "font_weight": "normal",
-                        "text_align": "center",
-                        "font": "Outfit",
-                        "border_radius": "0px",
-                        "border_bottom": "#00A651",
-                        "height": "auto",
-                        "mso_height": "32px",
-                        "width": "auto",
-                        "force_mso_colour": true,
-                        "content": {
-                          "text": "Find your local Vet",
-                          "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                        },
-                        "palette": "primary",
-                        "align": "center",
-                        "font_style": "normal",
-                        "border_top": false,
-                        "border_right": false,
-                        "border_left": false
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      }
+      {}
     ]
   },
   "hpp": {
@@ -729,12 +609,14 @@
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "width": "180px",
+                "width": "100px",
                 "border_radius": "0px",
                 "content": {
                   "src": "images/Petbarn_HeaderLogo_wBG.png",
                   "href": "https://www.petbarn.com.au"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "padding": "0px",
@@ -791,9 +673,11 @@
                           "text": "Download the App!",
                           "href": "https://www.petbarn.com.au/petbarn-app"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -834,9 +718,11 @@
                           "text": "Shop Special Offers",
                           "href": "https://www.petbarn.com.au/special-offers"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false
@@ -877,9 +763,11 @@
                           "text": "Find your local Vet",
                           "href": "https://www.greencrossvets.com.au/find-a-vet/"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "align": "center",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_left": false

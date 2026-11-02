@@ -40,6 +40,28 @@ function load(parentLocation, fileName) {
 let bootstrap = {};
 
 /*
+    The tree a build loads the engine from. Usually not this one: the bootstrap
+    keeps a local copy of the published tree, and builds from it whenever it
+    matches the published version, because a build over the network is many
+    times slower. A publish made while the app is open reaches the next build.
+    See local-copy-plan.md.
+
+    An older .app has no treeForBuild, and builds from the tree this file is in,
+    as it always has.
+*/
+function tree_for_build() {
+    if (typeof bootstrap.treeForBuild === "function") {
+        try {
+            const tree = bootstrap.treeForBuild();
+            if (tree && tree.dir) return tree;
+        } catch (error) {
+            console.error(`Could not choose a tree to build from, using ${external_dir}: ${error.message}`);
+        }
+    }
+    return { dir: external_dir, version: null, reason: "booted", shellChanged: false };
+}
+
+/*
     Per-user scratch space, handed over by the bootstrap. Under ADR 0001 the tree
     this file sits in is on a shared volume, so nothing per-user may be written
     beside it: two people building at once would overwrite each other, and a
@@ -81,6 +103,34 @@ try {
     console.groupEnd();
 } catch (_) {
     console.log("no dev settings found");
+}
+
+// ---------------------------------------------------------------------------
+// Dev library
+// ---------------------------------------------------------------------------
+
+/*
+    external/lib-dev -- experimental library files, read before lib/ while the
+    dev library toggle is on. Never published, so it only exists in a checkout,
+    and the toggle is only offered when it holds something. See
+    dev-library-plan.md.
+*/
+const lib_dev_dir = path.join(external_dir, "lib-dev");
+
+/** Whether `dir` holds at least one file, at any depth. A .DS_Store is not one. */
+function holds_a_file(dir) {
+    return fs.readdirSync(dir, { withFileTypes: true }).some((entry) => {
+        if (entry.isDirectory()) return holds_a_file(path.join(dir, entry.name));
+        return entry.isFile() && entry.name !== ".DS_Store";
+    });
+}
+
+function dev_library_available() {
+    try {
+        return holds_a_file(lib_dev_dir);
+    } catch (_) {
+        return false;
+    }
 }
 
 // ---------------------------------------------------------------------------
@@ -218,7 +268,10 @@ let REQUIRED_DATA = {
     BRIEF_LOCATION: "",
     OUTPUT_LOCATION: "",
     SELECTED_SHEETS: "",
-    ALL_SHEETS: ""
+    ALL_SHEETS: "",
+    // The "ignore existing assets" toggle. Off is the default and the behaviour
+    // every build had before it existed: the library overwrites `assets/`.
+    IGNORE_EXISTING_ASSETS: false
 };
 
 let selectedFiles = {
@@ -241,6 +294,10 @@ async function reloadAutobuilder() {
         // The brief has to still be there. It usually lives on a share, so
         // "reload" a day later is exactly when this fails.
         previous.ALL_SHEETS = XLSX.readFile(previous.BRIEF_LOCATION).SheetNames;
+        // Written by a version of the app that had no toggle, so it may be
+        // absent. Normalised here rather than in the renderer, which only has
+        // to set a checkbox from it.
+        previous.IGNORE_EXISTING_ASSETS = previous.IGNORE_EXISTING_ASSETS === true;
 
         REQUIRED_DATA = previous;
         selectedFiles.excel = previous.BRIEF_LOCATION;
@@ -258,24 +315,22 @@ async function reloadAutobuilder() {
     return result;
 }
 
-/*
-    Auto-update is the deferred half of ADR 0001. Until it exists, a new .app is
-    distributed by hand -- which is rare, because the .app is a bootstrap and
-    almost every change ships through the published tree instead.
-
-    The beta's abandoned attempt at this (a git-clone import used nowhere) has
-    been removed. The channel stays so the UI button does not throw.
-*/
-function updateAutobuilder() {
-    return "Updates ship through the published tree. Nothing to do.";
-}
-
 // ---------------------------------------------------------------------------
 // IPC
 // ---------------------------------------------------------------------------
 
 function registerHandlers() {
-    ipcMain.handle("update-autobuilder", async () => updateAutobuilder());
+    /*
+        update-autobuilder is gone, with its button. A publish now reaches the
+        next build by itself -- see tree_for_build -- so there was nothing left
+        for it to do. What cannot be picked up mid-session is a change to this
+        file or to ui/, and for that a build result carries restartToUpdate and
+        the renderer offers this.
+    */
+    ipcMain.handle("restart-to-update", async () => {
+        app.relaunch();
+        app.exit(0);
+    });
 
     ipcMain.handle("reload-autobuilder", async () => await reloadAutobuilder());
 
@@ -332,24 +387,55 @@ function registerHandlers() {
         return fileLocations.outputFolder;
     });
 
-    ipcMain.handle("create-html-file", async (event, selected_sheets_list) => {
+    /*
+        build_options is the renderer's second argument, and an object rather
+        than a boolean so the next toggle is not a third positional one. An
+        older renderer sends nothing, which is the default for every option.
+    */
+    ipcMain.handle("create-html-file", async (event, selected_sheets_list, build_options) => {
         const result = { output: {}, message: "" };
+        const options = build_options || {};
 
         REQUIRED_DATA.SELECTED_SHEETS = selected_sheets_list;
+        REQUIRED_DATA.IGNORE_EXISTING_ASSETS = options.ignoreExistingAssets === true;
+
+        /*
+            Deliberately not in REQUIRED_DATA, unlike the option above: that is
+            what "reload" restores, and a dev build must never be restored into.
+            Every launch starts with the dev library off.
+        */
+        const use_dev_library = options.useDevLibrary === true;
+
+        const tree = tree_for_build();
 
         try {
-            const aers_main = load(external_dir, "./src/main/main.js");
+            const aers_main = load(tree.dir, "./src/main/main.js");
             result.output = aers_main.buildEmails({
                 briefLocation: REQUIRED_DATA.BRIEF_LOCATION,
                 briefParentFolder: REQUIRED_DATA.BRIEF_PARENT_FOLDER,
                 outputLocation: REQUIRED_DATA.OUTPUT_LOCATION,
                 selectedSheets: selected_sheets_list,
-                databaseLocation: database_location()
+                databaseLocation: database_location(),
+                ignoreExistingAssets: REQUIRED_DATA.IGNORE_EXISTING_ASSETS,
+                useDevLibrary: use_dev_library
             });
         } catch (error) {
             console.error("Build failed:", error.stack || error.message);
             result.output = { success: false, message: error.message };
         }
+
+        /*
+            Said, not retried. A bad publish cannot be told apart from a bad
+            brief, so a quiet retry on the local copy would hide the one thing
+            worth knowing about.
+        */
+        if (result.output && result.output.success !== true && tree.reason === "newer") {
+            result.output.message = `${result.output.message || "The build failed."} (This build ran on a version published since your last successful build.)`;
+        }
+
+        // The publish this build ran from carries a different main_external.js
+        // or ui/ from the one running. Those load once per launch.
+        result.restartToUpdate = tree.shellChanged === true;
 
         // What the "show file data" window reads. Kept here rather than asked
         // for on demand, because the build that produced it has finished by then.
@@ -374,7 +460,7 @@ function registerHandlers() {
                 falling back to. See the cache section of app/main.js.
             */
             if (typeof bootstrap.notifyBuildSucceeded === "function") {
-                bootstrap.notifyBuildSucceeded();
+                bootstrap.notifyBuildSucceeded(tree.dir);
             }
         }
 
@@ -404,7 +490,7 @@ function registerHandlers() {
         }
 
         try {
-            const { downloadImages } = load(external_dir, "./src/main/ilc_images.js");
+            const { downloadImages } = load(tree_for_build().dir, "./src/main/ilc_images.js");
             return await downloadImages({
                 briefLocation: REQUIRED_DATA.BRIEF_LOCATION,
                 selectedSheets: selected_sheets_list,
@@ -418,6 +504,10 @@ function registerHandlers() {
     });
 
     ipcMain.handle("open-folder", async (event, folderPath) => shell.showItemInFolder(folderPath));
+
+    // Asked by the renderer once it has loaded, rather than pushed at
+    // whenReady, so the answer cannot arrive before anything is listening.
+    ipcMain.handle("dev-library-available", async () => dev_library_available());
 
     ipcMain.on("counter-value", (_event, value) => console.log(value));
 }

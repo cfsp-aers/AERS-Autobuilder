@@ -27,6 +27,8 @@
                           "src": "images/GreencrossVets_FooterLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -63,12 +65,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -79,6 +82,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -101,12 +105,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "SERVICES",
                           "href": "https://www.greencrossvets.com.au/services"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -117,6 +122,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -139,12 +145,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "CONTACT US",
                           "href": "https://www.greencrossvets.com.au/contact"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -155,6 +162,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -177,12 +185,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "ABOUT US",
                           "href": "https://www.greencrossvets.com.au/about-greencross-vets"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -193,6 +202,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -316,6 +326,7 @@
                 "line_height": "14px",
                 "content": "<p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Make sure emails from Greencross Vets make it to your inbox. Add greencrossvets@edm.greencrossvets.com.au to your address book.</span></p> <p><br></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Can't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href id=\"acr-link-52530229\">View online.</a></span></p><p><br></p><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Please refer to our <a class=\"arc-link\" data-nl-type=\"externalLink\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://www.greencrossvets.com.au/privacy-policy/\" id=\"acr-link-34318281\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\"><br/>This email was sent to you by Greencross Pty Ltd.</span><br/><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Greencross Vets Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">P: 1300 836 036 E: info@greencrossvet.com.au</span></p><br/><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Click <a class=\"arc-link\" data-nl-type=\"unsubscription\" id=\"acr-link-15090631\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://t1.edm.greencrossvets.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">HERE</a> to unsubscribe from marketing communications, including vaccination reminders via email. </span></p>",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "padding": "0px 0px 4px",
@@ -365,11 +376,13 @@
                                   "src": "images/gxv-fb.png",
                                   "href": "https://www.facebook.com/GreencrossVets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -388,11 +401,13 @@
                                   "src": "images/gxv-in.png",
                                   "href": "https://www.instagram.com/greencrossvets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -411,11 +426,13 @@
                                   "src": "images/gxv-yt.png",
                                   "href": "https://www.youtube.com/user/Greenxvets"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -464,6 +481,8 @@
                           "src": "images/GreencrossVets_FooterLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -500,12 +519,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -516,6 +536,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -538,12 +559,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "SERVICES",
                           "href": "https://www.greencrossvets.com.au/services"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -554,6 +576,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -576,12 +599,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "CONTACT US",
                           "href": "https://www.greencrossvets.com.au/contact"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -592,6 +616,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -614,12 +639,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "ABOUT US",
                           "href": "https://www.greencrossvets.com.au/about-greencross-vets"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -630,6 +656,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -753,6 +780,7 @@
                 "line_height": "14px",
                 "content": "<p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Make sure emails from Greencross Vets make it to your inbox. Add greencrossvets@edm.greencrossvets.com.au to your address book.</span></p> <p><br></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Can't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href id=\"acr-link-52530229\">View online.</a></span></p><p><br></p><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Please refer to our <a class=\"arc-link\" data-nl-type=\"externalLink\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://www.greencrossvets.com.au/privacy-policy/\" id=\"acr-link-34318281\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\"><br/>This email was sent to you by Greencross Pty Ltd.</span><br/><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Greencross Vets Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">P: 1300 836 036 E: info@greencrossvet.com.au</span></p><br/><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Click <a class=\"arc-link\" data-nl-type=\"unsubscription\" id=\"acr-link-15090631\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://t1.edm.greencrossvets.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">HERE</a> to unsubscribe from marketing communications, including vaccination reminders via email. </span></p>",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "padding": "0px 0px 4px",
@@ -802,11 +830,13 @@
                                   "src": "images/gxv-fb.png",
                                   "href": "https://www.facebook.com/GreencrossVets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -825,11 +855,13 @@
                                   "src": "images/gxv-in.png",
                                   "href": "https://www.instagram.com/greencrossvets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -848,11 +880,13 @@
                                   "src": "images/gxv-yt.png",
                                   "href": "https://www.youtube.com/user/Greenxvets"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -891,6 +925,7 @@
                 "line_height": "14px",
                 "content": "transactional footer",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "padding": "0px 0px 4px",
@@ -935,6 +970,8 @@
                           "src": "images/GreencrossVets_FooterLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -971,12 +1008,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -987,6 +1025,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1009,12 +1048,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "SERVICES",
                           "href": "https://www.greencrossvets.com.au/services"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1025,6 +1065,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1047,12 +1088,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "CONTACT US",
                           "href": "https://www.greencrossvets.com.au/contact"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1063,6 +1105,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1085,12 +1128,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "ABOUT US",
                           "href": "https://www.greencrossvets.com.au/about-greencross-vets"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1101,6 +1145,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1224,6 +1269,7 @@
                 "line_height": "14px",
                 "content": "<p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Make sure emails from Greencross Vets make it to your inbox. Add greencrossvets@edm.greencrossvets.com.au to your address book.</span></p> <p><br></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Can't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href id=\"acr-link-52530229\">View online.</a></span></p><p><br></p><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Please refer to our <a class=\"arc-link\" data-nl-type=\"externalLink\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://www.greencrossvets.com.au/privacy-policy/\" id=\"acr-link-34318281\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\"><br/>This email was sent to you by Greencross Pty Ltd.</span><br/><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Greencross Vets Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">P: 1300 836 036 E: info@greencrossvet.com.au</span></p><br/><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Click <a class=\"arc-link\" data-nl-type=\"unsubscription\" id=\"acr-link-15090631\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://t1.edm.greencrossvets.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">HERE</a> to unsubscribe from marketing communications, including vaccination reminders via email. </span></p>",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "padding": "0px 0px 4px",
@@ -1273,11 +1319,13 @@
                                   "src": "images/gxv-fb.png",
                                   "href": "https://www.facebook.com/GreencrossVets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -1296,11 +1344,13 @@
                                   "src": "images/gxv-in.png",
                                   "href": "https://www.instagram.com/greencrossvets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -1319,11 +1369,13 @@
                                   "src": "images/gxv-yt.png",
                                   "href": "https://www.youtube.com/user/Greenxvets"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -1371,6 +1423,8 @@
                           "src": "images/GreencrossVets_FooterLogo.png",
                           "href": "https://www.greencrossvets.com.au"
                         },
+                        "mobile_only": false,
+                        "desktop_only": false,
                         "background": "transparent",
                         "vertical_align": "middle",
                         "padding": "0px",
@@ -1407,12 +1461,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "BOOK NOW",
                           "href": "https://www.greencrossvets.com.au/book-online"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1423,6 +1478,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1445,12 +1501,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "SERVICES",
                           "href": "https://www.greencrossvets.com.au/services"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1461,6 +1518,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1483,12 +1541,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "CONTACT US",
                           "href": "https://www.greencrossvets.com.au/contact"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1499,6 +1558,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1521,12 +1581,13 @@
                         "background": "#001939",
                         "border_radius": "0px",
                         "inner_padding": "0px",
-                        "font_size": "12px",
-                        "line_height": "14px",
+                        "font_size": "10px",
+                        "line_height": "12px",
                         "content": {
                           "text": "ABOUT US",
                           "href": "https://www.greencrossvets.com.au/about-greencross-vets"
                         },
+                        "custom_class": "",
                         "palette": "primary",
                         "colour": "#FFFFFF",
                         "vertical_align": "middle",
@@ -1537,6 +1598,7 @@
                         "text_align": "center",
                         "font": "Outfit",
                         "font_style": "normal",
+                        "border_weight": "3px",
                         "border_top": false,
                         "border_right": false,
                         "border_bottom": false,
@@ -1660,6 +1722,7 @@
                 "padding": "0px 0px 16px",
                 "content": "*Healthy Pets Plus Benefits must not be abused, including in ways that are not for the benefit of the pet covered by the membership. Benefits offered subject to availability. Savings based on prices for non-Healthy Pets Plus members and cannot be used in conjunction with any other offer or discount unless stated otherwise. See <a href=\"https://www.greencrossvets.com.au/healthy-pets-plus/terms-and-conditions-v2/\" style=\"font-weight:normal;color:#FFFFFF;font-size:12px;line-height:14px;\">HERE.</a> for Healthy Pets Plus T&Cs. ",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "margin": "0px",
@@ -1677,6 +1740,7 @@
                 "line_height": "14px",
                 "content": "<p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Make sure emails from Greencross Vets make it to your inbox. Add greencrossvets@edm.greencrossvets.com.au to your address book.</span></p> <p><br></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Can't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href id=\"acr-link-52530229\">View online.</a></span></p><p><br></p><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Please refer to our <a class=\"arc-link\" data-nl-type=\"externalLink\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://www.greencrossvets.com.au/privacy-policy/\" id=\"acr-link-34318281\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\"><br/>This email was sent to you by Greencross Pty Ltd.</span><br/><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Greencross Vets Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.</span></p> <p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">P: 1300 836 036 E: info@greencrossvet.com.au</span></p><br/><p><span style=\"color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\">Click <a class=\"arc-link\" data-nl-type=\"unsubscription\" id=\"acr-link-15090631\" style=\"text-decoration:underline;color:rgb(255, 255, 255); font-size: 12px; line-height: 14px;\" href=\"https://t1.edm.greencrossvets.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">HERE</a> to unsubscribe from marketing communications, including vaccination reminders via email. </span></p>",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "padding": "0px 0px 4px",
@@ -1726,11 +1790,13 @@
                                   "src": "images/gxv-fb.png",
                                   "href": "https://www.facebook.com/GreencrossVets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -1749,11 +1815,13 @@
                                   "src": "images/gxv-in.png",
                                   "href": "https://www.instagram.com/greencrossvets/"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -1772,11 +1840,13 @@
                                   "src": "images/gxv-yt.png",
                                   "href": "https://www.youtube.com/user/Greenxvets"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]

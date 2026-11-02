@@ -23,7 +23,10 @@ const default_properties = {
 
     // ~~ component settings ~~
     components: {
-        padding: "0px 16px 16px"
+        padding: "0px 0px 16px",
+        font_size: "12px",
+        line_height: "14px",
+        custom_class: "footer_copy",
     }
 };
 
@@ -33,13 +36,14 @@ const component_positions = {
 
 const internal_layout = (current, content) =>
     container({ transition: current.transition, transition_id: current.transition_id }, [
-        row({}, [col({ padding: "32px 32px 0px" }, setComponents("all", content))]),
+        row({}, [col({ padding: "16px 16px 0px" }, setComponents("all", content))]),
         row({}, [
-            col({ padding: "0px 32px 32px" }, [
+            col({ padding: "0px 16px 32px" }, [
                 component({
                     colour: "white",
                     font_size: "12px",
                     line_height: "14px",
+                    custom_class: "footer_copy",
                     content: current.transactional
                         ? `transactional footer`
                         : `^For Shop Your Way full terms and conditions see our

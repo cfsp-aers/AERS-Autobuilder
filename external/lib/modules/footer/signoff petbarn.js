@@ -12,7 +12,7 @@ const default_properties = {
     max_siblings: 1,
 
     // ~~ palette ~~
-    palette: "primary",
+    background: "#FEC326",
 
     // ~~ spacing ~~
     vertical_align: "top",
@@ -23,7 +23,7 @@ const default_properties = {
 
     // ~~ component settings ~~
     components: {
-        padding: "0px 16px 16px"
+        padding: "0px 8px 16px"
     }
 };
 
@@ -31,27 +31,27 @@ const component_positions = {
     all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
 };
 
-const social = (src, href) => col({ padding: "8px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href } })]);
+const social = (src, href) => col({ width: "36px", padding: "0px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href } })]);
 
 const internal_layout = (current, content) =>
-    columns({ transition: current.transition, transition_id: current.transition_id }, [
-        col({ padding: "0px 32px 24px" }, [
+    columns({ transition: current.transition, transition_id: current.transition_id, background: "#FEC326" }, [
+        col({ padding: "16px 8px 24px" }, [
             image({
-                padding: "16px 0px",
+                padding: "10px 0px",
                 border_radius: "0px",
-                width: "180px",
-                content: { src: "images/PLP_Logo_Dog.png" }
+                width: "130px",
+                content: { src: "images/Petbarn_HeaderLogo_wBG.png" }
             }),
             component({
                 colour: "black",
-                font_size: "16px",
-                line_height: "18px",
-                padding: "16px",
+                font_size: "14px",
+                line_height: "16px",
+                padding: "12px 12px 16px",
                 content: '<span style="font-weight:bold;color:#000000;font-size:16px;line-height:18px;">We can\'t wait to see you and your pet soon</span>\nThe team at Petbarn!'
             }),
             columns({}, [
-                col({}),
-                col({}, [
+                col({ width: "25%" }),
+                col({ width: "50%", mobile_stack: false }, [
                     columns({}, [
                         social("images/pb-fb.png", "https://www.facebook.com/petbarn"),
                         social("images/pb-in.png", "https://www.instagram.com/petbarn/#"),
@@ -59,7 +59,7 @@ const internal_layout = (current, content) =>
                         social("images/pb-tt.png", "https://www.tiktok.com/@petbarnau")
                     ])
                 ]),
-                col({})
+                col({ width: "25%" }),
             ])
         ])
     ]);

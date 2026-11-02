@@ -2,13 +2,15 @@ const _ = require("lodash");
 
 const { load } = require("../utils/load.js");
 
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir } = require("../constants.js");
+const { loadLibrary } = require("../utils/library.js");
 
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 const { formatProperties } = load(app_dir, "main/systems/formatObjects.js");
 const { nameTransitions, transitionId } = load(app_dir, "main/utils/assets.js");
 const { resolveTemplate } = load(app_dir, "main/properties/template.js");
+const { findCard } = load(app_dir, "main/systems/layout.js");
 
 function structureEDM(arr, children = {}) {
     arr = arr.reduce((acc, o) => {
@@ -22,7 +24,7 @@ function structureEDM(arr, children = {}) {
 
     let result = arr.map((m, i) => {
         const prev = arr[i - 1] ? arr[i - 1] : arr[i];
-        const { internal_layout, component_positions } = load(user_files, `modules/${resolveTemplate(m)}`);
+        const { internal_layout, component_positions } = loadLibrary(`modules/${resolveTemplate(m)}`);
 
         let c_pos = {};
         _.forIn(component_positions, (value, key) => {
@@ -33,6 +35,22 @@ function structureEDM(arr, children = {}) {
         m.transition = prev.background != m.background ? _.trimStart(prev.background, "#") : false;
         m.transition_id = transitionId(prev.background);
         m.children = [internal_layout(m, c_pos)];
+
+        /*
+            A layout that declared its own card gets what the wrapper below
+            would have had, for anything the card() call left unsaid, and no
+            wrapper. At depth 1 there is no foreground layer, so no fill.
+            See ADR 0008.
+        */
+        const card = findCard(m.children[0]);
+        if (card) {
+            const fills = { border_radius: m.border_radius, padding: m.container_padding };
+            if (m.depth == 2) fills.background = m.colour;
+            _.forIn(fills, (value, key) => {
+                if (card[key] === undefined && value !== undefined && value !== null) card[key] = value;
+            });
+            return m;
+        }
 
         if (m.depth == 2) {
             return {
@@ -98,6 +116,7 @@ function structureEDM(arr, children = {}) {
             block: "gridCol",
             nav_label: "block_column",
             uuid: child.uuid,
+            stack_cols_on_mobile: child.stack_cols_on_mobile ?? true,
             vertical_align: "top",
             //width: child.column_width,
             children: [item]

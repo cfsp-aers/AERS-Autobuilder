@@ -47,12 +47,22 @@
  * artwork, and saying so on every build would be noise. A transition is the
  * exception, since it is always meant to come from here; those are named in the
  * log, because a missing one is a visible hole in the email.
+ *
+ * Whether a copy already in `assets/` is replaced is the one thing about any of
+ * this a user decides. `assets/` is written by the builder, but it is also a
+ * folder someone can reach into -- a designer waiting on a wobble that the
+ * library has not had drawn yet may have put a corrected one there by hand. The
+ * default is what it has always been, the library overwriting on every build;
+ * "ignore existing assets" in the UI makes the opposite promise, and copies only
+ * the files that are not there yet.
  */
 
 const fs = require("node:fs");
 const path = require("node:path");
 
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir, lib_dev } = require("../constants.js");
+const { loadLibrary, libraryRoots } = require("./library.js");
+const { noteDevFile } = require("../build_config.js");
 const { load } = require("../utils/load.js");
 
 const aers = load(app_dir, "main/utils/aers utilities.js");
@@ -74,7 +84,7 @@ const ID_LIBRARY = "libraries/modules.json";
     both reach this file through load(), so this module scope re-runs whenever
     they do and an edit to the library is picked up without restarting the app.
 */
-const asset_ids = load(user_files, ID_LIBRARY).asset_ids || {};
+const asset_ids = loadLibrary(ID_LIBRARY).asset_ids || {};
 
 /*
     Read rather than guessed at. Anything else in the folder -- a .DS_Store, a
@@ -130,29 +140,37 @@ function assetId(src) {
 /**
  * Every image file in the library, by the name a src would call it.
  *
+ * With the dev library on, lib-dev/libraries/assets is read after lib/'s, so a
+ * dev file of the same name replaces the base entry -- the same per-file rule
+ * as every other library read, applied to a folder listing.
+ *
  * @returns {Map<string, string>} basename -> full path
  */
 function libraryIndex() {
-    const location = path.join(user_files, LIBRARY_FOLDER);
     const index = new Map();
 
-    /*
-        A missing or unreadable library is worth saying out loud, unlike a
-        missing single file: it means every src below falls through and the
-        feature silently does nothing at all.
-    */
-    let entries;
-    try {
-        entries = fs.readdirSync(location, { withFileTypes: true });
-    } catch (error) {
-        console.warn(`Could not read the asset library at ${location}: ${error.message}`);
-        return index;
-    }
+    [...libraryRoots()].reverse().forEach((root) => {
+        const location = path.join(root, LIBRARY_FOLDER);
 
-    entries.forEach((entry) => {
-        if (!entry.isFile()) return;
-        if (!IMAGE_EXTENSIONS.includes(path.extname(entry.name).toLowerCase())) return;
-        index.set(entry.name, path.join(location, entry.name));
+        /*
+            A missing or unreadable library is worth saying out loud, unlike a
+            missing single file: it means every src below falls through and the
+            feature silently does nothing at all. A lib-dev/ with no assets of
+            its own is the ordinary case, and says nothing.
+        */
+        let entries;
+        try {
+            entries = fs.readdirSync(location, { withFileTypes: true });
+        } catch (error) {
+            if (root !== lib_dev) console.warn(`Could not read the asset library at ${location}: ${error.message}`);
+            return;
+        }
+
+        entries.forEach((entry) => {
+            if (!entry.isFile()) return;
+            if (!IMAGE_EXTENSIONS.includes(path.extname(entry.name).toLowerCase())) return;
+            index.set(entry.name, path.join(location, entry.name));
+        });
     });
 
     return index;
@@ -229,9 +247,10 @@ function nameTransitions(module_array) {
  *
  * @param {object[]} module_array  the finished tree, from structureEDM
  * @param {string} outputLocation  the folder the .html is written to
- * @returns {{location: string, copied: string[], filled: number, identified: string[], unidentified: string[], missing_transitions: string[]}}
+ * @param {boolean} [ignoreExisting] leave a file `assets/` already has alone
+ * @returns {{location: string, copied: string[], kept: string[], supplied: string[], filled: number, identified: string[], unidentified: string[], missing_transitions: string[]}}
  */
-function resolveAssets(module_array, outputLocation) {
+function resolveAssets(module_array, outputLocation, ignoreExisting = false) {
     const library = libraryIndex();
     const location = path.join(outputLocation, ASSETS_FOLDER);
 
@@ -243,6 +262,7 @@ function resolveAssets(module_array, outputLocation) {
     fs.mkdirSync(location, { recursive: true });
 
     const copied = new Set();
+    const kept = new Set();
     const missing_transitions = new Set();
     let filled = 0;
 
@@ -251,6 +271,16 @@ function resolveAssets(module_array, outputLocation) {
         library is the source of truth for these files (ADR 0002), so a copy
         that has drifted -- edited in place, or left behind by an older version
         of the library -- is wrong, and silently keeping it would hide that.
+
+        `ignoreExisting` is the deliberate exception to that, and the only one:
+        a user who asked for it is saying the copy in `assets/` is the one they
+        want. It decides nothing else -- a name the folder does not have yet is
+        copied either way.
+
+        The src is repointed either way too, because the file is in `assets/`
+        either way. Which of the two sets a name lands in is decided once, by
+        the first src that asks for it, so no file is counted twice and the
+        report adds up.
     */
     function pointAt(src) {
         if (typeof src !== "string" || !src.startsWith(`${IMAGES_FOLDER}/`)) return src;
@@ -259,9 +289,16 @@ function resolveAssets(module_array, outputLocation) {
         const source = library.get(name);
         if (!source) return src;
 
-        if (!copied.has(name)) {
-            fs.copyFileSync(source, path.join(location, name));
-            copied.add(name);
+        if (!copied.has(name) && !kept.has(name)) {
+            const destination = path.join(location, name);
+
+            if (ignoreExisting && fs.existsSync(destination)) {
+                kept.add(name);
+            } else {
+                fs.copyFileSync(source, destination);
+                copied.add(name);
+                if (source.startsWith(lib_dev + path.sep)) noteDevFile(path.relative(lib_dev, source));
+            }
         }
         return `${ASSETS_FOLDER}/${name}`;
     }
@@ -285,12 +322,21 @@ function resolveAssets(module_array, outputLocation) {
     });
 
     /*
-        Which of the files this build supplied the library can name in AEM, and
-        which it cannot. Split this way rather than by what the walk above
-        wrote, because the two lists then add up to COPIED and a reader can see
-        that they do -- a wobble's id reaches it as `transition_id`, decided in
-        structureEDM before any of this runs, so counting only the
-        `content.aem_id` fills would have listed every wobble as missing one.
+        Every file this build is answerable for: the ones it copied, and the ones
+        it left because they were already there. The email renders both from
+        `assets/`, so both are the library's files as far as anything downstream
+        is concerned, and an id list drawn from COPIED alone would have gone
+        half-empty the moment someone turned the toggle on.
+    */
+    const supplied = [...copied, ...kept].sort();
+
+    /*
+        Which of those the library can name in AEM, and which it cannot. Split
+        this way rather than by what the walk above wrote, because the two lists
+        then add up to SUPPLIED and a reader can see that they do -- a wobble's
+        id reaches it as `transition_id`, decided in structureEDM before any of
+        this runs, so counting only the `content.aem_id` fills would have listed
+        every wobble as missing one.
 
         An unidentified file is a gap in the library rather than in the
         campaign: the file is right there in lib/libraries/assets, so someone
@@ -298,14 +344,16 @@ function resolveAssets(module_array, outputLocation) {
         in image-component.njk. A src the library has no file for at all is a
         different thing and stays silent -- see the note at the top.
     */
-    const identified = [...copied].filter((name) => asset_ids[name]).sort();
-    const unidentified = [...copied].filter((name) => !asset_ids[name]).sort();
+    const identified = supplied.filter((name) => asset_ids[name]);
+    const unidentified = supplied.filter((name) => !asset_ids[name]);
 
-    report(location, library, copied, identified, unidentified, missing_transitions);
+    report(location, library, copied, kept, identified, unidentified, missing_transitions);
 
     return {
         location: location,
         copied: [...copied].sort(),
+        kept: [...kept].sort(),
+        supplied: supplied,
         filled: filled,
         identified: identified,
         unidentified: unidentified,
@@ -313,7 +361,7 @@ function resolveAssets(module_array, outputLocation) {
     };
 }
 
-function report(location, library, copied, identified, unidentified, missing_transitions) {
+function report(location, library, copied, kept, identified, unidentified, missing_transitions) {
     /*
         Counted against the library rather than by rows of the table. The two
         agree today -- every row names a file that is there -- but they are not
@@ -325,6 +373,15 @@ function report(location, library, copied, identified, unidentified, missing_tra
     const with_id = [...library.keys()].filter((name) => asset_ids[name]).length;
 
     aers.log(`\n~~~~~ ASSETS: ~~~~~~~~~~`, `LIBRARY | -> ${library.size} file${library.size === 1 ? "" : "s"}, ${with_id} with an AEM id\n---`, `ASSETS_LOCATION | -> ${location}\n---`, `COPIED | -> [ ${[...copied].sort().join(", ")} ]\n---`, `AEM IDS | -> [ ${identified.join(", ")} ]`);
+
+    if (kept.size) {
+        /*
+            Named rather than counted, because this is the list a designer needs
+            when an email shows an old asset: these are the files the build was
+            told not to touch, and clearing the toggle is what replaces them.
+        */
+        aers.log(`---`, `ALREADY IN ${ASSETS_FOLDER.toUpperCase()} | -> [ ${[...kept].sort().join(", ")} ]`, `    "ignore existing assets" is on, so these were left as they were rather than recopied from the library`);
+    }
 
     if (missing_transitions.size) {
         /*
@@ -338,10 +395,11 @@ function report(location, library, copied, identified, unidentified, missing_tra
 
     if (unidentified.length) {
         aers.log(`---`, `NO AEM ID | -> [ ${unidentified.join(", ")} ]`, `    the library has the file but no \`asset_ids\` entry, so these render the generic urn`);
+        console.log(`---`, `NO AEM ID | -> [ ${unidentified.join(", ")} ]`, `    the library has the file but no \`asset_ids\` entry, so these render the generic urn`);
     }
 
     aers.log(`~~~~~~~~~~~~~~~`);
-    console.log(`Copied ${copied.size} asset${copied.size === 1 ? "" : "s"} from the library, ${identified.length} with an AEM id`);
+    console.log(`Copied ${copied.size} asset${copied.size === 1 ? "" : "s"} from the library${kept.size ? `, left ${kept.size} already in ${ASSETS_FOLDER}/` : ""}, ${identified.length} with an AEM id`);
 }
 
 module.exports = {

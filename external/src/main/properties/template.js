@@ -1,7 +1,6 @@
-const fs = require("fs");
 const path = require("node:path");
 
-const { user_files } = require("../constants.js");
+const { libraryExists } = require("../utils/library.js");
 
 /*
     Which module definition a module or component runs.
@@ -74,9 +73,9 @@ function templateCandidates(item) {
     ].filter(Boolean);
 }
 
-/** Whether lib/modules/ holds this definition. */
+/** Whether lib/modules/ -- or, with the dev library on, lib-dev/modules/ -- holds this definition. */
 function exists(template) {
-    return fs.existsSync(path.resolve(path.join(user_files, "modules", template)));
+    return libraryExists(path.join("modules", template));
 }
 
 /**

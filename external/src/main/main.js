@@ -7,7 +7,7 @@ const { load } = require("./utils/load.js");
 const { resetUuids } = require("./utils/uuid.js");
 // Required directly, not through load(): both hold state that must be shared
 // with everything this build loads, and load() hands out fresh instances.
-const { configure } = require("./build_config.js");
+const { configure, devFilesUsed } = require("./build_config.js");
 
 const { app_dir } = load(__dirname, "constants.js");
 
@@ -23,7 +23,7 @@ function buildEmails(config) {
         underneath it read the configuration at call time, so it has to be set
         before the first of those calls -- which is aers.startLog(), below.
     */
-    const { briefLocation, briefParentFolder, outputLocation, selectedSheets, databaseLocation, aersFilesLocation } = configure(config);
+    const { briefLocation, briefParentFolder, outputLocation, selectedSheets, databaseLocation, aersFilesLocation, ignoreExistingAssets, useDevLibrary } = configure(config);
 
     const aers = load(app_dir, "main/utils/aers utilities.js");
     const util = load(app_dir, "main/utils/style utilities.js");
@@ -67,9 +67,10 @@ function buildEmails(config) {
         original_data: {},
         new_data: {},
         message: ""
+        // dev_files: only on a dev build -- see the end of this function
     };
 
-    aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${aersFilesLocation}\n---`, `BRIEF_PARENT_FOLDER | -> ${briefParentFolder}\n---`, `BRIEF_LOCATION | -> ${briefLocation}\n---`, `OUTPUT_LOCATION | -> ${outputLocation}\n---`, `SELECTED_SHEETS | -> [ ${selectedSheets} ]`, `~~~~~~~~~~~~~~~`);
+    aers.log(`~~~~~ DATA_FILES: ~~~~~~~~~~`, `APP_DIR | -> ${app_dir}\n---`, `AERS_FILES_LOCATION | -> ${aersFilesLocation}\n---`, `BRIEF_PARENT_FOLDER | -> ${briefParentFolder}\n---`, `BRIEF_LOCATION | -> ${briefLocation}\n---`, `OUTPUT_LOCATION | -> ${outputLocation}\n---`, `SELECTED_SHEETS | -> [ ${selectedSheets} ]\n---`, `IGNORE_EXISTING_ASSETS | -> ${ignoreExistingAssets}\n---`, `USE_DEV_LIBRARY | -> ${useDevLibrary}`, `~~~~~~~~~~~~~~~`);
 
     let wb = XLSX.readFile(briefLocation);
 
@@ -226,7 +227,7 @@ function buildEmails(config) {
             email_json.json records what the .html actually renders rather than
             what it asked for first.
         */
-        resolveAssets(module_array, outputLocation);
+        resolveAssets(module_array, outputLocation, ignoreExistingAssets);
 
         // Replace colour values with those from colour_library
 
@@ -275,6 +276,21 @@ function buildEmails(config) {
 
         db = null;
     });
+
+    /*
+        Once per build, after every sheet, so the list is everything the build
+        read from lib-dev/ -- module definitions, JSON, HTML templates, assets.
+        An email built from dev files must never be mistakable for an ordinary
+        one. See dev-library-plan.md.
+    */
+    if (useDevLibrary) {
+        result.dev_files = devFilesUsed();
+        const said = result.dev_files.length
+            ? `Built with the dev library. From lib-dev/:\n${result.dev_files.map((rel) => `    ${rel}`).join("\n")}`
+            : "Built with the dev library on, but nothing was read from lib-dev/.";
+        console.warn(said);
+        aers.log(said);
+    }
 
     console.log(`... End main`);
     aers.log(`\n... End main`);

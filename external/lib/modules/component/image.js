@@ -13,6 +13,8 @@
     which is where the template used to.
 */
 const default_properties = {
+    mobile_only: false,
+    desktop_only: false,
     // ~~ palette ~~
     background: "transparent",
     // ~~ spacing ~~
@@ -20,7 +22,7 @@ const default_properties = {
     padding: "0px",
     align: "center",
     // ~~ border ~~
-    border_radius: "24px",
+    border_radius: "16px",
     // ~~ size ~~
     width: "100%",
     max_width: "100%"

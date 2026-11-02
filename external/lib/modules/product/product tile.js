@@ -15,25 +15,28 @@ const default_properties = {
 
     // ~~ spacing ~~
     vertical_align: "top",
-    block_padding: "16px 24px 0px",
-    padding: "8px",
+    block_padding: "8px 12px 0px",
+    padding: "4px",
     container_padding: "0px",
 
     // ~~ border ~~
-    border_radius: "24px",
+    border_radius: "16px",
 
     // ~~ component settings ~~
-    "heading/1": {
-        colour: "secondary"
-    },
-    heading: { mode: "h6" },
+    heading: { mode: "h7" },
     subheading: { mode: "h7" },
+
+    "subheading/1": {
+        colour: "sale red",
+        mode: "h6"
+    },
+
     components: {
         align: "left",
         text_align: "left"
     },
     image: {
-        border_radius: "24px"
+        border_radius: "16px"
     },
     badge: {
         padding: "0px 0px 8px"

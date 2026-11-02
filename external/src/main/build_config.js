@@ -32,6 +32,14 @@ const path = require("node:path");
 */
 let current = null;
 
+/*
+    The lib-dev/ files this build has read, relative to the library root. Kept
+    here and not in utils/library.js for the reason this module is required
+    directly: load() hands every caller a fresh instance, so a record kept in the
+    resolver would be several records. Reset by configure().
+*/
+let devFiles = new Set();
+
 /**
  * Everything a build needs to know about where its inputs and outputs are.
  *
@@ -41,6 +49,9 @@ let current = null;
  * @param {string} config.outputLocation     folder the .html files are written to
  * @param {string} config.databaseLocation   per-user scratch: the four data stores
  * @param {string} [config.briefParentFolder] defaults to the brief's own folder
+ * @param {boolean} [config.ignoreExistingAssets] leave library assets the output
+ *                                            folder already has alone
+ * @param {boolean} [config.useDevLibrary]   read lib-dev/ before lib/
  * @returns {object} the resolved configuration, as buildConfig() will return it
  */
 function configure(config) {
@@ -73,9 +84,27 @@ function configure(config) {
         outputLocation: path.resolve(given.outputLocation),
         databaseLocation: path.resolve(given.databaseLocation),
 
+        /*
+            Compared against true rather than coerced. It arrives from a checkbox
+            over IPC, through a file written by an older version of the app that
+            did not have it, so absent, null and "false" all reach here -- and
+            every one of them means the default, which is the behaviour every
+            build had before the toggle existed. See utils/assets.js.
+        */
+        ignoreExistingAssets: given.ignoreExistingAssets === true,
+
+        /*
+            Compared against true for the same reason. Off is the only safe
+            default: a dev build must never happen by accident. See
+            utils/library.js and dev-library-plan.md.
+        */
+        useDevLibrary: given.useDevLibrary === true,
+
         /** Working files written next to the brief: the log, and per-sheet email data. */
         aersFilesLocation: path.join(briefParentFolder, "AERS files")
     });
+
+    devFiles = new Set();
 
     return current;
 }
@@ -95,7 +124,31 @@ function buildConfig() {
     return current;
 }
 
+/**
+ * Whether this build reads lib-dev/.
+ *
+ * The one read of build configuration that does not throw when nothing is
+ * configured. Library lookups happen in suites that never call configure(), and
+ * outside a build the answer is simply no.
+ */
+function devLibraryEnabled() {
+    return current?.useDevLibrary === true;
+}
+
+/** Records that this build read `rel` from lib-dev/. */
+function noteDevFile(rel) {
+    devFiles.add(rel);
+}
+
+/** The lib-dev/ files this build has read, in the order first read. */
+function devFilesUsed() {
+    return [...devFiles];
+}
+
 module.exports = {
     configure: configure,
-    buildConfig: buildConfig
+    buildConfig: buildConfig,
+    devLibraryEnabled: devLibraryEnabled,
+    noteDevFile: noteDevFile,
+    devFilesUsed: devFilesUsed
 };

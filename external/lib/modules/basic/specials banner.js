@@ -19,7 +19,7 @@ const { single_column } = load(app_dir, "main/systems/layout.js");
 
 const default_properties = {
     // ~~ module data ~~
-    depth: 2,
+    depth: 1, // 2,
     max_siblings: 1,
 
     /*
@@ -34,14 +34,14 @@ const default_properties = {
         for this module. It carries white text throughout, which is what makes
         the terms legible without a rule here.
     */
-    palette: "red",
-    background: "light grey",
+    palette: "light grey", // "red",
+    //background: "light grey",
 
     // ~~ spacing ~~
     vertical_align: "top",
     block_padding: "32px 0px 0px",
-    padding: "0px 32px",
-    container_padding: "0px 0px 16px"
+    padding: "0px 16px",
+    // container_padding: "0px 0px 16px"
 };
 
 /*

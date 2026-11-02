@@ -2,6 +2,14 @@
 
 **General To Do**
 
+- [x] Handle rows with `content` but not `component` by either having them match the previous component or by defaulting to `body copy`.
+- [x] Ignore dynamic content values that don't have include a `/` (?)
+- [ ] Flag text components with leading or trailing line breaks.
+- [x] Collapse duplicate headers
+- [ ] Open recent projects
+- [ ] Open HTML in browser
+- [ ] Explore possibility of using Sharepoint link for brief/excel doc
+
 - ~~General code cleanup and removal of dead code~~ — done for `external/src/`,
   which is now at a fixed point: no unused export, unreferenced function, unused
   import or write-only variable left in the engine. 280 lines gone, 122/122 still
@@ -93,6 +101,7 @@
       button.
     - **`group_padding` is the one spacing property nothing normalises.** Its
       `formatSpacingToString` call is commented out at `formatObjects.js:40`.
+
   - Step 2: **validate brief settings against it.** `formatUserInput` parses
     any key a designer types and `setup.js:146` spreads it in unfiltered, so
     `paddng: 8px` becomes a real property that nothing reads, with no error and
@@ -103,6 +112,7 @@
     templates below.
   - Step 4: **`formatObjects` reads the registry** instead of its hand-written
     42-key literal, and the `value` shapes become the coercions.
+
 - Review palette application logic and determine opportunities to refactor for simplicity
 - Review `.njk` html templates to determine ways to simplify and ensure styling
   defaults aren't scattered across multiple locations
@@ -121,6 +131,7 @@
     each. Worth repeating for the remaining templates -- it found a gap reading
     the files could not, and it is the difference between deleting a fallback
     and deleting a fallback you can show nothing reaches.
+
   - ~~`button-component.njk`.~~ **Done, 23/09/2026.** Fourteen defaults, held
     as `{%-if element.x %}...{% else %}<value>{% endif-%}` pairs rather than as
     `or "..."`, which is why the first sweep missed them. `button.js` gained
@@ -158,6 +169,7 @@
     `container.njk` is reachable, contrary to what was written here before:
     `external/src/database/email_json.json` is a stale build and has no
     `block: "container"`, but a real build has 22.
+
   - **Three fallbacks are load-bearing because `component/icon.js` does not
     exist.** `align`, `background` and `max_width` in `image-component.njk`
     fire 7 times, all on `icon` components in the layout case. `modules.json`
@@ -258,7 +270,7 @@
   - **`banner_placeholder.png` is the one row that can be filled from the
     repository**, and deliberately was not. `image-component.njk` carries
     `urn:aaid:aem:9a3ebc1b-...` behind `{%-if element.content ==
-    "banner_placeholder"-%}`, a condition that compares an object to a string
+"banner_placeholder"-%}`, a condition that compares an object to a string
     and so never fires -- which is why the twelve placeholder images in the
     recorded output render the generic urn instead. Adding the row would give
     them the real one. Left out because, unlike the seventeen, that urn has
@@ -267,12 +279,32 @@
     one. One line to add once someone checks AEM, and the dead template branch
     can go with it.
 
+- ~~Every build recopies the assets, with no way to keep a file you have
+  edited.~~ **Done, 02/10/2026.** _Ignore existing assets_ in the UI, off by
+  default, so the behaviour above is still what a build does unless someone says
+  otherwise. On, a build copies only the library files `assets/` does not have
+  yet. Nothing else moves: a kept file is still what its src points at, still
+  gets its AEM id, and still counts as supplied, so the toggle cannot change
+  what the .html says — only which bytes are on disk under it. The log names the
+  kept files under `ALREADY IN ASSETS`, which is what to read when an email
+  shows an old asset.
+  - It is a deliberate exception to ADR 0002, which is why the default is the
+    other way round. The library is authoritative for these files and a copy
+    that has drifted is wrong; what the toggle buys is the case where someone
+    has drifted it on purpose — a wobble drawn by hand for a colour the library
+    has not caught up with, which until now the next build overwrote.
+  - It rides with the build configuration rather than beside it: a renderer
+    option on `create-html-file`, `ignoreExistingAssets` in `build_config.js`,
+    `IGNORE_EXISTING_ASSETS` in `PREVIOUS_REQUIRED_DATA.json`. So "Reload AERS"
+    brings it back with the brief and the output folder, and the build's log
+    says which way it ran. `tests/assets.js` holds both halves.
+
 - **`asset_location` is not built.** The other half of the original request: a
   per-campaign folder, named on a brief row, searched before the library so a
   designer can point one module or one email at their own art. The source list
   in `resolveAssets()` is where a second source slots in. Two things to decide
   first, both found while reading for it:
-  - It wants a brief *column*, not a Settings key. `setup.js` `correctSpelling()`
+  - It wants a brief _column_, not a Settings key. `setup.js` `correctSpelling()`
     lowercases the whole settings cell, so `- Design Assets` arrives as
     `- design assets` — which macOS's case-insensitive default hides and a
     case-sensitive volume does not. `parseToObject` also splits on `,` and `;`

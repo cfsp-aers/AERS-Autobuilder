@@ -2,6 +2,7 @@
 
 const default_properties = {
     // ~~ module data ~~
+    custom_class: "",
     // ~~ palette ~~
     //palette: "secondary",
     colour: "primary",

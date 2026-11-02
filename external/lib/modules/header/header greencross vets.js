@@ -11,6 +11,7 @@ const default_properties = {
     depth: 1,
     max_siblings: 1,
     hide_transition: true,
+    no_nav: false,
 
     // ~~ palette ~~
     palette: "primary",
@@ -90,9 +91,9 @@ const nav = () =>
     row({}, [
         col({}, [
             columns({ background: "#001939", padding: "4px 0px" }, [
-                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("WebVet 24/7", "https://www.greencrossvets.com.au/webvet/", "#FFFFFF")]),
-                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("Emergency Care", "https://www.emergencyvet.com.au/", "#EF6039")]),
-                col({ padding: "4px 0px", width: "33.3333%" }, [nav_button("Healthy Pets Plus", "https://www.greencrossvets.com.au/healthy-pets-plus/", "#018555")])
+                col({ mobile_stack: false, padding: "4px 0px", width: "33.3333%" }, [nav_button("WebVet 24/7", "https://www.greencrossvets.com.au/webvet/", "#FFFFFF")]),
+                col({ mobile_stack: false, padding: "4px 0px", width: "33.3333%" }, [nav_button("Emergency Care", "https://www.emergencyvet.com.au/", "#EF6039")]),
+                col({ mobile_stack: false, padding: "4px 0px", width: "33.3333%" }, [nav_button("Healthy Pets Plus", "https://www.greencrossvets.com.au/healthy-pets-plus/", "#018555")])
             ])
         ])
     ]);

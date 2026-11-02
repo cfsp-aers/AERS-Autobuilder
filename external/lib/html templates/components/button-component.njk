@@ -31,7 +31,7 @@
     This file has no trailing newline. It is included once per button, so one
     would put a blank line after every button in the output.
 -#}
-<div class="acr-fragment acr-component" data-component-id="button:2" style="width: 100%;text-align: {{ element.align }}; " contenteditable="false" data-lock-type="editable" data-source-uuid="aers-button-component" data-has-int-mso-hack="true">
+<div class="acr-fragment acr-component {{ element.custom_class }}" data-component-id="button:2" style="width: 100%;text-align: {{ element.align }}; " contenteditable="false" data-lock-type="editable" data-source-uuid="aers-button-component" data-has-int-mso-hack="true">
 <!--[if mso]><table cellpadding="0" cellspacing="0" border="0" width="auto"><tr><td style="text-align: center; mso-line-height-rule:exactly;
 border-top: none; border-right: none; border-bottom: {%-if element.mode == "underline" -%}3px solid {{ element.border_bottom }}; {% else-%}none; {% endif-%} border-left: none;border-radius: {{ element.border_radius }}; " ><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" style="height: {{ element.mso_height }}; width: {{ element.width }}; v-text-anchor:middle; mso-wrap-style:none; mso-fit-shape-to-text: true;
 " arcsize="50%"
@@ -44,11 +44,11 @@ text-align:center;
 "><![endif]-->
 <a href="{{-element.content.href-}}" class="arc-link" style="text-decoration: none;" data-nl-type="externalLink">
 <div class="button-container" style="width: auto; text-align: center; margin: auto; max-width: 100%; display: inline-block;
-{%-if element.border_top -%}border-top: 3px solid {{ element.border_top }}; {% else-%}border-top: 3px solid {{ element.background }}; {% endif-%}
-{%-if element.border_right -%}border-right: 3px solid {{ element.border_right }}; {% else-%}border-right: 3px solid {{ element.background }}; {% endif-%}
-{%-if element.border_bottom -%}border-bottom: 3px solid {{ element.border_bottom }}; {% else-%}border-bottom: 3px solid {{ element.background }}; {% endif-%}
-{%-if element.border_left -%}border-left: 3px solid {{ element.border_left }}; {% else-%}border-left: 3px solid {{ element.background }}; {% endif-%}
-border-image: initial;border-radius: {{ element.border_radius }}; height: {{ element.height }}; padding: {{ element.inner_padding }}; {%if element.background %}background-color: {{ element.background }}; {% endif-%}
+{%-if element.border_top -%}border-top: {{ element.border_weight }} solid {{ element.border_top }}; {% else-%}border-top: {{ element.border_weight }} solid {{ element.background }}; {% endif-%}
+{%-if element.border_right -%}border-right: {{ element.border_weight }} solid {{ element.border_right }}; {% else-%}border-right: {{ element.border_weight }} solid {{ element.background }}; {% endif-%}
+{%-if element.border_bottom -%}border-bottom: {{ element.border_weight }} solid {{ element.border_bottom }}; {% else-%}border-bottom: {{ element.border_weight }} solid {{ element.background }}; {% endif-%}
+{%-if element.border_left -%}border-left: {{ element.border_weight }} solid {{ element.border_left }}; {% else-%}border-left: {{ element.border_weight }} solid {{ element.background }}; {% endif-%}
+border-image: initial;border-radius: {{ element.border_radius }}; height: {{ element.height }}; {%-if element.height != "auto" -%}line-height: {{ element.height }};{%-endif-%} padding: {{ element.inner_padding }}; {%if element.background %}background-color: {{ element.background }}; {% endif-%}
 " contenteditable="true">
 <span contenteditable="true" style="
 {%-if element.force_mso_colour -%}{%-else-%}mso-color-alt: auto; {% endif-%}

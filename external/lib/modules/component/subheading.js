@@ -8,6 +8,7 @@ const { leading } = load(app_dir, "main/properties/typography.js");
 const default_properties = {
     // ~~ module data ~~
     mode: "h4",
+    custom_class: "",
     // ~~ palette ~~
     //palette: "secondary",
     colour: "primary",

@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const { load } = require("../../../src/main/utils/load.js");
-const { app_dir, user_files } = require("../../../src/main/constants.js");
+const { app_dir } = require("../../../src/main/constants.js");
+const { loadLibrary } = require("../../../src/main/utils/library.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
 const util = load(app_dir, "main/utils/style utilities.js");
 
@@ -51,18 +52,22 @@ function onePass(db, func) {
     db.ms.forEach((m, i) => {
         m.user_settings ??= {};
 
-        let rules = load(user_files, `modules/${resolveTemplate(m)}`);
+        let rules = loadLibrary(`modules/${resolveTemplate(m)}`);
 
         const module_targets = moduleTargets(db, i);
 
         // update() reaches the components of whichever module it is writing
         // to; it no longer needs the database itself.
         const components_of = (uuid) => db.cs[uuid];
-        const sf = { update: makeUpdate(components_of) };
+        // A key naming one of the module's slots targets the slot. See ADR 0008.
+        // Only a module has slots, and this pass has already loaded its rules.
+        const component_positions = rules.component_positions;
+        const slots_of = (item) => (item.uuid === m.uuid ? component_positions : undefined);
+        const sf = { update: makeUpdate(components_of, slots_of) };
 
         const components = (db.cs[m.uuid] || []).map((c, c_i) => {
-            const component_rules = load(user_files, `modules/${resolveTemplate(c)}`);
-            return { c: c, targets: componentTargets(db, c_i, m), rules: component_rules, sf: { update: makeUpdate(components_of) } };
+            const component_rules = loadLibrary(`modules/${resolveTemplate(c)}`);
+            return { c: c, targets: componentTargets(db, c_i, m), rules: component_rules, sf: { update: makeUpdate(components_of, slots_of) } };
         });
 
         // Layers 1 and 5 -- what the component says about itself.

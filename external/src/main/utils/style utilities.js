@@ -1,8 +1,9 @@
 const _ = require("lodash");
 const { load } = require("../utils/load.js");
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir } = require("../constants.js");
+const { loadLibrary } = require("./library.js");
 const aers = load(app_dir, "main/utils/aers utilities.js");
-const clr_lib = load(user_files, "libraries/colour library.json");
+const clr_lib = loadLibrary("libraries/colour library.json");
 
 function cleanUp(item, obj) {
     obj.remove ??= [];

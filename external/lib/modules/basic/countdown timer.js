@@ -40,7 +40,7 @@ const default_properties = {
     padding: "0px",
 
     // ~~ components ~~
-    image: { max_width: "80%", border_radius: "24px" }
+    image: { max_width: "80%", border_radius: "16px" }
 };
 
 /*

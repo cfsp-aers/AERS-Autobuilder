@@ -15,12 +15,12 @@ const default_properties = {
 
     // ~~ spacing ~~
     vertical_align: "top",
-    block_padding: "0px 24px",
+    block_padding: "0px 8px",
     padding: "8px",
     container_padding: "24px 16px",
 
     // ~~ border ~~
-    border_radius: "24px",
+    border_radius: "16px",
 
     // ~~ component settings ~~
     icon: { border_radius: "64px", width: "64px" },

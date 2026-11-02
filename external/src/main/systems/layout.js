@@ -51,11 +51,9 @@
     the same bytes.
 */
 
-const fs = require("node:fs");
-const path = require("node:path");
-
 const { load } = require("../utils/load.js");
-const { app_dir, user_files } = require("../constants.js");
+const { app_dir } = require("../constants.js");
+const { loadLibrary, libraryExists } = require("../utils/library.js");
 
 const { setComponents } = load(app_dir, "main/systems/setComponents.js");
 
@@ -114,8 +112,8 @@ function col(options, children) {
 */
 function defaultsFor(name) {
     const file = `modules/component/${name}.js`;
-    if (!fs.existsSync(path.resolve(path.join(user_files, file)))) return {};
-    return load(user_files, file).default_properties || {};
+    if (!libraryExists(file)) return {};
+    return loadLibrary(file).default_properties || {};
 }
 
 /*
@@ -191,6 +189,60 @@ function nothing() {
     return {};
 }
 
+// -------------------------------------------------------- cards and regions
+
+/*
+    A layout that draws its own colour layers. See
+    docs/adr/0008-a-layout-may-declare-its-own-card-and-regions.md.
+
+    A depth-2 module is normally wrapped whole in a card by structureEDM. A
+    layout that calls `card()` is saying where the card goes instead, so
+    anything it puts outside -- a button below the tile -- sits on the band.
+    structureEDM finds the card with findCard() and fills in what its own
+    wrapper would have had: `m.colour`, `m.border_radius` and
+    `m.container_padding`, for whichever of those the call did not set.
+
+    It is a gridContainer rather than a `container` block because containers do
+    not nest, and a card sits inside the module's own grid.
+*/
+function card(options, children) {
+    return columns(Object.assign({ card: true }, options), [col({}, children)]);
+}
+
+/*
+    The coloured band of one slot. Its background is the slot's, as setPalettes
+    resolved it from `<slot>: { palette }` and replaceColours turned it into
+    hex; a slot that names no palette has none, and the region is transparent.
+    Its height and width are the slot's too, from `<slot>: { height, width }`.
+
+    `slot` is written onto the node so the region can be found in
+    email_json.json by what it holds. An empty slot renders nothing, the same
+    way `banner with heading` drops a heading row it has no heading for.
+*/
+function region(current, content, slot, options) {
+    const settings = options || {};
+    const components = setComponents(slot, content);
+    if (!components.length) return nothing();
+
+    const resolved = current.slots?.[slot] || {};
+    const own = {};
+    ["background", "height", "width"].forEach((key) => {
+        if (resolved[key]) own[key] = resolved[key];
+    });
+    return columns(Object.assign({ slot: slot }, own, settings.container), [col(settings.column, components)]);
+}
+
+/** The card a layout declared, or undefined. Searches the whole tree. */
+function findCard(node) {
+    if (!node || typeof node !== "object") return undefined;
+    if (node.card === true) return node;
+    for (const child of node.children || []) {
+        const found = findCard(child);
+        if (found) return found;
+    }
+    return undefined;
+}
+
 // ------------------------------------------------------------------ presets
 
 /*
@@ -235,6 +287,9 @@ module.exports = {
     image: image,
     button: button,
     nothing: nothing,
+    card: card,
+    region: region,
+    findCard: findCard,
     single_column: single_column,
     two_columns: two_columns,
     stacked_rows: stacked_rows,

@@ -6,7 +6,7 @@ const path = require("path");
     dev checkout, the shared volume, or the offline cache in userData. Nothing
     here may assume an absolute location.
 
-    These are the only two things in this file, and that is the point. Forty-five
+    These paths are the only things in this file, and that is the point. Forty-five
     files require it; forty-three of them want exactly these two paths. Build
     configuration -- which brief, which sheets, where the output goes -- used to
     live here too, read from REQUIRED_DATA.json at require time and re-exported to
@@ -20,7 +20,15 @@ const app_dir = path.resolve(path.join(__dirname, "../"));
 /** external/lib -- module definitions, templates, palettes. */
 const user_files = path.resolve(path.join(__dirname, "../../lib"));
 
+/**
+ * external/lib-dev -- the dev library: experimental library files, mirroring
+ * lib/, read first while the dev library toggle is on. Never published. Read it
+ * through utils/library.js, never directly. See dev-library-plan.md.
+ */
+const lib_dev = path.resolve(path.join(__dirname, "../../lib-dev"));
+
 module.exports = {
     app_dir: app_dir,
-    user_files: user_files
+    user_files: user_files,
+    lib_dev: lib_dev
 };

@@ -11,6 +11,8 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": false,
     "palette": "yellow",
     "resolved_palette": "yellow",
@@ -29,6 +31,7 @@
     "fragment": true,
     "group_size": 1,
     "hide_transition": true,
+    "no_nav": true,
     "group_padding": "0px 0px 0px 0px",
     "debug": true,
     "transition_id": "urn:aaid:aem:28f51a94-996b-469a-aa7b-4e9aaa8826f7",
@@ -47,13 +50,15 @@
                     "entity_type": "component",
                     "type": "image",
                     "template": "component/image.js",
-                    "width": "180px",
+                    "width": "100px",
                     "border_radius": "0px",
                     "content": {
                       "src": "assets/Petbarn_HeaderLogo_wBG.png",
                       "href": "https://www.petbarn.com.au",
                       "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d"
                     },
+                    "mobile_only": false,
+                    "desktop_only": false,
                     "background": "transparent",
                     "vertical_align": "middle",
                     "padding": "0px",
@@ -64,153 +69,7 @@
               }
             ]
           },
-          {
-            "block": "gridRow",
-            "children": [
-              {
-                "block": "gridCol",
-                "children": [
-                  {
-                    "block": "gridContainer",
-                    "innerLayout": "single_row",
-                    "background": "#000000",
-                    "padding": "4px 0px",
-                    "children": [
-                      {
-                        "block": "gridCol",
-                        "padding": "4px 0px",
-                        "children": [
-                          {
-                            "entity_type": "component",
-                            "template": "component/button.js",
-                            "category": "component",
-                            "type": "button",
-                            "name": "button",
-                            "brand": "petbarn",
-                            "parent_brand": "petbarn",
-                            "mode": "underline",
-                            "colour": "#FFFFFF",
-                            "background": "#000000",
-                            "vertical_align": "middle",
-                            "padding": "12px 16px 12px 16px",
-                            "margin": "0px 0px 0px 0px",
-                            "inner_padding": "4px 4px 4px 4px",
-                            "font_size": "16px",
-                            "line_height": "18px",
-                            "font_weight": "normal",
-                            "text_align": "center",
-                            "font": "Outfit",
-                            "border_radius": "0px",
-                            "border_bottom": "#FEC326",
-                            "height": "auto",
-                            "mso_height": "32px",
-                            "width": "auto",
-                            "force_mso_colour": true,
-                            "content": {
-                              "text": "Download the App!",
-                              "href": "https://www.petbarn.com.au/petbarn-app"
-                            },
-                            "palette": "primary",
-                            "align": "center",
-                            "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false
-                          }
-                        ]
-                      },
-                      {
-                        "block": "gridCol",
-                        "padding": "4px 0px",
-                        "children": [
-                          {
-                            "entity_type": "component",
-                            "template": "component/button.js",
-                            "category": "component",
-                            "type": "button",
-                            "name": "button",
-                            "brand": "petbarn",
-                            "parent_brand": "petbarn",
-                            "mode": "underline",
-                            "colour": "#FFFFFF",
-                            "background": "#000000",
-                            "vertical_align": "middle",
-                            "padding": "12px 16px 12px 16px",
-                            "margin": "0px 0px 0px 0px",
-                            "inner_padding": "4px 4px 4px 4px",
-                            "font_size": "16px",
-                            "line_height": "18px",
-                            "font_weight": "normal",
-                            "text_align": "center",
-                            "font": "Outfit",
-                            "border_radius": "0px",
-                            "border_bottom": "#F05842",
-                            "height": "auto",
-                            "mso_height": "32px",
-                            "width": "auto",
-                            "force_mso_colour": true,
-                            "content": {
-                              "text": "Shop Special Offers",
-                              "href": "https://www.petbarn.com.au/special-offers"
-                            },
-                            "palette": "primary",
-                            "align": "center",
-                            "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false
-                          }
-                        ]
-                      },
-                      {
-                        "block": "gridCol",
-                        "padding": "4px 0px",
-                        "children": [
-                          {
-                            "entity_type": "component",
-                            "template": "component/button.js",
-                            "category": "component",
-                            "type": "button",
-                            "name": "button",
-                            "brand": "petbarn",
-                            "parent_brand": "petbarn",
-                            "mode": "underline",
-                            "colour": "#FFFFFF",
-                            "background": "#000000",
-                            "vertical_align": "middle",
-                            "padding": "12px 16px 12px 16px",
-                            "margin": "0px 0px 0px 0px",
-                            "inner_padding": "4px 4px 4px 4px",
-                            "font_size": "16px",
-                            "line_height": "18px",
-                            "font_weight": "normal",
-                            "text_align": "center",
-                            "font": "Outfit",
-                            "border_radius": "0px",
-                            "border_bottom": "#00A651",
-                            "height": "auto",
-                            "mso_height": "32px",
-                            "width": "auto",
-                            "force_mso_colour": true,
-                            "content": {
-                              "text": "Find your local Vet",
-                              "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                            },
-                            "palette": "primary",
-                            "align": "center",
-                            "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
+          {}
         ],
         "width": "100%",
         "bc_row_index": 0
@@ -244,6 +103,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0002",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -271,6 +131,8 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "primary",
                             "resolved_palette": "primary",
@@ -302,6 +164,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h2",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "primary",
                                         "colour": "#000000",
@@ -329,14 +193,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "primary",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 32px 8px 32px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -391,6 +257,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0003",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -404,7 +271,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0003",
-                        "padding": "0px 32px 0px 32px",
+                        "padding": "0px 16px 0px 16px",
                         "children": [
                           {
                             "block": "container",
@@ -424,13 +291,15 @@
                                 "depth": 2,
                                 "max_siblings": 1,
                                 "row_index": 1,
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "transition": false,
                                 "palette": "light",
                                 "resolved_palette": "light",
                                 "colour": "#FFFFFF",
                                 "background": "#FEC326",
                                 "vertical_align": "top",
-                                "padding": "0px 32px 0px 32px",
+                                "padding": "0px 16px 0px 16px",
                                 "container_padding": "16px 16px 16px 16px",
                                 "block_padding": "16px 0px 0px 0px",
                                 "dynamicContent": "banner/a",
@@ -459,6 +328,8 @@
                                             "depth": 1,
                                             "max_siblings": 1,
                                             "mode": "h2",
+                                            "mobile_only": false,
+                                            "desktop_only": false,
                                             "transition": false,
                                             "resolved_palette": "light",
                                             "colour": "#000000",
@@ -487,6 +358,8 @@
                                             "depth": 1,
                                             "max_siblings": 1,
                                             "mode": "h4",
+                                            "mobile_only": false,
+                                            "desktop_only": false,
                                             "transition": false,
                                             "resolved_palette": "light",
                                             "colour": "#FEC326",
@@ -527,16 +400,19 @@
                                                     "template": "component/image.js",
                                                     "depth": 1,
                                                     "max_siblings": 1,
+                                                    "mobile_only": false,
+                                                    "desktop_only": false,
                                                     "transition": false,
                                                     "background": "transparent",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 0px 0px",
-                                                    "border_radius": "24px",
+                                                    "border_radius": "16px",
                                                     "width": "100%",
                                                     "align": "center",
                                                     "max_width": "100%",
                                                     "content": {
-                                                      "src": "assets/banner_placeholder.png"
+                                                      "src": "assets/banner_placeholder.png",
+                                                      "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                     }
                                                   }
                                                 ]
@@ -554,6 +430,8 @@
                                             "template": "component/bodycopy.js",
                                             "depth": 1,
                                             "max_siblings": 1,
+                                            "mobile_only": false,
+                                            "desktop_only": false,
                                             "transition": false,
                                             "resolved_palette": "light",
                                             "colour": "#000000",
@@ -576,7 +454,7 @@
                                             "children": [
                                               {
                                                 "block": "gridCol",
-                                                "padding": "12px 16px 12px 16px",
+                                                "padding": "0px 16px 16px 16px",
                                                 "children": [
                                                   {
                                                     "uuid": "C0007",
@@ -590,21 +468,24 @@
                                                     "depth": 1,
                                                     "max_siblings": 1,
                                                     "mode": "default",
+                                                    "mobile_only": false,
+                                                    "desktop_only": false,
                                                     "transition": false,
                                                     "palette": "primary",
                                                     "resolved_palette": "black/white",
                                                     "colour": "#FFFFFF",
                                                     "background": "#000000",
                                                     "vertical_align": "middle",
-                                                    "padding": "12px 16px 12px 16px",
+                                                    "padding": "0px 16px 16px 16px",
                                                     "margin": "0px 0px 0px 0px",
                                                     "inner_padding": "8px 16px 8px 16px",
-                                                    "font_size": "16px",
-                                                    "line_height": "18px",
+                                                    "font_size": "14px",
+                                                    "line_height": "16px",
                                                     "font_weight": "bold",
                                                     "text_align": "center",
                                                     "font": "Outfit",
                                                     "border_radius": "32px",
+                                                    "border_weight": "3px",
                                                     "height": "auto",
                                                     "width": "auto",
                                                     "content": {
@@ -630,14 +511,16 @@
                                             "template": "component/terms.js",
                                             "depth": 1,
                                             "max_siblings": 1,
+                                            "mobile_only": false,
+                                            "desktop_only": false,
                                             "transition": false,
                                             "resolved_palette": "light",
                                             "colour": "#000000",
                                             "vertical_align": "middle",
                                             "padding": "0px 0px 4px 0px",
                                             "margin": "0px 0px 0px 0px",
-                                            "font_size": "12px",
-                                            "line_height": "14px",
+                                            "font_size": "10px",
+                                            "line_height": "12px",
                                             "font_weight": "normal",
                                             "text_align": "center",
                                             "font": "Outfit",
@@ -687,6 +570,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0004",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -700,7 +584,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0004",
-                        "padding": "0px 32px 0px 32px",
+                        "padding": "0px 16px 0px 16px",
                         "children": [
                           {
                             "uuid": "M0004",
@@ -714,13 +598,15 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": "FEC326",
                             "palette": "light",
                             "resolved_palette": "light",
                             "colour": "#FFFFFF",
                             "background": "#FFFFFF",
                             "vertical_align": "top",
-                            "padding": "0px 32px 0px 32px",
+                            "padding": "0px 16px 0px 16px",
                             "container_padding": "16px 16px 16px 16px",
                             "block_padding": "16px 0px 0px 0px",
                             "dynamicContent": "banner/b",
@@ -746,6 +632,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h2",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -774,6 +662,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h4",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -814,16 +704,19 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 0px 0px",
-                                                "border_radius": "24px",
+                                                "border_radius": "16px",
                                                 "width": "100%",
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -841,6 +734,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -863,7 +758,7 @@
                                         "children": [
                                           {
                                             "block": "gridCol",
-                                            "padding": "12px 16px 12px 16px",
+                                            "padding": "0px 16px 16px 16px",
                                             "children": [
                                               {
                                                 "uuid": "C0013",
@@ -877,21 +772,24 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
                                                 "colour": "#FFFFFF",
                                                 "background": "#000000",
                                                 "vertical_align": "middle",
-                                                "padding": "12px 16px 12px 16px",
+                                                "padding": "0px 16px 16px 16px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -917,14 +815,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -957,7 +857,7 @@
         "uuid": "M0005",
         "nav_label": "block",
         "background": "#F3F3F3",
-        "padding": "0px 24px 0px 24px",
+        "padding": "0px 8px 0px 8px",
         "transition": "FFFFFF",
         "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
         "placeholder_component": false,
@@ -973,6 +873,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0005",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1000,6 +901,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": "FFFFFF",
                             "palette": "light",
                             "resolved_palette": "light",
@@ -1008,8 +911,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "dynamicContent": "banner/b",
                             "group_size": 2,
                             "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
@@ -1042,11 +945,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -1072,6 +978,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -1100,6 +1008,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -1140,6 +1050,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -1149,7 +1061,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -1167,6 +1080,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -1203,6 +1118,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
@@ -1212,12 +1129,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -1243,14 +1161,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -1277,6 +1197,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0006",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1304,6 +1225,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 2,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
@@ -1312,8 +1235,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "dynamicContent": "banner/b",
                             "group_size": 2,
                             "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
@@ -1346,11 +1269,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -1376,6 +1302,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -1404,6 +1332,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -1444,6 +1374,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -1453,7 +1385,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -1471,6 +1404,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -1507,6 +1442,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
@@ -1516,12 +1453,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -1547,14 +1485,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -1587,7 +1527,7 @@
         "uuid": "M0007",
         "nav_label": "block",
         "background": "#F3F3F3",
-        "padding": "0px 24px 0px 24px",
+        "padding": "0px 8px 0px 8px",
         "transition": false,
         "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
         "placeholder_component": false,
@@ -1603,6 +1543,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0007",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1630,6 +1571,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
@@ -1638,8 +1581,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "dynamicContent": "banner/c",
                             "group_size": 3,
                             "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
@@ -1672,11 +1615,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -1702,6 +1648,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -1730,6 +1678,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -1770,6 +1720,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -1779,7 +1731,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -1797,6 +1750,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -1833,6 +1788,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
@@ -1842,12 +1799,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -1873,14 +1831,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -1907,6 +1867,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0008",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1934,6 +1895,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 2,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
@@ -1942,8 +1905,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "dynamicContent": "banner/c",
                             "group_size": 3,
                             "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
@@ -1976,11 +1939,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -2006,6 +1972,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2034,6 +2002,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -2074,6 +2044,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -2083,7 +2055,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -2101,6 +2074,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2137,6 +2112,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "underline",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "green/white",
                                                 "resolved_palette": "green/white",
@@ -2146,12 +2123,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "4px 4px 4px 4px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "0px",
+                                                "border_weight": "3px",
                                                 "border_bottom": "#000000",
                                                 "height": "auto",
                                                 "width": "auto",
@@ -2182,14 +2160,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -2216,6 +2196,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0009",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -2243,6 +2224,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 3,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
@@ -2251,8 +2234,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "dynamicContent": "banner/c",
                             "group_size": 3,
                             "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
@@ -2285,11 +2268,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -2315,6 +2301,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2343,6 +2331,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -2383,6 +2373,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -2392,7 +2384,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -2410,6 +2403,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2446,6 +2441,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
@@ -2455,12 +2452,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -2486,14 +2484,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -2532,7 +2532,7 @@
         "uuid": "M0010",
         "nav_label": "block",
         "background": "#F3F3F3",
-        "padding": "0px 24px 0px 24px",
+        "padding": "0px 8px 0px 8px",
         "transition": false,
         "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
         "placeholder_component": false,
@@ -2548,6 +2548,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0010",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -2575,6 +2576,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
@@ -2583,8 +2586,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "group_size": 2,
                             "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
                             "children": [
@@ -2616,11 +2619,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -2646,6 +2652,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2674,6 +2682,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -2714,6 +2724,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -2723,7 +2735,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -2741,6 +2754,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2777,6 +2792,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
@@ -2786,12 +2803,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -2817,14 +2835,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -2851,6 +2871,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0011",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -2878,6 +2899,8 @@
                             "depth": 1,
                             "max_siblings": 3,
                             "row_index": 2,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
@@ -2886,8 +2909,8 @@
                             "vertical_align": "top",
                             "padding": "8px 8px 8px 8px",
                             "container_padding": "24px 16px 24px 16px",
-                            "block_padding": "0px 24px 0px 24px",
-                            "border_radius": "24px",
+                            "block_padding": "0px 8px 0px 8px",
+                            "border_radius": "16px",
                             "group_size": 2,
                             "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
                             "children": [
@@ -2919,11 +2942,14 @@
                                                 "template": "component/default.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "border_radius": "64px",
                                                 "width": "64px",
                                                 "content": {
-                                                  "src": "assets/image_placeholder.png"
+                                                  "src": "assets/image_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:5d5850a0-4cfc-44e4-b386-ff90923db667"
                                                 }
                                               }
                                             ]
@@ -2949,6 +2975,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h7",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -2977,6 +3005,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h8",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#FEC326",
@@ -3017,6 +3047,8 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -3026,7 +3058,8 @@
                                                 "align": "center",
                                                 "max_width": "100%",
                                                 "content": {
-                                                  "src": "assets/banner_placeholder.png"
+                                                  "src": "assets/banner_placeholder.png",
+                                                  "aem_id": "urn:aaid:aem:21e648b2-48d2-40c7-ad96-31edd6dc9e4b"
                                                 }
                                               }
                                             ]
@@ -3044,6 +3077,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -3080,6 +3115,8 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
@@ -3089,12 +3126,13 @@
                                                 "padding": "0px 0px 4px 0px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -3120,14 +3158,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -3166,7 +3206,7 @@
         "uuid": "M0012",
         "nav_label": "block",
         "background": "#F3F3F3",
-        "padding": "16px 24px 0px 24px",
+        "padding": "8px 12px 0px 12px",
         "transition": false,
         "transition_id": "urn:aaid:aem:dcf8187a-a230-4c40-8df5-2e0c278946b1",
         "placeholder_component": false,
@@ -3182,6 +3222,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0012",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -3195,7 +3236,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0012",
-                        "padding": "8px 8px 8px 8px",
+                        "padding": "4px 4px 4px 4px",
                         "children": [
                           {
                             "block": "container",
@@ -3215,16 +3256,18 @@
                                 "depth": 2,
                                 "max_siblings": 2,
                                 "row_index": 1,
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "transition": false,
                                 "palette": "promo",
                                 "resolved_palette": "promo",
                                 "colour": "#FFFFFF",
                                 "background": "#F3F3F3",
                                 "vertical_align": "top",
-                                "padding": "8px 8px 8px 8px",
+                                "padding": "4px 4px 4px 4px",
                                 "container_padding": "0px 0px 0px 0px",
-                                "block_padding": "16px 24px 0px 24px",
-                                "border_radius": "24px",
+                                "block_padding": "8px 12px 0px 12px",
+                                "border_radius": "16px",
                                 "dynamicContent": "1/a",
                                 "content": "Offer 04",
                                 "group_size": 2,
@@ -3263,6 +3306,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0013",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -3276,7 +3320,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0013",
-                        "padding": "8px 8px 8px 8px",
+                        "padding": "4px 4px 4px 4px",
                         "children": [
                           {
                             "block": "container",
@@ -3296,16 +3340,18 @@
                                 "depth": 2,
                                 "max_siblings": 2,
                                 "row_index": 2,
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "transition": false,
                                 "palette": "promo",
                                 "resolved_palette": "promo",
                                 "colour": "#FFFFFF",
                                 "background": "#F3F3F3",
                                 "vertical_align": "top",
-                                "padding": "8px 8px 8px 8px",
+                                "padding": "4px 4px 4px 4px",
                                 "container_padding": "0px 0px 0px 0px",
-                                "block_padding": "16px 24px 0px 24px",
-                                "border_radius": "24px",
+                                "block_padding": "8px 12px 0px 12px",
+                                "border_radius": "16px",
                                 "dynamicContent": "1/a",
                                 "content": "Offer 01",
                                 "group_size": 2,
@@ -3352,6 +3398,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0014",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -3365,7 +3412,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0014",
-                        "padding": "8px 8px 8px 8px",
+                        "padding": "4px 4px 4px 4px",
                         "children": [
                           {
                             "block": "container",
@@ -3385,16 +3432,18 @@
                                 "depth": 2,
                                 "max_siblings": 2,
                                 "row_index": 1,
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "transition": false,
                                 "palette": "promo",
                                 "resolved_palette": "promo",
                                 "colour": "#FFFFFF",
                                 "background": "#F3F3F3",
                                 "vertical_align": "top",
-                                "padding": "8px 8px 8px 8px",
+                                "padding": "4px 4px 4px 4px",
                                 "container_padding": "0px 0px 0px 0px",
-                                "block_padding": "16px 24px 0px 24px",
-                                "border_radius": "24px",
+                                "block_padding": "8px 12px 0px 12px",
+                                "border_radius": "16px",
                                 "dynamicContent": "1/a",
                                 "content": "Offer 06",
                                 "group_size": 2,
@@ -3433,6 +3482,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0015",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -3446,7 +3496,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0015",
-                        "padding": "8px 8px 8px 8px",
+                        "padding": "4px 4px 4px 4px",
                         "children": [
                           {
                             "block": "container",
@@ -3466,16 +3516,18 @@
                                 "depth": 2,
                                 "max_siblings": 2,
                                 "row_index": 2,
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "transition": false,
                                 "palette": "promo",
                                 "resolved_palette": "promo",
                                 "colour": "#FFFFFF",
                                 "background": "#F3F3F3",
                                 "vertical_align": "top",
-                                "padding": "8px 8px 8px 8px",
+                                "padding": "4px 4px 4px 4px",
                                 "container_padding": "0px 0px 0px 0px",
-                                "block_padding": "16px 24px 0px 24px",
-                                "border_radius": "24px",
+                                "block_padding": "8px 12px 0px 12px",
+                                "border_radius": "16px",
                                 "dynamicContent": "1/a",
                                 "content": "Offer 03",
                                 "group_size": 2,
@@ -3527,6 +3579,8 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": "F3F3F3",
     "palette": "light",
     "resolved_palette": "light",
@@ -3555,10 +3609,11 @@
                 "entity_type": "component",
                 "template": "component/bodycopy.js",
                 "colour": "black",
-                "font_size": "32px",
-                "line_height": "36px",
+                "font_size": "26px",
+                "line_height": "28px",
                 "font_weight": "bold",
-                "padding": "16px",
+                "padding": "8px",
+                "custom_class": "SYW_heading",
                 "content": "Nobody fetches like Petbarn!<sup>^</sup>",
                 "mode": null,
                 "background": null,
@@ -3585,6 +3640,7 @@
                             "children": [
                               {
                                 "block": "gridCol",
+                                "mobile_stack": false,
                                 "padding": "4px",
                                 "children": [
                                   {
@@ -3597,21 +3653,24 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:7eb1dacb-aa15-4f85-9729-9e31a0396bc1"
                                     },
+                                    "mobile_only": false,
+                                    "desktop_only": false,
                                     "background": "transparent",
                                     "vertical_align": "middle",
                                     "padding": "0px",
                                     "align": "center",
-                                    "border_radius": "24px",
+                                    "border_radius": "16px",
                                     "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
                                     "template": "component/bodycopy.js",
                                     "colour": "black",
-                                    "font_size": "14px",
-                                    "line_height": "16px",
-                                    "content": "Free on orders over $149",
+                                    "font_size": "12px",
+                                    "line_height": "14px",
+                                    "content": "Free on orders over $159",
                                     "mode": null,
+                                    "custom_class": "",
                                     "background": null,
                                     "vertical_align": "middle",
                                     "padding": "0px 0px 4px",
@@ -3626,6 +3685,7 @@
                               },
                               {
                                 "block": "gridCol",
+                                "mobile_stack": false,
                                 "padding": "4px",
                                 "children": [
                                   {
@@ -3638,21 +3698,24 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:422f4133-d29d-49b8-a0de-530b1eb100a9"
                                     },
+                                    "mobile_only": false,
+                                    "desktop_only": false,
                                     "background": "transparent",
                                     "vertical_align": "middle",
                                     "padding": "0px",
                                     "align": "center",
-                                    "border_radius": "24px",
+                                    "border_radius": "16px",
                                     "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
                                     "template": "component/bodycopy.js",
                                     "colour": "black",
-                                    "font_size": "14px",
-                                    "line_height": "16px",
+                                    "font_size": "12px",
+                                    "line_height": "14px",
                                     "content": "Free on orders $99 & over",
                                     "mode": null,
+                                    "custom_class": "",
                                     "background": null,
                                     "vertical_align": "middle",
                                     "padding": "0px 0px 4px",
@@ -3664,26 +3727,10 @@
                                     "border_radius": "0px"
                                   }
                                 ]
-                              }
-                            ]
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "block": "gridRow",
-                    "group": "internal",
-                    "children": [
-                      {
-                        "block": "gridCol",
-                        "children": [
-                          {
-                            "block": "gridContainer",
-                            "innerLayout": "single_row",
-                            "children": [
+                              },
                               {
                                 "block": "gridCol",
+                                "mobile_stack": false,
                                 "padding": "4px",
                                 "children": [
                                   {
@@ -3696,62 +3743,24 @@
                                       "href": "https://www.petbarn.com.au/delivery-information",
                                       "aem_id": "urn:aaid:aem:cfda7385-be6c-4bf4-a92c-44046072cca0"
                                     },
+                                    "mobile_only": false,
+                                    "desktop_only": false,
                                     "background": "transparent",
                                     "vertical_align": "middle",
                                     "padding": "0px",
                                     "align": "center",
-                                    "border_radius": "24px",
+                                    "border_radius": "16px",
                                     "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
                                     "template": "component/bodycopy.js",
                                     "colour": "black",
-                                    "font_size": "14px",
-                                    "line_height": "16px",
+                                    "font_size": "12px",
+                                    "line_height": "14px",
                                     "content": "Free on orders over $49",
                                     "mode": null,
-                                    "background": null,
-                                    "vertical_align": "middle",
-                                    "padding": "0px 0px 4px",
-                                    "margin": "0px",
-                                    "font_weight": "normal",
-                                    "text_align": "center",
-                                    "font": "Outfit",
-                                    "text_size_class": null,
-                                    "border_radius": "0px"
-                                  }
-                                ]
-                              },
-                              {
-                                "block": "gridCol",
-                                "padding": "4px",
-                                "children": [
-                                  {
-                                    "entity_type": "component",
-                                    "type": "image",
-                                    "template": "component/image.js",
-                                    "width": "180px",
-                                    "content": {
-                                      "src": "assets/SYW_clickcollect_wShadow_2x.png",
-                                      "href": "https://www.petbarn.com.au/delivery-information",
-                                      "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
-                                    },
-                                    "background": "transparent",
-                                    "vertical_align": "middle",
-                                    "padding": "0px",
-                                    "align": "center",
-                                    "border_radius": "24px",
-                                    "max_width": "100%"
-                                  },
-                                  {
-                                    "entity_type": "component",
-                                    "template": "component/bodycopy.js",
-                                    "colour": "black",
-                                    "font_size": "14px",
-                                    "line_height": "16px",
-                                    "content": "Available within 30 mins",
-                                    "mode": null,
+                                    "custom_class": "",
                                     "background": null,
                                     "vertical_align": "middle",
                                     "padding": "0px 0px 4px",
@@ -3783,6 +3792,7 @@
                             "children": [
                               {
                                 "block": "gridCol",
+                                "mobile_stack": false,
                                 "padding": "4px",
                                 "children": [
                                   {
@@ -3791,25 +3801,28 @@
                                     "template": "component/image.js",
                                     "width": "180px",
                                     "content": {
-                                      "src": "assets/SYW_over220stores_wShadow_2x.png",
-                                      "href": "https://www.petbarn.com.au/store-finder",
-                                      "aem_id": "urn:aaid:aem:6058991b-13b5-4caf-b67c-f98492bcd1f3"
+                                      "src": "assets/SYW_clickcollect_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/delivery-information",
+                                      "aem_id": "urn:aaid:aem:9ee8b60c-291f-4524-a7b3-16d9703b9129"
                                     },
+                                    "mobile_only": false,
+                                    "desktop_only": false,
                                     "background": "transparent",
                                     "vertical_align": "middle",
                                     "padding": "0px",
                                     "align": "center",
-                                    "border_radius": "24px",
+                                    "border_radius": "16px",
                                     "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
                                     "template": "component/bodycopy.js",
                                     "colour": "black",
-                                    "font_size": "14px",
-                                    "line_height": "16px",
-                                    "content": "Visit our friendly team.",
+                                    "font_size": "12px",
+                                    "line_height": "14px",
+                                    "content": "Available within 30 mins",
                                     "mode": null,
+                                    "custom_class": "",
                                     "background": null,
                                     "vertical_align": "middle",
                                     "padding": "0px 0px 4px",
@@ -3824,6 +3837,52 @@
                               },
                               {
                                 "block": "gridCol",
+                                "mobile_stack": false,
+                                "padding": "4px",
+                                "children": [
+                                  {
+                                    "entity_type": "component",
+                                    "type": "image",
+                                    "template": "component/image.js",
+                                    "width": "180px",
+                                    "content": {
+                                      "src": "assets/SYW_over220stores_wShadow_2x.png",
+                                      "href": "https://www.petbarn.com.au/store-finder",
+                                      "aem_id": "urn:aaid:aem:6058991b-13b5-4caf-b67c-f98492bcd1f3"
+                                    },
+                                    "mobile_only": false,
+                                    "desktop_only": false,
+                                    "background": "transparent",
+                                    "vertical_align": "middle",
+                                    "padding": "0px",
+                                    "align": "center",
+                                    "border_radius": "16px",
+                                    "max_width": "100%"
+                                  },
+                                  {
+                                    "entity_type": "component",
+                                    "template": "component/bodycopy.js",
+                                    "colour": "black",
+                                    "font_size": "12px",
+                                    "line_height": "14px",
+                                    "content": "Visit our friendly team.",
+                                    "mode": null,
+                                    "custom_class": "",
+                                    "background": null,
+                                    "vertical_align": "middle",
+                                    "padding": "0px 0px 4px",
+                                    "margin": "0px",
+                                    "font_weight": "normal",
+                                    "text_align": "center",
+                                    "font": "Outfit",
+                                    "text_size_class": null,
+                                    "border_radius": "0px"
+                                  }
+                                ]
+                              },
+                              {
+                                "block": "gridCol",
+                                "mobile_stack": false,
                                 "padding": "4px",
                                 "children": [
                                   {
@@ -3836,21 +3895,24 @@
                                       "href": "https://www.petbarn.com.au/w/repeat-delivery",
                                       "aem_id": "urn:aaid:aem:2df6bdde-994a-4aa4-8980-005fcc4e44f6"
                                     },
+                                    "mobile_only": false,
+                                    "desktop_only": false,
                                     "background": "transparent",
                                     "vertical_align": "middle",
                                     "padding": "0px",
                                     "align": "center",
-                                    "border_radius": "24px",
+                                    "border_radius": "16px",
                                     "max_width": "100%"
                                   },
                                   {
                                     "entity_type": "component",
                                     "template": "component/bodycopy.js",
                                     "colour": "black",
-                                    "font_size": "14px",
-                                    "line_height": "16px",
+                                    "font_size": "12px",
+                                    "line_height": "14px",
                                     "content": "Save up to 25%",
                                     "mode": null,
+                                    "custom_class": "",
                                     "background": null,
                                     "vertical_align": "middle",
                                     "padding": "0px 0px 4px",
@@ -3892,10 +3954,11 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": "FFFFFF",
-    "palette": "primary",
-    "resolved_palette": "primary",
-    "colour": "#FEC326",
+    "resolved_palette": "default",
+    "colour": "#FFFFFF",
     "background": "#FEC326",
     "vertical_align": "top",
     "padding": "0px 0px 0px 0px",
@@ -3911,22 +3974,25 @@
         "innerLayout": "single_row",
         "transition": "FFFFFF",
         "transition_id": "urn:aaid:aem:66e43077-8e6b-4c76-87f2-14e568fc5928",
+        "background": "#FEC326",
         "children": [
           {
             "block": "gridCol",
-            "padding": "0px 32px 24px",
+            "padding": "16px 8px 24px",
             "children": [
               {
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "padding": "16px 0px",
+                "padding": "10px 0px",
                 "border_radius": "0px",
-                "width": "180px",
+                "width": "130px",
                 "content": {
-                  "src": "assets/PLP_Logo_Dog.png",
-                  "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
+                  "src": "assets/Petbarn_HeaderLogo_wBG.png",
+                  "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "align": "center",
@@ -3936,11 +4002,12 @@
                 "entity_type": "component",
                 "template": "component/bodycopy.js",
                 "colour": "black",
-                "font_size": "16px",
-                "line_height": "18px",
-                "padding": "16px",
+                "font_size": "14px",
+                "line_height": "16px",
+                "padding": "12px 12px 16px",
                 "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "margin": "0px",
@@ -3955,10 +4022,13 @@
                 "innerLayout": "single_row",
                 "children": [
                   {
-                    "block": "gridCol"
+                    "block": "gridCol",
+                    "width": "25%"
                   },
                   {
                     "block": "gridCol",
+                    "width": "50%",
+                    "mobile_stack": false,
                     "children": [
                       {
                         "block": "gridContainer",
@@ -3966,7 +4036,8 @@
                         "children": [
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -3979,18 +4050,21 @@
                                   "href": "https://www.facebook.com/petbarn",
                                   "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
                           },
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -4003,18 +4077,21 @@
                                   "href": "https://www.instagram.com/petbarn/#",
                                   "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
                           },
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -4027,18 +4104,21 @@
                                   "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                                   "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
                           },
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -4051,11 +4131,13 @@
                                   "href": "https://www.tiktok.com/@petbarnau",
                                   "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -4065,7 +4147,8 @@
                     ]
                   },
                   {
-                    "block": "gridCol"
+                    "block": "gridCol",
+                    "width": "25%"
                   }
                 ]
               }
@@ -4090,6 +4173,8 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": "FEC326",
     "palette": "dark",
     "resolved_palette": "dark",
@@ -4114,7 +4199,7 @@
             "children": [
               {
                 "block": "gridCol",
-                "padding": "32px 32px 0px",
+                "padding": "16px 16px 0px",
                 "children": [
                   {
                     "uuid": "C0064",
@@ -4127,11 +4212,14 @@
                     "template": "component/terms.js",
                     "depth": 1,
                     "max_siblings": 1,
+                    "custom_class": "footer_copy",
+                    "mobile_only": false,
+                    "desktop_only": false,
                     "transition": false,
                     "resolved_palette": "dark",
                     "colour": "#FFFFFF",
                     "vertical_align": "middle",
-                    "padding": "0px 16px 16px 16px",
+                    "padding": "0px 0px 16px 0px",
                     "margin": "0px 0px 0px 0px",
                     "font_size": "12px",
                     "line_height": "14px",
@@ -4151,7 +4239,7 @@
             "children": [
               {
                 "block": "gridCol",
-                "padding": "0px 32px 32px",
+                "padding": "0px 16px 32px",
                 "children": [
                   {
                     "entity_type": "component",
@@ -4159,6 +4247,7 @@
                     "colour": "white",
                     "font_size": "12px",
                     "line_height": "14px",
+                    "custom_class": "footer_copy",
                     "content": "^For Shop Your Way full terms and conditions see our\n<a href=\"https://www.petbarn.com.au/delivery-information\" style=\"color:#FFFFFF;line-height:14px;\">Delivery Information page.</a>\n\nMake sure emails from Petbarn make it to your inbox.\nAdd Petbarn@edm.petbarn.com.au to your address book.\nCan't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"\">View online.</a>\n\nPlease refer to our <a href=\"https://www.petbarn.com.au/w/privacy-policy\" style=\"color:#FFFFFF;line-height:14px;\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.\n\nThis email was sent to you by Petbarn Pty Ltd.\n\nPetbarn Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.\nP: 1300 655 896 E: Petbarn@edm.petbarn.com\n\nIf you wish to unsubscribe, please <a class=\"arc-link\" data-nl-type=\"unsubscription\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"https://t1.edm.petbarn.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">click here.</a>",
                     "mode": null,
                     "background": null,

@@ -179,11 +179,14 @@ function fromRuleFiles() {
     const consulted = new Set();
     const unreadable = [];
 
-    const isTarget = (key, value) => value !== null && typeof value === "object" && splitTargetList(key).every((target) => component_names.has(target.split("/")[0].replace(/[ -]/g, "_")));
+    // A module's own slot names are targets too -- `bottom: { palette }` -- but
+    // only in the file that declares the slot, as update.js has it (ADR 0008).
+    const isTarget = (key, value, slots) =>
+        value !== null && typeof value === "object" && splitTargetList(key).every((target) => component_names.has(target.split("/")[0].replace(/[ -]/g, "_")) || Array.isArray(slots[target]));
 
-    function scan(bag, file) {
+    function scan(bag, file, slots) {
         Object.entries(bag).forEach(([key, value]) => {
-            if (isTarget(key, value)) return scan(value, file);
+            if (isTarget(key, value, slots)) return scan(value, file, slots);
             const files = declared.get(key) || new Set();
             files.add(file);
             declared.set(key, files);
@@ -210,7 +213,7 @@ function fromRuleFiles() {
                 unreadable.push(relative);
                 return;
             }
-            if (rules.default_properties) scan(rules.default_properties, relative);
+            if (rules.default_properties) scan(rules.default_properties, relative, rules.component_positions || {});
 
             const source = fs.readFileSync(full, { encoding: "utf8" });
             [...source.matchAll(/\b(?:current|prev|next)\.([a-zA-Z_][a-zA-Z0-9_]*)/g)].forEach((match) => consulted.add(match[1]));

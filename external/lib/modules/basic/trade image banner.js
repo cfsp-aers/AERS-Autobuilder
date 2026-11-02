@@ -32,11 +32,11 @@ const default_properties = {
     // v2.5 set top and side padding and left the bottom at its 0px default, so
     // consecutive banners sit flush and the next module provides the gap.
     vertical_align: "top",
-    block_padding: "32px 0px 0px",
-    padding: "0px 32px",
+    block_padding: "8px 0px",
+    padding: "8px 16px",
 
     // ~~ components ~~
-    image: { border_radius: "24px" }
+    image: { border_radius: "16px" }
 };
 
 /*

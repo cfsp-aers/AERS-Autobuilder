@@ -63,7 +63,7 @@ function style(childrenOf) {
             padding: "0px",
             palette: "white",
             image: {
-                border_radius: "0px 0px 24px 24px"
+                border_radius: "0px 0px 16px 16px"
             }
         });
     }

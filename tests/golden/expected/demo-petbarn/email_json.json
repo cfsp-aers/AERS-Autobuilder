@@ -11,6 +11,8 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": false,
     "palette": "yellow",
     "resolved_palette": "yellow",
@@ -26,6 +28,7 @@
     "fragment": true,
     "group_size": 1,
     "hide_transition": true,
+    "no_nav": true,
     "group_padding": "0px 0px 0px 0px",
     "transition_id": "urn:aaid:aem:28f51a94-996b-469a-aa7b-4e9aaa8826f7",
     "children": [
@@ -43,13 +46,15 @@
                     "entity_type": "component",
                     "type": "image",
                     "template": "component/image.js",
-                    "width": "180px",
+                    "width": "100px",
                     "border_radius": "0px",
                     "content": {
                       "src": "assets/Petbarn_HeaderLogo_wBG.png",
                       "href": "https://www.petbarn.com.au",
                       "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d"
                     },
+                    "mobile_only": false,
+                    "desktop_only": false,
                     "background": "transparent",
                     "vertical_align": "middle",
                     "padding": "0px",
@@ -60,153 +65,7 @@
               }
             ]
           },
-          {
-            "block": "gridRow",
-            "children": [
-              {
-                "block": "gridCol",
-                "children": [
-                  {
-                    "block": "gridContainer",
-                    "innerLayout": "single_row",
-                    "background": "#000000",
-                    "padding": "4px 0px",
-                    "children": [
-                      {
-                        "block": "gridCol",
-                        "padding": "4px 0px",
-                        "children": [
-                          {
-                            "entity_type": "component",
-                            "template": "component/button.js",
-                            "category": "component",
-                            "type": "button",
-                            "name": "button",
-                            "brand": "petbarn",
-                            "parent_brand": "petbarn",
-                            "mode": "underline",
-                            "colour": "#FFFFFF",
-                            "background": "#000000",
-                            "vertical_align": "middle",
-                            "padding": "12px 16px 12px 16px",
-                            "margin": "0px 0px 0px 0px",
-                            "inner_padding": "4px 4px 4px 4px",
-                            "font_size": "16px",
-                            "line_height": "18px",
-                            "font_weight": "normal",
-                            "text_align": "center",
-                            "font": "Outfit",
-                            "border_radius": "0px",
-                            "border_bottom": "#FEC326",
-                            "height": "auto",
-                            "mso_height": "32px",
-                            "width": "auto",
-                            "force_mso_colour": true,
-                            "content": {
-                              "text": "Download the App!",
-                              "href": "https://www.petbarn.com.au/petbarn-app"
-                            },
-                            "palette": "primary",
-                            "align": "center",
-                            "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false
-                          }
-                        ]
-                      },
-                      {
-                        "block": "gridCol",
-                        "padding": "4px 0px",
-                        "children": [
-                          {
-                            "entity_type": "component",
-                            "template": "component/button.js",
-                            "category": "component",
-                            "type": "button",
-                            "name": "button",
-                            "brand": "petbarn",
-                            "parent_brand": "petbarn",
-                            "mode": "underline",
-                            "colour": "#FFFFFF",
-                            "background": "#000000",
-                            "vertical_align": "middle",
-                            "padding": "12px 16px 12px 16px",
-                            "margin": "0px 0px 0px 0px",
-                            "inner_padding": "4px 4px 4px 4px",
-                            "font_size": "16px",
-                            "line_height": "18px",
-                            "font_weight": "normal",
-                            "text_align": "center",
-                            "font": "Outfit",
-                            "border_radius": "0px",
-                            "border_bottom": "#F05842",
-                            "height": "auto",
-                            "mso_height": "32px",
-                            "width": "auto",
-                            "force_mso_colour": true,
-                            "content": {
-                              "text": "Shop Special Offers",
-                              "href": "https://www.petbarn.com.au/special-offers"
-                            },
-                            "palette": "primary",
-                            "align": "center",
-                            "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false
-                          }
-                        ]
-                      },
-                      {
-                        "block": "gridCol",
-                        "padding": "4px 0px",
-                        "children": [
-                          {
-                            "entity_type": "component",
-                            "template": "component/button.js",
-                            "category": "component",
-                            "type": "button",
-                            "name": "button",
-                            "brand": "petbarn",
-                            "parent_brand": "petbarn",
-                            "mode": "underline",
-                            "colour": "#FFFFFF",
-                            "background": "#000000",
-                            "vertical_align": "middle",
-                            "padding": "12px 16px 12px 16px",
-                            "margin": "0px 0px 0px 0px",
-                            "inner_padding": "4px 4px 4px 4px",
-                            "font_size": "16px",
-                            "line_height": "18px",
-                            "font_weight": "normal",
-                            "text_align": "center",
-                            "font": "Outfit",
-                            "border_radius": "0px",
-                            "border_bottom": "#00A651",
-                            "height": "auto",
-                            "mso_height": "32px",
-                            "width": "auto",
-                            "force_mso_colour": true,
-                            "content": {
-                              "text": "Find your local Vet",
-                              "href": "https://www.greencrossvets.com.au/find-a-vet/"
-                            },
-                            "palette": "primary",
-                            "align": "center",
-                            "font_style": "normal",
-                            "border_top": false,
-                            "border_right": false,
-                            "border_left": false
-                          }
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          }
+          {}
         ],
         "width": "100%",
         "bc_row_index": 0
@@ -240,6 +99,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0002",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -267,6 +127,8 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": "FEC326",
                             "palette": "white",
                             "resolved_palette": "white",
@@ -308,11 +170,13 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 12px 0px",
-                                                "border_radius": "0px 0px 24px 24px",
+                                                "border_radius": "0px 0px 16px 16px",
                                                 "width": "100%",
                                                 "content": {
                                                   "src": "GX_SeniorWellness3_HERO_Cat https://www.greencrossvets.com.au/book-online/"
@@ -364,6 +228,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0003",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -377,7 +242,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0003",
-                        "padding": "0px 32px 0px 32px",
+                        "padding": "0px 16px 0px 16px",
                         "children": [
                           {
                             "uuid": "M0003",
@@ -391,13 +256,15 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": false,
                             "palette": "light",
                             "resolved_palette": "light",
                             "colour": "#FFFFFF",
                             "background": "#FFFFFF",
                             "vertical_align": "top",
-                            "padding": "0px 32px 0px 32px",
+                            "padding": "0px 16px 0px 16px",
                             "container_padding": "16px 16px 16px 16px",
                             "block_padding": "16px 0px 0px 0px",
                             "group_size": 1,
@@ -421,6 +288,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -448,6 +317,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h4",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -475,6 +346,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -502,6 +375,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h4",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -529,6 +404,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -556,6 +433,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h4",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -583,6 +462,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -649,6 +530,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h4",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
@@ -679,7 +562,7 @@
                                         "children": [
                                           {
                                             "block": "gridCol",
-                                            "padding": "12px 16px 12px 16px",
+                                            "padding": "0px 16px 16px 16px",
                                             "children": [
                                               {
                                                 "uuid": "C0010",
@@ -693,21 +576,24 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
                                                 "colour": "#FFFFFF",
                                                 "background": "#000000",
                                                 "vertical_align": "middle",
-                                                "padding": "12px 16px 12px 16px",
+                                                "padding": "0px 16px 16px 16px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -733,14 +619,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -788,6 +676,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0004",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -801,7 +690,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0004",
-                        "padding": "0px 32px 0px 32px",
+                        "padding": "0px 16px 0px 16px",
                         "children": [
                           {
                             "uuid": "M0004",
@@ -815,13 +704,15 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": "FFFFFF",
                             "palette": "light yellow",
                             "resolved_palette": "light yellow",
                             "colour": "#FFF2D4",
                             "background": "#FFF2D4",
                             "vertical_align": "top",
-                            "padding": "0px 32px 0px 32px",
+                            "padding": "0px 16px 0px 16px",
                             "container_padding": "16px 16px 16px 16px",
                             "block_padding": "16px 0px 0px 0px",
                             "user_settings": {
@@ -849,6 +740,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h2",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "light yellow",
                                         "colour": "#000000",
@@ -886,11 +779,13 @@
                                                 "template": "component/image.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
                                                 "padding": "0px 0px 0px 0px",
-                                                "border_radius": "24px",
+                                                "border_radius": "16px",
                                                 "width": "100%",
                                                 "content": {
                                                   "src": "images/GXV_PB_App_Banner.png"
@@ -909,7 +804,7 @@
                                         "children": [
                                           {
                                             "block": "gridCol",
-                                            "padding": "12px 16px 12px 16px",
+                                            "padding": "0px 16px 16px 16px",
                                             "children": [
                                               {
                                                 "uuid": "C0014",
@@ -924,21 +819,24 @@
                                                 "max_siblings": 1,
                                                 "row_index": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
                                                 "colour": "#FFFFFF",
                                                 "background": "#000000",
                                                 "vertical_align": "middle",
-                                                "padding": "12px 16px 12px 16px",
+                                                "padding": "0px 16px 16px 16px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -953,7 +851,7 @@
                                           },
                                           {
                                             "block": "gridCol",
-                                            "padding": "12px 16px 12px 16px",
+                                            "padding": "0px 16px 16px 16px",
                                             "children": [
                                               {
                                                 "uuid": "C0014",
@@ -968,21 +866,24 @@
                                                 "max_siblings": 1,
                                                 "row_index": 2,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
                                                 "colour": "#FFFFFF",
                                                 "background": "#000000",
                                                 "vertical_align": "middle",
-                                                "padding": "12px 16px 12px 16px",
+                                                "padding": "0px 16px 16px 16px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -1038,6 +939,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0005",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1051,7 +953,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0005",
-                        "padding": "0px 32px 0px 32px",
+                        "padding": "0px 16px 0px 16px",
                         "children": [
                           {
                             "uuid": "M0005",
@@ -1065,13 +967,15 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": "FFF2D4",
                             "palette": "yellow",
                             "resolved_palette": "yellow",
                             "colour": "#FEC326",
                             "background": "#FEC326",
                             "vertical_align": "top",
-                            "padding": "0px 32px 0px 32px",
+                            "padding": "0px 16px 0px 16px",
                             "container_padding": "16px 16px 16px 16px",
                             "block_padding": "16px 0px 0px 0px",
                             "user_settings": {
@@ -1108,6 +1012,8 @@
                                                 "template": "component/lockup.js",
                                                 "depth": 1,
                                                 "max_siblings": 1,
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "background": "transparent",
                                                 "vertical_align": "middle",
@@ -1136,6 +1042,8 @@
                                         "depth": 1,
                                         "max_siblings": 1,
                                         "mode": "h4",
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "yellow",
                                         "colour": "#000000",
@@ -1177,7 +1085,7 @@
         "uuid": "M0006",
         "nav_label": "block",
         "background": "#FFFFFF",
-        "padding": "0px 16px 0px 16px",
+        "padding": "0px 0px 0px 0px",
         "transition": "FEC326",
         "transition_id": "urn:aaid:aem:28f51a94-996b-469a-aa7b-4e9aaa8826f7",
         "placeholder_component": false,
@@ -1193,6 +1101,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0006",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1226,6 +1135,8 @@
                                 "depth": 2,
                                 "max_siblings": 1,
                                 "row_index": 1,
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "transition": "FEC326",
                                 "palette": "yellow",
                                 "resolved_palette": "yellow",
@@ -1234,8 +1145,8 @@
                                 "vertical_align": "top",
                                 "padding": "8px 16px 8px 16px",
                                 "container_padding": "0px 0px 0px 0px",
-                                "block_padding": "0px 16px 0px 16px",
-                                "border_radius": "24px",
+                                "block_padding": "0px 0px 0px 0px",
+                                "border_radius": "16px",
                                 "user_settings": {
                                   "palette": "yellow"
                                 },
@@ -1262,6 +1173,8 @@
                                             "template": "component/bodycopy.js",
                                             "depth": 1,
                                             "max_siblings": 1,
+                                            "mobile_only": false,
+                                            "desktop_only": false,
                                             "transition": false,
                                             "resolved_palette": "yellow",
                                             "colour": "#000000",
@@ -1342,12 +1255,14 @@
                                                     "template": "component/image.js",
                                                     "depth": 1,
                                                     "max_siblings": 1,
+                                                    "mobile_only": false,
+                                                    "desktop_only": false,
                                                     "transition": false,
                                                     "background": "transparent",
                                                     "vertical_align": "middle",
                                                     "padding": "0px 0px 0px 0px",
                                                     "text_align": "left",
-                                                    "border_radius": "24px",
+                                                    "border_radius": "16px",
                                                     "width": "100%",
                                                     "content": {
                                                       "src": "images/HPP_SeniorCat_Banner.png"
@@ -1402,6 +1317,7 @@
                 "block": "gridCol",
                 "nav_label": "block_column",
                 "uuid": "M0007",
+                "stack_cols_on_mobile": true,
                 "vertical_align": "top",
                 "children": [
                   {
@@ -1415,7 +1331,7 @@
                         "name": "module column",
                         "block": "gridCol",
                         "uuid": "M0007",
-                        "padding": "0px 32px 0px 32px",
+                        "padding": "0px 16px 0px 16px",
                         "children": [
                           {
                             "uuid": "M0007",
@@ -1429,13 +1345,15 @@
                             "depth": 1,
                             "max_siblings": 1,
                             "row_index": 1,
+                            "mobile_only": false,
+                            "desktop_only": false,
                             "transition": "FFFFFF",
                             "palette": "yellow",
                             "resolved_palette": "yellow",
                             "colour": "#FEC326",
                             "background": "#FEC326",
                             "vertical_align": "top",
-                            "padding": "0px 32px 0px 32px",
+                            "padding": "0px 16px 0px 16px",
                             "container_padding": "16px 16px 16px 16px",
                             "block_padding": "16px 0px 0px 0px",
                             "user_settings": {
@@ -1462,6 +1380,8 @@
                                         "template": "component/bodycopy.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "yellow",
                                         "colour": "#000000",
@@ -1491,7 +1411,7 @@
                                         "children": [
                                           {
                                             "block": "gridCol",
-                                            "padding": "12px 16px 12px 16px",
+                                            "padding": "0px 16px 16px 16px",
                                             "children": [
                                               {
                                                 "uuid": "C0020",
@@ -1505,21 +1425,24 @@
                                                 "depth": 1,
                                                 "max_siblings": 1,
                                                 "mode": "default",
+                                                "mobile_only": false,
+                                                "desktop_only": false,
                                                 "transition": false,
                                                 "palette": "primary",
                                                 "resolved_palette": "black/white",
                                                 "colour": "#FFFFFF",
                                                 "background": "#000000",
                                                 "vertical_align": "middle",
-                                                "padding": "12px 16px 12px 16px",
+                                                "padding": "0px 16px 16px 16px",
                                                 "margin": "0px 0px 0px 0px",
                                                 "inner_padding": "8px 16px 8px 16px",
-                                                "font_size": "16px",
-                                                "line_height": "18px",
+                                                "font_size": "14px",
+                                                "line_height": "16px",
                                                 "font_weight": "bold",
                                                 "text_align": "center",
                                                 "font": "Outfit",
                                                 "border_radius": "32px",
+                                                "border_weight": "3px",
                                                 "height": "auto",
                                                 "width": "auto",
                                                 "content": {
@@ -1545,14 +1468,16 @@
                                         "template": "component/terms.js",
                                         "depth": 1,
                                         "max_siblings": 1,
+                                        "mobile_only": false,
+                                        "desktop_only": false,
                                         "transition": false,
                                         "resolved_palette": "yellow",
                                         "colour": "#000000",
                                         "vertical_align": "middle",
                                         "padding": "0px 0px 4px 0px",
                                         "margin": "0px 0px 0px 0px",
-                                        "font_size": "12px",
-                                        "line_height": "14px",
+                                        "font_size": "10px",
+                                        "line_height": "12px",
                                         "font_weight": "normal",
                                         "text_align": "center",
                                         "font": "Outfit",
@@ -1593,10 +1518,11 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": false,
-    "palette": "primary",
-    "resolved_palette": "primary",
-    "colour": "#FEC326",
+    "resolved_palette": "default",
+    "colour": "#FFFFFF",
     "background": "#FEC326",
     "vertical_align": "top",
     "padding": "0px 0px 0px 0px",
@@ -1612,22 +1538,25 @@
         "innerLayout": "single_row",
         "transition": false,
         "transition_id": "urn:aaid:aem:28f51a94-996b-469a-aa7b-4e9aaa8826f7",
+        "background": "#FEC326",
         "children": [
           {
             "block": "gridCol",
-            "padding": "0px 32px 24px",
+            "padding": "16px 8px 24px",
             "children": [
               {
                 "entity_type": "component",
                 "type": "image",
                 "template": "component/image.js",
-                "padding": "16px 0px",
+                "padding": "10px 0px",
                 "border_radius": "0px",
-                "width": "180px",
+                "width": "130px",
                 "content": {
-                  "src": "assets/PLP_Logo_Dog.png",
-                  "aem_id": "urn:aaid:aem:e01e0b05-4750-4aec-b420-cbdfc3e3b87e"
+                  "src": "assets/Petbarn_HeaderLogo_wBG.png",
+                  "aem_id": "urn:aaid:aem:9a83164b-caa6-434e-8013-0fd01a0ea82d"
                 },
+                "mobile_only": false,
+                "desktop_only": false,
                 "background": "transparent",
                 "vertical_align": "middle",
                 "align": "center",
@@ -1637,11 +1566,12 @@
                 "entity_type": "component",
                 "template": "component/bodycopy.js",
                 "colour": "black",
-                "font_size": "16px",
-                "line_height": "18px",
-                "padding": "16px",
+                "font_size": "14px",
+                "line_height": "16px",
+                "padding": "12px 12px 16px",
                 "content": "<span style=\"font-weight:bold;color:#000000;font-size:16px;line-height:18px;\">We can't wait to see you and your pet soon</span>\nThe team at Petbarn!",
                 "mode": null,
+                "custom_class": "",
                 "background": null,
                 "vertical_align": "middle",
                 "margin": "0px",
@@ -1656,10 +1586,13 @@
                 "innerLayout": "single_row",
                 "children": [
                   {
-                    "block": "gridCol"
+                    "block": "gridCol",
+                    "width": "25%"
                   },
                   {
                     "block": "gridCol",
+                    "width": "50%",
+                    "mobile_stack": false,
                     "children": [
                       {
                         "block": "gridContainer",
@@ -1667,7 +1600,8 @@
                         "children": [
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -1680,18 +1614,21 @@
                                   "href": "https://www.facebook.com/petbarn",
                                   "aem_id": "urn:aaid:aem:2bb931cf-f45f-424a-9ea0-68b755a721dc"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
                           },
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -1704,18 +1641,21 @@
                                   "href": "https://www.instagram.com/petbarn/#",
                                   "aem_id": "urn:aaid:aem:1f1fa734-3055-4fca-ab50-a393b9951fea"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
                           },
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -1728,18 +1668,21 @@
                                   "href": "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ",
                                   "aem_id": "urn:aaid:aem:b7cfe5a0-2e25-48b2-9837-247d078ba7e8"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
                           },
                           {
                             "block": "gridCol",
-                            "padding": "8px",
+                            "width": "36px",
+                            "padding": "0px",
                             "mobile_stack": false,
                             "children": [
                               {
@@ -1752,11 +1695,13 @@
                                   "href": "https://www.tiktok.com/@petbarnau",
                                   "aem_id": "urn:aaid:aem:ddbf85b9-7fe7-4874-abcb-14e6a0855d48"
                                 },
+                                "mobile_only": false,
+                                "desktop_only": false,
                                 "background": "transparent",
                                 "vertical_align": "middle",
                                 "padding": "0px",
                                 "align": "center",
-                                "border_radius": "24px",
+                                "border_radius": "16px",
                                 "max_width": "100%"
                               }
                             ]
@@ -1766,7 +1711,8 @@
                     ]
                   },
                   {
-                    "block": "gridCol"
+                    "block": "gridCol",
+                    "width": "25%"
                   }
                 ]
               }
@@ -1790,6 +1736,8 @@
     "depth": 1,
     "max_siblings": 1,
     "row_index": 1,
+    "mobile_only": false,
+    "desktop_only": false,
     "transition": "FEC326",
     "palette": "dark",
     "resolved_palette": "dark",
@@ -1814,7 +1762,7 @@
             "children": [
               {
                 "block": "gridCol",
-                "padding": "32px 32px 0px",
+                "padding": "16px 16px 0px",
                 "children": [
                   {
                     "uuid": "C0022",
@@ -1827,11 +1775,14 @@
                     "template": "component/terms.js",
                     "depth": 1,
                     "max_siblings": 1,
+                    "custom_class": "footer_copy",
+                    "mobile_only": false,
+                    "desktop_only": false,
                     "transition": false,
                     "resolved_palette": "dark",
                     "colour": "#FFFFFF",
                     "vertical_align": "middle",
-                    "padding": "0px 16px 16px 16px",
+                    "padding": "0px 0px 16px 0px",
                     "margin": "0px 0px 0px 0px",
                     "font_size": "12px",
                     "line_height": "14px",
@@ -1861,11 +1812,14 @@
                     "template": "component/terms.js",
                     "depth": 1,
                     "max_siblings": 1,
+                    "custom_class": "footer_copy",
+                    "mobile_only": false,
+                    "desktop_only": false,
                     "transition": false,
                     "resolved_palette": "dark",
                     "colour": "#FFFFFF",
                     "vertical_align": "middle",
-                    "padding": "0px 16px 16px 16px",
+                    "padding": "0px 0px 16px 0px",
                     "margin": "0px 0px 0px 0px",
                     "font_size": "12px",
                     "line_height": "14px",
@@ -1887,11 +1841,14 @@
                     "template": "component/terms.js",
                     "depth": 1,
                     "max_siblings": 1,
+                    "custom_class": "footer_copy",
+                    "mobile_only": false,
+                    "desktop_only": false,
                     "transition": false,
                     "resolved_palette": "dark",
                     "colour": "#FFFFFF",
                     "vertical_align": "middle",
-                    "padding": "0px 16px 16px 16px",
+                    "padding": "0px 0px 16px 0px",
                     "margin": "0px 0px 0px 0px",
                     "font_size": "12px",
                     "line_height": "14px",
@@ -1933,7 +1890,7 @@
             "children": [
               {
                 "block": "gridCol",
-                "padding": "0px 32px 32px",
+                "padding": "0px 16px 32px",
                 "children": [
                   {
                     "entity_type": "component",
@@ -1941,6 +1898,7 @@
                     "colour": "white",
                     "font_size": "12px",
                     "line_height": "14px",
+                    "custom_class": "footer_copy",
                     "content": "^For Shop Your Way full terms and conditions see our\n<a href=\"https://www.petbarn.com.au/delivery-information\" style=\"color:#FFFFFF;line-height:14px;\">Delivery Information page.</a>\n\nMake sure emails from Petbarn make it to your inbox.\nAdd Petbarn@edm.petbarn.com.au to your address book.\nCan't see the images? <a class=\"arc-link\" data-nl-type=\"mirrorPage\" data-tracking-type=\"MIRROR_PAGE\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"\">View online.</a>\n\nPlease refer to our <a href=\"https://www.petbarn.com.au/w/privacy-policy\" style=\"color:#FFFFFF;line-height:14px;\">PRIVACY POLICY</a> if you are not sure why you received this email or if you have a question about privacy. To protect your privacy, we recommend that you do not forward or otherwise distribute this email.\n\nThis email was sent to you by Petbarn Pty Ltd.\n\nPetbarn Support Office, Quarter One, Level 2, 1 Epping Road, North Ryde NSW 2113.\nP: 1300 655 896 E: Petbarn@edm.petbarn.com\n\nIf you wish to unsubscribe, please <a class=\"arc-link\" data-nl-type=\"unsubscription\" style=\"text-decoration:underline;color:rgb(255, 255, 255);\" href=\"https://t1.edm.petbarn.com.au/lp/unsubscribe\" data-tracking-type=\"OPT_OUT\">click here.</a>",
                     "mode": null,
                     "background": null,

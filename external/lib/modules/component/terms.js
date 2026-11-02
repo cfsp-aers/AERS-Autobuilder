@@ -3,6 +3,7 @@
 const default_properties = {
     // ~~ module data ~~
     mode: null,
+    custom_class: "",
     // ~~ palette ~~
     //palette: "secondary",
     colour: "body",
@@ -12,8 +13,8 @@ const default_properties = {
     padding: "0px 0px 4px",
     margin: "0px",
     // ~~ font ~~
-    font_size: "12px",
-    line_height: "14px",
+    font_size: "10px",
+    line_height: "12px",
     font_weight: "normal",
     text_align: "center",
     font: "Outfit",
