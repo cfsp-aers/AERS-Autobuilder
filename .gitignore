@@ -151,3 +151,6 @@ external/dev_settings.json
 .DS_Store
 tests/.precedence-work/
 tests/.regions-*-work/
+
+# Other Files
+mac-universal_BACKUP/
