@@ -78,7 +78,7 @@ const rows = [
 
     // A badge, a top text, a second offer line, and a button that names itself.
     row({
-        moduleType: "product banner",
+        moduleType: "old product banner",
         moduleName: "FOOD 1",
         image: "PB_Wide_Food",
         badge: "MEMBERS ONLY",
@@ -93,8 +93,8 @@ const rows = [
     }),
 
     // A pair of tiles, which is how the template expects tiles to arrive.
-    row({ moduleType: "product tile", moduleName: "FOOD 2", image: "PB_Wide_Tile_A", subheading1: "From $74 each\nWhen you buy 2", bodycopy: "Royal Canin Adult Indoor 4kg", disclaimer: "*", link: "https://www.petbarn.com.au/royal-canin" }),
-    row({ moduleType: "product tile", moduleName: "FOOD 3", image: "PB_Wide_Tile_B", subheading1: "From $68 each\nWhen you buy 2", bodycopy: "Hill's Science Diet 4kg", disclaimer: "*", link: "https://www.petbarn.com.au/hills" }),
+    row({ moduleType: "old product tile", moduleName: "FOOD 2", image: "PB_Wide_Tile_A", subheading1: "From $74 each\nWhen you buy 2", bodycopy: "Royal Canin Adult Indoor 4kg", disclaimer: "*", link: "https://www.petbarn.com.au/royal-canin" }),
+    row({ moduleType: "old product tile", moduleName: "FOOD 3", image: "PB_Wide_Tile_B", subheading1: "From $68 each\nWhen you buy 2", bodycopy: "Hill's Science Diet 4kg", disclaimer: "*", link: "https://www.petbarn.com.au/hills" }),
 
     // Artwork on its own, inset and rounded, on light grey.
     row({ moduleType: "trade image banner", moduleName: "SPECIAL FOOD 1", image: "PB_Wide_Trade_Banner", link: "https://www.petbarn.com.au/trade" }),

@@ -29,10 +29,10 @@ const default_properties = {
 
 const component_positions = { all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"] };
 
-const delivery_tile = (src, href, caption) =>
+const delivery_tile = (src, href, caption, current) =>
     col({ mobile_stack: false, padding: "4px" }, [
         image({ width: "180px", content: { src: src, href: href } }),
-        component({ colour: "black", font_size: "12px", line_height: "14px", content: caption })
+        component({  colour: current.brand === "petbarn cw" ? "white" : "black", font_size: "12px", line_height: "14px", content: caption })
     ]);
 
 const tile_row = (tiles) => row({ group: "internal" }, [col({}, [columns({}, tiles)])]);
@@ -41,7 +41,7 @@ const internal_layout = (current, content) =>
     columns({ transition: current.transition, transition_id: current.transition_id }, [
         col({ padding: current.transition ? "0px 0px 24px" : "24px 0px 24px" }, [
             component({
-                colour: "black",
+                colour: current.brand === "petbarn cw" ? "white" : "black",
                 font_size: "26px",
                 line_height: "28px",
                 font_weight: "bold",
@@ -51,14 +51,14 @@ const internal_layout = (current, content) =>
             }),
             container({}, [
                 tile_row([
-                    delivery_tile("images/SYW_2hrdelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders over $159"),
-                    delivery_tile("images/SYW_nextdaydelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders $99 & over"),
-                    delivery_tile("images/SYW_freestandarddelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders over $49")
+                    delivery_tile("images/SYW_2hrdelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders over $159", current),
+                    delivery_tile("images/SYW_nextdaydelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders $99 & over", current),
+                    delivery_tile("images/SYW_freestandarddelivery_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Free on orders over $49", current)
                 ]),
                 tile_row([
-                    delivery_tile("images/SYW_clickcollect_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Available within 30 mins"),
-                    delivery_tile("images/SYW_over220stores_wShadow_2x.png", "https://www.petbarn.com.au/store-finder", "Visit our friendly team."),
-                    delivery_tile("images/SYW_repeatdelivery_wShadow_2x.png", "https://www.petbarn.com.au/w/repeat-delivery", "Save up to 25%")
+                    delivery_tile("images/SYW_clickcollect_wShadow_2x.png", "https://www.petbarn.com.au/delivery-information", "Available within 30 mins", current),
+                    delivery_tile("images/SYW_over220stores_wShadow_2x.png", "https://www.petbarn.com.au/store-finder", "Visit our friendly team.", current),
+                    delivery_tile("images/SYW_repeatdelivery_wShadow_2x.png", "https://www.petbarn.com.au/w/repeat-delivery", "Save up to 25%", current)
                 ])
             ])
         ])
@@ -77,6 +77,14 @@ function modify(childrenOf) {
 
 function style(childrenOf) {
     // ------------- BEGIN RULES -------------
+
+      if (current.brand == "petbarn cw") {
+        update(current, {
+          background: "dark grey",
+          components: { colour: "white" }
+        },)
+  }
+
     // ------------- END RULES -------------
 }
 

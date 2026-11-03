@@ -511,6 +511,7 @@ body {
 
 #sheet-list {
     height: max-content;
+    max-height: 480px;
     
 }
 
@@ -555,14 +556,16 @@ body {
 
 .inner {
     width: max-content;
-    max-width: 208px;
+    max-width: 360px;
     word-wrap: break-word;
     word-break: break-all;
     overflow: hidden;
     padding: 24px 12px 12px;
     background: #EDEDED;
+    border: 1px solid #CCCCCC;
     margin-top: -16px;
-    border-radius: 0 0 16px 16px;
+    border-radius: 8px;
+    z-index: 99;
     font-size: 12px;
     transition: 0.2s ease, color 0.5s 0.3s;
 }
@@ -570,7 +573,11 @@ body {
 
 .collapsed {
     background-color: transparent;
+    border: none;
     color: transparent;
+    overflow: hidden;
+    height: 0;
+    width: 0;
     padding: 0 8px;
     margin-top: 0px;
     transition: 0.2s ease, color 0.1s;

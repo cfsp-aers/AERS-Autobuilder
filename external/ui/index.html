@@ -16,9 +16,9 @@
     </div>
 
     <div id="title_bar" class="titlebar">Universal Builder<span id="devLibraryBadge" class="dev-library-badge" hidden>Dev library</span></div>
-    <div class="container g-2">
-        <div class="" id="settingsLayout" style="display:flex;flex-direction: row;">
-    <div class="hrz g-2" style=" position:absolute;bottom:8px;left: 8px;margin-top: 24px">
+    <div class="container g-4" style="padding: 24px;">
+        <div class="g-4" id="settingsLayout" style="display:flex;flex-direction: row; margin-bottom: 24px; max-width: 100%;">
+    <div class="hrz g-2" style=" position:absolute;bottom:0;">
         <!-- Shown when a build ran on a publish that changed main_external.js or
              ui/, which load once per launch. Builds already use the new engine
              and library; only the window itself waits for the restart. -->
@@ -38,10 +38,10 @@
             External Files
         </button>
     </div>
-            <div class="parent-panel p-3 br-24 lift-3"
-                style="height:min-content; margin-bottom: 48px; margin-right:20px;">
+            <div class="parent-panel p-3 br-16 lift-3"
+                style="height:min-content;">
                 <div class="vrt">
-                    <div class="header hrz g-4" style="word-wrap: none; min-width: max-content; margin-bottom:16px; justify-content: space-between;max-width: 280px !important;">
+                    <div class="header hrz g-4" style="word-wrap: none; min-width: max-content; margin-bottom:16px; justify-content: space-between;/*max-width: 280px !important;*/">
                         <h1>AERS Builder</h1>
                         <h3 id="loading" style="display: none;">loading . . .</h3>
                         <button type="button" class="" id="testBtn"
@@ -69,8 +69,8 @@
                                 </div>
                                 <div class="vrt">
                                     <button type="button" id="expand-excelPath" class="btn btn-sm btn-secondary"
-                                        style="z-index: 100;width:100%; justify-content: space-between;">
-                                        <h4 id="excelName">Excel File Name Here</h4>
+                                        style="z-index: 100; width:100%; justify-content: space-between; text-align: left; max-width: 220px;text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                                        <h4 id="excelName" style="max-width: 90%; overflow: clip;">Excel File Name Here</h4>
                                         <span id="excelSelected" class="invisible">
                                             <img src="icons/tick.svg" style="max-width: 20px"/>
                                         </span>
@@ -90,8 +90,8 @@
                                 </div>
                                 <div class="vrt">
                                     <button type="button" id="expand-outputPath" class="btn btn-sm btn-secondary"
-                                        style="z-index: 100;width:100%; justify-content: space-between;">
-                                        <h4 id="folderName">Output</h4>
+                                        style="z-index: 100;width:100%; justify-content: space-between; text-align: left; max-width: 220px;text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+                                        <h4 id="folderName" style="max-width: 90%; overflow: clip;">Output</h4>
                                         <span id="outputSelected" class="invisible">
                                             <img src="icons/tick.svg" style="max-width: 20px" />
                                         </span>
@@ -170,7 +170,7 @@
                     </div>
                 </div>
             </div>
-            <div class="parent-panel br-24 lift-4 invisible" id="outputFiles" style="margin-right:20px; max-width: 532px !important;  padding: 0 0 12px;" >
+            <div class="parent-panel br-16 lift-4 invisible" id="outputFiles" style="/*margin-right:20px; max-width: 532px !important;*/  padding: 0 0 12px;" >
 
                 <div class="hrz p-2 ">
                     <div class="header" style="margin-right:8px;">
@@ -190,7 +190,7 @@
 
             </div>
         </div>
-        <div class="parent-panel p-2 br-24 lift-4 invisible" id="filePreview" style="height:min-content;">
+        <div class="parent-panel p-2 br-16 lift-4 invisible" id="filePreview" style="height:min-content;">
             <div class="vrt g-2">
                 <div class="hrz g-2" style="width:100%;margin:8px auto;" align="center">
                     <button id="first" class="preview-btn btn btn-m btn-secondary">
@@ -239,7 +239,7 @@
                 checkboxes[i].checked = true;
             }
             btn.innerText = "Deselect All";
-            btn.classList.pxove("select-all");
+            btn.classList.remove("select-all");
             btn.classList.add("unselect-all");
         } else {
             // uncheck all
@@ -247,7 +247,7 @@
                 checkboxes[j].checked = false;
             }
             btn.innerText = "Select All";
-            btn.classList.pxove("unselect-all");
+            btn.classList.remove("unselect-all");
             btn.classList.add("select-all");
         }
     };
@@ -261,10 +261,10 @@
     expandBtn.addEventListener('click', () => {
         if (seeExcel.className == 'wrapper') {
             seeExcel.classList.add('is-open');
-            showExcel.classList.pxove('collapsed');
+            showExcel.classList.remove('collapsed');
         }
         else {
-            seeExcel.classList.pxove('is-open');
+            seeExcel.classList.remove('is-open');
             showExcel.classList.add('collapsed');
         };
     });
@@ -274,10 +274,10 @@
     expandFBtn.addEventListener('click', () => {
         if (seeOutput.className == 'wrapper') {
             seeOutput.classList.add('is-open');
-            showOutput.classList.pxove('collapsed');
+            showOutput.classList.remove('collapsed');
         }
         else {
-            seeOutput.classList.pxove('is-open');
+            seeOutput.classList.remove('is-open');
             showOutput.classList.add('collapsed');
         };
     });

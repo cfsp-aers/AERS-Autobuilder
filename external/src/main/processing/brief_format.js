@@ -108,7 +108,7 @@ function image_content(row) {
     `^x` is the marker formatRichText turns into a <sup>, and is the convention
     the Offer Library path in setup.js already uses for exactly this.
 */
-function with_disclaimer(text, symbol) {
+function with_disclaimer(text, symbol="*") {
     const body = text_of(text);
     const mark = text_of(symbol);
     if (!body || !mark) return body;
@@ -155,10 +155,10 @@ function components_of(row) {
 
     push("image", image_content(row));
     push("badge", row.badge);
-    push("heading", row.headingText);
-    push("subheading", with_disclaimer(row.subheading1Text, row.disclaimer));
-    push("subheading", row.subheading2Text);
-    push("bodycopy", row.bodycopyText);
+    push("heading", row.headingText?.replaceAll("\n", " "));
+    push("subheading", with_disclaimer(row.subheading1Text?.replaceAll("\n", " "), /*row.disclaimer*/));
+    push("subheading", row.subheading2Text?.replaceAll("\n", " "));
+    push("bodycopy", row.bodycopyText?.replaceAll("\n", " "));
     push("button", button_content(row));
     push("terms", row.terms);
 

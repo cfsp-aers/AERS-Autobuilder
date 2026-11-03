@@ -54,11 +54,17 @@ function modes() {}
 
 function modify(childrenOf) {
     // ------------- BEGIN RULES ------------- //
+    
     // -------------- END RULES -------------- //
 }
 
 function style(childrenOf) {
     // ------------- BEGIN RULES ------------- //
+      if (current.brand == "petbarn cw") {
+    update(current, {
+      background: "black"
+    })
+  }
     // -------------- END RULES -------------- //
 }
 

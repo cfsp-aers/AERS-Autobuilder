@@ -527,6 +527,7 @@ function previewFile() {
     const filePreview = document.getElementById("filePreview");
 
     document.getElementById("settingsLayout").style.flexDirection = "column";
+    document.getElementById("settingsLayout").style.maxWidth = "524px";
     filePreview.classList.remove("invisible");
     filePreview.classList.add("visible");
 

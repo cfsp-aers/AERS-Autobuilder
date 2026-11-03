@@ -114,7 +114,7 @@ function collect_jobs(brief_location, selected_sheets, save_to) {
         rows.forEach((row, index) => {
             // moduleName is what a designer would look for in Finder. Not every
             // template has the column, so fall back to something identifiable.
-            const folder = row.moduleName || row.moduleType || `row ${index + 1}`;
+            const folder = `${String(index).padStart(2, '0')} ${row.moduleName}` || row.moduleType || `row ${index + 1}`;
 
             ilc_columns(row).forEach((column) => {
                 const value = row[column];

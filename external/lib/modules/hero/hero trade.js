@@ -81,6 +81,11 @@ function modify(childrenOf) {
 
 function style(childrenOf) {
     // ------------- BEGIN RULES ------------- //
+      if (current.brand == "petbarn cw") {
+    update(current, {
+      background: "black"
+    })
+  }
     // -------------- END RULES -------------- //
 }
 

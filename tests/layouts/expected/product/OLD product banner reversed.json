@@ -1,0 +1,892 @@
+{
+  "plain": {
+    "block": "gridContainer",
+    "innerLayout": "single_row",
+    "children": [
+      {
+        "block": "gridCol",
+        "padding": "16px 16px 24px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "left",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "left",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridCol",
+        "padding": "0px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "right",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "right",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "transition": {
+    "block": "gridContainer",
+    "innerLayout": "single_row",
+    "children": [
+      {
+        "block": "gridCol",
+        "padding": "16px 16px 24px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "left",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "left",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridCol",
+        "padding": "0px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "right",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "right",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "transactional": {
+    "block": "gridContainer",
+    "innerLayout": "single_row",
+    "children": [
+      {
+        "block": "gridCol",
+        "padding": "16px 16px 24px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "left",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "left",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridCol",
+        "padding": "0px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "right",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "right",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "no_nav": {
+    "block": "gridContainer",
+    "innerLayout": "single_row",
+    "children": [
+      {
+        "block": "gridCol",
+        "padding": "16px 16px 24px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "left",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "left",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridCol",
+        "padding": "0px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "right",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "right",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "hpp": {
+    "block": "gridContainer",
+    "innerLayout": "single_row",
+    "children": [
+      {
+        "block": "gridCol",
+        "padding": "16px 16px 24px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "left",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "left",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "left",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "left",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "block": "gridCol",
+        "padding": "0px",
+        "width": "50%",
+        "children": [
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "margin": "0px",
+                "padding": "0px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "image",
+                    "name": "image",
+                    "position": "right",
+                    "padding": "0px",
+                    "width": "100%",
+                    "content": {
+                      "src": "images/test.png",
+                      "href": "https://example.test",
+                      "aem_id": "urn:aaid:aem:test-image"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "entity_type": "component",
+            "type": "text",
+            "name": "heading",
+            "position": "right",
+            "padding": "8px",
+            "font_size": "24px",
+            "content": "A heading"
+          },
+          {
+            "block": "gridContainer",
+            "innerLayout": "single_row",
+            "position": "right",
+            "children": [
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 1,
+                    "padding": "4px",
+                    "content": {
+                      "text": "First",
+                      "href": "https://example.test/1"
+                    }
+                  }
+                ]
+              },
+              {
+                "block": "gridCol",
+                "padding": "4px",
+                "children": [
+                  {
+                    "entity_type": "component",
+                    "type": "button",
+                    "name": "button",
+                    "position": "right",
+                    "row_index": 2,
+                    "padding": "4px",
+                    "content": {
+                      "text": "Second",
+                      "href": "https://example.test/2"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

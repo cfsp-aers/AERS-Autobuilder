@@ -68,7 +68,7 @@ function writeBrief() {
         component_row("subheading", "anchor"),
 
         // The control: a module with no card of its own is wrapped as before.
-        module_row("product tile"),
+        module_row("old product tile"),
         component_row("image", "image_placeholder"),
         component_row("body copy", "CASE control"),
         component_row("button", "Shop now"),

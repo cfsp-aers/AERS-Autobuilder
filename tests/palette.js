@@ -169,7 +169,7 @@ function writeBrief() {
     `setPalettes` copies palette, background and colour from the module before
     when the two share a name, and that copy used to be scoped to the name alone
     -- so an unbroken run of same-named modules all took the first one's colours,
-    for as long as the run lasted. A brief that tinted one pair of product tiles
+    for as long as the run lasted. A brief that tinted one pair of old product tiles
     tinted every pair after it, and there was no way to write "and now stop".
     The `layout` golden case had it: a bare `text block` with no settings at all
     rendered on a yellow band, two hops downstream of a hero.
@@ -179,7 +179,7 @@ function writeBrief() {
     is a fact about the layout, not a preference -- and a row is exactly the set
     of modules that share one. Nothing carries past it.
 
-    Six product tiles, which group two to a row: a bare pair, a tinted pair, and
+    Six old product tiles, which group two to a row: a bare pair, a tinted pair, and
     a bare pair after it. No hex appears in the assertions. The claim is "the
     third pair looks like the first", which stays true if someone changes what
     `promo` means.

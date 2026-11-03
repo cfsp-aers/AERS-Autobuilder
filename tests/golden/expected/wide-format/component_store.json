@@ -472,7 +472,7 @@
       "font": "Outfit",
       "text_size_class": "heading-medium",
       "border_radius": "0px",
-      "content": "From $74 each\nWhen you buy 2<sup style=\"line-height: 0px !important;\">*</sup>",
+      "content": "From $74 each When you buy 2<sup style=\"line-height: 0px !important;\">*</sup>",
       "align": "left",
       "text_segments": []
     },
@@ -601,7 +601,7 @@
       "font": "Outfit",
       "text_size_class": "heading-medium",
       "border_radius": "0px",
-      "content": "From $68 each\nWhen you buy 2<sup style=\"line-height: 0px !important;\">*</sup>",
+      "content": "From $68 each When you buy 2<sup style=\"line-height: 0px !important;\">*</sup>",
       "align": "left",
       "text_segments": []
     },

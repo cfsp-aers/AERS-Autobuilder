@@ -62,12 +62,12 @@ const rows = [
         Two tiles, to put a grouped module on the record for a brand whose
         palette file exists but whose module definitions do not.
     */
-    module_row("product tile"),
+    module_row("old product tile"),
     component_row("image", "TNP_Beef"),
     component_row("heading", "Beef & Pumpkin"),
     component_row("button", "ADD TO CART (https://www.petbarn.com.au/the-nosh-project)"),
 
-    module_row("product tile"),
+    module_row("old product tile"),
     component_row("image", "TNP_Chicken"),
     component_row("heading", "Chicken & Rice"),
     component_row("button", "ADD TO CART (https://www.petbarn.com.au/the-nosh-project)"),

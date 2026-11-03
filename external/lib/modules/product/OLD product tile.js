@@ -1,0 +1,100 @@
+const { load } = require("../../../src/main/utils/load.js");
+const { app_dir } = require("../../../src/main/constants.js");
+const { stacked_rows } = load(app_dir, "main/systems/layout.js");
+
+`~~~~~~~~~~~ PRODUCT TILE ~~~~~~~~~~~`;
+
+const default_properties = {
+    // ~~ module data ~~
+    depth: 2,
+    max_siblings: 2,
+
+    // ~~ palette ~~
+    palette: "promo",
+    background: "light grey",
+
+    // ~~ spacing ~~
+    vertical_align: "top",
+    block_padding: "8px 12px 0px",
+    padding: "4px",
+    container_padding: "0px",
+
+    // ~~ border ~~
+    border_radius: "16px",
+
+    // ~~ component settings ~~
+    heading: { mode: "h7" },
+    subheading: { mode: "h7" },
+
+    "subheading/1": {
+        colour: "sale red",
+        mode: "h6"
+    },
+
+    components: {
+        align: "left",
+        text_align: "left"
+    },
+    image: {
+        border_radius: "16px"
+    },
+    badge: {
+        padding: "0px 0px 8px"
+    },
+    button: {
+        padding: "12px 0px 0px",
+        width: "100%",
+        "align" : "left"
+    }
+};
+
+const component_positions = {
+    top: ["image"],
+    bottom: ["badge", "heading", "subheading", "bodycopy", "button", "terms"]
+};
+
+const internal_layout = (current, content) =>
+    stacked_rows(content, {
+        bottom: { padding: "16px 16px 24px" }
+    });
+
+function modes() {}
+
+function modify(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+
+    if (current.row_index == 1 && current.name != next.name) {
+        update(current, {
+            name: "product banner"
+        });
+    }
+
+    // -------------- END RULES -------------- //
+}
+
+function style(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+//
+// IGNORE BELOW
+// --------------------------------------------------------------------------------
+
+let current, prev, next, module_at, child_at, childOf;
+let update;
+
+function setupRules(the, apply) {
+    [current, prev, next, module_at, child_at, childOf] = [the.current_item, the.previous_item, the.next_item, the.module_at, the.child_at, the.childOf];
+    [update] = [apply.update];
+}
+
+module.exports = {
+    modify: modify,
+    style: style,
+    default_properties: default_properties,
+    internal_layout: internal_layout,
+    component_positions: component_positions,
+    modes: modes,
+    setupRules: setupRules
+};
