@@ -6,11 +6,11 @@
 - [x] Ignore dynamic content values that don't have include a `/` (?)
 - [ ] Flag text components with leading or trailing line breaks.
 - [x] Collapse duplicate headers
-- [ ] Open recent projects
+- [ ] Allow users to open recent projects
 - [ ] Open HTML in browser
 - [ ] Explore possibility of using Sharepoint link for brief/excel doc
 
-- [ ] Validate user input to prevent mistyped or non-existent properties being applied to items
+- [ ] Validate user settings to prevent mistyped or non-existent properties being applied to items
 - [ ] Review palette application logic and determine opportunities to refactor for simplicity
 - [ ] Review `.njk` html templates to remove unecessary default fallbacks
 
