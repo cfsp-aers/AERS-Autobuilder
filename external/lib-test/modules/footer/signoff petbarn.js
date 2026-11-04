@@ -1,0 +1,101 @@
+const { load } = require("../../../src/main/utils/load.js");
+const { app_dir } = require("../../../src/main/constants.js");
+const { columns, col, component, image } = load(app_dir, "main/systems/layout.js");
+//
+//
+
+`~~~~~~~~~~~ SIGNOFF PETBARN ~~~~~~~~~~~`;
+
+const default_properties = {
+    // ~~ module data ~~
+    depth: 1,
+    max_siblings: 1,
+
+    // ~~ palette ~~
+    background: "#FEC326",
+
+    // ~~ spacing ~~
+    vertical_align: "top",
+    padding: "0px",
+    container_padding: "0px",
+    block_padding: "32px 16px 16px",
+    group_padding: "0px",
+
+    // ~~ component settings ~~
+    components: {
+        padding: "0px 8px 16px"
+    }
+};
+
+const component_positions = {
+    all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
+};
+
+const social = (src, href) => col({ width: "36px", padding: "0px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href } })]);
+
+const internal_layout = (current, content) =>
+    columns({ transition: current.transition, transition_id: current.transition_id, background: "#FEC326" }, [
+        col({ padding: "16px 8px 24px" }, [
+            image({
+                padding: "10px 0px",
+                border_radius: "0px",
+                width: "130px",
+                content: { src: "images/Petbarn_HeaderLogo_wBG.png" }
+            }),
+            component({
+                colour: "black",
+                font_size: "14px",
+                line_height: "16px",
+                padding: "12px 12px 16px",
+                content: '<span style="font-weight:bold;color:#000000;font-size:16px;line-height:18px;">We can\'t wait to see you and your pet soon</span>\nThe team at Petbarn!'
+            }),
+            columns({}, [
+                col({ width: "25%" }),
+                col({ width: "50%", mobile_stack: false }, [
+                    columns({}, [
+                        social("images/pb-fb.png", "https://www.facebook.com/petbarn"),
+                        social("images/pb-in.png", "https://www.instagram.com/petbarn/#"),
+                        social("images/pb-yt.png", "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ"),
+                        social("images/pb-tt.png", "https://www.tiktok.com/@petbarnau")
+                    ])
+                ]),
+                col({ width: "25%" }),
+            ])
+        ])
+    ]);
+
+function modes() {}
+
+function modify(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+    if (current.transactional) update(current, { ignore: true });
+
+    // -------------- END RULES -------------- //
+}
+
+function style(childrenOf) {
+    // ------------- BEGIN RULES -------------
+    // ------------- END RULES -------------
+}
+
+//
+// IGNORE BELOW
+// --------------------------------------------------------------------------------
+
+let current, prev, next, module_at, child_at, childOf;
+let update;
+
+function setupRules(the, apply) {
+    [current, prev, next, module_at, child_at, childOf] = [the.current_item, the.previous_item, the.next_item, the.module_at, the.child_at, the.childOf];
+    [update] = [apply.update];
+}
+
+module.exports = {
+    modify: modify,
+    style: style,
+    default_properties: default_properties,
+    internal_layout: internal_layout,
+    component_positions: component_positions,
+    modes: modes,
+    setupRules: setupRules
+};

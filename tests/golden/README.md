@@ -1,14 +1,13 @@
 # Golden-file tests
 
-Real briefs, built, with their output committed. When the engine's output
-changes, these say so.
+Real briefs, built against the test library, with their output committed. When
+the engine's output changes, these say so.
 
 ```
 node tests/golden/golden.js                  # check every case
 node tests/golden/golden.js --case layout    # check one
 node tests/golden/golden.js --accept         # record current output as expected
 node tests/golden/golden.js --keep           # leave .work/ behind to inspect
-node tests/golden/golden.js --strict         # treat accounted-for drift as failure
 ```
 
 npm equivalents: `npm run test:snapshots`, `npm run test:accept`.
@@ -30,44 +29,50 @@ change shows up as one altered hex value in `module_store.json` rather than as a
 wall of re-flowed markup, and the store that first differs tells you which pass
 introduced the change.
 
+## What a case builds from
+
+Every case builds against `external/lib-test/`, the test library, and never
+reads `external/lib/`. Editing a real module, a palette or `brands.json` cannot
+move a case. The only things that can are:
+
+- **the engine**, which is what this suite is here to watch
+- **the test library**, edited on purpose in order to move the output
+- **the brief**
+
+Whether the real library still builds is checked by `tests/library.js`, the
+library smoke test. It builds these same briefs and sheets against `lib/` and
+only checks that they succeed. See
+[ADR 0011](../../docs/adr/0011-snapshots-build-against-a-test-library.md).
+
 ## When a case moves
 
-A case's output is a function of the brief, the engine and the library — and
-editing the library is the daily work of the product, so output moving is not by
-itself a finding. Each case records what it was built from in
-`expected/inputs.json`, and every difference is charged to the file that produced
-it. That gives two verdicts instead of one.
-
-**drift** — every difference lies inside a library file that changed. This is an
-ordinary edit showing up in its own output. Reported as a count and an
-attribution, and does not fail:
+Any difference is **CHANGED**, and fails. The report says which input moved since
+the baseline was recorded (from `expected/inputs.json`), how many differences
+fall in each definition, and then the differences themselves:
 
 ```
-styling             drift
-  email_json.json        10 differences
-         10  footer/shop your way petbarn.js
-  email.html              2 differences
-      footer/shop your way petbarn.js changed
+layout              CHANGED
+  moved since the baseline: the engine
+
+  email_json.json -- 6 differences
+          6  component/bodycopy.js
+
+    [5].children[0]...children[1].colour
+      expected: "black"
+      actual:   "#123456"
 ```
 
-**CHANGED** — something is unaccounted for: the engine changed, or a difference
-landed outside the definitions that did. That is the alarm this suite exists to
-raise. It fails and prints the diff.
+If every difference is intended, re-record with `npm run test:accept` and commit
+the new expected files and `inputs.json`. That commit is the record of what the
+change did to the output.
 
-A library change accounts for a difference; an engine change never does. A
-difference outside the definitions that changed fails on its own even when every
-other difference in the case is accounted for — which is the thing `--accept`
-could never give you, because it approves the case as a whole.
-
-Either way the baselines are behind afterwards. Re-run with `--accept` and commit
-the new expected files and `inputs.json` separately; the commit is then a
-reviewable record of what your change did to real output. `--strict` fails on
-drift too, for checking the baselines are current before committing.
+When an engine change needs a matching library change, make it in `lib-test/` as
+well as `lib/`. The snapshots catch the `lib-test/` half if it is forgotten, and
+the smoke test catches the `lib/` half.
 
 A difference in key order or whitespace alone is reported and passed. Byte
 exactness was the evidence that ADR 0003's constructors emitted the same nodes
-the hand-written literals did; that refactor is finished. See
-[ADR 0006](../../docs/adr/0006-snapshots-record-their-inputs.md).
+the hand-written literals did; that refactor is finished.
 
 ## How a case is run
 
@@ -115,11 +120,6 @@ behind for the next one — and costs about a second.
   builds. The errors a user is most likely to hit — an offer alias that is not in
   the Offer Library, a sheet with no header row — are raised by
   `sheet_to_objects` and `setupContent` and are not exercised by anything.
-- **A colour library change accounts for a difference anywhere.** A palette value
-  can surface in any module, and nothing here can localise it, so editing
-  `lib/libraries/` excuses drift across every case at once. It is the coarsest
-  rule in the attribution and the one most worth narrowing.
-- **Drift does not force a re-record,** so baselines go stale. Attribution is
-  judged against the recorded inputs, so this degrades safely — a stale baseline
-  accumulates more changed definitions, and anything outside them still fails —
-  but `npm run test:strict` is what keeps them current.
+- **Real modules have no snapshot.** What a real module's output looks like
+  is not recorded anywhere, only that it builds. That is deliberate (see
+  ADR 0011).

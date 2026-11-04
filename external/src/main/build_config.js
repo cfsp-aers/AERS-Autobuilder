@@ -40,6 +40,15 @@ let current = null;
 */
 let devFiles = new Set();
 
+/*
+    The library to build against in place of lib/, or null for lib/. Test-only:
+    the snapshot suites point it at lib-test/ so that editing lib/ cannot move a
+    baseline. Not reset by configure(), because the layout suite reads the
+    library without ever configuring a build. The app never sets it. See
+    test-library-plan.md.
+*/
+let baseLibrary = null;
+
 /**
  * Everything a build needs to know about where its inputs and outputs are.
  *
@@ -145,10 +154,22 @@ function devFilesUsed() {
     return [...devFiles];
 }
 
+/** Test-only. Build against `root` instead of lib/; null restores lib/. */
+function useBaseLibrary(root) {
+    baseLibrary = root;
+}
+
+/** The library set by useBaseLibrary(), or null when it is lib/. */
+function baseLibraryRoot() {
+    return baseLibrary;
+}
+
 module.exports = {
     configure: configure,
     buildConfig: buildConfig,
     devLibraryEnabled: devLibraryEnabled,
     noteDevFile: noteDevFile,
-    devFilesUsed: devFilesUsed
+    devFilesUsed: devFilesUsed,
+    useBaseLibrary: useBaseLibrary,
+    baseLibraryRoot: baseLibraryRoot
 };

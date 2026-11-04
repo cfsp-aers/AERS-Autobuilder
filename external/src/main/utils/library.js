@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const { user_files, lib_dev } = require("../constants.js");
-const { devLibraryEnabled, noteDevFile } = require("../build_config.js");
+const { devLibraryEnabled, noteDevFile, baseLibraryRoot } = require("../build_config.js");
 const { load } = require("./load.js");
 
 /*
@@ -39,9 +39,16 @@ function resolveIn(roots, rel, exists) {
     return roots.find((root) => exists(path.join(root, rel))) || roots[roots.length - 1];
 }
 
-/** The library roots this build reads, in order of precedence. */
+/**
+ * The library roots this build reads, in order of precedence.
+ *
+ * The dev library only ever overlays lib/. A suite that has swapped in the test
+ * library reads that alone: a baseline that depended on what one person has in
+ * lib-dev/ would depend on whose machine ran it.
+ */
 function libraryRoots() {
-    return devLibraryEnabled() ? [lib_dev, user_files] : [user_files];
+    const base = baseLibraryRoot() || user_files;
+    return devLibraryEnabled() && base === user_files ? [lib_dev, base] : [base];
 }
 
 function rootOf(rel) {

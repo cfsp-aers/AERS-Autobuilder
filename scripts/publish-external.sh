@@ -40,12 +40,17 @@ LOCAL="$REPO/external"
 # tree. Never published, so no one else's app, and no offline cache, can see it.
 # See dev-library-plan.md.
 #
+# lib-test/ is the test library -- a frozen library the snapshot suites build
+# against instead of lib/. It belongs to the tests and the app never reads it.
+# Anchored the same way. See test-library-plan.md.
+#
 EXCLUDES=(
     --exclude=".*"
     --exclude="PREVIOUS_REQUIRED_DATA.json"
     --exclude="database/"
     --exclude="dev_settings.json"
     --exclude="/lib-dev/"
+    --exclude="/lib-test/"
 )
 
 DRY=""
@@ -79,12 +84,12 @@ if [ ! -d "$LOCAL" ]; then
 fi
 
 #
-# The gate, in two parts.
+# The gate, in three parts.
 #
 # Publishing puts this code in front of the whole team at once, so it happens
-# only when the engine still does what it is supposed to. What that means splits
-# cleanly in two, and the two deserve different treatment -- see
-# docs/adr/0006-snapshots-record-their-inputs.md.
+# only when the engine still does what it is supposed to and the library still
+# builds. Each part deserves different treatment -- see
+# docs/adr/0011-snapshots-build-against-a-test-library.md.
 #
 # The invariants say what correct IS, written against the decisions rather than
 # against today's output. Nothing about editing the library can move them, so a
@@ -101,17 +106,32 @@ fi
 echo
 
 #
-# The snapshots say what the engine currently produces. They move whenever the
-# library is edited, which is most days, so they judge themselves: drift every
-# difference of which lies inside a library file that changed is reported and
-# allowed through, and anything unaccounted for stops the publish. The old
-# behaviour -- any difference at all being fatal -- meant `--accept` was the only
-# way out, and `--accept` approves whatever else happened to ride along.
+# The smoke test builds every golden brief against the real library and runs
+# every real module's layout. It asks whether the library builds, not what it
+# produces, so editing a module's copy or colours never trips it -- but a
+# module that throws or will not parse does, and that would reach every brief
+# that uses it. Nothing to accept here either.
+#
+echo "Checking that the real library builds..."
+if ! (cd "$REPO" && npm run test:library --silent); then
+    echo >&2
+    echo "The real library failed to build. Not publishing." >&2
+    echo "A real brief would fail to build, so this is a defect rather than a change" >&2
+    echo "in output -- there is nothing to accept. Fix the module named above first." >&2
+    exit 1
+fi
+echo
+
+#
+# The snapshots say what the engine currently produces. They build against the
+# test library, external/lib-test/, so editing lib/ cannot move them: only an
+# engine change, or a deliberate edit to lib-test/, can. Any difference stops
+# the publish until it is read and accepted.
 #
 echo "Checking what the engine builds against the recorded baselines..."
 if ! (cd "$REPO" && npm run test:snapshots --silent); then
     echo >&2
-    echo "The output changed in a way nothing accounts for. Not publishing." >&2
+    echo "The engine's output changed. Not publishing." >&2
     echo "Read the differences above. If they are what you intended, record them:" >&2
     echo "  npm run test:accept" >&2
     echo "then review and commit the new expected files and inputs.json." >&2

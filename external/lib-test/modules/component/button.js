@@ -1,0 +1,104 @@
+`~~~~~~~~~~~ BUTTON ~~~~~~~~~~~`;
+
+const default_properties = {
+    custom_class: "",
+    // ~~ palette ~~
+    palette: "primary",
+    /*
+        The last resort, and only that. Every button that comes through a brief
+        has this overwritten by setPalettes, which assigns `colour` outright
+        rather than filling a gap -- so this is the answer for a button the
+        palette never sees, which is a button a layout declared. It is the value
+        button-component.njk used to hold as `{% else %}color: #FFFFFF{% endif %}`,
+        in the same two places it still needed it.
+    */
+    colour: "#FFFFFF",
+    // ~~ spacing ~~
+    vertical_align: "middle",
+    padding: "0px 0px 4px",
+    margin: "0px",
+    inner_padding: "8px 16px",
+    align: "center",
+    // ~~ font ~~
+    font_size: "14px",
+    line_height: "16px",
+    font_weight: "bold",
+    text_align: "center",
+    font: "Outfit",
+    font_style: "normal",
+    // ~~ border ~~
+    border_radius: "32px",
+    border_weight: "3px",
+    border_top: false,
+    border_right: false,
+    border_bottom: false,
+    border_left: false,
+    // ~~ size ~~
+    height: "auto",
+    mso_height: "40px",
+    width: "auto",
+    // ~~ other ~~
+    mode: "default"
+};
+
+/*
+    `match/background` is resolved by setButtonColours() in
+    properties/palette.js, which runs after these and swaps it for whatever the
+    button's background settled on. It is a button-only token: the same string
+    in component/lockup.js resolves to nothing, because nothing outside that one
+    function reads it and no template renders a lockup's border.
+
+    Both presets used to carry `background: "match/parent"` as well. Nothing in
+    the engine has ever read that token -- the behaviour it names is real, but
+    setButtonColours does it two lines further on by assigning the parent
+    palette's background directly for exactly these two modes. Removing it
+    changed no golden file and no rendered button in any of the three modes. It
+    is left out rather than left in because this file is the one other component
+    definitions get copied from, and a token that reads as supported travels.
+*/
+function modes() {
+    const presets = {
+        default: {
+            // what properties change for default
+        },
+        outline: {
+            border_top: "match/background",
+            border_right: "match/background",
+            border_bottom: "match/background",
+            border_left: "match/background"
+        },
+        underline: {
+            border_radius: "0px",
+            border_bottom: "match/background",
+            inner_padding: "4px",
+            mso_height: "32px"
+        }
+    };
+    if (presets[current.mode]) update(current, presets[current.mode]);
+}
+
+function modify(parent) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+function style(parent) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+let current, prev, next;
+let update;
+
+function setupRules(the, apply) {
+    [current, prev, next] = [the.current_item, the.previous_item, the.next_item];
+    [update] = [apply.update];
+}
+
+module.exports = {
+    modify: modify,
+    style: style,
+    default_properties: default_properties,
+    modes: modes,
+    setupRules: setupRules
+};

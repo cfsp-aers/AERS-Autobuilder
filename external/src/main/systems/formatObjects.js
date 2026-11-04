@@ -24,8 +24,8 @@ function formatProperties(item) {
 
             Resolved here rather than at the three places that load it so that
             the stores and the golden baselines record the file that actually
-            ran. tests/inputs.js hashes `template` to decide what a diff is
-            charged to, and it was hashing a path that did not exist.
+            ran. tests/inputs.js reads `template` to say which definition a
+            difference came out of, and it was naming a path that did not exist.
         */
         template: resolveTemplate(item),
         position: item.position || null,

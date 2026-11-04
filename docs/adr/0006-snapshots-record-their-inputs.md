@@ -4,7 +4,12 @@ Date: 2026-09-22
 
 ## Status
 
-Accepted
+Superseded in part by [ADR 0011](0011-snapshots-build-against-a-test-library.md),
+04/11/2026. Each baseline still records its inputs, and a failure still charges
+each difference to a definition, but only to make the report easier to read.
+Drift, `--strict` and the rule that a library change explains a difference are
+gone. The snapshots now build against a frozen test library, so any difference
+fails.
 
 ## Context
 

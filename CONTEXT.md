@@ -42,6 +42,24 @@ offered only when the folder holds a file, and never **published**
 Promoting a dev file means copying it into `lib/`. Until then nothing but a
 build with the toggle on can see it.
 
+### Test library
+
+`external/lib-test/` — a frozen **library** that belongs to the snapshot tests.
+The golden cases and the layout snapshots build against it and never read
+`lib/`, so editing the real library cannot move a baseline. The app never reads
+it, the **dev library** never overlays it, and it is never **published**
+([ADR 0011](docs/adr/0011-snapshots-build-against-a-test-library.md)).
+
+It started as a copy of `lib/` and is expected to drift from it. It is not a
+second copy of the product to keep in sync.
+
+### Library smoke test
+
+`tests/library.js` — the check that the real **library** still builds. It builds
+every golden brief against `lib/` and runs every real module's **internal
+layout**, and asserts only that nothing fails. Unlike the snapshots, it has no
+baseline and nothing to accept.
+
 ### Brief
 
 The Excel workbook a build reads, and by extension one selected sheet within it.

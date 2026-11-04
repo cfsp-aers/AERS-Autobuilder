@@ -48,7 +48,7 @@ const default_properties = {
     normally sits under a countdown.
 */
 const component_positions = {
-    all: ["image", "terms"]
+    all: ["image"]
 };
 
 const internal_layout = (current, content) => single_column(content);

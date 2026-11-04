@@ -189,6 +189,13 @@ function nothing() {
     return {};
 }
 
+/*
+    A raw HTML string can be used instead of a node tree.
+*/
+function rawString(string) {
+    return typeof string == "string" ? string : null;
+}
+
 // -------------------------------------------------------- cards and regions
 
 /*
@@ -287,6 +294,7 @@ module.exports = {
     image: image,
     button: button,
     nothing: nothing,
+    rawString: rawString,
     card: card,
     region: region,
     findCard: findCard,

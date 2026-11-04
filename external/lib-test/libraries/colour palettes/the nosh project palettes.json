@@ -1,0 +1,65 @@
+{
+  "palette links": {
+    "primary": "nosh green",
+    "secondary": "peach",
+    "light": "white",
+    "neutral": "light grey",
+    "dark": "black"
+  },
+  "white": {
+    "background": "white",
+    "primary": "black",
+    "secondary": "green",
+    "text": {
+      "primary": "black",
+      "secondary": "green",
+      "body": "black"
+    },
+    "button": {
+      "primary": "black/white",
+      "secondary": "green/black"
+    }
+  },
+  "light grey": {
+    "background": "light grey",
+    "primary": "black",
+    "secondary": "nosh green",
+    "text": {
+      "primary": "black",
+      "secondary": "nosh green",
+      "body": "black"
+    },
+    "button": {
+      "primary": "nosh green/white",
+      "secondary": "white/nosh green"
+    }
+  },
+  "nosh green": {
+    "background": "nosh green",
+    "primary": "white",
+    "secondary": "white",
+    "text": {
+      "primary": "white",
+      "secondary": "white",
+      "body": "white"
+    },
+    "button": {
+      "primary": "white/nosh green",
+      "secondary": "black/white"
+    }
+  },
+  "yellow": {
+    "background": "yellow",
+    "primary": "nosh green",
+    "secondary": "white",
+    "text": {
+      "primary": "nosh green",
+      "secondary": "white",
+      "body": "nosh green"
+    },
+    "button": {
+      "primary": "nosh green/black",
+      "secondary": "white/nosh green"
+    }
+  }
+}

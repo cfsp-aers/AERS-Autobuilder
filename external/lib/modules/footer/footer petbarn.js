@@ -35,7 +35,7 @@ const component_positions = {
 };
 
 const internal_layout = (current, content) =>
-    container({ transition: current.transition, transition_id: current.transition_id }, [
+    container({ /*transition: current.transition, transition_id: current.transition_id*/ }, [
         row({}, [col({ padding: "16px 16px 0px" }, setComponents("all", content))]),
         row({}, [
             col({ padding: "0px 16px 32px" }, [

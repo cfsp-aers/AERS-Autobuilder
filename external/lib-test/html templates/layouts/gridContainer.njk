@@ -1,0 +1,22 @@
+<div name="{{ element.name }}" class="acr-fragment acr-component acr-grid {{ element.custom_class }}" data-component-id="grid" data-acr-navtree-label="{{ element.nav_label }}"
+data-has-int-mso-hack="true" style="height: {{ element.height or "auto" }}; width: {{ element.width or "auto" }}; background-color: {{ element.background or "transparent" }}; padding: {{ element.padding or "0px" }};{%-if element.border_radius %} border-radius: {{ element.border_radius }};{%- endif -%}{%-if show_blocks-%}{%-if element.name == "block container"-%}
+border: solid 1px rgba(0, 255, 0, 1);
+{%-elif element.name == "module container"-%}
+border: solid 1px rgba(0, 0, 255, 1);
+{%-endif-%}{%-endif-%}" data-contenteditable="false">
+<!--[if mso]>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tr>
+<td style="background-color: {{ element.background or "transparent" }}; padding: {{ element.padding or "0px" }};{%-if element.border_radius %} border-radius: {{ element.border_radius }};{%- endif -%} {%-if element.height -%}height: {{ element.height }};{%-endif-%} {%-if element.width -%}width: {{ element.width }};{%-endif-%}">
+<![endif]--> 
+<table class="acr-grid-table" cellpadding="0" cellspacing="0" border="0" style="width: {{ element.width or "100%" }}; min-width: {{ element.width or "100%" }}; max-width: {{ element.width or "100%" }};" >
+<tbody>
+{%-if element.innerLayout == "single_row" %}
+{% include 'layouts/gridRow.njk' %}
+{% else %}
+{{ renderElement(element, currentDepth + 1) }}
+{% endif-%}
+</tbody>
+</table>
+<!--[if mso]></td></tr></table><![endif]-->
+</div>

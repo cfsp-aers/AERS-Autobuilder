@@ -1,0 +1,52 @@
+`~~~~~~~~~~~ TERMS ~~~~~~~~~~~`;
+
+const default_properties = {
+    // ~~ module data ~~
+    mode: null,
+    custom_class: "",
+    // ~~ palette ~~
+    //palette: "secondary",
+    colour: "body",
+    background: null,
+    // ~~ spacing ~~
+    vertical_align: "middle",
+    padding: "0px 0px 4px",
+    margin: "0px",
+    // ~~ font ~~
+    font_size: "10px",
+    line_height: "12px",
+    font_weight: "normal",
+    text_align: "center",
+    font: "Outfit",
+    text_size_class: null,
+    // ~~ border ~~
+    border_radius: "0px"
+};
+
+function modes() {}
+
+function modify(parent) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+function style(parent) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+let current, prev, next;
+let update;
+
+function setupRules(the, apply) {
+    [current, prev, next] = [the.current_item, the.previous_item, the.next_item];
+    [update] = [apply.update];
+}
+
+module.exports = {
+    modify: modify,
+    style: style,
+    default_properties: default_properties,
+    modes: modes,
+    setupRules: setupRules
+};

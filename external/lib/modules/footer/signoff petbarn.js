@@ -1,82 +1,29 @@
 const { load } = require("../../../src/main/utils/load.js");
 const { app_dir } = require("../../../src/main/constants.js");
-const { columns, col, component, image } = load(app_dir, "main/systems/layout.js");
+const { columns, col, component, image, rawString } = load(app_dir, "main/systems/layout.js");
 //
 //
 
 `~~~~~~~~~~~ SIGNOFF PETBARN ~~~~~~~~~~~`;
 
 const default_properties = {
-    // ~~ module data ~~
-    depth: 1,
-    max_siblings: 1,
-
-    // ~~ palette ~~
-    background: "#FEC326",
-
-    // ~~ spacing ~~
-    vertical_align: "top",
-    padding: "0px",
-    container_padding: "0px",
-    block_padding: "32px 16px 16px",
-    group_padding: "0px",
-
-    // ~~ component settings ~~
-    components: {
-        padding: "0px 8px 16px"
-    }
+  hide_transition: true
 };
 
-const component_positions = {
-    all: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
-};
+const component_positions = {};
 
-const social = (src, href) => col({ width: "36px", padding: "0px", mobile_stack: false }, [image({ width: "32px", content: { src: src, href: href } })]);
 
 const internal_layout = (current, content) =>
-    columns({ transition: current.transition, transition_id: current.transition_id, background: "#FEC326" }, [
-        col({ padding: "16px 8px 24px" }, [
-            image({
-                padding: "10px 0px",
-                border_radius: "0px",
-                width: "130px",
-                content: { src: "images/Petbarn_HeaderLogo_wBG.png" }
-            }),
-            component({
-                colour: "black",
-                font_size: "14px",
-                line_height: "16px",
-                padding: "12px 12px 16px",
-                content: '<span style="font-weight:bold;color:#000000;font-size:16px;line-height:18px;">We can\'t wait to see you and your pet soon</span>\nThe team at Petbarn!'
-            }),
-            columns({}, [
-                col({ width: "25%" }),
-                col({ width: "50%", mobile_stack: false }, [
-                    columns({}, [
-                        social("images/pb-fb.png", "https://www.facebook.com/petbarn"),
-                        social("images/pb-in.png", "https://www.instagram.com/petbarn/#"),
-                        social("images/pb-yt.png", "https://www.youtube.com/channel/UCMmNH-oEDpTqkcEbegRRvUQ"),
-                        social("images/pb-tt.png", "https://www.tiktok.com/@petbarnau")
-                    ])
-                ]),
-                col({ width: "25%" }),
-            ])
-        ])
-    ]);
+  rawString(
+    `{{!-- [acr-start-fragment] --}}{{ fragment id="ajo:5ed43500-14d2-41ce-a42c-277e2cad5f7b" name="Petbarn Standard Signoff" mode="inline" }}{{!-- [acr-end-fragment] --}}`);
 
 function modes() {}
 
-function modify(childrenOf) {
-    // ------------- BEGIN RULES ------------- //
-    if (current.transactional) update(current, { ignore: true });
+function modify(childrenOf) {}
 
-    // -------------- END RULES -------------- //
-}
+function style(childrenOf) {}
 
-function style(childrenOf) {
-    // ------------- BEGIN RULES -------------
-    // ------------- END RULES -------------
-}
+
 
 //
 // IGNORE BELOW

@@ -15,9 +15,11 @@ app/           the .app -- a bootstrap and nothing else
 external/      everything that does anything
   src/           the build engine
   lib/           module definitions, templates, palettes
+  lib-test/      a frozen copy of the library the snapshots build against
   ui/            the renderer
 tests/golden/  real briefs and the output they are expected to produce
 tests/layouts/ every module's layout, snapshotted on its own
+tests/library.js  whether the real library still builds
 scripts/       publishing
 ```
 
@@ -35,8 +37,8 @@ by relative path. Moving either alone breaks all of them.
 npm start                  run from source, against external/ in this repo
 npm test                   everything
 npm run test:invariants    what correct means -- precedence, palettes, brief errors
+npm run test:library       whether the real library builds -- every golden brief, every layout
 npm run test:snapshots     what the engine currently produces -- golden, layouts
-npm run test:strict        the snapshots, with accounted-for drift failing too
 npm run test:golden        just the golden cases
 npm run test:layouts       just the module layouts
 npm run test:accept        re-record both snapshot suites, then review the diff
@@ -48,32 +50,36 @@ npm run build              package the .app
 `npm start` always uses this repository's `external/`, never the published copy,
 so a dev checkout is never shadowed by whatever is on the volume.
 
-### Two kinds of test, and why a publish stops
+### Three kinds of test, and why a publish stops
 
 The **invariants** say what correct means, written against the decisions rather
-than against today's output. Editing the library cannot move them, so a failure
-is always a defect and there is nothing to accept. A publish stops dead.
+than against today's output. A failure is always a defect and there is nothing
+to accept. A publish stops dead.
 
-The **snapshots** say what the engine currently produces. They move whenever a
-module definition or an HTML template is edited, which is most days. Each records
-what it was built from in `expected/inputs.json`, and charges every difference to
-the file that produced it:
+The **library smoke test** builds every golden brief against the real library,
+`external/lib/`, and runs every real module's layout. It checks that they build,
+not what they produce, so editing a module's copy, colours or structure never
+trips it. A module that will not parse or whose layout throws does. Nothing to
+accept; a publish stops dead.
+
+The **snapshots** say what the engine currently produces. They build against
+`external/lib-test/`, the test library, never `lib/`, so editing the real
+library cannot move them. Only an engine change, or a deliberate edit to
+`lib-test/`, can, and any difference stops a publish:
 
 ```
-styling             drift
-  email_json.json        10 differences
-         10  footer/shop your way petbarn.js
+layout              CHANGED
+  moved since the baseline: the engine
+
+  email_json.json -- 6 differences
+          6  component/bodycopy.js
 ```
 
-That is **drift** -- the output followed an edit you made -- and it does not stop
-a publish. Anything unaccounted for is **CHANGED**: the engine moved, or a
-difference landed outside the definitions that changed. That stops a publish and
-prints the diff.
-
-Either way the baselines are now behind. `npm run test:accept` re-records them;
-review and commit that separately, so the commit is a record of what the change
-did to real output. See
-[ADR 0006](docs/adr/0006-snapshots-record-their-inputs.md).
+If the differences are intended, `npm run test:accept` re-records them; review
+and commit that separately, so the commit is a record of what the change did to
+the output. When an engine change needs a matching library change, make it in
+both `lib/` and `lib-test/`. See
+[ADR 0011](docs/adr/0011-snapshots-build-against-a-test-library.md).
 
 ## Adding or changing a module
 
@@ -90,10 +96,17 @@ filename the definition has to sit at, so `"category": "hero"` for `hero trade`
 means `modules/hero/hero trade.js` and nothing else. A type with no matching
 file silently falls back to `modules/default/default.js`.
 
-`npm run test:layouts` snapshots every module's shape on its own, which is how a
-module no golden brief happens to use still gets covered. That covers the shape
-only -- defaults, palettes and rules need a brief, so a new type also wants a
-sheet in `tests/golden/briefs/new-modules.js`.
+Editing a module in `lib/` needs no test changes. `npm run test:library` checks
+it still builds and lays out.
+
+`npm run test:layouts` snapshots every module's shape on its own, from the test
+library. A new type gets a snapshot only once it is in `lib-test/` too: copy the
+definition to the same path under `external/lib-test/modules/`, and its entry
+into `external/lib-test/libraries/modules.json`. Defaults, palettes and rules need
+a brief, so a new type also wants a sheet in
+`tests/golden/briefs/new-modules.js`. That case builds against `lib-test/`, so
+without both copies it fails to build ("not a module this builder knows"), or
+silently uses the default module if only the `modules.json` entry was copied.
 
 ## The two brief templates
 

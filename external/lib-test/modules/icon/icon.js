@@ -1,0 +1,87 @@
+const { load } = require("../../../src/main/utils/load.js");
+const { app_dir } = require("../../../src/main/constants.js");
+const { stacked_rows } = load(app_dir, "main/systems/layout.js");
+
+`~~~~~~~~~~~ ICON ~~~~~~~~~~~`;
+
+const default_properties = {
+    // ~~ module data ~~
+    //depth: 2,
+    //max_siblings: 3,
+
+    // ~~ palette ~~
+    palette: "light",
+    background: "light grey",
+
+    // ~~ spacing ~~
+    vertical_align: "top",
+    block_padding: "0px 8px",
+    padding: "8px",
+    container_padding: "24px 16px",
+
+    // ~~ border ~~
+    border_radius: "16px",
+
+    // ~~ component settings ~~
+    icon: { border_radius: "64px", width: "64px" },
+    image: { border_radius: "12px" },
+    heading: { mode: "h7" },
+    subheading: { mode: "h8" }
+};
+
+const component_positions = {
+    top: ["icon", "lockup"],
+    bottom: ["image", "badge", "heading", "subheading", "bodycopy", "button", "terms"]
+};
+
+const internal_layout = (current, content) =>
+    stacked_rows(content, {
+        top: { padding: "0px 0px 16px" },
+        bottom: { padding: "0px" }
+    });
+
+function modes() {}
+
+function modify(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+
+    if (current.row_index == 1 && current.group_size == 1) {
+        update(current, {
+            name: "icon block"
+        });
+    }
+    if (current.name == prev.name) {
+        update(current, {
+            depth: prev.depth
+        });
+    }
+
+    // -------------- END RULES -------------- //
+}
+
+function style(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+//
+// IGNORE BELOW
+// --------------------------------------------------------------------------------
+
+let current, prev, next, module_at, child_at, childOf;
+let update;
+
+function setupRules(the, apply) {
+    [current, prev, next, module_at, child_at, childOf] = [the.current_item, the.previous_item, the.next_item, the.module_at, the.child_at, the.childOf];
+    [update] = [apply.update];
+}
+
+module.exports = {
+    modify: modify,
+    style: style,
+    default_properties: default_properties,
+    internal_layout: internal_layout,
+    component_positions: component_positions,
+    modes: modes,
+    setupRules: setupRules
+};

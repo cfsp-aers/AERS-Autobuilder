@@ -27,8 +27,17 @@ const user_files = path.resolve(path.join(__dirname, "../../lib"));
  */
 const lib_dev = path.resolve(path.join(__dirname, "../../lib-dev"));
 
+/**
+ * external/lib-test -- the test library: a frozen library the snapshot suites
+ * build against, so editing lib/ cannot move a baseline. Never published, and
+ * never read by the app. Selected with build_config.useBaseLibrary(). See
+ * test-library-plan.md.
+ */
+const lib_test = path.resolve(path.join(__dirname, "../../lib-test"));
+
 module.exports = {
     app_dir: app_dir,
     user_files: user_files,
-    lib_dev: lib_dev
+    lib_dev: lib_dev,
+    lib_test: lib_test
 };

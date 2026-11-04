@@ -14,10 +14,15 @@
     these ever get slow enough to matter, running them in-process is now a real
     option -- it was not before.
 
-    Usage: node build-case.js <workdir>
+    Usage: node build-case.js <workdir> [--library real]
 
     <workdir> must already contain REQUIRED_DATA.json and a copy of the brief.
     Artifacts land in <workdir>/artifacts.
+
+    Builds against the test library, external/lib-test/, never lib/: editing the
+    real library must not be able to move a baseline. `--library real` builds
+    against lib/ instead, for tests/library.js, which only asks whether the
+    real library builds. See test-library-plan.md.
 */
 
 const fs = require("node:fs");
@@ -28,6 +33,13 @@ if (!workdir) {
     console.error("build-case.js: no workdir given");
     process.exit(2);
 }
+
+const library_flag = process.argv.slice(3).join(" ");
+if (library_flag && library_flag !== "--library real") {
+    console.error(`build-case.js: unknown option "${library_flag}"`);
+    process.exit(2);
+}
+const real_library = library_flag === "--library real";
 
 const repo_root = path.resolve(__dirname, "../..");
 const database = path.join(workdir, "database");
@@ -49,6 +61,12 @@ fs.mkdirSync(artifacts, { recursive: true });
 */
 let result;
 try {
+    if (!real_library) {
+        const { useBaseLibrary } = require(path.join(repo_root, "external/src/main/build_config.js"));
+        const { lib_test } = require(path.join(repo_root, "external/src/main/constants.js"));
+        useBaseLibrary(lib_test);
+    }
+
     const { buildEmails } = require(path.join(repo_root, "external/src/main/main.js"));
     result = buildEmails({
         briefLocation: required_data.BRIEF_LOCATION,

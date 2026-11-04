@@ -5,7 +5,10 @@ one can never block a publish by looking different. Written 04/11/2026.
 
 ## Status
 
-**Planned, not started.**
+**Done, 04/11/2026.** Steps 0–7 landed as written. See
+[ADR 0011](docs/adr/0011-snapshots-build-against-a-test-library.md). One
+addition to the plan: `build-case.js` rejects any argument other than
+`--library real`, so a typo cannot silently build against the test library.
 
 ## The problem
 

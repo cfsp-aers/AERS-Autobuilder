@@ -1,0 +1,94 @@
+const { load } = require("../../../src/main/utils/load.js");
+const { app_dir } = require("../../../src/main/constants.js");
+const { two_columns } = load(app_dir, "main/systems/layout.js");
+
+`~~~~~~~~~~~ PRODUCT BANNER ~~~~~~~~~~~`;
+
+const default_properties = {
+    // ~~ module data ~~
+    depth: 2,
+    max_siblings: 1,
+
+    // ~~ palette ~~
+    palette: "promo",
+    colour: "white",
+    background: "light grey",
+
+    // ~~ spacing ~~
+    vertical_align: "top",
+    block_padding: "0px 0px",
+    padding: "8px 16px",
+    container_padding: "0px",
+
+    // ~~ border ~~
+    border_radius: "16px",
+
+    // ~~ component settings ~~
+    "heading/1": {
+        colour: "secondary"
+    },
+    heading: { mode: "h6" },
+    subheading: { mode: "h7" },
+    components: {
+        align: "left",
+        text_align: "left"
+    },
+    "components/2": {
+        padding: "12px 0px 0px"
+    },
+    image: {
+        border_radius: "16px"
+    },
+    badge: {
+        padding: "0px 0px 8px"
+    },
+    button: {
+        padding: "12px 0px 0px",
+        width: "100%"
+    }
+};
+
+const component_positions = {
+    left: ["image"],
+    right: ["badge", "heading", "subheading", "bodycopy", "button", "terms"]
+};
+
+const internal_layout = (current, content) =>
+    two_columns(content, {
+        left: { padding: "0px", width: "50%" },
+        right: { padding: "16px 16px 24px", width: "50%" }
+    });
+
+function modes() {}
+
+function modify(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+function style(childrenOf) {
+    // ------------- BEGIN RULES ------------- //
+    // -------------- END RULES -------------- //
+}
+
+//
+// IGNORE BELOW
+// --------------------------------------------------------------------------------
+
+let current, prev, next, module_at, child_at, childOf;
+let update;
+
+function setupRules(the, apply) {
+    [current, prev, next, module_at, child_at, childOf] = [the.current_item, the.previous_item, the.next_item, the.module_at, the.child_at, the.childOf];
+    [update] = [apply.update];
+}
+
+module.exports = {
+    modify: modify,
+    style: style,
+    default_properties: default_properties,
+    internal_layout: internal_layout,
+    component_positions: component_positions,
+    modes: modes,
+    setupRules: setupRules
+};

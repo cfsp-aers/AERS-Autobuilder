@@ -198,6 +198,68 @@ check("the wrappers read a real lib-dev/ file only while the flag is on", () => 
     });
 });
 
+// --------------------------------------------------------- the base library
+
+/*
+    useBaseLibrary() is how the snapshot suites build against lib-test/ instead
+    of lib/. It replaces lib/ outright, and the dev library never overlays it.
+    See test-library-plan.md. Every case restores lib/ whether it passes or not,
+    since the state outlives configure() by design.
+*/
+const { useBaseLibrary } = require(path.join(repo_root, "external/src/main/build_config.js"));
+const { libraryRoots, loadLibrary } = require(path.join(repo_root, "external/src/main/utils/library.js"));
+
+const OVERRIDE = path.join(scratch, "lib-test");
+fs.mkdirSync(path.join(OVERRIDE, "libraries"), { recursive: true });
+fs.writeFileSync(path.join(OVERRIDE, "libraries/brands.json"), JSON.stringify({ test: true }));
+
+function withBaseLibrary(root, fn) {
+    useBaseLibrary(root);
+    try {
+        fn();
+    } finally {
+        useBaseLibrary(null);
+    }
+}
+
+check("no base library set: the roots are lib/, with lib-dev/ first only while the flag is on", () => {
+    configureBuild(false);
+    is(libraryRoots(), [user_files], "flag off");
+    configureBuild(true);
+    is(libraryRoots(), [lib_dev, user_files], "flag on");
+});
+
+check("base library set: it is the only root, flag on or off", () => {
+    withBaseLibrary(OVERRIDE, () => {
+        configureBuild(false);
+        is(libraryRoots(), [OVERRIDE], "flag off");
+        configureBuild(true);
+        is(libraryRoots(), [OVERRIDE], "flag on");
+    });
+});
+
+check("base library set: configure() does not clear it", () => {
+    withBaseLibrary(OVERRIDE, () => {
+        configureBuild(false);
+        configureBuild(false);
+        is(libraryRoots(), [OVERRIDE]);
+    });
+});
+
+check("base library set: reads come from it, never lib-dev/, and record nothing", () => {
+    const rel = "libraries/brands.json";
+
+    withDevFile(rel, JSON.stringify({ dev: true }), () => {
+        withBaseLibrary(OVERRIDE, () => {
+            configureBuild(true);
+            is(libraryPath(rel), path.join(OVERRIDE, rel), "libraryPath()");
+            is(loadLibrary(rel), { test: true }, "loadLibrary()");
+            is(libraryExists("libraries/modules.json"), false, "libraryExists() does not fall back to lib/");
+            is(devFilesUsed(), [], "devFilesUsed()");
+        });
+    });
+});
+
 // ------------------------------------------------------------------- report
 
 fs.rmSync(scratch, { recursive: true, force: true });

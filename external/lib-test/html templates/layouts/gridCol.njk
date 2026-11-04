@@ -1,0 +1,9 @@
+<td {% if element.name -%} name="{{ element.name }}"{%-endif%} class="acr-grid-column {{ element.custom_class }}" style="
+    {%-if element.vertical_align-%}vertical-align: {{ element.vertical_align }}; {% endif-%}
+    {%-if element.width-%}width: {{ element.width }}; {% endif-%}
+    {%-if element.height-%}height: {{ element.height }}; {% endif-%}
+    {%-if element.padding-%}padding: {{ element.padding }}; {% endif-%}
+    {%-if element.mobile_stack == false or element.stack_cols_on_mobile == false -%}display: table-cell !important;{% endif-%}
+">
+{{ renderElement(element, currentDepth + 1) }}
+</td>

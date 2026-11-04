@@ -14,29 +14,43 @@
         node tests/layouts/layouts.js              check every module
         node tests/layouts/layouts.js --accept     record current output
         node tests/layouts/layouts.js --module "basic/banner.js"
-        node tests/layouts/layouts.js --strict     treat accounted-for drift as failure
 
     A diff here is a change to a module's structure. During the constructor
     refactor there should be none: the whole claim is that the constructors
     emit the same nodes the hand-written object literals did, key order
     included, because email_json.json is compared byte for byte.
 
-    That refactor is done, and what remains is the ordinary case: a definition
-    is edited and its own snapshot follows. Each module records the definition
-    and the engine it was snapshotted against in expected/inputs.json, so an
-    edit to the definition reports as DRIFT and an edit underneath it -- to the
-    constructors in systems/layout.js, or anywhere else in the engine -- still
-    fails. See docs/adr/0006-snapshots-record-their-inputs.md.
+    That refactor is done. The definitions now come from the test library,
+    external/lib-test/, so editing a real module in external/lib/ cannot move a
+    snapshot here. What can is the engine -- the constructors in
+    systems/layout.js above all -- or a deliberate edit to lib-test/, and any
+    difference is CHANGED. expected/inputs.json records which of the two a
+    snapshot was taken against, so a failure can say which one moved.
+
+    Whether the real modules still lay out without throwing is
+    tests/library.js's job. See
+    docs/adr/0011-snapshots-build-against-a-test-library.md.
 */
 
 const fs = require("node:fs");
 const path = require("node:path");
 
 const inputs = require("../inputs.js");
+const { VARIANTS, current_for, content_for, definition_files } = require("./fixtures.js");
 
 const here = __dirname;
 const repo_root = path.resolve(here, "../..");
-const modules_root = path.join(repo_root, "external/lib/modules");
+
+/*
+    The definitions come from the test library, and so does everything they read
+    through the engine -- the component rule files component() fills a declared
+    component from. Set before the first definition is required, so nothing here
+    reads lib/. See test-library-plan.md.
+*/
+const { lib_test } = require(path.join(repo_root, "external/src/main/constants.js"));
+require(path.join(repo_root, "external/src/main/build_config.js")).useBaseLibrary(lib_test);
+
+const modules_root = path.join(lib_test, "modules");
 const expected_root = path.join(here, "expected");
 const manifest_file = path.join(expected_root, "inputs.json");
 
@@ -44,7 +58,6 @@ const manifest_file = path.join(expected_root, "inputs.json");
 
 const argv = process.argv.slice(2);
 const accept = argv.includes("--accept");
-const strict = argv.includes("--strict");
 
 let only = null;
 const module_flag = argv.indexOf("--module");
@@ -56,93 +69,9 @@ if (module_flag !== -1) {
     only = argv[module_flag + 1];
 }
 
-// ----------------------------------------------------------------- fixtures
-
-/*
-    Every variant is applied to every module. Most modules ignore most of them,
-    which costs nothing and means a module that starts reading `transactional`
-    is covered the moment it does.
-*/
-const VARIANTS = {
-    plain: {},
-    transition: { transition: "FFFFFF", transition_id: "urn:aaid:aem:test-transition", background: "#001939" },
-    transactional: { transactional: true },
-    no_nav: { no_nav: true },
-    hpp: { hpp: true }
-};
-
-function current_for(variant) {
-    return Object.assign(
-        {
-            uuid: "M0001",
-            entity_type: "module",
-            name: "test module",
-            brand: "petbarn",
-            parent_brand: "petbarn",
-            depth: 1,
-            palette: "light",
-            colour: "#000000",
-            background: "#FFFFFF",
-            padding: "8px",
-            container_padding: "0px",
-            block_padding: "0px",
-            transition: false,
-            transition_id: undefined
-        },
-        VARIANTS[variant]
-    );
-}
-
-/*
-    Four components per slot, in this order deliberately: setComponents groups
-    consecutive buttons by row_index, and a row_index above 1 arriving first
-    reaches for the previous accumulator entry and throws. Real content is
-    ordered the same way.
-*/
-function components_for(position) {
-    return [
-        { entity_type: "component", type: "image", name: "image", position: position, padding: "0px", width: "100%", content: { src: "images/test.png", href: "https://example.test", aem_id: "urn:aaid:aem:test-image" } },
-        { entity_type: "component", type: "text", name: "heading", position: position, padding: "8px", font_size: "24px", content: "A heading" },
-        { entity_type: "component", type: "button", name: "button", position: position, row_index: 1, padding: "4px", content: { text: "First", href: "https://example.test/1" } },
-        { entity_type: "component", type: "button", name: "button", position: position, row_index: 2, padding: "4px", content: { text: "Second", href: "https://example.test/2" } }
-    ];
-}
-
-/*
-    structureEDM builds this object by filtering the module's children through
-    component_positions and dropping the slots that came out empty. A module
-    that declares a slot always gets one here, so every branch of the layout
-    that reads a slot is exercised.
-*/
-function content_for(component_positions) {
-    const content = {};
-    Object.keys(component_positions || {}).forEach((position) => {
-        content[position] = components_for(position);
-    });
-    return content;
-}
-
 // ------------------------------------------------------------------ modules
 
-function module_files(dir) {
-    return fs
-        .readdirSync(dir, { withFileTypes: true })
-        .flatMap((entry) => {
-            const full = path.join(dir, entry.name);
-            if (entry.isDirectory()) return module_files(full);
-            return entry.isFile() && entry.name.endsWith(".js") ? [full] : [];
-        })
-        .sort();
-}
-
-/*
-    `module template.js` and `component template.js` are scaffolds to copy, not
-    definitions any build loads -- nothing routes to them, and their relative
-    requires are written for the folder a copy lands in rather than the folder
-    they sit in, so requiring them here would throw.
-*/
-const modules = module_files(modules_root)
-    .filter((file) => !path.basename(file).endsWith("template.js"))
+const modules = definition_files(modules_root)
     .map((file) => ({ id: path.relative(modules_root, file), file: file }))
     .filter((entry) => {
         const definition = require(entry.file);
@@ -221,18 +150,7 @@ modules.forEach((entry) => {
     }
 
     const target = expected_path(entry.id);
-
-    /*
-        `templates` is what the module's layout reaches for beyond its own file:
-        component/button.js and the rest, which the constructors in
-        systems/layout.js read to fill a declared component's defaults. Collected
-        from the snapshot that was just built, so a definition that stops
-        declaring a button stops recording it.
-    */
-    const current = inputs.fingerprint(repo_root, {
-        module_file: entry.file,
-        templates: inputs.templatesIn(JSON.parse(actual))
-    });
+    const current = inputs.fingerprint(repo_root);
 
     if (accept) {
         fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -266,35 +184,16 @@ modules.forEach((entry) => {
         return;
     }
 
-    const attribute = inputs.makeAttributor(new Map());
-    const owners = attribute(JSON.parse(expected), JSON.parse(actual));
-    const verdict = inputs.explainsModule(owners, inputs.compareModule(manifest[entry.id], current));
-
-    if (verdict.explained) {
-        console.log(strict ? "DRIFT" : "drift");
-        results.push({ id: entry.id, ok: !strict, kind: "drift", diffs: diffs, reason: verdict.reason });
-        return;
-    }
+    const owners = inputs.makeAttributor(new Map())(JSON.parse(expected), JSON.parse(actual));
 
     console.log("CHANGED");
-    results.push({ id: entry.id, ok: false, kind: "changed", diffs: diffs, reason: verdict.reason });
+    results.push({ id: entry.id, ok: false, kind: "changed", diffs: diffs, owners: owners, moved: inputs.moved(manifest[entry.id], current) });
 });
 
 if (accept) inputs.writeManifest(manifest_file, manifest);
 
 const failures = results.filter((result) => !result.ok);
-const drifted = results.filter((result) => result.kind === "drift");
 const reformatted = results.filter((result) => result.formatting);
-
-/*
-    A definition's own snapshot moving because the definition was edited is the
-    expected outcome of editing it, so it is reported as a count rather than as
-    the tree.
-*/
-drifted.forEach((result) => {
-    console.log(`\n${"-".repeat(72)}\n${result.id} -- drift, accounted for\n${"-".repeat(72)}`);
-    console.log(`  ${result.diffs.length}${result.diffs.length >= MAX_DIFFS ? "+" : ""} difference${result.diffs.length === 1 ? "" : "s"}, and ${result.reason}`);
-});
 
 failures.forEach((failure) => {
     console.log(`\n${"-".repeat(72)}\n${failure.id}\n${"-".repeat(72)}`);
@@ -303,21 +202,22 @@ failures.forEach((failure) => {
     } else if (failure.kind === "no-baseline") {
         console.log(`  nothing recorded yet. run: node tests/layouts/layouts.js --accept`);
     } else {
-        if (failure.reason) console.log(`  unaccounted for -- ${failure.reason}\n`);
+        console.log(`  moved since the baseline: ${failure.moved}\n`);
+        inputs.tally(failure.owners).forEach(([owner, n]) => console.log(`  ${String(n).padStart(5)}  ${owner}`));
+        console.log("");
         failure.diffs.forEach((diff) => console.log(`  ${diff}`));
     }
 });
 
 console.log(`\n${"=".repeat(72)}`);
-console.log(`${results.length - failures.length}/${results.length} ${accept ? "recorded" : "passing"}${drifted.length ? `, ${drifted.length} drifted` : ""}`);
+console.log(`${results.length - failures.length}/${results.length} ${accept ? "recorded" : "passing"}`);
 
 if (reformatted.length) {
     console.log(`${reformatted.length} module${reformatted.length === 1 ? "" : "s"} differ in key order or whitespace only -- content matches`);
 }
 
-if (drifted.length && !strict) {
-    console.log(`drift is accounted for by the definitions listed above, so this is not a failure.`);
-    console.log(`the baselines are behind: re-run with --accept and commit them.`);
+if (failures.some((failure) => failure.kind === "changed")) {
+    console.log(`if every difference above is intended, record them: npm run test:accept`);
 }
 
 console.log("");
